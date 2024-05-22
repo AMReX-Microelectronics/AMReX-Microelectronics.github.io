@@ -142,32 +142,80 @@ Polarization Boundary Conditions
 * ``lambda`` (`float`)
     Value of lambda for polarization boundary condition.
 
-    Electrical Boundary Conditions
+Electrical Boundary Conditions
 ^^^^^^^^^^^^^^^
 
-* ``domain.is_periodic``(`3 integers`, 0 or 1)
+* ``domain.is_periodic`` (`3 integers`, 0 or 1)
     Whether or not to use a periodic boundary condition along coordinate directions.
     For example, domain.is_periodic = 1 1 0 means Poisson's equation will be solved with periodic boundary conditions in x and y directions.
 
-* ``boundary.lo`` and ``boundary.hi`` ('3 strings')
-    
+* ``boundary.lo`` and ``boundary.hi`` (`3 strings`, per, neu, or dir)
+    per: periodic
 
-* ``P_BC_flag_lo`` and ``P_BC_flag_hi``(`3 integers`, 0, 1, 2, or 3)
-    Polarization boundary condition at lo and hi ferroelectric material boundaries.
-    The first axis of the coordinates is x, second is y, and the last is z.
+    neu: Neumann
 
-    0 : P = 0
+    dir(`float`): Dirichlet with the value inside the parenthesis 
 
-    1 : dP/dz = -P/lambda
+    For example, 
 
-    2 : dP/dz = 0
+    boundary.hi = per per dir(0.0)
 
-    3 : No BC (extend outside FE)
+    boundary.lo = per per dir(0.0)
 
-    3 : No BC (1st-order one-sided)
+    will use periodic boundary condition for Poisson's equation in x and y directions and Dirichlet boundary condition in z direction
+    with :math:`\Phi = 0.0~V` at both hi_z and lo_z boundaries.
 
-* ``lambda`` (`float`)
-    Value of lambda for polarization boundary condition.
+Stack Geometry
+^^^^^^^^^^^^^^^
+* ``FE_lo`` and ``FE_hi`` (`3 floats`)
+    The high and low extent of the ferroelectric material region along x, y, and z.
+
+* ``DE_lo`` and ``DE_hi`` (`3 floats`)
+    The high and low extent of the dielectric material region along x, y, and z.
+
+* ``SC_lo`` and ``SC_hi`` (`3 floats`)
+    The high and low extent of the semiconductor material region along x, y, and z.
+
+Material Properties (`float`)
+^^^^^^^^^^^^^^^
+epsilon_0 = vacuum permittivity
+
+epsilonX_fe = relative permittivity of the ferroelectric material in x direction
+
+epsilonZ_fe = relative permittivity of the ferroelectric material in z direction
+
+epsilon_de = relative permittivity of the dielectric material
+
+epsilon_si = relative permittivity of the semiconductor material
+
+Landau Free energy coefficients:
+
+alpha 
+
+beta 
+
+gamma 
+
+alpha_12 
+
+alpha_112
+
+alpha_123
+
+Kinetic Coefficient in the TDGL equation
+
+BigGamma 
+
+Gradient energy coefficients
+
+g11 
+
+g44 
+
+g44_p 
+
+g12 
+
 
 
 

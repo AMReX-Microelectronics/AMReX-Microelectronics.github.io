@@ -81,7 +81,6 @@ Usage
    usage/run_eleqtronex
    usage/run_ferrox
    usage/run_magnex
-   usage/domain_decomposition
 
 Data Analysis
 -------------
