@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MicroEleX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/design-tabs.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=36754332"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -93,12 +98,12 @@
            <div itemprop="articleBody">
              
   <section id="microelex">
-<h1>MicroEleX<a class="headerlink" href="#microelex" title="Permalink to this heading"></a></h1>
+<h1>MicroEleX<a class="headerlink" href="#microelex" title="Link to this heading"></a></h1>
 <p>Exascale-Enabled Models and Algorithms for Microelectronics Applications</p>
 <p>The MicroEleX package contains a variety of models and algorithms for physical modeling of microelectronic circuitry, including electrostatics, electrodynamics, superconducting physics, micromagnetics, multi-ferroic systems, and quantum transport. MicroEleX leverages the AMReX software framework to provide scalability on GPU-based supercomputing architectures. The code is open source and designed to be algorithmically flexible so developers can incorporate enhanced or customized physics. It contains the following code packages:</p>
 </section>
 <section id="artemis">
-<h1>ARTEMIS<a class="headerlink" href="#artemis" title="Permalink to this heading"></a></h1>
+<h1>ARTEMIS<a class="headerlink" href="#artemis" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://github.com/AMReX-Microelectronics/artemis">ARTEMIS</a> is an advanced electrodynamics code based on <a class="reference external" href="https://ecp-warpx.github.io">WarpX</a>.
 It couples Maxwell’s equations with classical models describing quantum behavior of materials used in microelectronics.</p>
 <p>It supports many features including:</p>
@@ -114,16 +119,16 @@ It couples Maxwell’s equations with classical models describing quantum behavi
 In addition, ARTEMIS is also a <em>multi-platform code</em> and runs on Linux, macOS and Windows. ARTEMIS has leveraged the ECP code WarpX, and is built on the ECP framework AMReX.</p>
 </section>
 <section id="ferrox">
-<h1>FerroX<a class="headerlink" href="#ferrox" title="Permalink to this heading"></a></h1>
+<h1>FerroX<a class="headerlink" href="#ferrox" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://github.com/AMReX-Microelectronics/FerroX">FerroX</a> is a massively parallel, 3D phase-field simulation framework for modeling ferroelectric materials based scalable logic devices. We self-consistently solve the time-dependent Ginzburg Landau (TDGL) equation for ferroelectric polarization, Poisson’s equation for electric potential, and semiconductor charge equation for carrier densities in semiconductor regions. The algorithm is implemented using Exascale Computing Project software framework, AMReX, which provides effective scalability on manycore and GPU-based supercomputing architectures. The code can be used for simulations of ferroelectric domain-wall induced negative capacitance (NC) effect in Metal-Ferroelectric-Insulator-Metal (MFIM) and Metal-Ferroelectric-Insulator-Semiconductor-Metal (MFISM) devices.</p>
 </section>
 <section id="eleqtronex">
-<h1>ELEQTRONeX<a class="headerlink" href="#eleqtronex" title="Permalink to this heading"></a></h1>
+<h1>ELEQTRONeX<a class="headerlink" href="#eleqtronex" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://github.com/AMReX-Microelectronics/eXstatic">ELEQTRONeX</a> is a framework for electrostatic-quantum transport modeling of nanomaterials at exascale, built using the AMReX library, currently supporting the modeling carbon nanotube field-effect transistors (CNTFETs) with multiple nanotubes. It is developed as part of a DOE-funded project called ‘Codesign and Integration of Nanosensors on CMOS’. It builds upon the AMReX library, developed as part of DOE’s exascale computing projects (ECP).</p>
 <p>The framework comprises three major components: the electrostatic module, the quantum transport module, and the part that self-consistently couples the two modules. The electrostatic module computes the electrostatic potential induced by charges on the surface of carbon nanotubes, as well as by source, drain, and gate terminals, which can be modeled as embedded boundaries with intricate shapes. The quantum transport module uses the nonequilibrium Green’s function (NEGF) method to model induced charge. Currently, it supports coherent (ballistic) transport, contacts modeled as semi-infinite leads, and Hamiltonian representation using the tight-binding approximation. The self-consistency between the two modules is achieved using Broyden’s modified second algorithm, which is parallelized on both CPUs and GPUs. Preliminary studies have demonstrated that the electrostatic and quantum transport modules can compute the potential on billions of grid cells and compute the Green’s function for a material with millions of site locations within a couple of seconds, respectively.</p>
 </section>
 <section id="magnex">
-<h1>MagneX<a class="headerlink" href="#magnex" title="Permalink to this heading"></a></h1>
+<h1>MagneX<a class="headerlink" href="#magnex" title="Link to this heading"></a></h1>
 <p>For classes of micromagnetic problems where the electromagnetic fields are slowly varying, the magnetostatic approximation offers huge computational savings. We are developing a new micromagnetics code, MagneX for modeling ferromagnetic materials using the magnetostatic approximation. MagneX solves the Landau-Lifshitz-Gilbert (LLG) equations, incorporating many different physical phenomena such as exchange coupling, anisotropy, Dzyaloshinskii Moriya interaction (DMI), and demagnetization. The GPU-capabilities provided by the AMReX library makes MagneX a powerful tool for simulating a wide range of micromagnetic applications, including magnetic storage and memory devices.</p>
 <style>
 /* front page: hide chapter titles
@@ -138,22 +143,22 @@ section#epilogue {
 }
 </style></section>
 <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </section>
 <section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h1>
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </section>
 <section id="data-analysis">
-<h1>Data Analysis<a class="headerlink" href="#data-analysis" title="Permalink to this heading"></a></h1>
+<h1>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </section>
 <section id="epilogue">
-<h1>Epilogue<a class="headerlink" href="#epilogue" title="Permalink to this heading"></a></h1>
+<h1>Epilogue<a class="headerlink" href="#epilogue" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </section>

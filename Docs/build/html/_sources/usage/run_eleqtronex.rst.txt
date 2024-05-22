@@ -3,53 +3,58 @@
 Run ELEQTRONeX
 =========
 
-In order to run a new simulation:
+Upon compilation, executable is generated in Exec/ folder in the ELEQTRONeX folder.
+To run the executable with an input file from the `input/` folder in the `ELEQTRONeX` folder,
+we can do the following:
 
-#. create a **new directory**, where the simulation will be run
-#. make sure the WarpX **executable** is either copied into this directory or in your ``PATH`` `environment variable <https://en.wikipedia.org/wiki/PATH_(variable)>`__
-#. add an **inputs file** and on :ref:`HPC systems <install-hpc>` a **submission script** to the directory
-#. run
-
-1. Run Directory
-----------------
-
-On Linux/macOS, this is as easy as this
+1. Run with a single processor
+------------------------------
+Assuming we are in the `Exec/` folder, do:
 
 .. code-block:: bash
 
-   mkdir -p <run_directory>
+   ./<executable> ../input/<specific input folder>/<input file> <other arguments>
 
-Where ``<run_directory>`` by the actual path to the run directory.
+Ensure the `plot.folder_name` parameter in the input file specifies the output directory.
+Alternatively, you can specify this parameter on the command line in <other arguments>, which will override what is specified in the input file.
 
-2. Executable
--------------
+2. Run with a multiple processors
+---------------------------------
+.. code-block:: bash
 
-If you installed warpX with a :ref:`package manager <install-users>`, a ``warpx``-prefixed executable will be available as a regular system command to you.
-Depending on the choosen build options, the name is suffixed with more details.
-Try it like this:
+   mpiexec -np <mpi ranks> ./<executable> ../input/<specific input folder>/<input file> <other arguments>
+
+2. Run on Perlmutter
+--------------------
+To run the code on Perlmutter, we can submit a jobscript as shown below for 2 nodes and 8 GPUs.
 
 .. code-block:: bash
 
-   warpx<TAB>
+   #!/bin/bash
+   #SBATCH -N 2
+   #SBATCH -C gpu
+   #SBATCH -G 8
+   #SBATCH -J <job name>
+   #SBATCH -q regular
+   #SBATCH --mail-user=saurabhsawant@lbl.gov
+   #SBATCH --mail-type=ALL
+   #SBATCH -t 00:30:00
+   #SBATCH -A m4540_g
+   #SBATCH -o <job name>.o%j
+   #SBATCH -e <job name>.e%j
+   
+   #OpenMP settings:
+   export OMP_NUM_THREADS=1
+   export OMP_PLACES=threads
+   export OMP_PROC_BIND=spread
+   
+   #run the application:
+   srun -n 8 -c 32 --cpu_bind=cores -G 8 --gpu-bind=single:1  <path to Exec folder>/<executable>  <path to input folder>/<path to input file>
 
-Hitting the ``<TAB>`` key will suggest available WarpX executables as found in your ``PATH`` `environment variable <https://en.wikipedia.org/wiki/PATH_(variable)>`__.
+For more information on, see ``https://docs.nersc.gov/systems/perlmutter/running-jobs/``.
+NERSC also provides a script generator, ``https://my.nersc.gov/script_generator.php``.
 
-.. note::
-
-   WarpX needs separate binaries to run in dimensionality of 1D, 2D, 3D, and RZ.
-   We encode the supported dimensionality in the binary file name.
-
-If you :ref:`compiled the code yourself <install-developers>`, the WarpX executable is stored in the source folder under ``build/bin``.
-We also create a symbolic link that is just called ``warpx`` that points to the last executable you built, which can be copied, too.
-Copy the **executable** to this directory:
-
-.. code-block:: bash
-
-   cp build/bin/<warpx_executable> <run_directory>/
-
-where ``<warpx_executable>`` should be replaced by the actual name of the executable (see above) and ``<run_directory>`` by the actual path to the run directory.
-
-3. Inputs
+2. Inputs
 ---------
 
 Add an **input file** in the directory (see :ref:`examples <usage-examples>` and :ref:`parameters <running-cpp-parameters>`).
