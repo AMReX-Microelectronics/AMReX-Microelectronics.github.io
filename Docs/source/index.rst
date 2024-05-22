@@ -77,11 +77,11 @@ Usage
    :maxdepth: 1
    :hidden:
 
-   usage/how_to_run
+   usage/run_ferrox
+   usage/run_artemis
+   usage/run_magnex
+   usage/run_eleqtronex
    usage/domain_decomposition
-   usage/parameters
-   usage/python
-   usage/examples
 
 Data Analysis
 -------------
