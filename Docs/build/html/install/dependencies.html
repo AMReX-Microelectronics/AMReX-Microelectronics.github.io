@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dependencies &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="dependencies">
-<span id="install-dependencies"></span><h1>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h1>
+<span id="install-dependencies"></span><h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h1>
 <p>WarpX depends on the following popular third party software.
 Please see installation instructions below.</p>
 <ul class="simple">
@@ -138,10 +134,10 @@ Please see installation instructions below.</p>
 </li>
 </ul>
 <section id="install">
-<h2>Install<a class="headerlink" href="#install" title="Link to this heading"></a></h2>
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this heading"></a></h2>
 <p>Pick <em>one</em> of the installation methods below to install all dependencies for WarpX development in a consistent manner.</p>
 <section id="conda-linux-macos-windows">
-<h3>Conda (Linux/macOS/Windows)<a class="headerlink" href="#conda-linux-macos-windows" title="Link to this heading"></a></h3>
+<h3>Conda (Linux/macOS/Windows)<a class="headerlink" href="#conda-linux-macos-windows" title="Permalink to this heading"></a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>We recommend to configure your conda to use the faster <cite>libmamba</cite> <a class="reference external" href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">dependency solver</a>.</p>
@@ -179,7 +175,7 @@ This <a class="reference external" href="https://collegeville.github.io/CW20/Wor
 </div>
 </section>
 <section id="spack-macos-linux">
-<h3>Spack (macOS/Linux)<a class="headerlink" href="#spack-macos-linux" title="Link to this heading"></a></h3>
+<h3>Spack (macOS/Linux)<a class="headerlink" href="#spack-macos-linux" title="Permalink to this heading"></a></h3>
 <p>First, download a <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/blob/development/Tools/machines/desktop">WarpX Spack desktop development environment</a> of your choice.
 For most desktop developments, pick the OpenMP environment for CPUs unless you have a supported GPU.</p>
 <ul class="simple">
@@ -229,7 +225,7 @@ Replace <code class="docutils literal notranslate"><span class="pre">openmp</spa
 </div>
 </section>
 <section id="brew-macos-linux">
-<h3>Brew (macOS/Linux)<a class="headerlink" href="#brew-macos-linux" title="Link to this heading"></a></h3>
+<h3>Brew (macOS/Linux)<a class="headerlink" href="#brew-macos-linux" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>update
 brew<span class="w"> </span>tap<span class="w"> </span>openpmd/openpmd
 brew<span class="w"> </span>install<span class="w"> </span>adios2<span class="w">      </span><span class="c1"># for openPMD</span>
@@ -260,7 +256,7 @@ cmake-easyinstall<span class="w"> </span>--prefix<span class="o">=</span>/usr/lo
 </div>
 </section>
 <section id="apt-debian-ubuntu">
-<h3>Apt (Debian/Ubuntu)<a class="headerlink" href="#apt-debian-ubuntu" title="Link to this heading"></a></h3>
+<h3>Apt (Debian/Ubuntu)<a class="headerlink" href="#apt-debian-ubuntu" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>ccache<span class="w"> </span>cmake<span class="w"> </span>g++<span class="w"> </span>git<span class="w"> </span>libfftw3-mpi-dev<span class="w"> </span>libfftw3-dev<span class="w"> </span>libhdf5-openmpi-dev<span class="w"> </span>libopenmpi-dev<span class="w"> </span>pkg-config<span class="w"> </span>python3<span class="w"> </span>python3-matplotlib<span class="w"> </span>python3-numpy<span class="w"> </span>python3-pandas<span class="w"> </span>python3-pip<span class="w"> </span>python3-scipy<span class="w"> </span>python3-venv
 

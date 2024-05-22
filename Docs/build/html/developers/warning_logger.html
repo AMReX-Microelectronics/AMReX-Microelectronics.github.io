@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Warning logger &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,12 +92,12 @@
            <div itemprop="articleBody">
              
   <section id="warning-logger">
-<span id="developers-warning-logger"></span><h1>Warning logger<a class="headerlink" href="#warning-logger" title="Link to this heading"></a></h1>
+<span id="developers-warning-logger"></span><h1>Warning logger<a class="headerlink" href="#warning-logger" title="Permalink to this heading"></a></h1>
 <p>The  ⚠️ warning logger ⚠️ allows grouping the warning messages raised during the
 simulation, in order to display them together in a list
 (e.g., right after step 1 and at the end of the simulation).</p>
 <section id="general-description">
-<h2>General description<a class="headerlink" href="#general-description" title="Link to this heading"></a></h2>
+<h2>General description<a class="headerlink" href="#general-description" title="Permalink to this heading"></a></h2>
 <p>If no warning messages are raised, the warning list should look as follows:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>****<span class="w"> </span>WARNINGS<span class="w"> </span>******************************************************************
 *<span class="w"> </span>GLOBAL<span class="w"> </span>warning<span class="w"> </span>list<span class="w">  </span>after<span class="w">  </span><span class="o">[</span><span class="w"> </span>FIRST<span class="w"> </span>STEP<span class="w"> </span><span class="o">]</span>
@@ -146,7 +142,7 @@ after the <code class="docutils literal notranslate"><span class="pre">FIRST</sp
 </ul>
 <p>Entries are sorted first by priority (high priority first), then by topic (alphabetically) and finally by text message (alphabetically).</p>
 <section id="how-to-record-a-warning-for-later-display">
-<h3>How to record a warning for later display<a class="headerlink" href="#how-to-record-a-warning-for-later-display" title="Link to this heading"></a></h3>
+<h3>How to record a warning for later display<a class="headerlink" href="#how-to-record-a-warning-for-later-display" title="Permalink to this heading"></a></h3>
 <p>In the code, instead of using <code class="docutils literal notranslate"><span class="pre">amrex::Warning</span></code> to immediately print a warning message, the following method should be called:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ablastr</span><span class="o">::</span><span class="n">warn_manager</span><span class="o">::</span><span class="n">WMRecordWarning</span><span class="p">(</span>
 <span class="w">   </span><span class="s">&quot;QED&quot;</span><span class="p">,</span>
@@ -160,7 +156,7 @@ In case the user wants to also print the warning messages immediately, the runti
 The Warning manager is a singleton class defined in <code class="docutils literal notranslate"><span class="pre">Source/ablastr/warn_manager/WarnManager.H`</span></code></p>
 </section>
 <section id="how-to-print-the-warning-list">
-<h3>How to print the warning list<a class="headerlink" href="#how-to-print-the-warning-list" title="Link to this heading"></a></h3>
+<h3>How to print the warning list<a class="headerlink" href="#how-to-print-the-warning-list" title="Permalink to this heading"></a></h3>
 <p>The warning list can be printed as follows:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">amrex</span><span class="o">::</span><span class="n">Print</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ablastr</span><span class="o">::</span><span class="n">warn_manager</span><span class="o">::</span><span class="n">GetWMInstance</span><span class="p">().</span><span class="n">PrintGlobalWarnings</span><span class="p">(</span><span class="s">&quot;THE END&quot;</span><span class="p">);</span>
 </pre></div>
@@ -171,9 +167,9 @@ Calling this method triggers several collective calls that allow merging all the
 </section>
 </section>
 <section id="implementation-details">
-<h2>Implementation details<a class="headerlink" href="#implementation-details" title="Link to this heading"></a></h2>
+<h2>Implementation details<a class="headerlink" href="#implementation-details" title="Permalink to this heading"></a></h2>
 <section id="how-warning-messages-are-recorded">
-<h3>How warning messages are recorded<a class="headerlink" href="#how-warning-messages-are-recorded" title="Link to this heading"></a></h3>
+<h3>How warning messages are recorded<a class="headerlink" href="#how-warning-messages-are-recorded" title="Permalink to this heading"></a></h3>
 <p>Warning messages are stored by each rank as a map associating each
 message with a counter.
 A message is defined by its priority, its topic and its text.
@@ -181,7 +177,7 @@ Given two messages, if any of these components differ between the
 two, the messages are considered as different.</p>
 </section>
 <section id="how-the-global-warning-list-is-generated">
-<h3>How the global warning list is generated<a class="headerlink" href="#how-the-global-warning-list-is-generated" title="Link to this heading"></a></h3>
+<h3>How the global warning list is generated<a class="headerlink" href="#how-the-global-warning-list-is-generated" title="Permalink to this heading"></a></h3>
 <p>In order to generate the global warning list we follow the strategy outlined below.</p>
 <ol class="arabic simple">
 <li><p>Each MPI rank has a <code class="docutils literal notranslate"><span class="pre">map&lt;Msg,</span> <span class="pre">counter&gt;</span></code>, associating each with a counter, which counts how many times the warning has been raised on that rank.</p></li>
@@ -199,7 +195,7 @@ two, the messages are considered as different.</p>
 <p>This procedure is described in more details in these <a class="reference external" href="https://drive.google.com/file/d/1f7w-iCGWwRk4OR_Hu_hPzWJYvWrfj6U8/view?usp=sharing">slides</a>.</p>
 </section>
 <section id="how-to-test-the-warning-logger">
-<h3>How to test the warning logger<a class="headerlink" href="#how-to-test-the-warning-logger" title="Link to this heading"></a></h3>
+<h3>How to test the warning logger<a class="headerlink" href="#how-to-test-the-warning-logger" title="Permalink to this heading"></a></h3>
 <p>In order to test the warning logger there is the possibility to inject “artificial” warnings with the inputfile.
 For instance, the following inputfile</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################</span>
