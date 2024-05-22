@@ -16,35 +16,47 @@ MagneX
    }
    </style>
 
-Our community is here to help.
-Please `report installation problems <https://github.com/AMReX-Microelectronics/FerroX/issues/new>`_ in case you should get stuck.
+MagneX is a massively parallel, 3D micromagnetics solver for modeling magnetic materials. MagneX solves the Landau-Lifshitz-Gilbert (LLG) equations, including exchange, anisotropy, demagnetization, and Dzyaloshinskii-Moriya interaction (DMI) coupling. The algorithm is implemented using Exascale Computing Project software framework, AMReX, which provides effective scalability on manycore and GPU-based supercomputing architectures.
+   
+Our community is here to help. Please report installation problems or general questions about the code in the `github Issues <https://github.com/AMReX-Microelectronics/MagneX/issues>`_ tab.
 
+Installation
+------------
 
-Download AMReX Repository
+We begin with instructions for a basic, pure-MPI (no GPU) installation. More detailed instructions for GPU systems are below.
+
+Download AMReX and MagneX Repositories
+--------------------------------------
+
+Make sure that AMReX and MagneX are cloned at the same root location. 
 
 .. code-block:: bash
    
-   git clone git@github.com:AMReX-Codes/amrex.git
+   git clone https://github.com:AMReX-Codes/amrex.git
+   git clone https://github.com:AMReX-Microelectronics/MagneX.git
 
-Download FerroX Repository
+Dependencies
+------------
+
+Beyond a standard Ubuntu22 installation, the Ubuntu packages libfftw3-dev, libfftw3-mpi-dev, and cmake are required.
+SUNDIALS is optional an enabled Runge-Kutta, implicit, and multirate integrators (more detailed instructions in the full documentation).
+heFFTe is required. At the same level that AMReX and MagneX are cloned, run: 
+
+.. code-block:: bash
+                
+   git clone https://github.com/icl-utk-edu/heffte.git
+   cd heffte
+   mkdir build
+   cd build
+   cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX=. -DHeffte_ENABLE_FFTW=ON -DHeffte_ENABLE_CUDA=OFF ..
+   make -j4
+   make install
+
+Build
+-----
+
+Navigate to MagneX/Exec/ and run:
 
 .. code-block:: bash
 
-   git@github.com:AMReX-Microelectronics/FerroX.git
-
-Make sure that the AMReX and FerroX are cloned in the same location in their filesystem. Navogate to the Exec folder of FerroX and execute 
-
-.. code-block:: bash
-
-   make -j 4
-
-
-If want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:
-
-.. code-block:: bash
-
-   module load toolkit
-
-
-
-
+   make -j4
