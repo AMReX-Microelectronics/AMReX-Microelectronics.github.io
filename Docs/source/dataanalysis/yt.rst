@@ -3,14 +3,13 @@
 yt-project
 ==========
 
-`yt <http://yt-project.org/>`__ is a Python package that can help in analyzing and visualizing WarpX data (among other data formats).
+`yt <http://yt-project.org/>`__ is a Python package that can help in analyzing and visualizing MicroEleX data (among other data formats).
 It is convenient to use yt within a `Jupyter notebook <http://jupyter.org/>`__.
 
 Data Support
 ------------
 
-yt primarily supports WarpX through plotfiles.
-There is also support for openPMD HDF5 files in yt (w/o mesh refinement).
+yt primarily supports MicroEleX through plotfiles.
 
 Installation
 ------------
@@ -58,11 +57,11 @@ Field data
 Field data can be visualized using ``yt.SlicePlot`` (see the docstring of
 this function `here <http://yt-project.org/doc/reference/api/yt.visualization.plot_window.html#yt.visualization.plot_window.SlicePlot>`__)
 
-For instance, in order to plot the field ``Ex`` in a slice orthogonal to ``y`` (``1``):
+For instance, in order to plot the field ``f`` in a slice orthogonal to ``y`` (``1``):
 
 .. code-block:: python
 
-    yt.SlicePlot( ds, 1, 'Ex', origin='native' )
+    yt.SlicePlot( ds, 1, 'f', origin='native' )
 
 .. note::
 
@@ -73,39 +72,19 @@ For instance, in order to plot the field ``Ex`` in a slice orthogonal to ``y`` (
 
     .. code-block:: python
 
-        yt.SlicePlot( ds, 1, 'Ex', aspect=1./10 )
+        yt.SlicePlot( ds, 1, 'f', aspect=1./10 )
 
 
 Alternatively, the data can be obtained as a `numpy <http://www.numpy.org/>`__ array.
 
-For instance, in order to obtain the field `jz` (on level 0) as a numpy array:
+For instance, in order to obtain the field `f` (on level 0) as a numpy array:
 
 .. code-block:: python
 
     ad0 = ds.covering_grid(level=0, left_edge=ds.domain_left_edge, dims=ds.domain_dimensions)
-    jz_array = ad0['jz'].to_ndarray()
+    f_array = ad0['f'].to_ndarray()
 
 
-Particle data
-~~~~~~~~~~~~~
-
-Particle data can be visualized using ``yt.ParticlePhasePlot`` (see the docstring
-`here <http://yt-project.org/doc/reference/api/yt.visualization.particle_plots.html?highlight=particlephaseplot#yt.visualization.particle_plots.ParticlePhasePlot>`__).
-
-For instance, in order to plot the particles' ``x`` and ``y`` positions:
-
-.. code-block:: python
-
-    yt.ParticlePhasePlot( ds.all_data(), 'particle_position_x', 'particle_position_y', 'particle_weight')
-
-Alternatively, the data can be obtained as a `numpy <http://www.numpy.org/>`__ array.
-
-For instance, in order to obtain the array of position `x` as a numpy array:
-
-.. code-block:: python
-
-    ad = ds.all_data()
-    x = ad['particle_position_x'].to_ndarray()
 
 Further information
 -------------------
@@ -113,8 +92,3 @@ Further information
 A lot more information can be obtained from the yt documentation, and the
 corresponding notebook tutorials `here <http://yt-project.org/doc/>`__.
 
-.. toctree::
-   :maxdepth: 2
-
-   plot_parallel
-   advanced
