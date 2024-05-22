@@ -12,19 +12,18 @@ See https://amrex-microelectronics.github.io
 git clone https://github.com/AMReX-Microelectronics/AMReX-Microelectronics.github.io.git
 cd AMReX-Microelectronics.github.io/Docs
 ```
-Edit and push the .rst files in ./source.  This will also update the https://amrex-microelectronics.github.io website.
-
-### Locally compiling documentation
 
 Install the Python requirements for compiling the documentation:
 ```
 python3 -m pip install -r requirements.txt
 ```
 
-Then
+Edit any .rst files in ./source/ to update the documentation. Then
 
 ```
 make clean
 make html
 ```
 You can then open the file `build/html/index.html` with a standard web browser (e.g. Firefox), in order to visualize the results on your local computer.
+
+Commit/push the changes.  This will also update the https://amrex-microelectronics.github.io website.
