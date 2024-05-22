@@ -40,7 +40,7 @@ The framework comprises three major components: the electrostatic module, the qu
 MagneX
 ------
 
-For classes of micromagnetic problems where the electromagnetic fields are slowly varying, the magnetostatic approximation offers huge computational savings. We are developing a new micromagnetics code, MagneX for modeling ferromagnetic materials using the magnetostatic approximation. MagneX incorporates many different physical phenomena, such as exchange coupling, anisotropy, Dzyaloshinskii Moriya interaction (DMI), and demagnetization. The GPU-capabilities provided by the AMReX library makes MagneX a powerful tool for simulating a wide range of micromagnetic applications, including magnetic storage and memory devices.
+For classes of micromagnetic problems where the electromagnetic fields are slowly varying, the magnetostatic approximation offers huge computational savings. We are developing a new micromagnetics code, MagneX for modeling ferromagnetic materials using the magnetostatic approximation. MagneX solves the Landau-Lifshitz-Gilbert (LLG) equations, incorporating many different physical phenomena such as exchange coupling, anisotropy, Dzyaloshinskii Moriya interaction (DMI), and demagnetization. The GPU-capabilities provided by the AMReX library makes MagneX a powerful tool for simulating a wide range of micromagnetic applications, including magnetic storage and memory devices.
 
 .. raw:: html
 
