@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMI (CSC) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">LUMI (CSC)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/install/hpc/lumi.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lumi-csc">
+<span id="building-lumi"></span><h1>LUMI (CSC)<a class="headerlink" href="#lumi-csc" title="Link to this heading"></a></h1>
+<p>The <a class="reference external" href="https://www.lumi-supercomputer.eu">LUMI cluster</a> is located at CSC.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>If you are new to this system, <strong>please see the following resources</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.lumi-supercomputer.eu">Lumi user guide</a></p></li>
+<li><p>Batch system: <a class="reference external" href="https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/">Slurm</a></p></li>
+<li><p><a class="reference external" href="TODO">Jupyter service ?</a></p></li>
+<li><p>Production directories:</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.lumi-supercomputer.eu/hardware/storage/lumip/">LUMI-P</a>: 4 independent [Lustre](<a class="reference external" href="https://docs.lumi-supercomputer.eu/hardware/storage/lumip/#lustre">https://docs.lumi-supercomputer.eu/hardware/storage/lumip/#lustre</a>) file systems</p></li>
+<li><p><a class="reference external" href="https://docs.lumi-supercomputer.eu/hardware/storage/lumif/">LUMI-F</a>: a fast Lustre file system</p></li>
+<li><p><a class="reference external" href="https://docs.lumi-supercomputer.eu/hardware/storage/lumio/">LUMI-O</a>: object storage</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+</pre></div>
+</div>
+<p>We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/lumi_warpx.profile</span></code>).</p>
+<p>We recommend to store the above lines in a file, such as <code class="docutils literal notranslate"><span class="pre">$HOME/lumi_warpx.profile</span></code>, and load it into your shell after a login:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/lumi_warpx.profile
+</pre></div>
+</div>
+<p>Then, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the directory <code class="docutils literal notranslate"><span class="pre">$HOME/src/warpx</span></code> and use the following commands to compile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+rm<span class="w"> </span>-rf<span class="w"> </span>build
+
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span><span class="m">3</span><span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>HIP<span class="w"> </span>-DWarpX_PSATD<span class="o">=</span>ON
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">6</span>
+</pre></div>
+</div>
+<p>The general <a class="reference internal" href="../cmake.html#building-cmake"><span class="std std-ref">cmake compile-time options</span></a> apply as usual.</p>
+<p><strong>That’s it!</strong>
+A 3D WarpX executable is now in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code> and <a class="reference internal" href="#running-cpp-lumi"><span class="std std-ref">can be run</span></a> with a <a class="reference internal" href="../../usage/examples.html#usage-examples"><span class="std std-ref">3D example inputs file</span></a>.
+Most people execute the binary directly or copy it out to a location in LUMI-P.</p>
+</section>
+<section id="running">
+<span id="running-cpp-lumi"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<section id="mi250x-gpus-2x64-gb">
+<span id="running-cpp-lumi-mi250x-gpus"></span><h3>MI250X GPUs (2x64 GB)<a class="headerlink" href="#mi250x-gpus-2x64-gb" title="Link to this heading"></a></h3>
+<p>In non-interactive runs:</p>
+</section>
+</section>
+<section id="post-processing">
+<span id="post-processing-lumi"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>TODO: Document any Jupyter or data services.</p>
+</div>
+</section>
+<section id="known-system-issues">
+<h2>Known System Issues<a class="headerlink" href="#known-system-issues" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>December 12th, 2022:
+There is a caching bug in libFabric that causes WarpX simulations to occasionally hang on LUMI on more than 1 node.</p>
+<p>As a work-around, please export the following environment variable in your job scripts until the issue is fixed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#export FI_MR_CACHE_MAX_COUNT=0  # libfabric disable caching</span>
+<span class="c1"># or, less invasive:</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">FI_MR_CACHE_MONITOR</span><span class="o">=</span>memhooks<span class="w">  </span><span class="c1"># alternative cache monitor</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>January, 2023:
+We discovered a regression in AMD ROCm, leading to 2x slower current deposition (and other slowdowns) in ROCm 5.3 and 5.4.
+Reported to AMD and investigating.</p>
+<p>Stay with the ROCm 5.2 module to avoid.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

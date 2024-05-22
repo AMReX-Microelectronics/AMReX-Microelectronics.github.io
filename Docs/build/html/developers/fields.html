@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fields &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Fields</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/fields.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fields">
+<span id="developers-fields"></span><h1>Fields<a class="headerlink" href="#fields" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Add info on staggering and domain decomposition. Synchronize with section <code class="docutils literal notranslate"><span class="pre">initialization</span></code>.</p>
+</div>
+<p>The main fields are the electric field <code class="docutils literal notranslate"><span class="pre">Efield</span></code>, the magnetic field <code class="docutils literal notranslate"><span class="pre">Bfield</span></code>, the current density <code class="docutils literal notranslate"><span class="pre">current</span></code> and the charge density <code class="docutils literal notranslate"><span class="pre">rho</span></code>. When a divergence-cleaner is used, we add another field <code class="docutils literal notranslate"><span class="pre">F</span></code> (containing <span class="math notranslate nohighlight">\(\vec \nabla \cdot \vec E - \rho\)</span>).</p>
+<p>Due the AMR strategy used in WarpX (see section <a class="reference internal" href="../theory/amr.html#theory-amr"><span class="std std-ref">Theory: AMR</span></a> for a complete description), each field on a given refinement level <code class="docutils literal notranslate"><span class="pre">lev</span></code> (except for the coarsest <code class="docutils literal notranslate"><span class="pre">0</span></code>) is defined on:</p>
+<ul class="simple">
+<li><p><strong>the fine patch</strong> (suffix <code class="docutils literal notranslate"><span class="pre">_fp</span></code>, the actual resolution on <code class="docutils literal notranslate"><span class="pre">lev</span></code>).</p></li>
+<li><p><strong>the coarse patch</strong> (suffix <code class="docutils literal notranslate"><span class="pre">_cp</span></code>, same physical domain with the resolution of MR level <code class="docutils literal notranslate"><span class="pre">lev-1</span></code>).</p></li>
+<li><p><strong>the auxiliary grid</strong> (suffix <code class="docutils literal notranslate"><span class="pre">_aux</span></code>, same resolution as <code class="docutils literal notranslate"><span class="pre">_fp</span></code>), from which the fields are gathered from the grids to particle positions. For this reason. only <code class="docutils literal notranslate"><span class="pre">E</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> are defined on this <code class="docutils literal notranslate"><span class="pre">_aux</span></code> grid (not the current density or charge density).</p></li>
+<li><p>In some conditions, i.e., when buffers are used for the field gather (for numerical reasons), a <strong>copy of E and B on the auxiliary grid</strong> <code class="docutils literal notranslate"><span class="pre">_aux</span></code> <strong>of the  level below</strong> <code class="docutils literal notranslate"><span class="pre">lev-1</span></code> is stored in fields with suffix <code class="docutils literal notranslate"><span class="pre">_cax</span></code> (for <cite>coarse aux</cite>).</p></li>
+</ul>
+<p>As an example, the structures for the electric field are <code class="docutils literal notranslate"><span class="pre">Efield_fp</span></code>, <code class="docutils literal notranslate"><span class="pre">Efield_cp</span></code>, <code class="docutils literal notranslate"><span class="pre">Efield_aux</span></code> (and optionally <code class="docutils literal notranslate"><span class="pre">Efield_cax</span></code>).</p>
+<section id="declaration">
+<h2>Declaration<a class="headerlink" href="#declaration" title="Link to this heading"></a></h2>
+<p>All the fields described above are public members of class <code class="docutils literal notranslate"><span class="pre">WarpX</span></code>, defined in <code class="docutils literal notranslate"><span class="pre">WarpX.H</span></code>. They are defined as an <code class="docutils literal notranslate"><span class="pre">amrex::Vector</span></code> (over MR levels) of <code class="docutils literal notranslate"><span class="pre">std::array</span></code> (for the 3 spatial components <span class="math notranslate nohighlight">\(E_x\)</span>, <span class="math notranslate nohighlight">\(E_y\)</span>, <span class="math notranslate nohighlight">\(E_z\)</span>) of <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code> of <code class="docutils literal notranslate"><span class="pre">amrex::MultiFab</span></code>, i.e.:</p>
+<blockquote>
+<div><p>amrex::Vector&lt;std::array&lt; std::unique_ptr&lt;amrex::MultiFab&gt;, 3 &gt; &gt; Efield_fp;</p>
+</div></blockquote>
+<p>Hence, <code class="docutils literal notranslate"><span class="pre">Ex</span></code> on MR level <code class="docutils literal notranslate"><span class="pre">lev</span></code> is a pointer to an <code class="docutils literal notranslate"><span class="pre">amrex::MultiFab</span></code>. The other fields are organized in the same way.</p>
+</section>
+<section id="allocation-and-initialization">
+<h2>Allocation and initialization<a class="headerlink" href="#allocation-and-initialization" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> constructor (for, e.g., <code class="docutils literal notranslate"><span class="pre">Ex</span></code> on level <code class="docutils literal notranslate"><span class="pre">lev</span></code>) is called in <code class="docutils literal notranslate"><span class="pre">WarpX::AllocLevelMFs</span></code>.</p>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> are set to <code class="docutils literal notranslate"><span class="pre">0</span></code> at initialization. They can be assigned a different value in <code class="docutils literal notranslate"><span class="pre">WarpX::InitLevelData</span></code>.</p>
+</section>
+<section id="field-solver">
+<h2>Field solver<a class="headerlink" href="#field-solver" title="Link to this heading"></a></h2>
+<p>The field solver is performed in <code class="docutils literal notranslate"><span class="pre">WarpX::EvolveE</span></code> for the electric field and <code class="docutils literal notranslate"><span class="pre">WarpX::EvolveB</span></code> for the magnetic field, called from <code class="docutils literal notranslate"><span class="pre">WarpX::OneStep_nosub</span></code> in <code class="docutils literal notranslate"><span class="pre">WarpX::EvolveEM</span></code>. This section describes the FDTD field push. It is implemented in <code class="docutils literal notranslate"><span class="pre">Source/FieldSolver/FiniteDifferenceSolver/</span></code>.</p>
+<p>As all cell-wise operation, the field push is done as follows (this is split in multiple functions in the actual implementation to avoid code duplication)
+:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="c1">// Loop over MR levels</span>
+<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">lev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">lev</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">finest_level</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">lev</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Get pointer to MultiFab Ex on level lev</span>
+<span class="w">    </span><span class="n">MultiFab</span><span class="o">*</span><span class="w"> </span><span class="n">Ex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Efield_fp</span><span class="p">[</span><span class="n">lev</span><span class="p">][</span><span class="mi">0</span><span class="p">].</span><span class="n">get</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">// Loop over boxes (or tiles if not on GPU)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">MFIter</span><span class="w"> </span><span class="n">mfi</span><span class="p">(</span><span class="o">*</span><span class="n">Ex</span><span class="p">,</span><span class="w"> </span><span class="n">TilingIfNotGPU</span><span class="p">());</span><span class="w"> </span><span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">mfi</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Apply field solver on the FAB</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The innermost step <code class="docutils literal notranslate"><span class="pre">//</span> <span class="pre">Apply</span> <span class="pre">field</span> <span class="pre">solver</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">FAB</span></code> could be done with 3 nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops for the 3 dimensions (in 3D). However, for portability reasons (see section <a class="reference internal" href="portability.html#developers-portability"><span class="std std-ref">Developers: Portability</span></a>), this is done in two steps: (i) extract AMReX data structures into plain-old-data simple structures, and (ii) call a general <code class="docutils literal notranslate"><span class="pre">ParallelFor</span></code> function (translated into nested loops on CPU or a kernel launch on GPU, for instance):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Get Box corresponding to the current MFIter</span>
+<span class="k">const</span><span class="w"> </span><span class="n">Box</span><span class="o">&amp;</span><span class="w"> </span><span class="n">tex</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">mfi</span><span class="p">.</span><span class="n">tilebox</span><span class="p">(</span><span class="n">Ex_nodal_flag</span><span class="p">);</span>
+<span class="c1">// Extract the FArrayBox into a simple structure, for portability</span>
+<span class="n">Array4</span><span class="o">&lt;</span><span class="n">Real</span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Exfab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ex</span><span class="o">-&gt;</span><span class="n">array</span><span class="p">(</span><span class="n">mfi</span><span class="p">);</span>
+<span class="c1">// Loop over cells and perform stencil operation</span>
+<span class="n">amrex</span><span class="o">::</span><span class="n">ParallelFor</span><span class="p">(</span><span class="n">tex</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="o">=</span><span class="p">]</span><span class="w"> </span><span class="n">AMREX_GPU_DEVICE</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Ex</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="o">-</span><span class="w"> </span><span class="n">T_Algo</span><span class="o">::</span><span class="n">DownwardDz</span><span class="p">(</span><span class="n">By</span><span class="p">,</span><span class="w"> </span><span class="n">coefs_z</span><span class="p">,</span><span class="w"> </span><span class="n">n_coefs_z</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="o">+</span><span class="w"> </span><span class="n">T_Algo</span><span class="o">::</span><span class="n">DownwardDy</span><span class="p">(</span><span class="n">Bz</span><span class="p">,</span><span class="w"> </span><span class="n">coefs_y</span><span class="p">,</span><span class="w"> </span><span class="n">n_coefs_y</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="o">-</span><span class="w"> </span><span class="n">PhysConst</span><span class="o">::</span><span class="n">mu0</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">jx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">T_Algo::DownwardDz</span></code> and <code class="docutils literal notranslate"><span class="pre">T_Algo::DownwardDy</span></code> represent the discretized derivative
+for a given algorithm (represented by the template parameter <code class="docutils literal notranslate"><span class="pre">T_Algo</span></code>). The available
+discretization algorithms can be found in <code class="docutils literal notranslate"><span class="pre">Source/FieldSolver/FiniteDifferenceSolver/FiniteDifferenceAlgorithms</span></code>.</p>
+</section>
+<section id="guard-cells-exchanges">
+<h2>Guard cells exchanges<a class="headerlink" href="#guard-cells-exchanges" title="Link to this heading"></a></h2>
+<p>Communications are mostly handled in <code class="docutils literal notranslate"><span class="pre">Source/Parallelization/</span></code>.</p>
+<p>For E and B guard cell <strong>exchanges</strong>, the main functions are variants of <code class="docutils literal notranslate"><span class="pre">amrex::FillBoundary(amrex::MultiFab,</span> <span class="pre">...)</span></code> (or <code class="docutils literal notranslate"><span class="pre">amrex::MultiFab::FillBoundary(...)</span></code>) that fill guard cells of all <code class="docutils literal notranslate"><span class="pre">amrex::FArrayBox</span></code> in an <code class="docutils literal notranslate"><span class="pre">amrex::MultiFab</span></code> with valid cells of corresponding <code class="docutils literal notranslate"><span class="pre">amrex::FArrayBox</span></code> neighbors of the same <code class="docutils literal notranslate"><span class="pre">amrex::MultiFab</span></code>. There are a number of <code class="docutils literal notranslate"><span class="pre">FillBoundaryE</span></code>, <code class="docutils literal notranslate"><span class="pre">FillBoundaryB</span></code> etc. Under the hood, <code class="docutils literal notranslate"><span class="pre">amrex::FillBoundary</span></code> calls <code class="docutils literal notranslate"><span class="pre">amrex::ParallelCopy</span></code>, which is also sometimes directly called in WarpX. Most calls a</p>
+<p>For the current density, the valid cells of neighboring <code class="docutils literal notranslate"><span class="pre">MultiFabs</span></code> are accumulated (added) rather than just copied. This is done using <code class="docutils literal notranslate"><span class="pre">amrex::MultiFab::SumBoundary</span></code>, and mostly located in <code class="docutils literal notranslate"><span class="pre">Source/Parallelization/WarpXSumGuardCells.H</span></code>.</p>
+</section>
+<section id="interpolations-for-mr">
+<h2>Interpolations for MR<a class="headerlink" href="#interpolations-for-mr" title="Link to this heading"></a></h2>
+<p>This is mostly implemented in <code class="docutils literal notranslate"><span class="pre">Source/Parallelization</span></code>, see the following functions (you may complain to the authors if the documentation is empty)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+</section>
+<section id="filter">
+<h2>Filter<a class="headerlink" href="#filter" title="Link to this heading"></a></h2>
+<p>General functions for filtering can be found in <code class="docutils literal notranslate"><span class="pre">Source/Filter/</span></code>, where the main <code class="docutils literal notranslate"><span class="pre">Filter</span></code> class is defined (see below). All filters (so far there are two of them) in WarpX derive from this class.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenclass: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+<section id="bilinear-filter">
+<h3>Bilinear filter<a class="headerlink" href="#bilinear-filter" title="Link to this heading"></a></h3>
+<p>The multi-pass bilinear filter (applied on the current density) is implemented in <code class="docutils literal notranslate"><span class="pre">Source/Filter/</span></code>, and class <code class="docutils literal notranslate"><span class="pre">WarpX</span></code> holds an instance of this class in member variable <code class="docutils literal notranslate"><span class="pre">WarpX::bilinear_filter</span></code>. For performance reasons (to avoid creating too many guard cells), this filter is directly applied in communication routines, see <code class="docutils literal notranslate"><span class="pre">WarpX::AddCurrentFromFineLevelandSumBoundary</span></code> above and</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+</section>
+<section id="godfrey-s-anti-nci-filter-for-fdtd-simulations">
+<h3>Godfrey’s anti-NCI filter for FDTD simulations<a class="headerlink" href="#godfrey-s-anti-nci-filter-for-fdtd-simulations" title="Link to this heading"></a></h3>
+<p>This filter is applied on the electric and magnetic field (on the auxiliary grid) to suppress the Numerical Cherenkov Instability when running FDTD. It is implemented in <code class="docutils literal notranslate"><span class="pre">Source/Filter/</span></code>, and there are two different stencils, one for <code class="docutils literal notranslate"><span class="pre">Ex</span></code>, <code class="docutils literal notranslate"><span class="pre">Ey</span></code> and <code class="docutils literal notranslate"><span class="pre">Bz</span></code> and the other for <code class="docutils literal notranslate"><span class="pre">Ez</span></code>, <code class="docutils literal notranslate"><span class="pre">Bx</span></code> and <code class="docutils literal notranslate"><span class="pre">By</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenclass: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+<p>The class <code class="docutils literal notranslate"><span class="pre">WarpX</span></code> holds two corresponding instances of this class in member variables <code class="docutils literal notranslate"><span class="pre">WarpX::nci_godfrey_filter_exeybz</span></code> and <code class="docutils literal notranslate"><span class="pre">WarpX::nci_godfrey_filter_bxbyez</span></code>. It is a 9-point stencil (is the <code class="docutils literal notranslate"><span class="pre">z</span></code> direction only), for which the coefficients are computed using tabulated values (depending on dz/dx) in <code class="docutils literal notranslate"><span class="pre">Source/Utils/NCIGodfreyTables.H</span></code>, see variable <code class="docutils literal notranslate"><span class="pre">table_nci_godfrey_galerkin_Ex_Ey_Bz</span></code>. The filter is applied in <code class="docutils literal notranslate"><span class="pre">PhysicalParticleContainer::Evolve</span></code>, right after field gather and before particle push, see</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

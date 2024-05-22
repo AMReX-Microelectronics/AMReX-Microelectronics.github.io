@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installing WarpX as a Python package &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installing WarpX as a Python package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/developers/gnumake/python.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installing-warpx-as-a-python-package">
+<span id="developers-gnumake-python"></span><h1>Installing WarpX as a Python package<a class="headerlink" href="#installing-warpx-as-a-python-package" title="Link to this heading"></a></h1>
+<p>A full Python installation of WarpX can be done, which includes a build of all of the C++ code, or a pure Python version can be made which only installs the Python scripts. WarpX requires Pythone version 3.7 or newer.</p>
+<section id="for-a-full-python-installation-of-warpx">
+<h2>For a full Python installation of WarpX<a class="headerlink" href="#for-a-full-python-installation-of-warpx" title="Link to this heading"></a></h2>
+<p>WarpX’ Python bindings depend on <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">periodictable</span></code>, <code class="docutils literal notranslate"><span class="pre">picmistandard</span></code>, and <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code>.</p>
+<p>Type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">USE_PYTHON_MAIN</span><span class="o">=</span>TRUE
+</pre></div>
+</div>
+<p>or edit the <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code> and set <code class="docutils literal notranslate"><span class="pre">USE_PYTHON_MAIN=TRUE</span></code>, and type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
+</pre></div>
+</div>
+<p>Additional compile time options can be specified as needed.
+This will compile the code, and install the Python bindings and the Python scripts as a package (named <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code>) in your standard Python installation (i.e. in your <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory).</p>
+<p>If you do not have write permission to the default Python installation (e.g. typical on computer clusters), there are two options.
+The recommended option is to use a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>, which provides the most flexibility and robustness.</p>
+<p>Alternatively, add the <code class="docutils literal notranslate"><span class="pre">--user</span></code> install option to have WarpX installed elsewhere.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">PYINSTALLOPTIONS</span><span class="o">=</span>--user
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">--user</span></code>, the default location will be in your home directory, <code class="docutils literal notranslate"><span class="pre">~/.local</span></code>, or the location defined by the environment variable <code class="docutils literal notranslate"><span class="pre">PYTHONUSERBASE</span></code>.</p>
+<p>In HPC environments, it is often recommended to install codes in scratch or work space which typically have faster disk access.</p>
+<p>The different dimensioned versions of WarpX, 3D, 2D, and RZ, can coexist in the Python installation.
+The appropriate one will be imported depending on the input file.
+Note, however, other options will overwrite - compiling with <code class="docutils literal notranslate"><span class="pre">DEBUG=TRUE</span></code> will replace the version compiled with <code class="docutils literal notranslate"><span class="pre">DEBUG=FALSE</span></code> for example.</p>
+</section>
+<section id="for-a-pure-python-installation">
+<h2>For a pure Python installation<a class="headerlink" href="#for-a-pure-python-installation" title="Link to this heading"></a></h2>
+<p>This avoids the compilation of the C++ and is recommended when only using the Python input files as preprocessors.
+This installation depend on <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">periodictable</span></code>, and <code class="docutils literal notranslate"><span class="pre">picmistandard</span></code>.</p>
+<p>Go into the <code class="docutils literal notranslate"><span class="pre">Python</span></code> subdirectory and run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>install
+</pre></div>
+</div>
+<p>This installs the Python scripts as a package (named <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code>) in your standard Python installation (i.e. in your <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> directory).
+If you do not have write permission to the default Python installation (e.g. typical on computer clusters), there are two options.
+The recommended option is to use a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>, which provides the most flexibility and robustness.</p>
+<p>Alternatively, add the <code class="docutils literal notranslate"><span class="pre">--user</span></code> install option to have WarpX installed elsewhere.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>install<span class="w"> </span>--user
+</pre></div>
+</div>
+<p>With <code class="docutils literal notranslate"><span class="pre">--user</span></code>, the default location will be in your home directory, <code class="docutils literal notranslate"><span class="pre">~/.local</span></code>, or the location defined by the environment variable <code class="docutils literal notranslate"><span class="pre">PYTHONUSERBASE</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

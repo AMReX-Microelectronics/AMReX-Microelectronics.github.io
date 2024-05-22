@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Visualization of Plotfiles With yt (for developers) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Advanced Visualization of Plotfiles With yt (for developers)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dataanalysis/advanced.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="advanced-visualization-of-plotfiles-with-yt-for-developers">
+<h1>Advanced Visualization of Plotfiles With yt (for developers)<a class="headerlink" href="#advanced-visualization-of-plotfiles-with-yt-for-developers" title="Link to this heading"></a></h1>
+<p>This sections contains yt commands for advanced users. The Particle-In-Cell methods uses a
+staggered grid (see <a class="reference internal" href="../theory/picsar_theory.html#theory-pic"><span class="std std-ref">particle-in-cell theory</span></a>), so that the x, y, and z components of the
+electric and magnetic fields are all defined at different locations in space. Regular output
+(see the <a class="reference internal" href="yt.html"><span class="doc">yt-project</span></a> page, or the notebook at <code class="docutils literal notranslate"><span class="pre">WarpX/Tools/PostProcessing/Visualization.ipynb</span></code> for an example)
+returns cell-centered data for convenience, which involves an additional operation. It is sometimes
+useful to access the raw data directly. Furthermore,
+the WarpX implementation for mesh refinement contains a number of grids for each level (coarse,
+fine and auxiliary, see <a class="reference internal" href="../theory/intro.html#theory"><span class="std std-ref">the theory</span></a> for more details), and it is sometimes useful to access each of
+them (regular output return the auxiliary grid only). This page provides information to read
+raw data of all grids.</p>
+<section id="write-raw-data">
+<h2>Write Raw Data<a class="headerlink" href="#write-raw-data" title="Link to this heading"></a></h2>
+<p>For a given diagnostic the user has the option to write the raw data by setting <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.plot_raw_fields</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Moreover, the user has the option to write also the values of the fields in the guard cells by setting <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.plot_raw_fields_guards</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Please refer to <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters"><span class="std std-ref">Input Parameters</span></a> for more information.</p>
+</section>
+<section id="read-raw-data">
+<h2>Read Raw Data<a class="headerlink" href="#read-raw-data" title="Link to this heading"></a></h2>
+<p>Meta-data relevant to this topic (for example, number and locations of grids in the simulation) are accessed with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yt</span>
+<span class="c1"># get yt dataset</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span> <span class="s1">&#39;./plotfiles/plt00004&#39;</span> <span class="p">)</span>
+<span class="c1"># Index of data in the plotfile</span>
+<span class="n">ds_index</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">index</span>
+<span class="c1"># Print the number of grids in the simulation</span>
+<span class="n">ds_index</span><span class="o">.</span><span class="n">grids</span><span class="o">.</span><span class="n">shape</span>
+<span class="c1"># Left and right physical boundary of each grid</span>
+<span class="n">ds_index</span><span class="o">.</span><span class="n">grid_left_edge</span>
+<span class="n">ds_index</span><span class="o">.</span><span class="n">grid_right_edge</span>
+<span class="c1"># List available fields</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">field_list</span>
+</pre></div>
+</div>
+<p>When <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.plot_raw_fields</span> <span class="pre">=</span> <span class="pre">1</span></code>, here are some useful commands to access properties of a grid and the Ex field on the fine patch:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># store grid number 2 into my_grid</span>
+<span class="n">my_grid</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">grids</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1"># Get left and right edges of my_grid</span>
+<span class="n">my_grid</span><span class="o">.</span><span class="n">LeftEdge</span>
+<span class="n">my_grid</span><span class="o">.</span><span class="n">RightEdge</span>
+<span class="c1"># Get Level of my_grid</span>
+<span class="n">my_grid</span><span class="o">.</span><span class="n">Level</span>
+<span class="c1"># left edge of the grid, in number of points</span>
+<span class="n">my_grid</span><span class="o">.</span><span class="n">start_index</span>
+</pre></div>
+</div>
+<p>Return the <code class="docutils literal notranslate"><span class="pre">Ex</span></code> field on the fine patch of grid <code class="docutils literal notranslate"><span class="pre">my_grid</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_field</span> <span class="o">=</span> <span class="n">my_grid</span><span class="p">[</span><span class="s1">&#39;raw&#39;</span><span class="p">,</span> <span class="s1">&#39;Ex_fp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+<p>For a 2D plotfile, <code class="docutils literal notranslate"><span class="pre">my_field</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(nx,nz,2)</span></code>. The last component stands for the
+two values on the edges of each cell for the electric field, due to field staggering. Numpy
+function <code class="docutils literal notranslate"><span class="pre">squeeze</span></code> removes empty components. While <code class="docutils literal notranslate"><span class="pre">yt</span></code> arrays are unit-aware, it is
+sometimes useful to extract the data into unitless numpy arrays. This is achieved with <code class="docutils literal notranslate"><span class="pre">.v</span></code>.
+In the case of <code class="docutils literal notranslate"><span class="pre">Ex_fp</span></code>, the staggering is on direction <code class="docutils literal notranslate"><span class="pre">x</span></code>, so that
+<code class="docutils literal notranslate"><span class="pre">my_field[:,:-1,1]</span> <span class="pre">==</span> <span class="pre">my_field[:,1:,0]</span></code>.</p>
+<p>All combinations of the fields (<code class="docutils literal notranslate"><span class="pre">E</span></code> or <code class="docutils literal notranslate"><span class="pre">B</span></code>), the component (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code> or <code class="docutils literal notranslate"><span class="pre">z</span></code>) and the
+grid (<code class="docutils literal notranslate"><span class="pre">_fp</span></code> for fine, <code class="docutils literal notranslate"><span class="pre">_cp</span></code> for coarse and <code class="docutils literal notranslate"><span class="pre">_aux</span></code> for auxiliary) can be accessed in this
+way, i.e., <code class="docutils literal notranslate"><span class="pre">my_grid['raw',</span> <span class="pre">'Ey_aux']</span></code> or <code class="docutils literal notranslate"><span class="pre">my_grid['raw',</span> <span class="pre">'Bz_cp']</span></code> are valid queries.</p>
+</section>
+<section id="read-raw-data-with-guard-cells">
+<h2>Read Raw Data With Guard Cells<a class="headerlink" href="#read-raw-data-with-guard-cells" title="Link to this heading"></a></h2>
+<p>When the output includes the data in the guard cells, the user can read such data using the post-processing tool <code class="docutils literal notranslate"><span class="pre">read_raw_data.py</span></code>, available in <code class="docutils literal notranslate"><span class="pre">Tools/PostProcessing/</span></code>, as illustrated in the following example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">read_raw_data</span> <span class="kn">import</span> <span class="n">read_data</span>
+
+<span class="c1"># Load all data saved in a given path</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./diags/diag00200/&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># Load Ex_fp on mesh refinement level 0</span>
+<span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;Ex_fp&#39;</span>
+<span class="c1"># data[level] is a dictionary, data[level][field] is a numpy array</span>
+<span class="n">my_field</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="n">field</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that a list of all available raw fields written to output, that is, a list of all valid strings that the variable <code class="docutils literal notranslate"><span class="pre">field</span></code> in the example above can be assigned to, can be obtained by calling <code class="docutils literal notranslate"><span class="pre">data[level].keys()</span></code>.</p>
+<p>In order to plot a 2D slice of the data with methods like <code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.imshow</span></code>, one might want to pass the correct <code class="docutils literal notranslate"><span class="pre">extent</span></code> (the bounding box in data coordinates that the image will fill), including the guard cells. One way to set the correct <code class="docutils literal notranslate"><span class="pre">extent</span></code> is illustrated in the following example (case of a 2D slice in the <code class="docutils literal notranslate"><span class="pre">(x,z)</span></code> plane):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">read_raw_data</span> <span class="kn">import</span> <span class="n">read_data</span>
+
+<span class="c1"># Load all data saved in a given path</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;./diags/diag00200/&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># Load Ex_fp on mesh refinement level 0</span>
+<span class="n">level</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;Ex_fp&#39;</span>
+<span class="c1"># data[level] is a dictionary, data[level][field] is a numpy array</span>
+<span class="n">my_field</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">level</span><span class="p">][</span><span class="n">field</span><span class="p">]</span>
+
+<span class="c1"># Set the number of cells in the valid domain</span>
+<span class="c1"># by loading the standard output data with yt</span>
+<span class="n">ncells</span> <span class="o">=</span> <span class="n">yt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">domain_dimensions</span>
+
+<span class="c1"># Set the number of dimensions automatically (2D or 3D)</span>
+<span class="n">dim</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="p">(</span><span class="n">ncells</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">else</span> <span class="mi">3</span>
+
+<span class="n">xdir</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">zdir</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">dim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">else</span> <span class="mi">2</span>
+
+<span class="c1"># Set the extent (bounding box in data coordinates, including guard cells)</span>
+<span class="c1"># to be passed to matplotlib.axes.Axes.imshow</span>
+<span class="n">left_edge_x</span>  <span class="o">=</span> <span class="mi">0</span>            <span class="o">-</span> <span class="p">(</span><span class="n">my_field</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">xdir</span><span class="p">]</span> <span class="o">-</span> <span class="n">ncells</span><span class="p">[</span><span class="n">xdir</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">right_edge_x</span> <span class="o">=</span> <span class="n">ncells</span><span class="p">[</span><span class="n">xdir</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">my_field</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">xdir</span><span class="p">]</span> <span class="o">-</span> <span class="n">ncells</span><span class="p">[</span><span class="n">xdir</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">left_edge_z</span>  <span class="o">=</span> <span class="mi">0</span>            <span class="o">-</span> <span class="p">(</span><span class="n">my_field</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">zdir</span><span class="p">]</span> <span class="o">-</span> <span class="n">ncells</span><span class="p">[</span><span class="n">zdir</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">right_edge_z</span> <span class="o">=</span> <span class="n">ncells</span><span class="p">[</span><span class="n">zdir</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">my_field</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">zdir</span><span class="p">]</span> <span class="o">-</span> <span class="n">ncells</span><span class="p">[</span><span class="n">zdir</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">extent</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">left_edge_z</span><span class="p">,</span> <span class="n">right_edge_z</span><span class="p">,</span> <span class="n">left_edge_x</span><span class="p">,</span> <span class="n">right_edge_x</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

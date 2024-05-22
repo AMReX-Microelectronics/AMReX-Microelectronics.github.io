@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Run FerroX &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Run MagneX" href="run_magnex.html" />
+    <link rel="prev" title="Run ELEQTRONeX" href="run_eleqtronex.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Run FerroX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#run-directory">1. Run Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#executable">2. Executable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inputs">3. Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run">4. Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputs">5. Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-parameters">6. Input parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overall-simulation-parameters">Overall simulation parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#polarization-boundary-conditions">Polarization Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electrical-boundary-conditions">Electrical Boundary Conditions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stack-geometry">Stack Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#material-properties-float">Material Properties (<cite>float</cite>)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Run FerroX</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/run_ferrox.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="run-ferrox">
+<span id="usage-run"></span><h1>Run FerroX<a class="headerlink" href="#run-ferrox" title="Link to this heading"></a></h1>
+<p>In order to run a new simulation:</p>
+<ol class="arabic simple">
+<li><p>create a <strong>new directory</strong>, where the simulation will be run</p></li>
+<li><p>make sure the FerroX <strong>executable</strong> is copied into this directory</p></li>
+<li><p>add an <strong>inputs file</strong> to the directory</p></li>
+<li><p>run</p></li>
+</ol>
+<section id="run-directory">
+<h2>1. Run Directory<a class="headerlink" href="#run-directory" title="Link to this heading"></a></h2>
+<p>On Linux/macOS, this is as easy as this</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>&lt;run_directory&gt;
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">&lt;run_directory&gt;</span></code> by the actual path to the run directory.</p>
+</section>
+<section id="executable">
+<h2>2. Executable<a class="headerlink" href="#executable" title="Link to this heading"></a></h2>
+<p>If you have already compiled the code, the FerroX executable is stored in the Exec folder.
+Copy the <strong>executable</strong> to this directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>FerroX/Exec/&lt;ferrox_executable&gt;<span class="w"> </span>&lt;run_directory&gt;/
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;ferrox_executable&gt;</span></code> should be replaced by the actual name of the executable and <code class="docutils literal notranslate"><span class="pre">&lt;run_directory&gt;</span></code> by the actual path to the run directory.</p>
+</section>
+<section id="inputs">
+<h2>3. Inputs<a class="headerlink" href="#inputs" title="Link to this heading"></a></h2>
+<p>Add an <strong>input file</strong> in the directory.
+This file contains the numerical and physical parameters that define the situation to be simulated.</p>
+<p>On HPC systems, also copy and adjust a submission script that allocated computing nodes for you.</p>
+</section>
+<section id="run">
+<h2>4. Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
+<p><strong>Run</strong> the executable, e.g. with MPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;run_directory&gt;
+
+<span class="c1"># run with an inputs file:</span>
+mpirun<span class="w"> </span>-np<span class="w"> </span>&lt;n_ranks&gt;<span class="w"> </span>./&lt;ferrox_executable&gt;<span class="w"> </span>&lt;input_file&gt;
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">&lt;n_ranks&gt;</span></code> is the number of MPI ranks used, and <code class="docutils literal notranslate"><span class="pre">&lt;input_file&gt;</span></code> is the name of the input file.
+Sample input files can be found in the <a class="reference external" href="https://github.com/AMReX-Microelectronics/FerroX/tree/development/Exec/Examples">Examples</a> folder.</p>
+<p>On an HPC system, you would instead submit the <strong>job script</strong> at this point, e.g. <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;submission_script&gt;</span></code> (SLURM on Cori/NERSC) or <code class="docutils literal notranslate"><span class="pre">bsub</span> <span class="pre">&lt;submission_script&gt;</span></code> (LSF on Summit/OLCF).</p>
+</section>
+<section id="outputs">
+<h2>5. Outputs<a class="headerlink" href="#outputs" title="Link to this heading"></a></h2>
+<p>By default, FerroX will write a status update to the terminal (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>).
+On HPC systems, we usually store a copy of this in a file called <code class="docutils literal notranslate"><span class="pre">outputs.txt</span></code>.</p>
+<p>By default, output file are written in plotfile format and you can use various <a class="reference internal" href="../dataanalysis/formats.html#dataanalysis-formats"><span class="std std-ref">data analysis and visualization tools</span></a>.</p>
+</section>
+<section id="input-parameters">
+<h2>6. Input parameters<a class="headerlink" href="#input-parameters" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FerroX input options are read via AMReX <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html#parmparse">ParmParse</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The AMReX parser is used for the right-hand-side of all input parameters that consist of one or more integers or floats, so expressions like <code class="docutils literal notranslate"><span class="pre">&lt;species_name&gt;.density_max</span> <span class="pre">=</span> <span class="pre">&quot;2.+1.&quot;</span></code> and/or using user-defined constants are accepted.</p>
+</div>
+</section>
+<section id="overall-simulation-parameters">
+<h2>Overall simulation parameters<a class="headerlink" href="#overall-simulation-parameters" title="Link to this heading"></a></h2>
+<ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">domain.prob_lo</span></code> and <code class="docutils literal notranslate"><span class="pre">domain.prob_hi</span></code> (<cite>3 floats</cite>; in meters)</dt><dd><p>The extent of the full simulation box. This box is rectangular, and thus its
+extent is given here by the coordinates of the lower corner (<code class="docutils literal notranslate"><span class="pre">domain.prob_lo</span></code>) and
+upper corner (<code class="docutils literal notranslate"><span class="pre">domain.prob_hi</span></code>). The first axis of the coordinates is x, second is y, and the last is z.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">domain.n_cell</span></code> (<cite>3 integers</cite>)</dt><dd><p>The number of grid points along each direction.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">domain.max_grid_size</span></code> (<cite>3 integers</cite>; optional)</dt><dd><p>Maximum allowable size of each <strong>subdomain</strong>
+(expressed in number of grid points, in each direction).
+Each subdomain has its own ghost cells, and can be handled by a
+different MPI rank ; several OpenMP threads can work simultaneously on the
+same subdomain.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">max_grid_size</span></code> is such that the total number of subdomains is
+<strong>larger</strong> that the number of MPI ranks used, than some MPI ranks
+will handle several subdomains, thereby providing additional flexibility
+for <strong>load balancing</strong>.</p>
+<p>Further information on <strong>max_grid_size and blocking_factor</strong> can be found <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/GridCreation.html#sec-grid-creation">here</a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">nsteps</span></code> (<cite>integer</cite>)</dt><dd><p>The number of time steps to run.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">prob_type</span></code> (<cite>integer</cite>, 1, 2 or 3)</dt><dd><p>prob_type = 1 for 2D problems</p>
+<p>prob_type = 2 for 3D problems</p>
+<p>prob_type = 3 for convergence tests.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">TimeIntegratorOrder</span></code> (<cite>integer</cite>, 1 or 2)</dt><dd><p>TimeIntegratorOrder = 1 for first-order forward Euler time integrator for the TDGL equation</p>
+<p>TimeIntegratorOrder = 2 for second-order Predictor-Corrector time integrator for the TDGL equation</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">plot_int</span></code> (<cite>integer</cite>)</dt><dd><p>This string defines the timesteps at which data is dumped.
+Use a negative number or 0 to disable data dumping.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">dt</span></code> (<cite>float</cite>)</dt><dd><p>Time step size.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="polarization-boundary-conditions">
+<h3>Polarization Boundary Conditions<a class="headerlink" href="#polarization-boundary-conditions" title="Link to this heading"></a></h3>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">P_BC_flag_lo</span></code> and <a href="#id1"><span class="problematic" id="id2">``</span></a>P_BC_flag_hi``(<cite>3 integers</cite>, 0, 1, 2, or 3)</dt><dd><p>Polarization boundary condition at lo and hi ferroelectric material boundaries.
+The first axis of the coordinates is x, second is y, and the last is z.</p>
+<p>0 : P = 0</p>
+<p>1 : dP/dz = -P/lambda</p>
+<p>2 : dP/dz = 0</p>
+<p>3 : No BC (extend outside FE)</p>
+<p>3 : No BC (1st-order one-sided)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">lambda</span></code> (<cite>float</cite>)</dt><dd><p>Value of lambda for polarization boundary condition.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="electrical-boundary-conditions">
+<h3>Electrical Boundary Conditions<a class="headerlink" href="#electrical-boundary-conditions" title="Link to this heading"></a></h3>
+<ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">domain.is_periodic</span></code> (<cite>3 integers</cite>, 0 or 1)</dt><dd><p>Whether or not to use a periodic boundary condition along coordinate directions.
+For example, domain.is_periodic = 1 1 0 means Poisson’s equation will be solved with periodic boundary conditions in x and y directions.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">boundary.lo</span></code> and <code class="docutils literal notranslate"><span class="pre">boundary.hi</span></code> (<cite>3 strings</cite>, per, neu, or dir)</dt><dd><p>per: periodic</p>
+<p>neu: Neumann</p>
+<p>dir(<cite>float</cite>): Dirichlet with the value inside the parenthesis</p>
+<p>For example,</p>
+<p>boundary.hi = per per dir(0.0)</p>
+<p>boundary.lo = per per dir(0.0)</p>
+<p>will use periodic boundary condition for Poisson’s equation in x and y directions and Dirichlet boundary condition in z direction
+with <span class="math notranslate nohighlight">\(\Phi = 0.0~V\)</span> at both hi_z and lo_z boundaries.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="stack-geometry">
+<h3>Stack Geometry<a class="headerlink" href="#stack-geometry" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">FE_lo</span></code> and <code class="docutils literal notranslate"><span class="pre">FE_hi</span></code> (<cite>3 floats</cite>)</dt><dd><p>The high and low extent of the ferroelectric material region along x, y, and z.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DE_lo</span></code> and <code class="docutils literal notranslate"><span class="pre">DE_hi</span></code> (<cite>3 floats</cite>)</dt><dd><p>The high and low extent of the dielectric material region along x, y, and z.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SC_lo</span></code> and <code class="docutils literal notranslate"><span class="pre">SC_hi</span></code> (<cite>3 floats</cite>)</dt><dd><p>The high and low extent of the semiconductor material region along x, y, and z.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="material-properties-float">
+<h3>Material Properties (<cite>float</cite>)<a class="headerlink" href="#material-properties-float" title="Link to this heading"></a></h3>
+<p>epsilon_0 = vacuum permittivity</p>
+<p>epsilonX_fe = relative permittivity of the ferroelectric material in x direction</p>
+<p>epsilonZ_fe = relative permittivity of the ferroelectric material in z direction</p>
+<p>epsilon_de = relative permittivity of the dielectric material</p>
+<p>epsilon_si = relative permittivity of the semiconductor material</p>
+<p><strong>Landau Free energy coefficients:</strong></p>
+<p>alpha</p>
+<p>beta</p>
+<p>gamma</p>
+<p>alpha_12</p>
+<p>alpha_112</p>
+<p>alpha_123</p>
+<p><strong>Kinetic Coefficient in the TDGL equation</strong></p>
+<p>BigGamma</p>
+<p><strong>Gradient energy coefficients</strong></p>
+<p>g11</p>
+<p>g44</p>
+<p>g44_p</p>
+<p>g12</p>
+<p><strong>Semiconductor material is by-default Silicon</strong></p>
+<p>Please refer to the <a class="reference external" href="https://github.com/AMReX-Microelectronics/FerroX/blob/development/Source/FerroX.cpp">source code</a> for full list of parameters and default values for
+semiconductor bandgap, affinity etc..</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="run_eleqtronex.html" class="btn btn-neutral float-left" title="Run ELEQTRONeX" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="run_magnex.html" class="btn btn-neutral float-right" title="Run MagneX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

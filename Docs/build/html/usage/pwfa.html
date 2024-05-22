@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>In-Depth: PWFA &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">In-Depth: PWFA</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/pwfa.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="in-depth-pwfa">
+<h1>In-Depth: PWFA<a class="headerlink" href="#in-depth-pwfa" title="Link to this heading"></a></h1>
+<p>As described in the <a class="reference internal" href="../theory/intro.html"><span class="doc">Introduction</span></a>, one of the key applications of the WarpX exascale computing platform is in modelling future, compact and economic plasma-based accelerators.
+In this section we describe the simulation setup of a realistic <em>electron beam driven plasma wakefield accelerator</em> (PWFA) configuration.
+For illustration purposes the setup can be explored with <strong>WarpX</strong> using the example input file <code class="xref download docutils literal notranslate"><span class="pre">PWFA</span></code>.</p>
+<p>The simulation setup consists of 4 particle species: drive beam (driver), witness beam (beam), plasma electrons (plasma_e), and plasma ions (plasma_p).
+The species physical parameters are summarized in the following table.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Species</p></th>
+<th class="head"><p>Parameters</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>driver</p></td>
+<td><p><span class="math notranslate nohighlight">\(\gamma\)</span> = 48923; N = 2x10^8; <span class="math notranslate nohighlight">\(\sigma_z\)</span> = 4.0 um; <span class="math notranslate nohighlight">\(\sigma_x\)</span> = 2.0 um</p></td>
+</tr>
+<tr class="row-odd"><td><p>beam</p></td>
+<td><p><span class="math notranslate nohighlight">\(\gamma\)</span> = 48923; N = 6x10^5; <span class="math notranslate nohighlight">\(\sigma_z\)</span> = 1.0 mm; <span class="math notranslate nohighlight">\(\sigma_x\)</span> = 0.5 um</p></td>
+</tr>
+<tr class="row-even"><td><p>plasma_e</p></td>
+<td><p>n = 1x10^23 m^-3; w = 70 um; lr = 8 mm; L = 200 mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>plasma_p</p></td>
+<td><p>n = 1x10^23 m^-3; w = 70 um; lr = 8 mm; L = 200 mm</p></td>
+</tr>
+</tbody>
+</table>
+<p>Where <span class="math notranslate nohighlight">\(\gamma\)</span> is the beam relativistic Lorentz factor, N is the number of particles, and <span class="math notranslate nohighlight">\(\sigma_x\)</span>, <span class="math notranslate nohighlight">\(\sigma_y\)</span>, <span class="math notranslate nohighlight">\(\sigma_z\)</span> are the beam widths (root-mean-squares of particle positions) in the transverse (x,y) and longitudinal directions.</p>
+<p>The plasma, of total length L, has a density profile that consists of a lr long linear up-ramp, ranging from 0 to peak value n, is uniform within a transverse width of w and after the up-ramp.</p>
+<p>With this configuration the driver excites a nonlinear plasma wake and drives the bubble depleted of plasma electrons where the beam accelerates, as can be seen in Fig. <a class="reference external" href="#fig:PWFA">[fig:PWFA]</a>.</p>
+<figure class="align-default" id="id1">
+<img alt="[fig:PWFA] Plot of 2D PWFA example at dump 1000" src="../_images/PWFA.png" />
+<figcaption>
+<p><span class="caption-text">[fig:PWFA] Plot of the driver (blue), beam (red) and plasma_e (green) electron macroparticle distribution at the time step 1000 of the example simulation.
+These are overlapping the 2D plot of the longitudinal electric field showing the accelerating/deccelerating (red/blue) regions of the plasma bubble.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Listed below are the key arguments and best-practices relevant for choosing the pwfa simulation parameters used in the example.</p>
+<section id="d-geometry">
+<h2>2D Geometry<a class="headerlink" href="#d-geometry" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>2D cartesian (with longitudinal direction z and transverse x) geometry simulations can give valuable physical and numerical insight into the simulation requirements and evolution.
+At the same time it is much less time consuming than the full 3D cartesian or cylindrical geometries.</p>
+</div></blockquote>
+</section>
+<section id="finite-difference-time-domain">
+<h2>Finite Difference Time Domain<a class="headerlink" href="#finite-difference-time-domain" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>For standard plasma wakefield configurations, it is possible to model the physics correctly using the Particle-In-Cell (PIC) Finite Difference Time Domain (FDTD) algorithms (<a class="reference internal" href="../theory/picsar_theory.html"><span class="doc">Particle-in-Cell Method</span></a>).
+If the simulation contains localised extremely high intensity fields, however, numerical instabilities might arise, such as the numerical Cherenkov instability (<a class="reference internal" href="../theory/boosted_frame.html"><span class="doc">Moving window and optimal Lorentz boosted frame</span></a>).
+In that case, it is recommended to use the Pseudo Spectral Analytical Time Domain (PSATD) or the Pseudo-Spectral Time-Domain (PSTD) algorithms.
+In the example we are describing, it is sufficient to use FDTD.</p>
+</div></blockquote>
+</section>
+<section id="cole-karkkainen-solver-with-cowan-coefficients">
+<h2>Cole-Karkkainen solver with Cowan coefficients<a class="headerlink" href="#cole-karkkainen-solver-with-cowan-coefficients" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>There are two FDTD Maxwell field solvers that compute the field push implemented in WarpX: the Yee and Cole-Karkkainen solver with Cowan coefficients (CKC) solvers.
+The later includes a modification that allows the numerical dispersion of light in vacuum to be exact, and that is why we choose CKC for the example.</p>
+</div></blockquote>
+</section>
+<section id="lorentz-boosted-frame">
+<h2>Lorentz boosted frame<a class="headerlink" href="#lorentz-boosted-frame" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>WarpX simulations can be done in the laboratory or <a class="reference external" href="https://warpx.readthedocs.io/en/latest/theory/boosted_frame.html">Lorentz-boosted</a> frames.
+In the laboratory frame, there is typically no need to model the plasma ions species, since they are mainly stationary during the short time scales associated with the motion of plasma electrons.
+In the boosted frame, that argument is no longer valid, as ions have relativistic velocities.
+The boosted frame still results in a substantial reduction to the simulation computational cost.</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even if the simulations uses the boosted frame, most of its input file parameters are defined in respect to the laboratory frame.</p>
+<p>We recommend that you design your numerical setup so that the width of the box is not significantly narrower than the distance from 0 to its right edge (done, for example, by setting the right edge equal to 0).</p>
+</div>
+</section>
+<section id="moving-window">
+<h2>Moving window<a class="headerlink" href="#moving-window" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>To avoid having to simulate the whole 0.2 mm of plasma with the high resolution that is required to model the beam and plasma interaction correctly, we use the moving window.
+In this way we define a simulation box (grid) with a fixed size that travels at the speed-of-light (<span class="math notranslate nohighlight">\(c\)</span>), i.e. follows the beam.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When using moving window the option of continuous injection needs to be active for all particles initialized outside of the simulation box.</p>
+</div>
+</div></blockquote>
+</section>
+<section id="resolution">
+<h2>Resolution<a class="headerlink" href="#resolution" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Longitudinal and transverse resolutions (i.e. number and dimensions of the PIC grid cells) should be chosen to accurately describe the physical processes taking place in the simulation.
+Convergence scans, where resolution in both directions is gradually increased, should be used to determine the optimal configuration.
+Multiple cells per beam length and width are recommended (our illustrative example resolution is coarse).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To avoid spurious effects, in the boosted frame, we consider the constraint that the transverse cell size should be larger than the transverse one.
+Translating this condition to the cell transverse (<span class="math notranslate nohighlight">\(d_{x}\)</span>) and longitudinal dimensions (<span class="math notranslate nohighlight">\(d_{z}\)</span>) in the laboratory frame leads to: <span class="math notranslate nohighlight">\(d_{x} &gt; (d_{z} (1+\beta_{b}) \gamma_{b})\)</span>, where <span class="math notranslate nohighlight">\(\beta_{b}\)</span> is the boosted frame velocity in units of <span class="math notranslate nohighlight">\(c\)</span>.</p>
+</div>
+</div></blockquote>
+</section>
+<section id="time-step">
+<h2>Time step<a class="headerlink" href="#time-step" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>The time step (<span class="math notranslate nohighlight">\(dt\)</span>) is used to iterated over the main PIC loop and is computed by WarpX differently depending on the Maxwell field FDTD solvers used:</p>
+<ul class="simple">
+<li><p><strong>For Yee</strong> is equal to the CFL parameter chosen in the input file (<a class="reference internal" href="parameters.html"><span class="doc">Input Parameters</span></a>) times the Courant–Friedrichs–Lewy condition (CFL) that follows the analytical expression in <a class="reference internal" href="../theory/picsar_theory.html"><span class="doc">Particle-in-Cell Method</span></a></p></li>
+<li><p><strong>For CKC</strong> is equal to CFL times the minimum between the boosted frame cell dimensions</p></li>
+</ul>
+<p>where CFL is chosen to be below unity and set an optimal trade-off between making the simulation faster and avoiding NCI and other spurious effects.</p>
+</div></blockquote>
+</section>
+<section id="duration-of-the-simulation">
+<h2>Duration of the simulation<a class="headerlink" href="#duration-of-the-simulation" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>To determine the total number of time steps of the simulation, we could either set the <cite>&lt;zmax_plasma_to_compute_max_step&gt;</cite> parameter to the end of the plasma (<span class="math notranslate nohighlight">\(z_{\textrm{end}}\)</span>), or compute it using:</p>
+<ul class="simple">
+<li><p>boosted frame edge of the simulation box, <span class="math notranslate nohighlight">\(\textrm{corner} = l_{e}/ ((1-\beta_{b}) \gamma_{b})\)</span></p></li>
+<li><p>time of interaction in the boosted frame, <span class="math notranslate nohighlight">\(T = \frac{z_{\textrm{end}}/\gamma_{b}-\textrm{corner}}{c (1+\beta_{b})}\)</span></p></li>
+<li><p>total number of iterations, <span class="math notranslate nohighlight">\(i_{\textrm{max}} = T/dt\)</span></p></li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(l_{e}\)</span> is the position of the left edge of the simulation box (in respect to propagation direction).</p>
+</div></blockquote>
+</section>
+<section id="plotfiles-and-snapshots">
+<h2>Plotfiles and snapshots<a class="headerlink" href="#plotfiles-and-snapshots" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>WarpX allows the data to be stored in different formats, such as plotfiles (following the <a class="reference external" href="https://yt-project.org/doc/index.html">yt guidelines</a>), hdf5 and openPMD (following its <a class="reference external" href="https://github.com/openPMD">standard</a>).
+In the example, we are dumping plotfiles with boosted frame information on the simulation particles and fields.
+We are also requesting back transformed diagnostics that transform that information back to the laboratory frame.
+The diagnostics results are analysed and stored in snapshots at each time step and so it is best to make sure that the run does not end before filling the final snapshot.</p>
+</div></blockquote>
+</section>
+<section id="maximum-grid-size-and-blocking-factor">
+<h2>Maximum grid size and blocking factor<a class="headerlink" href="#maximum-grid-size-and-blocking-factor" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>These parameters are carfully chosen to improve the code parallelization, load-balancing and performance (<a class="reference internal" href="parameters.html"><span class="doc">Input Parameters</span></a>) for each numerical configuration.
+They define the smallest and largest number of cells that can be contained in each simulation box and are carefully defined in the <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/GridCreation.html?highlight=blocking_factor">AMReX</a> documentation.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
