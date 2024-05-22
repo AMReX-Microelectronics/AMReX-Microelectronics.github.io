@@ -32,20 +32,12 @@ Download FerroX Repository
 
    git@github.com:AMReX-Microelectronics/FerroX.git
 
-Build
------
 Make sure that the AMReX and FerroX are cloned in the same location in their filesystem. Navogate to the Exec folder of FerroX and execute 
 
 .. code-block:: bash
 
    make -j 4
 
-.. only:: html
-
-   .. image:: hpc.svg
-
-HPC Systems
------------
 
 If want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:
 
