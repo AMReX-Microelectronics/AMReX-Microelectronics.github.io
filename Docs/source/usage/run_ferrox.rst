@@ -188,7 +188,7 @@ epsilon_de = relative permittivity of the dielectric material
 
 epsilon_si = relative permittivity of the semiconductor material
 
-Landau Free energy coefficients:
+**Landau Free energy coefficients:**
 
 alpha 
 
@@ -202,11 +202,11 @@ alpha_112
 
 alpha_123
 
-Kinetic Coefficient in the TDGL equation
+**Kinetic Coefficient in the TDGL equation**
 
 BigGamma 
 
-Gradient energy coefficients
+**Gradient energy coefficients**
 
 g11 
 
@@ -215,6 +215,12 @@ g44
 g44_p 
 
 g12 
+
+**Semiconductor material is by-default Silicon**
+
+Please refer to the `source code <https://github.com/AMReX-Microelectronics/FerroX/blob/development/Source/FerroX.cpp>`__ for full list of parameters and default values for 
+semiconductor bandgap, affinity etc..
+
 
 
 
