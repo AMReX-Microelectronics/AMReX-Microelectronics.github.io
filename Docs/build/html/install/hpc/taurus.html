@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Taurus (ZIH) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -96,11 +92,11 @@
            <div itemprop="articleBody">
              
   <section id="taurus-zih">
-<span id="building-taurus"></span><h1>Taurus (ZIH)<a class="headerlink" href="#taurus-zih" title="Link to this heading"></a></h1>
+<span id="building-taurus"></span><h1>Taurus (ZIH)<a class="headerlink" href="#taurus-zih" title="Permalink to this heading"></a></h1>
 <p>The <a class="reference external" href="https://doc.zih.tu-dresden.de/jobs_and_resources/overview">Taurus cluster</a> is located at <a class="reference external" href="https://doc.zih.tu-dresden.de">ZIH (TU Dresden)</a>.</p>
 <p>The cluster has multiple partitions, this section describes how to use the <a class="reference external" href="https://doc.zih.tu-dresden.de/jobs_and_resources/hardware_overview/#amd-rome-cpus-nvidia-a100">AMD Rome CPUs + NVIDIA A100¶</a>.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>If you are new to this system, <strong>please see the following resources</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.nersc.gov/">ZIH user guide</a></p></li>
@@ -116,7 +112,7 @@
 </ul>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
 </pre></div>
@@ -137,9 +133,9 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 <p>The general <a class="reference internal" href="../cmake.html#building-cmake"><span class="std std-ref">cmake compile-time options</span></a> apply as usual.</p>
 </section>
 <section id="running">
-<span id="running-cpp-taurus"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<span id="running-cpp-taurus"></span><h2>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h2>
 <section id="a100-gpus-40-gb">
-<span id="running-cpp-taurus-a100-gpus"></span><h3>A100 GPUs (40 GB)<a class="headerlink" href="#a100-gpus-40-gb" title="Link to this heading"></a></h3>
+<span id="running-cpp-taurus-a100-gpus"></span><h3>A100 GPUs (40 GB)<a class="headerlink" href="#a100-gpus-40-gb" title="Permalink to this heading"></a></h3>
 <p>The <cite>alpha</cite> partition has 34 nodes with 8 x NVIDIA A100-SXM4 Tensor Core-GPUs and 2 x AMD EPYC CPU 7352 (24 cores) &#64; 2.3 GHz (multithreading disabled) per node.</p>
 <p>The batch script below can be used to run a WarpX simulation on multiple nodes (change <code class="docutils literal notranslate"><span class="pre">-N</span></code> accordingly).
 Replace descriptions between chevrons <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> by relevant values, for instance <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">file&gt;</span></code> could be <code class="docutils literal notranslate"><span class="pre">plasma_mirror_inputs</span></code>.

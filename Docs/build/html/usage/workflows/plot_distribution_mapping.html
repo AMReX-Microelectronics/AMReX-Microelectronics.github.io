@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Visualizing a distribution mapping &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -97,14 +93,14 @@
            <div itemprop="articleBody">
              
   <section id="visualizing-a-distribution-mapping">
-<h1>Visualizing a distribution mapping<a class="headerlink" href="#visualizing-a-distribution-mapping" title="Link to this heading"></a></h1>
+<h1>Visualizing a distribution mapping<a class="headerlink" href="#visualizing-a-distribution-mapping" title="Permalink to this heading"></a></h1>
 <p>WarpX provides via <a class="reference internal" href="../../dataanalysis/reduced_diags.html#dataanalysis-reduced-diagnostics"><span class="std std-ref">reduced diagnostics</span></a> an output
 <a class="reference internal" href="../parameters.html#running-cpp-parameters-diagnostics"><span class="std std-ref">LoadBalanceCosts</span></a>, which
 allows for visualization of a simulation’s distribution mapping and computational
 costs. Here we demonstrate the workflow for generating this data and using it to
 plot distribution mappings and load balance costs.</p>
 <section id="generating-the-data">
-<h2>Generating the data<a class="headerlink" href="#generating-the-data" title="Link to this heading"></a></h2>
+<h2>Generating the data<a class="headerlink" href="#generating-the-data" title="Permalink to this heading"></a></h2>
 <p>To generate ‘Load Balance Costs’ reduced diagnostics output, WarpX should be run
 with the following lines added to the input file (the name of the reduced diagnostics
 file, <cite>LBC</cite>, and interval in steps to output reduced diagnostics data, <cite>100</cite>, may
@@ -121,7 +117,7 @@ WarpX to record costs and rank layouts.  The final line, <cite>LBC.intervals = 1
 controls the interval for output of this reduced diagnostic’s data.</p>
 </section>
 <section id="loading-and-plotting-the-data">
-<h2>Loading and plotting the data<a class="headerlink" href="#loading-and-plotting-the-data" title="Link to this heading"></a></h2>
+<h2>Loading and plotting the data<a class="headerlink" href="#loading-and-plotting-the-data" title="Permalink to this heading"></a></h2>
 <p>After generating data (called <cite>LBC_knapsack.txt</cite> and <cite>LBC_sfc.txt</cite> in the example
 below), the following Python code, along with a helper class in
 <code class="xref download docutils literal notranslate"><span class="pre">plot_distribution_mapping.py</span></code>
@@ -225,7 +221,7 @@ mappings:</p>
 <figure class="align-default" id="fig-knapsack-sfc-distribution-mapping-2d">
 <a class="reference internal image-reference" href="../../_images/knapsack_sfc_distribution_mapping_2D.png"><img alt="Sample distribution mappings from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing." src="../../_images/knapsack_sfc_distribution_mapping_2D.png" style="width: 15cm;" /></a>
 <figcaption>
-<p><span class="caption-text">Sample distribution mappings from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing.</span><a class="headerlink" href="#fig-knapsack-sfc-distribution-mapping-2d" title="Link to this image"></a></p>
+<p><span class="caption-text">Sample distribution mappings from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing.</span><a class="headerlink" href="#fig-knapsack-sfc-distribution-mapping-2d" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Similarly, the computational costs per box can be plotted with the following code:</p>
@@ -250,7 +246,7 @@ mappings:</p>
 <figure class="align-default" id="fig-knapsack-sfc-costs-2d">
 <a class="reference internal image-reference" href="../../_images/knapsack_sfc_costs_2D.png"><img alt="Sample computational cost per box from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing." src="../../_images/knapsack_sfc_costs_2D.png" style="width: 15cm;" /></a>
 <figcaption>
-<p><span class="caption-text">Sample computational cost per box from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing.</span><a class="headerlink" href="#fig-knapsack-sfc-costs-2d" title="Link to this image"></a></p>
+<p><span class="caption-text">Sample computational cost per box from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing.</span><a class="headerlink" href="#fig-knapsack-sfc-costs-2d" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Loading 3D data works the same as loading 2D data, but this time the cost and
@@ -333,7 +329,7 @@ from <span class="math notranslate nohighlight">\(k=0\)</span> to <span class="m
 <figure class="align-default" id="fig-distribution-mapping-3d">
 <a class="reference internal image-reference" href="../../_images/distribution_mapping_3D.png"><img alt="Sample distribution mappings from 3D simulations, visualized as slices in the :math:`ik` plane along :math:`j`." src="../../_images/distribution_mapping_3D.png" style="width: 15cm;" /></a>
 <figcaption>
-<p><span class="caption-text">Sample distribution mappings from 3D simulations, visualized as slices in the <span class="math notranslate nohighlight">\(ik\)</span> plane along <span class="math notranslate nohighlight">\(j\)</span>.</span><a class="headerlink" href="#fig-distribution-mapping-3d" title="Link to this image"></a></p>
+<p><span class="caption-text">Sample distribution mappings from 3D simulations, visualized as slices in the <span class="math notranslate nohighlight">\(ik\)</span> plane along <span class="math notranslate nohighlight">\(j\)</span>.</span><a class="headerlink" href="#fig-distribution-mapping-3d" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 </section>

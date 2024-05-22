@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checksum regression tests &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,23 +92,23 @@
            <div itemprop="articleBody">
              
   <section id="checksum-regression-tests">
-<span id="developers-checksum"></span><h1>Checksum regression tests<a class="headerlink" href="#checksum-regression-tests" title="Link to this heading"></a></h1>
+<span id="developers-checksum"></span><h1>Checksum regression tests<a class="headerlink" href="#checksum-regression-tests" title="Permalink to this heading"></a></h1>
 <p>WarpX has checksum regression tests: as part of CI testing, when running a given test, the checksum module computes one aggregated number per field (<code class="docutils literal notranslate"><span class="pre">Ex_checksum</span> <span class="pre">=</span> <span class="pre">np.sum(np.abs(Ex))</span></code>) and compares it to a reference (benchmark). This should be sensitive enough to make the test fail if your PR causes a significant difference, print meaningful error messages, and give you a chance to fix a bug or reset the benchmark if needed.</p>
 <p>The checksum module is located in <code class="docutils literal notranslate"><span class="pre">Regression/Checksum/</span></code>, and the benchmarks are stored as human-readable <a class="reference external" href="https://www.json.org/json-en.html">JSON</a> files in <code class="docutils literal notranslate"><span class="pre">Regression/Checksum/benchmarks_json/</span></code>, with one file per benchmark (for instance, test <code class="docutils literal notranslate"><span class="pre">Langmuir_2d</span></code> has a corresponding benchmark <code class="docutils literal notranslate"><span class="pre">Regression/Checksum/benchmarks_json/Langmuir_2d.json</span></code>).</p>
 <p>For more details on the implementation, the Python files in <code class="docutils literal notranslate"><span class="pre">Regression/Checksum/</span></code> should be well documented.</p>
 <p>From a user point of view, you should only need to use <code class="docutils literal notranslate"><span class="pre">checksumAPI.py</span></code>. It contains Python functions that can be imported and used from an analysis Python script. It can also be executed directly as a Python script. Here are recipies for the main tasks related to checksum regression tests in WarpX CI.</p>
 <section id="include-a-checksum-regression-test-in-an-analysis-python-script">
-<h2>Include a checksum regression test in an analysis Python script<a class="headerlink" href="#include-a-checksum-regression-test-in-an-analysis-python-script" title="Link to this heading"></a></h2>
+<h2>Include a checksum regression test in an analysis Python script<a class="headerlink" href="#include-a-checksum-regression-test-in-an-analysis-python-script" title="Permalink to this heading"></a></h2>
 <p>This relies on function <code class="docutils literal notranslate"><span class="pre">evaluate_checksum</span></code>:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /home/ajnonaka/CCSEPackages/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <p>For an example, see</p>
 <p>This can also be included in an existing analysis script. Note that the plotfile must be <code class="docutils literal notranslate"><span class="pre">&lt;test</span> <span class="pre">name&gt;_plt?????</span></code>, as is generated by the CI framework.</p>
 </section>
 <section id="evaluate-a-checksum-regression-test-from-a-bash-terminal">
-<h2>Evaluate a checksum regression test from a bash terminal<a class="headerlink" href="#evaluate-a-checksum-regression-test-from-a-bash-terminal" title="Link to this heading"></a></h2>
+<h2>Evaluate a checksum regression test from a bash terminal<a class="headerlink" href="#evaluate-a-checksum-regression-test-from-a-bash-terminal" title="Permalink to this heading"></a></h2>
 <p>You can execute <code class="docutils literal notranslate"><span class="pre">checksumAPI.py</span></code> as a Python script for that, and pass the plotfile that you want to evaluate, as well as the test name (so the script knows which benchmark to compare it to).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./checksumAPI.py<span class="w"> </span>--evaluate<span class="w"> </span>--plotfile<span class="w"> </span>&lt;path/to/plotfile&gt;<span class="w"> </span>--test-name<span class="w"> </span>&lt;<span class="nb">test</span><span class="w"> </span>name&gt;
 </pre></div>
@@ -126,7 +122,7 @@
 </ul>
 </section>
 <section id="reset-a-benchmark-from-a-plotfile-you-know-is-correct">
-<h2>Reset a benchmark from a plotfile you know is correct<a class="headerlink" href="#reset-a-benchmark-from-a-plotfile-you-know-is-correct" title="Link to this heading"></a></h2>
+<h2>Reset a benchmark from a plotfile you know is correct<a class="headerlink" href="#reset-a-benchmark-from-a-plotfile-you-know-is-correct" title="Permalink to this heading"></a></h2>
 <p>This is using <code class="docutils literal notranslate"><span class="pre">checksumAPI.py</span></code> as a Python script.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./checksumAPI.py<span class="w"> </span>--reset-benchmark<span class="w"> </span>--plotfile<span class="w"> </span>&lt;path/to/plotfile&gt;<span class="w"> </span>--test-name<span class="w"> </span>&lt;<span class="nb">test</span><span class="w"> </span>name&gt;
 </pre></div>

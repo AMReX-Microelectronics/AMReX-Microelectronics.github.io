@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boundary conditions &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -97,9 +93,9 @@
            <div itemprop="articleBody">
              
   <section id="boundary-conditions">
-<span id="theory-bc"></span><h1>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading"></a></h1>
+<span id="theory-bc"></span><h1>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading"></a></h1>
 <section id="open-boundary-condition-for-electromagnetic-waves">
-<h2>Open boundary condition for electromagnetic waves<a class="headerlink" href="#open-boundary-condition-for-electromagnetic-waves" title="Link to this heading"></a></h2>
+<h2>Open boundary condition for electromagnetic waves<a class="headerlink" href="#open-boundary-condition-for-electromagnetic-waves" title="Permalink to this heading"></a></h2>
 <p>For the TE case, the original Berenger’s Perfectly Matched Layer (PML) writes</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -121,7 +117,7 @@ this system reduces to the Berenger PML medium, while adding the additional
 constraint <span class="math notranslate nohighlight">\(\sigma _{x}=\sigma _{y}=\sigma _{x}^{*}=\sigma _{y}^{*}=0\)</span>
 leads to the system of Maxwell equations in vacuum.</p>
 <section id="propagation-of-a-plane-wave-in-an-apml-medium">
-<span id="theory-bc-propa-plane-wave"></span><h3>Propagation of a Plane Wave in an APML Medium<a class="headerlink" href="#propagation-of-a-plane-wave-in-an-apml-medium" title="Link to this heading"></a></h3>
+<span id="theory-bc-propa-plane-wave"></span><h3>Propagation of a Plane Wave in an APML Medium<a class="headerlink" href="#propagation-of-a-plane-wave-in-an-apml-medium" title="Permalink to this heading"></a></h3>
 <p>We consider a plane wave of magnitude (<span class="math notranslate nohighlight">\(E_{0},H_{zx0},H_{zy0}\)</span>)
 and pulsation <span class="math notranslate nohighlight">\(\omega\)</span> propagating in the APML medium with an
 angle <span class="math notranslate nohighlight">\(\varphi\)</span> relative to the x axis</p>
@@ -186,7 +182,7 @@ seems to be of no interest. However, although this conclusion is true
 at the infinitesimal limit, it does not hold for the discretized counterpart.</p>
 </section>
 <section id="discretization">
-<h3>Discretization<a class="headerlink" href="#discretization" title="Link to this heading"></a></h3>
+<h3>Discretization<a class="headerlink" href="#discretization" title="Permalink to this heading"></a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 \frac{E_x|^{n+1}_{j+1/2,k,l}-E_x|^{n}_{j+1/2,k,l}}{\Delta t} + \sigma_y \frac{E_x|^{n+1}_{j+1/2,k,l}+E_x|^{n}_{j+1/2,k,l}}{2} = &amp; \frac{H_z|^{n+1/2}_{j+1/2,k+1/2,l}-H_z|^{n+1/2}_{j+1/2,k-1/2,l}}{\Delta y} \\
@@ -262,7 +258,7 @@ H_z = &amp; H_{zx}+H_{zy}\end{aligned}\end{split}\]</div>
 </section>
 </section>
 <section id="perfect-electrical-conductor">
-<span id="theory-bc-pec"></span><h2>Perfect Electrical Conductor<a class="headerlink" href="#perfect-electrical-conductor" title="Link to this heading"></a></h2>
+<span id="theory-bc-pec"></span><h2>Perfect Electrical Conductor<a class="headerlink" href="#perfect-electrical-conductor" title="Permalink to this heading"></a></h2>
 <p>This boundary can be used to model a dielectric or metallic surface.
 For the electromagnetic solve, at PEC, the tangential electric field and the normal magnetic
 field are set to 0. In the guard-cell region, the tangential electric field is set equal and

@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Debugging the code &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -96,13 +92,13 @@
            <div itemprop="articleBody">
              
   <section id="debugging-the-code">
-<span id="debugging-warpx"></span><h1>Debugging the code<a class="headerlink" href="#debugging-the-code" title="Link to this heading"></a></h1>
+<span id="debugging-warpx"></span><h1>Debugging the code<a class="headerlink" href="#debugging-the-code" title="Permalink to this heading"></a></h1>
 <p>Sometimes, the code does not give you the result that you are expecting.
 This can be due to a variety of reasons, from misunderstandings or changes in the <a class="reference internal" href="../parameters.html#running-cpp-parameters"><span class="std std-ref">input parameters</span></a>, system specific quirks, or bugs.
 You might also want to debug your code as you implement new features in WarpX during development.</p>
 <p>This section gives a step-by-step guidance on how to systematically check what might be going wrong.</p>
 <section id="debugging-workflow">
-<h2>Debugging Workflow<a class="headerlink" href="#debugging-workflow" title="Link to this heading"></a></h2>
+<h2>Debugging Workflow<a class="headerlink" href="#debugging-workflow" title="Permalink to this heading"></a></h2>
 <p>Try the following steps to debug a simulation:</p>
 <ol class="arabic simple">
 <li><p>Check the output text file, usually called <code class="docutils literal notranslate"><span class="pre">output.txt</span></code>: are there warnings or errors present?</p></li>
@@ -133,7 +129,7 @@ Can you reproduce the problem with a smaller setup (less parallelism and/or less
 Report these details in a <span class="xref std std-ref">WarpX GitHub issue</span>.</p>
 </section>
 <section id="debuggers">
-<h2>Debuggers<a class="headerlink" href="#debuggers" title="Link to this heading"></a></h2>
+<h2>Debuggers<a class="headerlink" href="#debuggers" title="Permalink to this heading"></a></h2>
 <p>See the <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Debugging.html#breaking-into-debuggers">AMReX debugger section</a> on additional runtime parameters to</p>
 <ul class="simple">
 <li><p>disable backtraces</p></li>
@@ -143,14 +139,14 @@ Report these details in a <span class="xref std std-ref">WarpX GitHub issue</spa
 <p>You will need to set those runtime options to work directly with debuggers.</p>
 </section>
 <section id="typical-error-messages">
-<h2>Typical Error Messages<a class="headerlink" href="#typical-error-messages" title="Link to this heading"></a></h2>
+<h2>Typical Error Messages<a class="headerlink" href="#typical-error-messages" title="Permalink to this heading"></a></h2>
 <p>By default, the code is run in <em>Release</em> mode (see <a class="reference internal" href="../../install/cmake.html#building-cmake-options"><span class="std std-ref">compilation options</span></a>).
 That means, code errors will likely show up as symptoms of earlier errors in the code instead of directly showing the underlying line that caused the error.</p>
 <p>For instance, we have <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/blob/23fa23209879cbdf5ef829530def162c2b343c72/Source/ablastr/particles/DepositCharge.H#L139">these</a> <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/blob/23fa23209879cbdf5ef829530def162c2b343c72/Source/Particles/WarpXParticleContainer.cpp#L364">checks</a> in release mode</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="p">(</span><span class="n">CPU</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="n">cells</span><span class="w"> </span><span class="p">(</span><span class="n">GPU</span><span class="p">)</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">charge</span><span class="w"> </span><span class="n">deposition</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="p">(</span><span class="n">CPU</span><span class="p">)</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="n">cells</span><span class="w"> </span><span class="p">(</span><span class="n">GPU</span><span class="p">)</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">charge</span><span class="w"> </span><span class="n">deposition</span>
 </pre></div>
 </div>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="p">(</span><span class="n">CPU</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="n">cells</span><span class="w"> </span><span class="p">(</span><span class="n">GPU</span><span class="p">)</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">deposition</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="p">(</span><span class="n">CPU</span><span class="p">)</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="n">cells</span><span class="w"> </span><span class="p">(</span><span class="n">GPU</span><span class="p">)</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">deposition</span>
 </pre></div>
 </div>
 <p>which prevent that particles with positions that violate the local definitions of guard cells cause confusing errors in charge/current deposition.</p>

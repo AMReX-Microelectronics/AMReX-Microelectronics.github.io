@@ -7,6 +7,10 @@ Exascale-Enabled Models and Algorithms for Microelectronics Applications
 
 The MicroEleX package contains a variety of models and algorithms for physical modeling of microelectronic circuitry, including electrostatics, electrodynamics, superconducting physics, micromagnetics, multi-ferroic systems, and quantum transport. MicroEleX leverages the AMReX software framework to provide scalability on GPU-based supercomputing architectures. The code is open source and designed to be algorithmically flexible so developers can incorporate enhanced or customized physics. It contains the following code packages:
 
+Contributing to Documentation
+-----------------------------
+Visit the `documentation github site  <https://github.com/AMReX-Microelectronics/AMReX-Microelectronics.github.io/>`__ to learn how to contribute to this documentation.
+
 
 ARTEMIS
 -------

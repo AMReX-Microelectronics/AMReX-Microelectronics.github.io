@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,10 +92,10 @@
            <div itemprop="articleBody">
              
   <section id="faq">
-<span id="development-faq"></span><h1>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h1>
+<span id="development-faq"></span><h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h1>
 <p>This section lists frequently asked developer questions.</p>
 <section id="what-is-0-0-rt">
-<h2>What is <code class="docutils literal notranslate"><span class="pre">0.0_rt</span></code>?<a class="headerlink" href="#what-is-0-0-rt" title="Link to this heading"></a></h2>
+<h2>What is <code class="docutils literal notranslate"><span class="pre">0.0_rt</span></code>?<a class="headerlink" href="#what-is-0-0-rt" title="Permalink to this heading"></a></h2>
 <p>It’s a C++ <a class="reference external" href="https://en.cppreference.com/w/cpp/language/floating_literal">floating-point literal</a> for zero of type <code class="docutils literal notranslate"><span class="pre">amrex::Real</span></code>.</p>
 <p>We use <a class="reference external" href="https://en.cppreference.com/w/cpp/language/expressions#Literals">literals</a> to define constants with a specific type, in that case the zero-value.
 There is also <code class="docutils literal notranslate"><span class="pre">0.0_prt</span></code>, which is a literal zero of type <code class="docutils literal notranslate"><span class="pre">amrex::ParticleReal</span></code>.
@@ -109,7 +105,7 @@ We do not use use those, so that we can configure floating point precision at co
 <p>We use these <a class="reference external" href="https://en.cppreference.com/w/cpp/language/user_literal">C++ user literals</a> (<a class="reference external" href="https://github.com/AMReX-Codes/amrex/pull/577">[1]</a>, <a class="reference external" href="https://github.com/AMReX-Codes/amrex/pull/578">[2]</a>, <a class="reference external" href="https://github.com/AMReX-Codes/amrex/pull/869">[3]</a>), because we want to avoid that double operations, i.e., <code class="docutils literal notranslate"><span class="pre">3.</span> <span class="pre">/</span> <span class="pre">4.</span></code>, implicit casts, or even worse integer operations, i.e., <code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">/</span> <span class="pre">4</span></code>, sneak into the code base and make results wrong or slower.</p>
 </section>
 <section id="do-you-worry-about-using-size-t-vs-uint-vs-int-for-indexing-things">
-<h2>Do you worry about using <code class="docutils literal notranslate"><span class="pre">size_t</span></code> vs. <code class="docutils literal notranslate"><span class="pre">uint</span></code> vs. <code class="docutils literal notranslate"><span class="pre">int</span></code> for indexing things?<a class="headerlink" href="#do-you-worry-about-using-size-t-vs-uint-vs-int-for-indexing-things" title="Link to this heading"></a></h2>
+<h2>Do you worry about using <code class="docutils literal notranslate"><span class="pre">size_t</span></code> vs. <code class="docutils literal notranslate"><span class="pre">uint</span></code> vs. <code class="docutils literal notranslate"><span class="pre">int</span></code> for indexing things?<a class="headerlink" href="#do-you-worry-about-using-size-t-vs-uint-vs-int-for-indexing-things" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/types/size_t">std::size_t</a> is the C++ unsigned int type for all container sizes.</p>
 <p>Close to but not necessarily <code class="docutils literal notranslate"><span class="pre">uint</span></code>, <a class="reference external" href="https://en.cppreference.com/w/cpp/language/types">depends on the platform</a>.
 For “hot” inner loops, you want to use <code class="docutils literal notranslate"><span class="pre">int</span></code> instead of an unsigned integer type. Why? Because <code class="docutils literal notranslate"><span class="pre">int</span></code> has no handling for overflows (it is intentional, undefined behavior in C++), which allows compilers to vectorize easier, because they don’t need to check for an overflow every time one reaches the control/condition section of the loop.</p>
@@ -117,34 +113,34 @@ For “hot” inner loops, you want to use <code class="docutils literal notrans
 Thus, sometimes you need to <code class="docutils literal notranslate"><span class="pre">static_cast&lt;int&gt;(...)</span></code>.</p>
 </section>
 <section id="what-does-std-make-unique-do">
-<h2>What does <code class="docutils literal notranslate"><span class="pre">std::make_unique</span></code> do?<a class="headerlink" href="#what-does-std-make-unique-do" title="Link to this heading"></a></h2>
+<h2>What does <code class="docutils literal notranslate"><span class="pre">std::make_unique</span></code> do?<a class="headerlink" href="#what-does-std-make-unique-do" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique">make_unique</a> is a <a class="reference external" href="https://refactoring.guru/design-patterns/factory-method/cpp/example">C++ factory method</a> that creates a <code class="docutils literal notranslate"><span class="pre">std::unique_ptr&lt;T&gt;</span></code>.</p>
 <p>Follow-up: <code class="docutils literal notranslate"><span class="pre">Why</span> <span class="pre">use</span> <span class="pre">this</span> <span class="pre">over</span> <span class="pre">just</span> <span class="pre">*my_ptr</span> <span class="pre">=</span> <span class="pre">new</span> <span class="pre">&lt;class&gt;</span></code>?</p>
 <p>Because so-called <a class="reference external" href="https://en.cppreference.com/book/intro/smart_pointers">smart-pointers</a>, such as <code class="docutils literal notranslate"><span class="pre">std::unique_ptr&lt;T&gt;</span></code>, do delete themselves automatically when they run out of scope.
 That means: no memory leaks, because you cannot forget to <code class="docutils literal notranslate"><span class="pre">delete</span></code> them again.</p>
 </section>
 <section id="why-name-header-files-h-instead-of-h">
-<h2>Why name header files <code class="docutils literal notranslate"><span class="pre">.H</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.h</span></code>?<a class="headerlink" href="#why-name-header-files-h-instead-of-h" title="Link to this heading"></a></h2>
+<h2>Why name header files <code class="docutils literal notranslate"><span class="pre">.H</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.h</span></code>?<a class="headerlink" href="#why-name-header-files-h-instead-of-h" title="Permalink to this heading"></a></h2>
 <p>This is just a <a class="reference internal" href="contributing.html#developers-contributing-style-conventions"><span class="std std-ref">convention that we follow through the code base</span></a>, which slightly simplifies what we need to parse in our various build systems.
 We inherited that from AMReX.
 Generally speaking, C++ file endings can be arbitrary, we just keep them consistent to avoid confusion in the code base.</p>
 <p>To be explicit and avoid confusion (with C/ObjC), we might change them all to <code class="docutils literal notranslate"><span class="pre">.hpp</span></code> and <code class="docutils literal notranslate"><span class="pre">.cpp</span></code>/<code class="docutils literal notranslate"><span class="pre">.cxx</span></code> at some point, but for now <code class="docutils literal notranslate"><span class="pre">.H</span></code> and <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> is what we do (as in AMReX).</p>
 </section>
 <section id="what-are-include-fwd-h-and-include-fwd-h-files">
-<h2>What are <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;..._fwd.H&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...Fwd.H&gt;</span></code> files?<a class="headerlink" href="#what-are-include-fwd-h-and-include-fwd-h-files" title="Link to this heading"></a></h2>
+<h2>What are <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;..._fwd.H&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...Fwd.H&gt;</span></code> files?<a class="headerlink" href="#what-are-include-fwd-h-and-include-fwd-h-files" title="Permalink to this heading"></a></h2>
 <p>These are <a class="reference external" href="https://en.wikipedia.org/wiki/Forward_declaration">C++ forward declarations</a>.
 In C++, <code class="docutils literal notranslate"><span class="pre">#include</span></code> statements copy the referenced header file <em>literally</em> into place, which can increase the compile time of a <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> file to an object file significantly, especially with transitive header files including each other.</p>
 <p>In order to reduce compile time, we define <a class="reference internal" href="repo_organization.html#developers-cpp-includes-fwd"><span class="std std-ref">forward declarations in WarpX and AMReX</span></a> for commonly used, large classes.
 The C++ standard library also uses that concept, e.g., in <a class="reference external" href="https://en.cppreference.com/w/cpp/header/iosfwd">iosfwd</a>.</p>
 </section>
 <section id="what-does-const-int-i-buffer-mean-in-argument-list">
-<h2>What does const int <code class="docutils literal notranslate"><span class="pre">/*i_buffer*/</span></code> mean in argument list?<a class="headerlink" href="#what-does-const-int-i-buffer-mean-in-argument-list" title="Link to this heading"></a></h2>
+<h2>What does const int <code class="docutils literal notranslate"><span class="pre">/*i_buffer*/</span></code> mean in argument list?<a class="headerlink" href="#what-does-const-int-i-buffer-mean-in-argument-list" title="Permalink to this heading"></a></h2>
 <p>This is often seen in a derived class, overwriting an interface method.
 It means we do not name the parameter because we do not use it when we overwrite the interface.
 But we add the name as a comment <code class="docutils literal notranslate"><span class="pre">/*</span> <span class="pre">...</span> <span class="pre">*/</span></code> so that we know what we ignored when looking at the definition of the overwritten method.</p>
 </section>
 <section id="what-is-pinned-memory">
-<h2>What is Pinned Memory?<a class="headerlink" href="#what-is-pinned-memory" title="Link to this heading"></a></h2>
+<h2>What is Pinned Memory?<a class="headerlink" href="#what-is-pinned-memory" title="Permalink to this heading"></a></h2>
 <p>We need pinned aka “page locked” host memory when we:</p>
 <ul class="simple">
 <li><p>do asynchronous copies between the host and device</p></li>

@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installing WarpX as a Python package &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -96,10 +92,10 @@
            <div itemprop="articleBody">
              
   <section id="installing-warpx-as-a-python-package">
-<span id="developers-gnumake-python"></span><h1>Installing WarpX as a Python package<a class="headerlink" href="#installing-warpx-as-a-python-package" title="Link to this heading"></a></h1>
+<span id="developers-gnumake-python"></span><h1>Installing WarpX as a Python package<a class="headerlink" href="#installing-warpx-as-a-python-package" title="Permalink to this heading"></a></h1>
 <p>A full Python installation of WarpX can be done, which includes a build of all of the C++ code, or a pure Python version can be made which only installs the Python scripts. WarpX requires Pythone version 3.7 or newer.</p>
 <section id="for-a-full-python-installation-of-warpx">
-<h2>For a full Python installation of WarpX<a class="headerlink" href="#for-a-full-python-installation-of-warpx" title="Link to this heading"></a></h2>
+<h2>For a full Python installation of WarpX<a class="headerlink" href="#for-a-full-python-installation-of-warpx" title="Permalink to this heading"></a></h2>
 <p>WarpX’ Python bindings depend on <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">periodictable</span></code>, <code class="docutils literal notranslate"><span class="pre">picmistandard</span></code>, and <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code>.</p>
 <p>Type</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">USE_PYTHON_MAIN</span><span class="o">=</span>TRUE
@@ -124,7 +120,7 @@ The appropriate one will be imported depending on the input file.
 Note, however, other options will overwrite - compiling with <code class="docutils literal notranslate"><span class="pre">DEBUG=TRUE</span></code> will replace the version compiled with <code class="docutils literal notranslate"><span class="pre">DEBUG=FALSE</span></code> for example.</p>
 </section>
 <section id="for-a-pure-python-installation">
-<h2>For a pure Python installation<a class="headerlink" href="#for-a-pure-python-installation" title="Link to this heading"></a></h2>
+<h2>For a pure Python installation<a class="headerlink" href="#for-a-pure-python-installation" title="Permalink to this heading"></a></h2>
 <p>This avoids the compilation of the C++ and is recommended when only using the Python input files as preprocessors.
 This installation depend on <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">periodictable</span></code>, and <code class="docutils literal notranslate"><span class="pre">picmistandard</span></code>.</p>
 <p>Go into the <code class="docutils literal notranslate"><span class="pre">Python</span></code> subdirectory and run</p>
