@@ -65,10 +65,10 @@ Installation
    :maxdepth: 1
    :hidden:
 
-   install/ferrox
    install/artemis
-   install/magnex
    install/eleqtroneX
+   install/ferrox
+   install/magnex
 
 Usage
 -----
@@ -77,10 +77,10 @@ Usage
    :maxdepth: 1
    :hidden:
 
-   usage/run_ferrox
    usage/run_artemis
-   usage/run_magnex
    usage/run_eleqtronex
+   usage/run_ferrox
+   usage/run_magnex
    usage/domain_decomposition
 
 Data Analysis
