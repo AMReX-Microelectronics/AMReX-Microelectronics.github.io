@@ -12,5 +12,5 @@ You can then open the file `build/html/index.html` with a standard web browser (
 
 ### Cleaning the documentation
 
-In order to remove all of the generated files, use:
+In order to remove all of the generated files, use:\
 ``` >> make clean ```
