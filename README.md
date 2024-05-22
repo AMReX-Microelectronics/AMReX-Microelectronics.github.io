@@ -1,7 +1,7 @@
 # MicroEleX Codes Documentation
 This repository contains documentation (in .rst format) for the MicroEleX codes.\
 This documentation can be viewed at ADD URL\
-Alternatively, the documentation can be built locally by
+Alternatively, the documentation can be built locally using sphinx python packages by running:
 
 ``` >> git clone https://github.com/AMReX-Microelectronics/AMReX-Microelectronics.github.io.git ``` \
 ``` >> cd AMReX-Microelectronics.github.io/Docs ``` \
