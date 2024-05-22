@@ -67,6 +67,8 @@ Installation
 
    install/ferrox
    install/artemis
+   install/magnex
+   install/eleqtroneX
 
 Usage
 -----
@@ -90,14 +92,6 @@ Data Analysis
 
    dataanalysis/formats
    dataanalysis/yt
-   dataanalysis/openpmdviewer
-   dataanalysis/openpmdapi
-   dataanalysis/paraview
-   dataanalysis/visit
-   dataanalysis/visualpic
-   dataanalysis/picviewer
-   dataanalysis/reduced_diags
-   dataanalysis/workflows
 
 
 Epilogue

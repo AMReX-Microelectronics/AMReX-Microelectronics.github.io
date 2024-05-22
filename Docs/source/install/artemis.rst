@@ -1,7 +1,7 @@
 .. _install-ferrox:
 
-FerroX
-=====
+ARTEMIS
+========
 
 .. raw:: html
 

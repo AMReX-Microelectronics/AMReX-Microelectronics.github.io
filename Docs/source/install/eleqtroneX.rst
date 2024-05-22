@@ -1,6 +1,6 @@
 .. _install-ferrox:
 
-MagneX
+ELEQTRONeX
 =====
 
 .. raw:: html
