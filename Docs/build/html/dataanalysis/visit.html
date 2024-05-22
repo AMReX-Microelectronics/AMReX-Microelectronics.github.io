@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Visualization: VisIt &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="VisualPIC" href="visualpic.html" />
+    <link rel="prev" title="3D Visualization: ParaView" href="paraview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3D Visualization: VisIt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#openpmd-hdf5">openPMD (HDF5)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotfiles-amrex">Plotfiles (AMReX)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">3D Visualization: VisIt</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dataanalysis/visit.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="d-visualization-visit">
+<span id="dataanalysis-visualization-visit"></span><h1>3D Visualization: VisIt<a class="headerlink" href="#d-visualization-visit" title="Link to this heading"></a></h1>
+<p>WarpX results can be visualized by VisIt, an open source visualization and analysis software. VisIt can be downloaded and installed from <a class="reference external" href="https://wci.llnl.gov/simulation/computer-codes/visit">https://wci.llnl.gov/simulation/computer-codes/visit</a>.</p>
+<section id="openpmd-hdf5">
+<h2>openPMD (HDF5)<a class="headerlink" href="#openpmd-hdf5" title="Link to this heading"></a></h2>
+<p>WarpX’ openPMD files can be visualized with VisIt 3.1.0+.
+VisIt supports openPMD HDF5 files and requires to rename the files from <code class="docutils literal notranslate"><span class="pre">.h5</span></code> to <code class="docutils literal notranslate"><span class="pre">.opmd</span></code> to be automatically detected.</p>
+</section>
+<section id="plotfiles-amrex">
+<h2>Plotfiles (AMReX)<a class="headerlink" href="#plotfiles-amrex" title="Link to this heading"></a></h2>
+<p>Assuming that you ran a 2D simulation, here are instructions for making a simple plot from a given plotfile:</p>
+<ul class="simple">
+<li><p>Open the header file: Run VisIt, then select “File” -&gt; “Open file …”, then select the Header file associated with the plotfile of interest (e.g., <code class="docutils literal notranslate"><span class="pre">plt10000/Header</span></code>).</p></li>
+<li><p>View the data: Select “Add” -&gt; “Pseudocolor” -&gt; “Ez” and select “Draw”. You can select other variable to draw, such as <code class="docutils literal notranslate"><span class="pre">jx</span></code>, <code class="docutils literal notranslate"><span class="pre">jy</span></code>, <code class="docutils literal notranslate"><span class="pre">jz</span></code>, <code class="docutils literal notranslate"><span class="pre">Ex</span></code>, …</p></li>
+<li><p>View the grid structure: Select “Subset”  -&gt; “levels”. Then double click the text “Subset-levels”, enable the “Wireframe” option, select “Apply”, select “Dismiss”, and then select “Draw”.</p></li>
+<li><p>Save the image: Select “File” -&gt; “Set save options”, then customize the image format to your liking, then click “Save”.</p></li>
+</ul>
+<p>Your image should look similar to the one below</p>
+<figure class="align-default">
+<img alt="picture" src="../_images/Ez.png" />
+</figure>
+<p>In 3D, you must apply the “Operators” -&gt; “Slicing”
+-&gt; “ThreeSlice”,  You can left-click and drag over the
+image to rotate the image to generate image you like.</p>
+<p>To make a movie, you must first create a text file named <code class="docutils literal notranslate"><span class="pre">movie.visit</span></code> with a
+list of the Header files for the individual frames.</p>
+<p>The next step is to run VisIt, select “File” -&gt; “Open file
+…”, then select <code class="docutils literal notranslate"><span class="pre">movie.visit</span></code>. Create an image to your liking and press the
+“play” button on the VCR-like control panel to preview all the frames. To save
+the movie, choose “File” -&gt; “Save movie …”, and follow the instructions on the screen.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="paraview.html" class="btn btn-neutral float-left" title="3D Visualization: ParaView" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visualpic.html" class="btn btn-neutral float-right" title="VisualPIC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

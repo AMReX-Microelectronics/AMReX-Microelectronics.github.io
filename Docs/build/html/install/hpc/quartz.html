@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quartz (LLNL) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ferrox.html">FerroX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quartz (LLNL)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/install/hpc/quartz.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quartz-llnl">
+<span id="building-quartz"></span><h1>Quartz (LLNL)<a class="headerlink" href="#quartz-llnl" title="Link to this heading"></a></h1>
+<p>The <a class="reference external" href="https://hpc.llnl.gov/hardware/platforms/quartz">Quartz Intel CPU cluster</a> is located at LLNL.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>If you are new to this system, <strong>please see the following resources</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lc.llnl.gov/lorenz/mylc/mylc.cgi">LLNL user account</a></p></li>
+<li><p><a class="reference external" href="https://computing.llnl.gov/tutorials/linux_clusters/">Quartz user guide</a></p></li>
+<li><p>Batch system: <a class="reference external" href="https://computing.llnl.gov/tutorials/moab/">Slurm</a></p></li>
+<li><p><a class="reference external" href="https://hpc.llnl.gov/hardware/file-systems">Production directories</a>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/p/lustre1/$(whoami)</span></code> and <code class="docutils literal notranslate"><span class="pre">/p/lustre2/$(whoami)</span></code>: personal directory on the parallel filesystem</p></li>
+<li><p>Note that the <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory and the <code class="docutils literal notranslate"><span class="pre">/usr/workspace/$(whoami)</span></code> space are NFS mounted and <em>not</em> suitable for production quality data generation.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+</pre></div>
+</div>
+<p>We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/quartz_warpx.profile</span></code>).</p>
+<p>We recommend to store the above lines in a file, such as <code class="docutils literal notranslate"><span class="pre">$HOME/quartz_warpx.profile</span></code>, and load it into your shell after a login:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/quartz_warpx.profile
+</pre></div>
+</div>
+<p>Then, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the directory <code class="docutils literal notranslate"><span class="pre">$HOME/src/warpx</span></code> and use the following commands to compile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+rm<span class="w"> </span>-rf<span class="w"> </span>build
+
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">6</span>
+</pre></div>
+</div>
+<p>The other <a class="reference internal" href="../cmake.html#building-cmake"><span class="std std-ref">general compile-time options</span></a> apply as usual.</p>
+<p><strong>That’s it!</strong>
+A 3D WarpX executable is now in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code> and <a class="reference internal" href="#running-cpp-quartz-cpus"><span class="std std-ref">can be run</span></a> with a <a class="reference internal" href="../../usage/examples.html#usage-examples"><span class="std std-ref">3D example inputs file</span></a>.
+Most people execute the binary directly or copy it out to a location in <code class="docutils literal notranslate"><span class="pre">/p/lustre1/$(whoami)</span></code>.</p>
+</section>
+<section id="running">
+<h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<section id="intel-xeon-e5-2695-v4-cpus">
+<span id="running-cpp-quartz-cpus"></span><h3>Intel Xeon E5-2695 v4 CPUs<a class="headerlink" href="#intel-xeon-e5-2695-v4-cpus" title="Link to this heading"></a></h3>
+<p>The batch script below can be used to run a WarpX simulation on 2 nodes on the supercomputer Quartz at LLNL.
+Replace descriptions between chevrons <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> by relevant values, for instance <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">file&gt;</span></code> could be <code class="docutils literal notranslate"><span class="pre">plasma_mirror_inputs</span></code>.</p>
+<p>To run a simulation, copy the lines above to a file <code class="docutils literal notranslate"><span class="pre">quartz.sbatch</span></code> and run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>quartz.sbatch
+</pre></div>
+</div>
+<p>to submit the job.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

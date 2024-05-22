@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GNUmake Build System (Legacy) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GNUmake Build System (Legacy)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/gnumake.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gnumake-build-system-legacy">
+<span id="developers-gnumake"></span><h1>GNUmake Build System (Legacy)<a class="headerlink" href="#gnumake-build-system-legacy" title="Link to this heading"></a></h1>
+<p><a class="reference internal" href="../install/cmake.html#install-developers"><span class="std std-ref">CMake</span></a> is our primary build system.
+In this section, we describe our legacy build scripts - do not use them unless you used them before.</p>
+<p>WarpX is built on <a class="reference external" href="https://amrex-codes.github.io">AMReX</a>, which also provides support for a Linux-centric set of build scripts implemented in GNUmake.
+Since we sometimes need to move fast and test highly experimental compilers and Unix derivates on core components of WarpX, this set of build scripts is used by some of our experienced developers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>On the long-term, these scripts do not scale to the full feature set of WarpX and its dependencies.
+Please see the CMake-based <a class="reference internal" href="../install/cmake.html#install-developers"><span class="std std-ref">developer section</span></a> instead.</p>
+</div>
+<p>This page describes the most basic build with GNUmake files and points to instructions for more advanced builds.</p>
+<section id="downloading-the-source-code">
+<h2>Downloading the source code<a class="headerlink" href="#downloading-the-source-code" title="Link to this heading"></a></h2>
+<p>Clone the source codes of WarpX, and its dependencies AMReX and PICSAR into one
+single directory (e.g. <code class="docutils literal notranslate"><span class="pre">warpx_directory</span></code>):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span><span class="w"> </span><span class="n">warpx_directory</span>
+<span class="n">cd</span><span class="w"> </span><span class="n">warpx_directory</span>
+<span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/ECP-WarpX/WarpX.git</span>
+<span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/ECP-WarpX/picsar.git</span>
+<span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/ECP-WarpX/warpx-data.git</span>
+<span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/AMReX-Codes/amrex.git</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The warpx-data repository is currently only needed for MCC cross-sections.</p>
+</div>
+</section>
+<section id="basic-compilation">
+<h2>Basic compilation<a class="headerlink" href="#basic-compilation" title="Link to this heading"></a></h2>
+<p>WarpX requires a C/C++ compiler (e.g., GNU, LLVM or Intel) and an MPI implementation (e.g., OpenMPI or MPICH).
+Start a GNUmake build by <code class="docutils literal notranslate"><span class="pre">cd</span></code>-ing into the directory <code class="docutils literal notranslate"><span class="pre">WarpX</span></code> and type</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">j</span><span class="w"> </span><span class="mi">4</span>
+</pre></div>
+</div>
+<p>This will generate an executable file in the <code class="docutils literal notranslate"><span class="pre">Bin</span></code> directory.</p>
+</section>
+<section id="compile-time-vs-run-time-options">
+<h2>Compile-time vs. run-time options<a class="headerlink" href="#compile-time-vs-run-time-options" title="Link to this heading"></a></h2>
+<p>WarpX has multiple compile-time and run-time options. The compilation
+options are set in the file <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code>. The default
+options correspond to an optimized code for 3D geometry. The main compile-time
+options are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DIM=3</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>: Geometry of the simulation (note that running an executable compiled for 3D with a 2D input file will crash).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEBUG=FALSE</span></code> or <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>: Compiling in <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> mode can help tremendously during code development.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_PSATD=FALSE</span></code> or <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>: Compile the Pseudo-Spectral Analytical Time Domain Maxwell solver. Requires an FFT library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_RZ=FALSE</span></code> or <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>: Compile for 2D axisymmetric geometry.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMP=gcc</span></code> or <code class="docutils literal notranslate"><span class="pre">intel</span></code>: Compiler.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_MPI=TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>: Whether to compile with MPI support.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_OMP=TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>: Whether to compile with OpenMP support.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_GPU=TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>: Whether to compile for Nvidia GPUs (requires CUDA).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_OPENPMD=TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>: Whether to support openPMD for I/O (requires openPMD-api).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_LLG=TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>: Whether to compile with Landau-Lifshitz-Gilbert (LLG) model to compute magnetization.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MPI_THREAD_MULTIPLE=TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>: Whether to initialize MPI with thread multiple support. Required to use asynchronous IO with more than <code class="docutils literal notranslate"><span class="pre">amrex.async_out_nfiles</span></code> (by default, 64) MPI tasks. Please see <span class="xref std std-doc">../visualization/visualization</span> for more information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MPI_THREAD_MULTIPLE=TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>: Whether to initialize MPI with thread multiple support. Required to use asynchronous IO with more than <code class="docutils literal notranslate"><span class="pre">amrex.async_out_nfiles</span></code> (by default, 64) MPI tasks.
+Please see <a class="reference internal" href="../dataanalysis/formats.html#dataanalysis-formats"><span class="std std-ref">data formats</span></a> for more information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PRECISION=FLOAT</span> <span class="pre">USE_SINGLE_PRECISION_PARTICLES=TRUE</span></code>: Switch from default double precision to single precision (experimental).</p></li>
+</ul>
+</div></blockquote>
+<p>For a description of these different options, see the <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/BuildingAMReX.html">corresponding page</a> in the AMReX documentation.</p>
+<p>Alternatively, instead of modifying the file <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code>, you can directly pass the options in command line ; for instance:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="w"> </span><span class="o">-</span><span class="n">j</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">USE_OMP</span><span class="o">=</span><span class="n">FALSE</span>
+</pre></div>
+</div>
+<p>In order to clean a previously compiled version (typically useful for troubleshooting, if you encounter unexpected compilation errors):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="w"> </span><span class="n">realclean</span>
+</pre></div>
+</div>
+<p>before re-attempting compilation.</p>
+</section>
+<section id="advanced-gnumake-instructions">
+<h2>Advanced GNUmake instructions<a class="headerlink" href="#advanced-gnumake-instructions" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gnumake/openpmd.html">Building WarpX with support for openPMD output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnumake/spectral.html">Building the spectral solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnumake/rzgeometry.html">Building WarpX to use RZ geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnumake/gpu_local.html">Building WarpX with GPU support (Linux only)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnumake/python.html">Installing WarpX as a Python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnumake/spack.html">Building WarpX with Spack</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pywarpx.callbacks &mdash; ARTEMIS 23.04 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=eb127c28"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ARTEMIS
+          </a>
+              <div class="version">
+                23.04
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../coc.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledge_us.html">Acknowledge WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../highlights.html">Science Highlights</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/pwfa.html">In-Depth: PWFA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/workflows.html">Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/faq.html">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">THEORY</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/picsar_theory.html">Particle-in-Cell Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/picsar_theory.html#filtering">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/amr.html">Mesh refinement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/PML.html">Boundary conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/boosted_frame.html">Moving window and optimal Lorentz boosted frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/input_output.html">Inputs and Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../theory/collisions.html">Collisions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DEVELOPMENT</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developers/contributing.html">Contribute to WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers/workflows.html">Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers/developers.html">Implementation Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers/doxygen.html">C++ Objects &amp; Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers/gnumake.html">GNUmake Build System (Legacy)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developers/faq.html">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">MAINTENANCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../maintenance/release.html">Dependencies &amp; Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../maintenance/performance_tests.html">Automated performance tests</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ARTEMIS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">pywarpx.callbacks</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for pywarpx.callbacks</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright 2017-2022 The WarpX Community</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of WarpX.</span>
+<span class="c1">#</span>
+<span class="c1"># Authors: David Grote, Roelof Groenewald</span>
+<span class="c1">#</span>
+<span class="c1"># License: BSD-3-Clause-LBNL</span>
+
+<span class="sd">&quot;&quot;&quot;call back operations</span>
+<span class="sd">=====================</span>
+
+<span class="sd">These are the functions which allow installing user created functions so that</span>
+<span class="sd">they are called at various places along the time step.</span>
+
+<span class="sd">The following three functions allow the user to install, uninstall and verify</span>
+<span class="sd">the different call back types.</span>
+<span class="sd"> - installcallback: Installs a function to be called at that specified time</span>
+<span class="sd"> - uninstallcallback: Uninstalls the function (so it won&#39;t be called anymore)</span>
+<span class="sd"> - isinstalled: Checks if the function is installed</span>
+
+<span class="sd">These functions all take a callback location name (string) and function or</span>
+<span class="sd">instance method as an argument. Note that if an instance method is used, an</span>
+<span class="sd">extra reference to the method&#39;s object is saved.</span>
+
+<span class="sd">The install can be done using a decorator, which has the prefix &quot;callfrom&quot;. See</span>
+<span class="sd">example below.</span>
+
+<span class="sd">Functions can be called at the following times:</span>
+<span class="sd"> - beforeInitEsolve: before the initial solve for the E fields (i.e. before the PIC loop starts)</span>
+<span class="sd"> - afterinit: immediately after the init is complete</span>
+<span class="sd"> - beforeEsolve: before the solve for E fields</span>
+<span class="sd"> - poissonsolver: In place of the computePhi call but only in an electrostatic simulation</span>
+<span class="sd"> - afterEsolve: after the solve for E fields</span>
+<span class="sd"> - beforedeposition: before the particle deposition (for charge and/or current)</span>
+<span class="sd"> - afterdeposition: after particle deposition (for charge and/or current)</span>
+<span class="sd"> - beforestep: before the time step</span>
+<span class="sd"> - afterstep: after the time step</span>
+<span class="sd"> - afterdiagnostics: after diagnostic output</span>
+<span class="sd"> - oncheckpointsignal: on a checkpoint signal</span>
+<span class="sd"> - onbreaksignal: on a break signal. These callbacks will be the last ones executed before the simulation ends.</span>
+<span class="sd"> - particlescraper: just after the particle boundary conditions are applied</span>
+<span class="sd">                    but before lost particles are processed</span>
+<span class="sd"> - particleloader: at the time that the standard particle loader is called</span>
+<span class="sd"> - particleinjection: called when particle injection happens, after the position</span>
+<span class="sd">                      advance and before deposition is called, allowing a user</span>
+<span class="sd">                      defined particle distribution to be injected each time step</span>
+<span class="sd"> - appliedfields: allows directly specifying any fields to be applied to the particles</span>
+<span class="sd">                  during the advance</span>
+
+<span class="sd">To use a decorator, the syntax is as follows. This will install the function</span>
+<span class="sd">``myplots`` to be called after each step.</span>
+
+<span class="sd">@callfromafterstep</span>
+<span class="sd">def myplots():</span>
+<span class="sd">  ppzx()</span>
+
+<span class="sd">This is equivalent to the following:</span>
+
+<span class="sd">def myplots():</span>
+<span class="sd">  ppzx()</span>
+<span class="sd">installcallback(&#39;afterstep&#39;, myplots)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="kn">from</span> <span class="nn">._libwarpx</span> <span class="kn">import</span> <span class="n">libwarpx</span>
+
+
+<div class="viewcode-block" id="CallbackFunctions"><a class="viewcode-back" href="../../usage/python.html#pywarpx.callbacks.CallbackFunctions">[docs]</a><span class="k">class</span> <span class="nc">CallbackFunctions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to handle call back function lists.</span>
+
+<span class="sd">    Note that for functions passed in that are methods of a class instance,</span>
+<span class="sd">    a full reference of the instance is saved. This extra reference means</span>
+<span class="sd">    that the object will not actually be deleted if the user deletes the</span>
+<span class="sd">    original reference. This is good since the user does not need to keep</span>
+<span class="sd">    the reference to the object (for example it can be created using a local</span>
+<span class="sd">    variable in a function). It may be bad if the user thinks an object was</span>
+<span class="sd">    deleted, but it actually isn&#39;t since it had (unkown to the user)</span>
+<span class="sd">    installed a method in one of the call back lists.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">lcallonce</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">singlefunconly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lcallonce</span> <span class="o">=</span> <span class="n">lcallonce</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">singlefunconly</span> <span class="o">=</span> <span class="n">singlefunconly</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Call all of the functions in the list&quot;&quot;&quot;</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">callfuncsinlist</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+</span> <span class="n">tt</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lcallonce</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">clearlist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Unregister/clear out all registered C callbacks&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">libwarpx</span><span class="o">.</span><span class="n">libwarpx_so</span><span class="o">.</span><span class="n">remove_python_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__bool__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns True if functions are installed, otherwise False&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasfuncsinstalled</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Returns number of functions installed&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">hasfuncsinstalled</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks if there are any functions installed&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">_getmethodobject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">func</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;For call backs that are methods, returns the method&#39;s instance&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">func</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">callbackfunclist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generator returning callable functions from the list&quot;&quot;&quot;</span>
+        <span class="n">funclistcopy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">funclistcopy</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+                <span class="nb">object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getmethodobject</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">object</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+                <span class="kn">import</span> <span class="nn">__main__</span>
+                <span class="k">if</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">__main__</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="n">__main__</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">f</span><span class="p">]</span>
+                    <span class="c1"># --- If the function with the name is found, then replace the</span>
+                    <span class="c1"># --- name in the list with the function.</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">f</span><span class="p">)]</span> <span class="o">=</span> <span class="n">result</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">f</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Warning: a call back was found that is not callable.&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Only callable objects can be installed.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It is possible that the callable&#39;s name has been overwritten&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;by something not callable. This can happen during restart&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;if a function name had later been used as a variable name.&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The name of the call back is </span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">f</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">yield</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">installfuncinlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check if the specified function is installed&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">singlefunconly</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasfuncsinstalled</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Only one function can be installed for callback </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># If this is the first function installed, set the callback in the C++</span>
+            <span class="c1"># to call this class instance.</span>
+            <span class="n">libwarpx</span><span class="o">.</span><span class="n">libwarpx_so</span><span class="o">.</span><span class="n">add_python_callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">):</span>
+            <span class="c1"># --- If the function is a method of a class instance, then save a full</span>
+            <span class="c1"># --- reference to that instance and the method name.</span>
+            <span class="n">finstance</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="vm">__self__</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">finstance</span><span class="p">,</span><span class="n">fname</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="nb">callable</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+            <span class="c1"># --- If a function had already been installed by name, then skip the install.</span>
+            <span class="c1"># --- This is problematic, since no warning message is given, but it is unlikely</span>
+            <span class="c1"># --- to arise under normal circumstances.</span>
+            <span class="c1"># --- The purpose of this check is to avoid redundant installation of functions</span>
+            <span class="c1"># --- during a restore from a dump file. Without the check, functions that had been</span>
+            <span class="c1"># --- installed via a decorator would be installed an extra time since the source</span>
+            <span class="c1"># --- of the function contains the decoration (which is activated when the source</span>
+            <span class="c1"># --- is exec&#39;d).</span>
+            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">uninstallfuncinlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Uninstall the specified function&quot;&quot;&quot;</span>
+        <span class="c1"># --- An element by element search is needed</span>
+        <span class="c1"># --- f can be a function or method object, or a name (string).</span>
+        <span class="c1"># --- Note that method objects can not be removed by name.</span>
+        <span class="n">funclistcopy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">funclistcopy</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span> <span class="o">==</span> <span class="n">func</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">):</span>
+                <span class="nb">object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getmethodobject</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="vm">__self__</span> <span class="ow">is</span> <span class="nb">object</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="n">func</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+                    <span class="k">break</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="n">func</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+                    <span class="k">break</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span> <span class="n">funcname</span> <span class="o">=</span> <span class="n">func</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span> <span class="n">funcname</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="k">else</span><span class="p">:</span>                        <span class="n">funcname</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span>
+                <span class="k">if</span> <span class="n">f</span> <span class="o">==</span> <span class="n">funcname</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+        <span class="c1"># check that a function was removed</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">funclistcopy</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Warning: no function, </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">, had been installed&#39;</span><span class="p">)</span>
+
+        <span class="c1"># if there are no functions left, remove the C callback</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">hasfuncsinstalled</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clearlist</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">isinstalledfuncinlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Checks if the specified function is installed&quot;&quot;&quot;</span>
+        <span class="c1"># --- An element by element search is needed</span>
+        <span class="n">funclistcopy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">funcs</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">funclistcopy</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">f</span> <span class="o">==</span> <span class="n">func</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">):</span>
+                <span class="nb">object</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getmethodobject</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="vm">__self__</span> <span class="ow">is</span> <span class="nb">object</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="n">func</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="n">func</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">callfuncsinlist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Call the functions in the list&quot;&quot;&quot;</span>
+        <span class="n">bb</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbackfunclist</span><span class="p">():</span>
+            <span class="c1">#barrier()</span>
+            <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+            <span class="c1">#barrier()</span>
+            <span class="n">t2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="c1"># --- For the timers, use the function (or method) name as the key.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timers</span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span><span class="mf">0.</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">t2</span> <span class="o">-</span> <span class="n">t1</span><span class="p">)</span>
+        <span class="n">aa</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">aa</span> <span class="o">-</span> <span class="n">bb</span></div>
+
+<span class="c1">#=============================================================================</span>
+
+<span class="n">callback_instances</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;beforeInitEsolve&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;afterInitEsolve&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;afterinit&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;beforecollisions&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;aftercollisions&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;beforeEsolve&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;poissonsolver&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;singlefunconly&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="c1"># external Poisson solver</span>
+    <span class="s2">&quot;afterEsolve&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;beforedeposition&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;afterdeposition&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;particlescraper&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;particleloader&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;beforestep&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;afterstep&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;afterdiagnostics&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;afterrestart&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;oncheckpointsignal&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;onbreaksignal&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;particleinjection&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;appliedfields&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="c1"># --- Now create the actual instances.</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">callback_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">callback_instances</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">CallbackFunctions</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="o">**</span><span class="n">val</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">installcallback</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="s2">&quot;Adds a function to the list of functions called by this callback&quot;</span>
+    <span class="n">callback_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">installfuncinlist</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">uninstallcallback</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="s2">&quot;Removes the function from the list of functions called by this callback&quot;</span>
+    <span class="n">callback_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">uninstallfuncinlist</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">isinstalled</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+    <span class="s2">&quot;Checks if the function is called by this callback&quot;</span>
+    <span class="k">return</span> <span class="n">callback_instances</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">isinstalledfuncinlist</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">clear_all</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">callback_instances</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">val</span><span class="o">.</span><span class="n">clearlist</span><span class="p">()</span>
+
+<span class="c1">#=============================================================================</span>
+
+<span class="k">def</span> <span class="nf">printcallbacktimers</span><span class="p">(</span><span class="n">tmin</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="n">lminmax</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">ff</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints timings of installed functions.</span>
+<span class="sd">    - tmin=1.: only functions with time greater than tmin will be printed</span>
+<span class="sd">    - lminmax=False: If True, prints the min and max times over all processors</span>
+<span class="sd">    - ff=None: If given, timings will be written to the file object instead of stdout</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ff</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ff</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">callback_instances</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">fname</span><span class="p">,</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">c</span><span class="o">.</span><span class="n">timers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c1">#vlist = numpy.array(gather(time))</span>
+            <span class="n">vlist</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">time</span><span class="p">])</span>
+            <span class="c1">#if me &gt; 0: continue</span>
+            <span class="n">vsum</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vlist</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">vsum</span> <span class="o">&lt;=</span> <span class="n">tmin</span><span class="p">:</span> <span class="k">continue</span>
+            <span class="n">vrms</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vlist</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">vlist</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">vlist</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">vlist</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+            <span class="n">npes</span> <span class="o">=</span> <span class="mf">1.</span> <span class="c1"># Only works for one processor</span>
+            <span class="n">ff</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%20s</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> </span><span class="si">%10.4f</span><span class="s1">  </span><span class="si">%10.4f</span><span class="s1"> </span><span class="si">%10.4f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">fname</span><span class="p">,</span><span class="n">vsum</span><span class="p">,</span><span class="n">vsum</span><span class="o">/</span><span class="n">npes</span><span class="p">,</span><span class="n">vrms</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">lminmax</span><span class="p">:</span>
+                <span class="n">vmin</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">vlist</span><span class="p">)</span>
+                <span class="n">vmax</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">vlist</span><span class="p">)</span>
+                <span class="n">ff</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">%10.4f</span><span class="s1">  </span><span class="si">%10.4f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span><span class="n">vmax</span><span class="p">))</span>
+            <span class="n">it</span> <span class="o">=</span> <span class="n">libwarpx</span><span class="o">.</span><span class="n">libwarpx_so</span><span class="o">.</span><span class="n">warpx_getistep</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">it</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ff</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;   </span><span class="si">%10.4f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">vsum</span><span class="o">/</span><span class="n">npes</span><span class="o">/</span><span class="p">(</span><span class="n">it</span><span class="p">)))</span>
+            <span class="n">ff</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1">#=============================================================================</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfrombeforeInitEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforeInitEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installbeforeInitEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforeInitEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromafterInitEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterInitEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installafterInitEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterInitEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromafterinit</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterinit&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installafterinit</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterinit&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfrombeforecollisions</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforecollisions&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installbeforecollisions</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforecollisions&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromaftercollisions</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;aftercollisions&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installaftercollisions</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;aftercollisions&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfrombeforeEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforeEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installbeforeEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforeEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfrompoissonsolver</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;poissonsolver&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installpoissonsolver</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;poissonsolver&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromafterEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installafterEsolve</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterEsolve&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfrombeforedeposition</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforedeposition&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installbeforedeposition</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforedeposition&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromafterdeposition</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterdeposition&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installafterdeposition</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterdeposition&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromparticlescraper</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;particlescraper&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installparticlescraper</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;particlescraper&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromparticleloader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;particleloader&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installparticleloader</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;particleloader&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfrombeforestep</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforestep&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installbeforestep</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;beforestep&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromafterstep</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterstep&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installafterstep</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterstep&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromafterdiagnostics</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterdiagnostics&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installafterdiagnostics</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;afterdiagnostics&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">oncheckpointsignal</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;oncheckpointsignal&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installoncheckpointsignal</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;oncheckpointsignal&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">onbreaksignal</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;onbreaksignal&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installonbreaksignal</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;onbreaksignal&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+<span class="c1"># ----------------------------------------------------------------------------</span>
+<span class="k">def</span> <span class="nf">callfromparticleinjection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;particleinjection&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span>
+<span class="k">def</span> <span class="nf">installparticleinjection</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">installcallback</span><span class="p">(</span><span class="s1">&#39;particleinjection&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2022, WarpX-ARTEMIS collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

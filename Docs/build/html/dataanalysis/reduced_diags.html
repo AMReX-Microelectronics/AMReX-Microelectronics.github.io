@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reduced diagnostics &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Workflows" href="workflows.html" />
+    <link rel="prev" title="PICViewer" href="picviewer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picviewer.html">PICViewer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Reduced diagnostics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dataanalysis/reduced_diags.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reduced-diagnostics">
+<span id="dataanalysis-reduced-diagnostics"></span><h1>Reduced diagnostics<a class="headerlink" href="#reduced-diagnostics" title="Link to this heading"></a></h1>
+<p>WarpX has optional reduced diagnostics, that typically return one value (e.g., particle energy) per timestep.</p>
+<p>A simple and quick way to read the data using python is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s2">&quot;filename.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">data</span></code> is a two dimensional array, <code class="docutils literal notranslate"><span class="pre">data[i][j]</span></code> gives the data in the ith row and the jth column.</p>
+<p>A Python function to read the data is available from module <code class="docutils literal notranslate"><span class="pre">read_raw_data</span></code> in <code class="docutils literal notranslate"><span class="pre">WarpX/Tools/PostProcessing/</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">read_raw_data</span> <span class="kn">import</span> <span class="n">read_reduced_diags</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;EF.txt&#39;</span>
+<span class="n">metadata</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">read_reduced_diags</span><span class="p">(</span> <span class="n">filename</span> <span class="p">)</span>
+<span class="c1"># list available diagnostics</span>
+<span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="c1"># Print total field energy on level 0</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;total_lev0&#39;</span><span class="p">]</span>
+<span class="c1"># Print units for the total field energy on level 0</span>
+<span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">][</span><span class="s1">&#39;total_lev0&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In addition, for reduced diagnostic type <code class="docutils literal notranslate"><span class="pre">ParticleHistogram</span></code>,
+another Python function is available:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">read_raw_data</span> <span class="kn">import</span> <span class="n">read_reduced_diags_histogram</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;velocity_distribution.txt&#39;</span>
+<span class="n">metadata_dict</span><span class="p">,</span> <span class="n">data_dict</span><span class="p">,</span> <span class="n">bin_value</span><span class="p">,</span> <span class="n">bin_data</span> <span class="o">=</span> <span class="n">read_reduced_diags_histogram</span><span class="p">(</span> <span class="n">filename</span> <span class="p">)</span>
+<span class="c1"># 1-D array of the ith bin value</span>
+<span class="n">bin_value</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="c1"># 2-D array of the jth bin data at the ith time</span>
+<span class="n">bin_data</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="picviewer.html" class="btn btn-neutral float-left" title="PICViewer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="workflows.html" class="btn btn-neutral float-right" title="Workflows" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

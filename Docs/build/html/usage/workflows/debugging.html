@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debugging the code &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Debugging the code</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/usage/workflows/debugging.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="debugging-the-code">
+<span id="debugging-warpx"></span><h1>Debugging the code<a class="headerlink" href="#debugging-the-code" title="Link to this heading"></a></h1>
+<p>Sometimes, the code does not give you the result that you are expecting.
+This can be due to a variety of reasons, from misunderstandings or changes in the <a class="reference internal" href="../parameters.html#running-cpp-parameters"><span class="std std-ref">input parameters</span></a>, system specific quirks, or bugs.
+You might also want to debug your code as you implement new features in WarpX during development.</p>
+<p>This section gives a step-by-step guidance on how to systematically check what might be going wrong.</p>
+<section id="debugging-workflow">
+<h2>Debugging Workflow<a class="headerlink" href="#debugging-workflow" title="Link to this heading"></a></h2>
+<p>Try the following steps to debug a simulation:</p>
+<ol class="arabic simple">
+<li><p>Check the output text file, usually called <code class="docutils literal notranslate"><span class="pre">output.txt</span></code>: are there warnings or errors present?</p></li>
+<li><p>On an HPC system, look for the job output and error files, usually called <code class="docutils literal notranslate"><span class="pre">WarpX.e...</span></code> and <code class="docutils literal notranslate"><span class="pre">WarpX.o...</span></code>.
+Read long messages from the top and follow potential guidance.</p></li>
+<li><p>If your simulation already created output data files:
+Check if they look reasonable before the problem occurred; are the initial conditions of the simulation as you expected?
+Do you spot numerical artifacts or instabilities that could point to missing resolution or unexpected/incompatible numerical parameters?</p></li>
+<li><p>Did the job output files indicate a crash? Check the <code class="docutils literal notranslate"><span class="pre">Backtrace.&lt;mpirank&gt;</span></code> files for the location of the code that triggered the crash.
+Backtraces are read from bottom (high-level) to top (most specific line that crashed).</p></li>
+<li><p>Try to make the reproducible scenario as small as possible by modifying the inputs file.
+Reduce number of cells, particles and MPI processes to something as small and as quick to execute as possible.
+The next steps in debugging will increase runtime, so you will benefit from a fast reproducer.</p></li>
+<li><p>Consider adding <a class="reference internal" href="../parameters.html#running-cpp-parameters-test-debug"><span class="std std-ref">runtime debug options</span></a> that can narrow down typical causes in numerical implementations.</p></li>
+<li><p>In case of a crash, Backtraces can be more detailed if you <a class="reference internal" href="../../install/cmake.html#install-developers"><span class="std std-ref">re-compile</span></a> with debug flags: for example, try compiling with <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=RelWithDebInfo</span></code> (some slowdown) or even <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Debug</span></code> (this will make the simulation way slower) and rerun.</p></li>
+<li><p>If debug builds are too costly, try instead compiling with <code class="docutils literal notranslate"><span class="pre">-DAMReX_ASSERTIONS=ON</span></code> to activate more checks and rerun.</p></li>
+<li><p>If the problem looks like a memory violation, this could be from an invalid field or particle index access.
+Try compiling with <code class="docutils literal notranslate"><span class="pre">-DAMReX_BOUND_CHECK=ON</span></code> (this will make the simulation very slow), and rerun.</p></li>
+<li><p>If the problem looks like a random memory might be used, try initializing memory with signaling Not-a-Number (NaN) values through the runtime option <code class="docutils literal notranslate"><span class="pre">fab.init_snan</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Further useful runtime options are <code class="docutils literal notranslate"><span class="pre">amrex.fpe_trap_invalid</span></code>, <code class="docutils literal notranslate"><span class="pre">amrex.fpe_trap_zero</span></code> and <code class="docutils literal notranslate"><span class="pre">amrex.fpe_trap_overflow</span></code> (see details in the AMReX link below).</p></li>
+<li><p>On Nvidia GPUs, if you suspect the problem might be a race condition due to a missing host / device synchronization, set the environment variable <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">CUDA_LAUNCH_BLOCKING=1</span></code> and rerun.</p></li>
+<li><p>Consider simplifying your input options and re-adding more options after having found a working baseline.</p></li>
+</ol>
+<p>Fore more information, see also the <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html#debugging">AMReX Debugging Manual</a>.</p>
+<p>Last but not least: the community of WarpX developers and users can help if you get stuck.
+Collect your above findings, describe where and what you are running and how you installed the code, describe the issue you are seeing with details and input files used and what you already tried.
+Can you reproduce the problem with a smaller setup (less parallelism and/or less resolution)?
+Report these details in a <span class="xref std std-ref">WarpX GitHub issue</span>.</p>
+</section>
+<section id="debuggers">
+<h2>Debuggers<a class="headerlink" href="#debuggers" title="Link to this heading"></a></h2>
+<p>See the <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Debugging.html#breaking-into-debuggers">AMReX debugger section</a> on additional runtime parameters to</p>
+<ul class="simple">
+<li><p>disable backtraces</p></li>
+<li><p>rethrow exceptions</p></li>
+<li><p>avoid AMReX-level signal handling</p></li>
+</ul>
+<p>You will need to set those runtime options to work directly with debuggers.</p>
+</section>
+<section id="typical-error-messages">
+<h2>Typical Error Messages<a class="headerlink" href="#typical-error-messages" title="Link to this heading"></a></h2>
+<p>By default, the code is run in <em>Release</em> mode (see <a class="reference internal" href="../../install/cmake.html#building-cmake-options"><span class="std std-ref">compilation options</span></a>).
+That means, code errors will likely show up as symptoms of earlier errors in the code instead of directly showing the underlying line that caused the error.</p>
+<p>For instance, we have <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/blob/23fa23209879cbdf5ef829530def162c2b343c72/Source/ablastr/particles/DepositCharge.H#L139">these</a> <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/blob/23fa23209879cbdf5ef829530def162c2b343c72/Source/Particles/WarpXParticleContainer.cpp#L364">checks</a> in release mode</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="p">(</span><span class="n">CPU</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="n">cells</span><span class="w"> </span><span class="p">(</span><span class="n">GPU</span><span class="p">)</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">charge</span><span class="w"> </span><span class="n">deposition</span>
+</pre></div>
+</div>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Particles</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="n">within</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="p">(</span><span class="n">CPU</span><span class="p">)</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="n">cells</span><span class="w"> </span><span class="p">(</span><span class="n">GPU</span><span class="p">)</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">deposition</span>
+</pre></div>
+</div>
+<p>which prevent that particles with positions that violate the local definitions of guard cells cause confusing errors in charge/current deposition.</p>
+<p>In such a case, as described above, rebuild and rerun in <em>Debug</em> mode before searching further for the bug.
+Usually, the bug is from <code class="docutils literal notranslate"><span class="pre">NaN</span></code> or <code class="docutils literal notranslate"><span class="pre">infinite</span></code> numbers assigned to particles or fields earlier in the code or from ill-defined guard sizes.
+Building in debug mode will likely move the first thrown error to an earlier location in the code, which is then closer to the underlying cause.</p>
+<p>Then, continue following the workflow above, adding more compilation guards and runtime flags that can trap array bound violations and invalid floating point values.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

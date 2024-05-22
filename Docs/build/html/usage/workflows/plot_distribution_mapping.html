@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visualizing a distribution mapping &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../install/ferrox.html">FerroX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Visualizing a distribution mapping</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/usage/workflows/plot_distribution_mapping.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="visualizing-a-distribution-mapping">
+<h1>Visualizing a distribution mapping<a class="headerlink" href="#visualizing-a-distribution-mapping" title="Link to this heading"></a></h1>
+<p>WarpX provides via <a class="reference internal" href="../../dataanalysis/reduced_diags.html#dataanalysis-reduced-diagnostics"><span class="std std-ref">reduced diagnostics</span></a> an output
+<a class="reference internal" href="../parameters.html#running-cpp-parameters-diagnostics"><span class="std std-ref">LoadBalanceCosts</span></a>, which
+allows for visualization of a simulation’s distribution mapping and computational
+costs. Here we demonstrate the workflow for generating this data and using it to
+plot distribution mappings and load balance costs.</p>
+<section id="generating-the-data">
+<h2>Generating the data<a class="headerlink" href="#generating-the-data" title="Link to this heading"></a></h2>
+<p>To generate ‘Load Balance Costs’ reduced diagnostics output, WarpX should be run
+with the following lines added to the input file (the name of the reduced diagnostics
+file, <cite>LBC</cite>, and interval in steps to output reduced diagnostics data, <cite>100</cite>, may
+be changed as needed):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">warpx</span><span class="o">.</span><span class="n">reduced_diags_names</span> <span class="o">=</span> <span class="n">LBC</span>
+<span class="n">LBC</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">LoadBalanceCosts</span>
+<span class="n">LBC</span><span class="o">.</span><span class="n">intervals</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+<p>The line <cite>warpx.reduced_diags_names = LBC</cite> sets the name of the reduced diagnostics
+output file to <cite>LBC</cite>.  The next line <cite>LBC.type = LoadBalanceCosts</cite> tells WarpX
+that the reduced diagnostics is a <cite>LoadBalanceCosts</cite> diagnostic, and instructs
+WarpX to record costs and rank layouts.  The final line, <cite>LBC.intervals = 100</cite>,
+controls the interval for output of this reduced diagnostic’s data.</p>
+</section>
+<section id="loading-and-plotting-the-data">
+<h2>Loading and plotting the data<a class="headerlink" href="#loading-and-plotting-the-data" title="Link to this heading"></a></h2>
+<p>After generating data (called <cite>LBC_knapsack.txt</cite> and <cite>LBC_sfc.txt</cite> in the example
+below), the following Python code, along with a helper class in
+<code class="xref download docutils literal notranslate"><span class="pre">plot_distribution_mapping.py</span></code>
+can be used to read the data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Math</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="c1"># Plotting</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.axes_grid1</span> <span class="kn">import</span> <span class="n">make_axes_locatable</span>
+
+<span class="c1"># Data handling</span>
+<span class="kn">import</span> <span class="nn">plot_distribution_mapping</span> <span class="k">as</span> <span class="nn">pdm</span>
+
+<span class="n">sim_knapsack</span> <span class="o">=</span> <span class="n">pdm</span><span class="o">.</span><span class="n">SimData</span><span class="p">(</span><span class="s1">&#39;LBC_knapsack.txt&#39;</span><span class="p">,</span> <span class="c1"># Data directory</span>
+                           <span class="p">[</span><span class="mi">2800</span><span class="p">],</span>             <span class="c1"># Files to process</span>
+                           <span class="n">is_3D</span><span class="o">=</span><span class="kc">False</span>         <span class="c1"># if this is a 2D sim</span>
+                          <span class="p">)</span>
+<span class="n">sim_sfc</span> <span class="o">=</span> <span class="n">pdm</span><span class="o">.</span><span class="n">SimData</span><span class="p">(</span><span class="s1">&#39;LBC_sfc.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2800</span><span class="p">])</span>
+
+<span class="c1"># Set reduced diagnostics data for step 2800</span>
+<span class="k">for</span> <span class="n">sim</span> <span class="ow">in</span> <span class="p">[</span><span class="n">sim_knapsack</span><span class="p">,</span> <span class="n">sim_sfc</span><span class="p">]:</span> <span class="n">sim</span><span class="p">(</span><span class="mi">2800</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For 2D data, the following function can be used for visualization of distribution
+mappings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting -- we know beforehand the data is 2D</span>
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="n">sim</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot MPI rank layout for a set of `LoadBalanceCosts` reduced diagnostics</span>
+<span class="sd">    (2D) data.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">    sim -- SimData class with data (2D) loaded for desired iteration</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Make first cmap</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">nipy_spectral</span>
+    <span class="n">cmaplist</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">unique_ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="p">)</span>
+    <span class="n">sz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ranks</span><span class="p">)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="s1">&#39;my_cmap&#39;</span><span class="p">,</span> <span class="n">cmaplist</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span> <span class="c1"># create the new map</span>
+
+    <span class="c1"># Make cmap from 1 --&gt; 96 then randomize</span>
+    <span class="n">cmaplist</span><span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sz</span><span class="p">)]</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">cmaplist</span><span class="p">)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="s1">&#39;my_cmap&#39;</span><span class="p">,</span> <span class="n">cmaplist</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span> <span class="c1"># create the new map</span>
+
+    <span class="c1"># Define the bins and normalize</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sz</span><span class="p">,</span> <span class="n">sz</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span>
+
+    <span class="n">my</span><span class="p">,</span> <span class="n">mx</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">xcoord</span><span class="p">,</span> <span class="n">ycoord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">mx</span><span class="p">,</span><span class="n">mx</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">my</span><span class="p">,</span><span class="n">my</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xcoord</span><span class="p">,</span> <span class="n">ycoord</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="p">,</span>
+                        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+
+    <span class="c1"># Grid lines</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$j$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$i$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">ycoord</span><span class="p">,</span> <span class="n">xcoord</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xcoord</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+               <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">xcoord</span><span class="p">,</span> <span class="n">ycoord</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ycoord</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+               <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Center rank label</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">my</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mx</span><span class="p">):</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span>
+                                  <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Colorbar</span>
+    <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">new_horizontal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="s2">&quot;5%&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;rank&#39;</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">)</span>
+    <span class="n">minorticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ranks</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">minorticks</span><span class="p">,</span> <span class="n">minor</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function can be used as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Knapsack&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sim_knapsack</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;SFC&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sim_sfc</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This generates plots like in <a class="reference external" href="#fig:knapsack_sfc_distribution_mapping_2D">[fig:knapsack_sfc_distribution_mapping_2D]</a>:</p>
+<figure class="align-default" id="fig-knapsack-sfc-distribution-mapping-2d">
+<a class="reference internal image-reference" href="../../_images/knapsack_sfc_distribution_mapping_2D.png"><img alt="Sample distribution mappings from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing." src="../../_images/knapsack_sfc_distribution_mapping_2D.png" style="width: 15cm;" /></a>
+<figcaption>
+<p><span class="caption-text">Sample distribution mappings from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing.</span><a class="headerlink" href="#fig-knapsack-sfc-distribution-mapping-2d" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Similarly, the computational costs per box can be plotted with the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Knapsack&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">sim_knapsack</span><span class="o">.</span><span class="n">cost_arr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;SFC&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">sim_sfc</span><span class="o">.</span><span class="n">cost_arr</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axs</span><span class="p">:</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$j$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$i$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This generates plots like in <a class="reference external" href="#fig:knapsack_sfc_costs_2D">[fig:knapsack_sfc_costs_2D]</a>:</p>
+<figure class="align-default" id="fig-knapsack-sfc-costs-2d">
+<a class="reference internal image-reference" href="../../_images/knapsack_sfc_costs_2D.png"><img alt="Sample computational cost per box from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing." src="../../_images/knapsack_sfc_costs_2D.png" style="width: 15cm;" /></a>
+<figcaption>
+<p><span class="caption-text">Sample computational cost per box from simulations with knapsack (left) and space-filling curve (right) policies for update of the distribution mapping when load balancing.</span><a class="headerlink" href="#fig-knapsack-sfc-costs-2d" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Loading 3D data works the same as loading 2D data, but this time the cost and
+rank arrays will be 3 dimensional.  Here we load and plot some example 3D data
+(<cite>LBC_3D.txt</cite>) from a simulation run on 4 MPI ranks.  Particles fill the box
+from <span class="math notranslate nohighlight">\(k=0\)</span> to <span class="math notranslate nohighlight">\(k=1\)</span>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sim_3D</span> <span class="o">=</span> <span class="n">pdm</span><span class="o">.</span><span class="n">SimData</span><span class="p">(</span><span class="s1">&#39;LBC_3D.txt&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">sim_3D</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plotting -- we know beforehand the data is 3D</span>
+<span class="k">def</span> <span class="nf">plot_3D</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">j0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot MPI rank layout for a set of `LoadBalanceCosts` reduced diagnostics</span>
+<span class="sd">    (3D) data.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">    sim -- SimData class with data (3D) loaded for desired iteration</span>
+<span class="sd">    j0 -- slice along j direction to plot ik slice</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Make first cmap</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span>
+    <span class="n">cmaplist</span> <span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cmap</span><span class="o">.</span><span class="n">N</span><span class="p">)][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">unique_ranks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="p">)</span>
+    <span class="n">sz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ranks</span><span class="p">)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="s1">&#39;my_cmap&#39;</span><span class="p">,</span> <span class="n">cmaplist</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span> <span class="c1"># create the new map</span>
+
+    <span class="c1"># Make cmap from 1 --&gt; 96 then randomize</span>
+    <span class="n">cmaplist</span><span class="o">=</span> <span class="p">[</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sz</span><span class="p">)]</span>
+    <span class="n">random</span><span class="o">.</span><span class="n">Random</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">cmaplist</span><span class="p">)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="s1">&#39;my_cmap&#39;</span><span class="p">,</span> <span class="n">cmaplist</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span> <span class="c1"># create the new map</span>
+
+    <span class="c1"># Define the bins and normalize</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sz</span><span class="p">,</span> <span class="n">sz</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">BoundaryNorm</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span>
+
+    <span class="n">mz</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mx</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">xcoord</span><span class="p">,</span> <span class="n">ycoord</span><span class="p">,</span> <span class="n">zcoord</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">mx</span><span class="p">,</span><span class="n">mx</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">my</span><span class="p">,</span><span class="n">my</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span>
+                                                     <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">mz</span><span class="p">,</span><span class="n">mz</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xcoord</span><span class="p">,</span> <span class="n">zcoord</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="p">[:,</span><span class="n">j0</span><span class="p">,:],</span>
+                        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span>
+
+    <span class="c1"># Grid lines</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$k$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$i$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">minorticks_on</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">zcoord</span><span class="p">,</span> <span class="n">xcoord</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xcoord</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+               <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">xcoord</span><span class="p">,</span> <span class="n">zcoord</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">zcoord</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+               <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Center rank label</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mz</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mx</span><span class="p">):</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">rank_arr</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j0</span><span class="p">][</span><span class="n">i</span><span class="p">]),</span>
+                                  <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+                                  <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Colorbar</span>
+    <span class="n">divider</span> <span class="o">=</span> <span class="n">make_axes_locatable</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">())</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">divider</span><span class="o">.</span><span class="n">new_horizontal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="s2">&quot;5%&quot;</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;rank&#39;</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">)</span>
+    <span class="n">ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_ranks</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">(</span><span class="n">ticks</span><span class="p">)</span>
+    <span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">j</span><span class="p">,</span><span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;j=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+    <span class="n">plot_3D</span><span class="p">(</span><span class="n">sim_3D</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This generates plots like in <a class="reference external" href="#fig:distribution_mapping_3D">[fig:distribution_mapping_3D]</a>:</p>
+<figure class="align-default" id="fig-distribution-mapping-3d">
+<a class="reference internal image-reference" href="../../_images/distribution_mapping_3D.png"><img alt="Sample distribution mappings from 3D simulations, visualized as slices in the :math:`ik` plane along :math:`j`." src="../../_images/distribution_mapping_3D.png" style="width: 15cm;" /></a>
+<figcaption>
+<p><span class="caption-text">Sample distribution mappings from 3D simulations, visualized as slices in the <span class="math notranslate nohighlight">\(ik\)</span> plane along <span class="math notranslate nohighlight">\(j\)</span>.</span><a class="headerlink" href="#fig-distribution-mapping-3d" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Output formats &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="In situ Visualization with SENSEI" href="sensei.html" />
+    <link rel="prev" title="Examples" href="../usage/examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Output formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asynchronous-io">Asynchronous IO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#in-situ-capabilities">In Situ Capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="sensei.html">In situ Visualization with SENSEI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ascent.html">In situ Visualization with Ascent</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#staggering-in-data-output">Staggering in Data Output</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Output formats</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dataanalysis/formats.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="output-formats">
+<span id="dataanalysis-formats"></span><h1>Output formats<a class="headerlink" href="#output-formats" title="Link to this heading"></a></h1>
+<p>WarpX can <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters"><span class="std std-ref">write diagnostics data</span></a> either in</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/IO.html">plotfile format</a> or in</p></li>
+<li><p><a class="reference external" href="https://www.openpmd.org/">openPMD format(s)</a>.</p></li>
+</ul>
+<p>Plotfiles are AMReX’ native data format, while openPMD is implemented in popular community formats such as <a class="reference external" href="https://csmd.ornl.gov/adios">ADIOS</a> and <a class="reference external" href="https://www.hdfgroup.org/">HDF5</a>.</p>
+<p>This section describes some of the tools available to visualize the data.</p>
+<section id="asynchronous-io">
+<h2>Asynchronous IO<a class="headerlink" href="#asynchronous-io" title="Link to this heading"></a></h2>
+<p>When using the AMReX <cite>plotfile</cite> format, users can set the <code class="docutils literal notranslate"><span class="pre">amrex.async_out=1</span></code>
+option to perform the IO in a non-blocking fashion, meaning that the simulation
+will continue to run while an IO thread controls writing the data to disk.
+This can significantly reduce the overall time spent in IO. This is primarily intended for
+large runs on supercomputers such as Summit and Cori; depending on the MPI
+implementation you are using, you may not see a benefit on your workstation.</p>
+<p>When writing plotfiles, each rank will write to a separate file, up to some maximum number
+(by default, 64). This maximum can be adjusted using the <code class="docutils literal notranslate"><span class="pre">amrex.async_out_nfiles</span></code> inputs
+parameter. To use asynchronous IO with than <code class="docutils literal notranslate"><span class="pre">amrex.async_out_nfiles</span></code> MPI ranks, WarpX
+WarpX must be configured with <code class="docutils literal notranslate"><span class="pre">-DWarpX_MPI_THREAD_MULTIPLE=ON</span></code>.
+Please see <a class="reference internal" href="../install/cmake.html#install-developers"><span class="std std-ref">the building instructions</span></a> for details.</p>
+</section>
+<section id="in-situ-capabilities">
+<h2>In Situ Capabilities<a class="headerlink" href="#in-situ-capabilities" title="Link to this heading"></a></h2>
+<p>WarpX includes so-called <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters-diagnostics-reduced"><span class="std std-ref">reduced diagnostics</span></a>.
+Reduced diagnostics create observables on-the-fly, such as energy histograms or particle beam statistics and are <a class="reference internal" href="reduced_diags.html#dataanalysis-reduced-diagnostics"><span class="std std-ref">easily visualized in post-processing</span></a>.</p>
+<p>In addition, WarpX also has vn-situ visualization capabilities (i.e.
+visualizing the data directly from the simulation, without dumping data
+files to disk).</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sensei.html">In situ Visualization with SENSEI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ascent.html">In situ Visualization with Ascent</a></li>
+</ul>
+</div>
+<p>If you like the 3D rendering of laser wakefield acceleration
+on the WarpX documentation front page (which is
+also the avatar of the ECP-WarpX organization), you can find the serial
+analysis script <code class="xref download docutils literal notranslate"><span class="pre">video_yt.py</span></code> as well
+as a parallel analysis script
+<code class="xref download docutils literal notranslate"><span class="pre">video_yt.py</span></code> used to make a similar
+rendering for a beam-driven wakefield simulation, running parallel.</p>
+</section>
+<section id="staggering-in-data-output">
+<h2>Staggering in Data Output<a class="headerlink" href="#staggering-in-data-output" title="Link to this heading"></a></h2>
+<p>Warning: currently, quantities in the output file for iteration <code class="docutils literal notranslate"><span class="pre">n</span></code> are not all defined at the same physical time due to the staggering in time in WarpX.
+The table below provides the physical time at which each quantity in the output file is written, in units of time step, for time step <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>quantity</p></th>
+<th class="head" colspan="2"><p>staggering</p></th>
+</tr>
+<tr class="row-even"><th class="head"></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>E</p></td>
+<td><p>n</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-even"><td><p>B</p></td>
+<td><p>n</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-odd"><td><p>j</p></td>
+<td><p>n-1/2</p></td>
+<td><p>n-1/2</p></td>
+</tr>
+<tr class="row-even"><td><p>rho</p></td>
+<td><p>n</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-odd"><td><p>position</p></td>
+<td><p>n</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-even"><td><p>momentum</p></td>
+<td><p>n-1/2</p></td>
+<td><p>n-1/2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../usage/examples.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sensei.html" class="btn btn-neutral float-right" title="In situ Visualization with SENSEI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

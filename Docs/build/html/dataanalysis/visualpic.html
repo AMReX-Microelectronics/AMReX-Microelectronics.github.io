@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisualPIC &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PICViewer" href="picviewer.html" />
+    <link rel="prev" title="3D Visualization: VisIt" href="visit.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VisualPIC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">VisualPIC</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dataanalysis/visualpic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="visualpic">
+<span id="dataanalysis-visualpic"></span><h1>VisualPIC<a class="headerlink" href="#visualpic" title="Link to this heading"></a></h1>
+<p>VisualPIC is an open-source Python GUI for visual data analysis, especially for advanced accelerator simulations.
+It supports WarpX’ data through openPMD files.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>python<span class="w"> </span>vtk<span class="w"> </span>pyvista<span class="w"> </span>pyqt
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/AngelFP/VisualPIC.git@dev
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>VisualPIC provides a Python data reader API and plotting capabilties.
+It is designed for small to medium-size data sets that fit in the RAM of a single computer.</p>
+<p>Plotting can be performed via a command line tools or scripted with Python.
+<strong>Command line tools</strong> are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vpic</span> <span class="pre">[options]</span> <span class="pre">&lt;path/to/diagnostics/&gt;</span></code>: 2D matplotlib plotter, e.g., for particle phase space</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vpic3d</span> <span class="pre">[options]</span> <span class="pre">&lt;path/to/diagnostics/&gt;</span></code>: 3D VTK renderer</p></li>
+</ul>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">vpic3d</span> <span class="pre">-s</span> <span class="pre">beam</span> <span class="pre">-rho</span> <span class="pre">-Ez</span> <span class="pre">diags/diag1/</span></code> could be used to visualize the witness beam, plasma density, and accelerating field of an LWFA.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">vpic3d</span> <span class="pre">-Ex</span> <span class="pre">diags/diag1/</span></code> could be used to visualize the transverse focusing field <span class="math notranslate nohighlight">\(E_x\)</span> in a plasma wake behind a laser pulse (linearly polarized in <span class="math notranslate nohighlight">\(E_y\)</span>), see below:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="https://user-images.githubusercontent.com/1353258/233236692-4d75b12f-de44-43dc-97bd-c96b04ee68ac.png"><img alt="Example view of a 3D rendering with VisualPIC." src="https://user-images.githubusercontent.com/1353258/233236692-4d75b12f-de44-43dc-97bd-c96b04ee68ac.png" style="width: 100%;" /></a>
+</figure>
+<p>The <strong>Python script</strong> controlled rendering allows more flexible options, such as selecting and cutting views, rendering directly into an image file, looping for animations, etc.
+As with matplotlib scripts, Python script scenes can also be used to open a GUI and then browse time series interactively.
+The <a class="reference external" href="https://github.com/AngelFP/VisualPIC/tree/dev/examples">VisualPIC examples</a> provide showcases for scripting.</p>
+</section>
+<section id="repository">
+<h2>Repository<a class="headerlink" href="#repository" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>The source code can be found under:</dt><dd><p><a class="reference external" href="https://github.com/AngelFP/VisualPIC">https://github.com/AngelFP/VisualPIC</a></p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="visit.html" class="btn btn-neutral float-left" title="3D Visualization: VisIt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="picviewer.html" class="btn btn-neutral float-right" title="PICViewer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

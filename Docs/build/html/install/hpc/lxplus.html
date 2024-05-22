@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LXPLUS (CERN) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="LUMI (CSC)" href="lumi.html" />
+    <link rel="prev" title="Ookami (Stony Brook)" href="ookami.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cmake.html">Developers</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../hpc.html">HPC</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hpc.html#warpx-profile">warpx.profile</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../hpc.html#hpc-systems">HPC Systems</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cori.html">Cori (NERSC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="perlmutter.html">Perlmutter (NERSC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="summit.html">Summit (OLCF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spock.html">Spock (OLCF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crusher.html">Crusher (OLCF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="frontier.html">Frontier (OLCF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fugaku.html">Fugaku (Riken)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="juwels.html">Juwels (JSC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lassen.html">Lassen (LLNL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quartz.html">Quartz (LLNL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lawrencium.html">Lawrencium (LBNL)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ookami.html">Ookami (Stony Brook)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">LXPLUS (CERN)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="lumi.html">LUMI (CSC)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="taurus.html">Taurus (ZIH)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../hpc.html">HPC</a></li>
+      <li class="breadcrumb-item active">LXPLUS (CERN)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/install/hpc/lxplus.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lxplus-cern">
+<span id="building-lxplus"></span><h1>LXPLUS (CERN)<a class="headerlink" href="#lxplus-cern" title="Link to this heading"></a></h1>
+<p>The LXPLUS cluster is located at CERN.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>If you are new to this system, <strong>please see the following resources</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lxplusdoc.web.cern.ch">Lxplus documentation</a></p></li>
+<li><p>Batch system: <a class="reference external" href="https://batchdocs.web.cern.ch/index.html">HTCondor</a></p></li>
+<li><dl class="simple">
+<dt>Filesystem locations:</dt><dd><ul>
+<li><p>User folder: <code class="docutils literal notranslate"><span class="pre">/afs/cern.ch/user/&lt;a&gt;/&lt;account&gt;</span></code> (10GByte)</p></li>
+<li><p>Work folder: <code class="docutils literal notranslate"><span class="pre">/afs/cern.ch/work/&lt;a&gt;/&lt;account&gt;</span></code> (100GByte)</p></li>
+<li><p>Eos storage: <code class="docutils literal notranslate"><span class="pre">/eos/home-&lt;a&gt;/&lt;account&gt;</span></code> (1T)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Through LXPLUS we have access to CPU and GPU nodes (the latter equipped with NVIDIA V100 and T4 GPUs).</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Only very little software is pre-installed on LXPLUS so we show how to install from scratch all the dependencies using <a class="reference external" href="https://spack.io">Spack</a>.</p>
+<p>For size reasons it is not advisable to install WarpX in the <code class="docutils literal notranslate"><span class="pre">$HOME</span></code> directory, while it should be installed in the “work directory”. For this purpose we set an environment variable with the path to the “work directory”</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">WORK</span><span class="o">=</span>/afs/cern.ch/work/<span class="si">${</span><span class="nv">USER</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span>/<span class="nv">$USER</span>/
+</pre></div>
+</div>
+<p>We clone WarpX in <code class="docutils literal notranslate"><span class="pre">$WORK</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$WORK</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span>warpx
+</pre></div>
+</div>
+<section id="installation-profile-file">
+<h3>Installation profile file<a class="headerlink" href="#installation-profile-file" title="Link to this heading"></a></h3>
+<p>The easiest way to install the dependencies is to use the pre-prepared <code class="docutils literal notranslate"><span class="pre">warpx.profile</span></code> as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span><span class="nv">$WORK</span>/warpx/WarpX/Tools/machines/lxplus-cern/lxplus_warpx.profile.example<span class="w"> </span><span class="nv">$WORK</span>/lxplus_warpx.profile
+<span class="nb">source</span><span class="w"> </span><span class="nv">$WORK</span>/lxplus_warpx.profile
+</pre></div>
+</div>
+<p>When doing this one can directly skip to the <a class="reference internal" href="#building-lxplus-warpx"><span class="std std-ref">Building WarpX</span></a> section.</p>
+<p>To have the environment activated at every login it is then possible to add the following lines to the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">WORK</span><span class="o">=</span>/afs/cern.ch/work/<span class="si">${</span><span class="nv">USER</span><span class="p">:</span><span class="nv">0</span><span class="p">:</span><span class="nv">1</span><span class="si">}</span>/<span class="nv">$USER</span>/
+<span class="nb">source</span><span class="w"> </span><span class="nv">$WORK</span>/lxplus_warpx.profile
+</pre></div>
+</div>
+</section>
+<section id="gcc">
+<h3>GCC<a class="headerlink" href="#gcc" title="Link to this heading"></a></h3>
+<p>The pre-installed GNU compiler is outdated so we need a more recent compiler. Here we use the gcc 11.2.0 from the LCG project, but other options are possible.</p>
+<p>We activate it by doing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/cvmfs/sft.cern.ch/lcg/releases/gcc/11.2.0-ad950/x86_64-centos7/setup.sh
+</pre></div>
+</div>
+<p>In order to avoid using different compilers this line could be added directly into the <code class="docutils literal notranslate"><span class="pre">$HOME/.bashrc</span></code> file.</p>
+</section>
+<section id="spack">
+<h3>Spack<a class="headerlink" href="#spack" title="Link to this heading"></a></h3>
+<p>We download and activate Spack in <code class="docutils literal notranslate"><span class="pre">$WORK</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$WORK</span>
+git<span class="w"> </span>clone<span class="w"> </span>-c<span class="w"> </span>feature.manyFiles<span class="o">=</span><span class="nb">true</span><span class="w"> </span>https://github.com/spack/spack.git
+<span class="nb">source</span><span class="w"> </span>spack/share/spack/setup-env.sh
+</pre></div>
+</div>
+<p>Now we add our gcc 11.2.0 compiler to spack:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>compiler<span class="w"> </span>find<span class="w"> </span>/cvmfs/sft.cern.ch/lcg/releases/gcc/11.2.0-ad950/x86_64-centos7/bin
+</pre></div>
+</div>
+</section>
+<section id="installing-the-dependencies">
+<h3>Installing the Dependencies<a class="headerlink" href="#installing-the-dependencies" title="Link to this heading"></a></h3>
+<p>To install the dependencies we create a virtual environment, which we call <code class="docutils literal notranslate"><span class="pre">warpx-lxplus</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>warpx-lxplus<span class="w"> </span><span class="nv">$WORK</span>/WarpX/Tools/machines/lxplus-cern/spack.yaml
+spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>warpx-lxplus
+spack<span class="w"> </span>install
+</pre></div>
+</div>
+<p>If the GPU support or the Python bindings are not needed, it’s possible to skip the installation by respectively setting
+the following environment variables export <code class="docutils literal notranslate"><span class="pre">SPACK_STACK_USE_PYTHON=0</span></code> and <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">SPACK_STACK_USE_CUDA</span> <span class="pre">=</span> <span class="pre">0</span></code> before
+running the previous commands.</p>
+<p>After the installation is done once, all we need to do in future sessions is just <code class="docutils literal notranslate"><span class="pre">activate</span></code> the environment again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>warpx-lxplus
+</pre></div>
+</div>
+<p>The environment <code class="docutils literal notranslate"><span class="pre">warpx-lxplus</span></code> (or <code class="docutils literal notranslate"><span class="pre">-cuda</span></code> or <code class="docutils literal notranslate"><span class="pre">-cuda-py</span></code>) must be reactivated everytime that we log in so it could
+be a good idea to add the following lines to the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$WORK</span>/spack/share/spack/setup-env.sh
+spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>-d<span class="w"> </span>warpx-lxplus
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>
+</pre></div>
+</div>
+</section>
+<section id="building-warpx">
+<span id="building-lxplus-warpx"></span><h3>Building WarpX<a class="headerlink" href="#building-warpx" title="Link to this heading"></a></h3>
+<p>We prepare and load the Spack software environment as above.
+Then we build WarpX:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">6</span>
+</pre></div>
+</div>
+<p>Or if we need to compile with CUDA:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>CUDA
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">6</span>
+</pre></div>
+</div>
+<p><strong>That’s it!</strong>
+A 3D WarpX executable is now in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code> and can be run with a <a class="reference internal" href="../../usage/examples.html#usage-examples"><span class="std std-ref">3D example inputs file</span></a>.
+Most people execute the binary directly or copy it out to a location in <code class="docutils literal notranslate"><span class="pre">$WORK</span></code>.</p>
+</section>
+<section id="python-bindings">
+<h3>Python Bindings<a class="headerlink" href="#python-bindings" title="Link to this heading"></a></h3>
+<p>Here we assume that a Python interpreter has been set up as explained previously.</p>
+<p>Now, ensure Python tooling is up-to-date:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>cmake
+</pre></div>
+</div>
+<p>Then we compile WarpX as in the previous section (with or without CUDA) adding <code class="docutils literal notranslate"><span class="pre">-DWarpX_LIB=ON</span></code> and then we install it into our Python:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>CUDA<span class="w"> </span>-DWarpX_LIB<span class="o">=</span>ON
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>pip_install<span class="w"> </span>-j<span class="w"> </span><span class="m">6</span>
+</pre></div>
+</div>
+<p>This builds WarpX for 3D geometry.</p>
+<p>Alternatively, if you like to build WarpX for all geometries at once, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">BUILD_PARALLEL</span><span class="o">=</span><span class="m">6</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>wheel<span class="w"> </span>.
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pywarpx-*whl
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ookami.html" class="btn btn-neutral float-left" title="Ookami (Stony Brook)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lumi.html" class="btn btn-neutral float-right" title="LUMI (CSC)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

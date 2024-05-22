@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warning logger &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Warning logger</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/warning_logger.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="warning-logger">
+<span id="developers-warning-logger"></span><h1>Warning logger<a class="headerlink" href="#warning-logger" title="Link to this heading"></a></h1>
+<p>The  ⚠️ warning logger ⚠️ allows grouping the warning messages raised during the
+simulation, in order to display them together in a list
+(e.g., right after step 1 and at the end of the simulation).</p>
+<section id="general-description">
+<h2>General description<a class="headerlink" href="#general-description" title="Link to this heading"></a></h2>
+<p>If no warning messages are raised, the warning list should look as follows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>****<span class="w"> </span>WARNINGS<span class="w"> </span>******************************************************************
+*<span class="w"> </span>GLOBAL<span class="w"> </span>warning<span class="w"> </span>list<span class="w">  </span>after<span class="w">  </span><span class="o">[</span><span class="w"> </span>FIRST<span class="w"> </span>STEP<span class="w"> </span><span class="o">]</span>
+*
+*<span class="w"> </span>No<span class="w"> </span>recorded<span class="w"> </span>warnings.
+********************************************************************************
+</pre></div>
+</div>
+<p>On the contrary, if warning messages are raised, the list should look as follows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>****<span class="w"> </span>WARNINGS<span class="w"> </span>******************************************************************
+*<span class="w"> </span>GLOBAL<span class="w"> </span>warning<span class="w"> </span>list<span class="w">  </span>after<span class="w">  </span><span class="o">[</span><span class="w"> </span>FIRST<span class="w"> </span>STEP<span class="w"> </span><span class="o">]</span>
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Species<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span>once<span class="o">]</span>
+*<span class="w">     </span>Both<span class="w"> </span><span class="s1">&#39;electrons.charge&#39;</span><span class="w"> </span>and<span class="w"> </span>electrons.species_type<span class="s1">&#39; are specified.</span>
+<span class="s1">*     electrons.charge&#39;</span><span class="w"> </span>will<span class="w"> </span>take<span class="w"> </span>precedence.
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Species<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span>once<span class="o">]</span>
+*<span class="w">     </span>Both<span class="w"> </span><span class="s1">&#39;electrons.mass&#39;</span><span class="w"> </span>and<span class="w"> </span>electrons.species_type<span class="s1">&#39; are specified.</span>
+<span class="s1">*     electrons.mass&#39;</span><span class="w"> </span>will<span class="w"> </span>take<span class="w"> </span>precedence.
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+********************************************************************************
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">GLOBAL</span></code> indicates that warning messages are gathered across all the MPI ranks (specifically
+after the <code class="docutils literal notranslate"><span class="pre">FIRST</span> <span class="pre">STEP</span></code>).</p>
+<p>Each entry of warning list respects the following format:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>PRIORITY<span class="o">]</span><span class="w"> </span><span class="o">[</span>TOPIC<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span>COUNTER<span class="o">]</span>
+*<span class="w">     </span>MULTILINE<span class="w"> </span>MESSAGGE
+*<span class="w">     </span>MULTILINE<span class="w"> </span>MESSAGGE
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>WHICH_RANKS
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[PRIORITY]</span></code> can be <code class="docutils literal notranslate"><span class="pre">[!</span>&#160; <span class="pre">]</span></code> (low priority), <code class="docutils literal notranslate"><span class="pre">[!!</span> <span class="pre">]</span></code> (medium priority) or <code class="docutils literal notranslate"><span class="pre">[!!!]</span></code> (high priority). It indicates the importance of the warning.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[TOPIC]</span></code> indicates which part of the code is concerned by the warning (e.g., particles, laser, parallelization…)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MULTILINE</span> <span class="pre">MESSAGGE</span></code> is an arbitrary text message. It can span multiple-lines. Text is wrapped automatically.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COUNTER</span></code> indicates the number of times the warning was raised <strong>across all the MPI ranks</strong>. This means that if we run WarpX with 2048 MPI ranks and each rank raises the same warning once, the displayed message will be <code class="docutils literal notranslate"><span class="pre">[raised</span> <span class="pre">2048</span> <span class="pre">times]</span></code>. Possible values are <code class="docutils literal notranslate"><span class="pre">once</span></code>, <code class="docutils literal notranslate"><span class="pre">twice</span></code>, <code class="docutils literal notranslate"><span class="pre">XX</span> <span class="pre">times</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WHICH_RANKS</span></code> can be either <code class="docutils literal notranslate"><span class="pre">ALL</span></code> or a sequence of rank IDs. It is the list of the MPI ranks which have raised the warning message.</p></li>
+</ul>
+<p>Entries are sorted first by priority (high priority first), then by topic (alphabetically) and finally by text message (alphabetically).</p>
+<section id="how-to-record-a-warning-for-later-display">
+<h3>How to record a warning for later display<a class="headerlink" href="#how-to-record-a-warning-for-later-display" title="Link to this heading"></a></h3>
+<p>In the code, instead of using <code class="docutils literal notranslate"><span class="pre">amrex::Warning</span></code> to immediately print a warning message, the following method should be called:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ablastr</span><span class="o">::</span><span class="n">warn_manager</span><span class="o">::</span><span class="n">WMRecordWarning</span><span class="p">(</span>
+<span class="w">   </span><span class="s">&quot;QED&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="s">&quot;Using default value (2*me*c^2) for photon energy creation threshold&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="n">ablastr</span><span class="o">::</span><span class="n">warn_manager</span><span class="o">::</span><span class="n">WarnPriority</span><span class="o">::</span><span class="n">low</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">QED</span></code> is the topic, <code class="docutils literal notranslate"><span class="pre">Using</span> <span class="pre">[...]</span></code> is the warning message and <code class="docutils literal notranslate"><span class="pre">ablastr::warn_manager::WarnPriority::low</span></code> is the priority.
+<cite>RecordWarning</cite> is <strong>not</strong> a collective call and should also be thread-safe (it can be called in OpenMP loops).
+In case the user wants to also print the warning messages immediately, the runtime parameter <code class="docutils literal notranslate"><span class="pre">warpx.always_warn_immediately</span></code> can be set to <code class="docutils literal notranslate"><span class="pre">1</span></code>.
+The Warning manager is a singleton class defined in <code class="docutils literal notranslate"><span class="pre">Source/ablastr/warn_manager/WarnManager.H`</span></code></p>
+</section>
+<section id="how-to-print-the-warning-list">
+<h3>How to print the warning list<a class="headerlink" href="#how-to-print-the-warning-list" title="Link to this heading"></a></h3>
+<p>The warning list can be printed as follows:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">amrex</span><span class="o">::</span><span class="n">Print</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ablastr</span><span class="o">::</span><span class="n">warn_manager</span><span class="o">::</span><span class="n">GetWMInstance</span><span class="p">().</span><span class="n">PrintGlobalWarnings</span><span class="p">(</span><span class="s">&quot;THE END&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>where the string is a temporal marker that appears in the warning list.
+At the moment this is done right after step one and at the end of the simulation.
+Calling this method triggers several collective calls that allow merging all the warnings recorded by all the MPI ranks.</p>
+</section>
+</section>
+<section id="implementation-details">
+<h2>Implementation details<a class="headerlink" href="#implementation-details" title="Link to this heading"></a></h2>
+<section id="how-warning-messages-are-recorded">
+<h3>How warning messages are recorded<a class="headerlink" href="#how-warning-messages-are-recorded" title="Link to this heading"></a></h3>
+<p>Warning messages are stored by each rank as a map associating each
+message with a counter.
+A message is defined by its priority, its topic and its text.
+Given two messages, if any of these components differ between the
+two, the messages are considered as different.</p>
+</section>
+<section id="how-the-global-warning-list-is-generated">
+<h3>How the global warning list is generated<a class="headerlink" href="#how-the-global-warning-list-is-generated" title="Link to this heading"></a></h3>
+<p>In order to generate the global warning list we follow the strategy outlined below.</p>
+<ol class="arabic simple">
+<li><p>Each MPI rank has a <code class="docutils literal notranslate"><span class="pre">map&lt;Msg,</span> <span class="pre">counter&gt;</span></code>, associating each with a counter, which counts how many times the warning has been raised on that rank.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">PrintGlobalWarnings</span></code> is called, the MPI ranks send to the I/O rank the number of different warnings that they have observed. The I/O rank finds the rank having more warnings and broadcasts 📢 this information back to all the others. This rank, referred in the following as <em>gather rank</em>, will lead  👑 the generation of the global warning list</p></li>
+<li><p>The <em>gather rank</em> serializes its warning messages [📝,📝,📝,📝,📝…] into a byte array 📦 and  broadcasts 📢 this array to all the other ranks.</p></li>
+<li><p>The other ranks unpack this byte array 📦, obtaining a list of messages [📝,📝,📝,📝,📝…]</p></li>
+<li><p>For each message seen by the <em>gather rank</em> , each rank prepares a vector containing the number of times it has seen that message (i.e., the counter in <code class="docutils literal notranslate"><span class="pre">map&lt;Msg,</span> <span class="pre">counter&gt;</span></code> if <code class="docutils literal notranslate"><span class="pre">Msg</span></code> is in the map): [1️⃣,0️⃣,1️⃣,4️⃣,0️⃣…]</p></li>
+<li><p>In addition, each rank prepares a vector containing the messages seen only by that rank, associated with the corresponding counter: [(📝,1️⃣), (📝,4️⃣),…]</p></li>
+<li><p>Each rank appends the second list to the first one and packs them into a byte array: [1️⃣,0️⃣,1️⃣,4️⃣,0️⃣…] [(📝,1️⃣), (📝,4️⃣),…] –&gt; 📦</p></li>
+<li><p>Each rank sends 📨 this byte array to the <em>gather rank</em>, which puts them together in a large byte vector [📦,📦,📦,📦,📦…]</p></li>
+<li><p>The <em>gather rank</em> parses the byte array, adding the counters of the other ranks to its counters, adding new messages to the message list, and keeping track of which rank has generated which warning 📜</p></li>
+<li><p>If the <em>gather rank</em> is also the I/O rank, then we are done  🎉, since the rank has a list of messages, global counters and ranks lists  [(📝,4️⃣,📜 ), (📝,1️⃣,📜 ),… ]</p></li>
+<li><p>If the <em>gather rank</em> is <strong>not</strong> the I/O rank, then it packs the list into a byte array and sends  📨 it to the I/O rank, which unpacks it: <em>gather rank</em> [(📝,4️⃣,📜 ), (📝,1️⃣,📜 ),… ] –&gt; 📦 –&gt; 📨 –&gt; 📦 –&gt; [(📝,4️⃣,📜 ), (📝,1️⃣,📜 ),… ] I/O rank</p></li>
+</ol>
+<p>This procedure is described in more details in these <a class="reference external" href="https://drive.google.com/file/d/1f7w-iCGWwRk4OR_Hu_hPzWJYvWrfj6U8/view?usp=sharing">slides</a>.</p>
+</section>
+<section id="how-to-test-the-warning-logger">
+<h3>How to test the warning logger<a class="headerlink" href="#how-to-test-the-warning-logger" title="Link to this heading"></a></h3>
+<p>In order to test the warning logger there is the possibility to inject “artificial” warnings with the inputfile.
+For instance, the following inputfile</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1">#################################</span>
+<span class="c1">####### GENERAL PARAMETERS ######</span>
+<span class="c1">#################################</span>
+<span class="nv">max_step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+amr.n_cell<span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="m">128</span><span class="w"> </span><span class="m">128</span>
+amr.max_grid_size<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">64</span>
+amr.blocking_factor<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32</span>
+amr.max_level<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+geometry.dims<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span>
+geometry.prob_lo<span class="w">     </span><span class="o">=</span><span class="w"> </span>-20.e-6<span class="w">   </span>-20.e-6<span class="w">    </span><span class="c1"># physical domain</span>
+geometry.prob_hi<span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="m">20</span>.e-6<span class="w">    </span><span class="m">20</span>.e-6
+
+<span class="c1">#################################</span>
+<span class="c1">####### Boundary condition ######</span>
+<span class="c1">#################################</span>
+boundary.field_lo<span class="w"> </span><span class="o">=</span><span class="w"> </span>periodic<span class="w"> </span>periodic
+boundary.field_hi<span class="w"> </span><span class="o">=</span><span class="w"> </span>periodic<span class="w"> </span>periodic
+
+<span class="c1">#################################</span>
+<span class="c1">############ NUMERICS ###########</span>
+<span class="c1">#################################</span>
+warpx.serialize_initial_conditions<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+warpx.verbose<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+warpx.cfl<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>.0
+warpx.use_filter<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+
+<span class="c1"># Order of particle shape factors</span>
+algo.particle_shape<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+<span class="c1">#################################</span>
+<span class="c1">######## DEBUG WARNINGS #########</span>
+<span class="c1">#################################</span>
+
+warpx.test_warnings<span class="w"> </span><span class="o">=</span><span class="w"> </span>w1<span class="w"> </span>w2<span class="w"> </span>w3<span class="w"> </span>w4<span class="w"> </span>w5<span class="w"> </span>w6<span class="w"> </span>w7<span class="w"> </span>w8<span class="w"> </span>w9<span class="w"> </span>w10<span class="w"> </span>w11<span class="w"> </span>w12<span class="w"> </span>w13<span class="w"> </span>w14<span class="w"> </span>w15<span class="w"> </span>w16<span class="w"> </span>w17<span class="w"> </span>w18<span class="w"> </span>w19<span class="w"> </span>w20<span class="w"> </span>w21<span class="w"> </span>w22
+
+w1.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Priority Sort Test&quot;</span>
+w1.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that priority is correctly sorted&quot;</span>
+w1.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;low&quot;</span>
+w1.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w2.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Priority Sort Test&quot;</span>
+w2.msg<span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that priority is correctly sorted&quot;</span>
+w2.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span>
+w2.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w3.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Priority Sort Test&quot;</span>
+w3.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that priority is correctly sorted&quot;</span>
+w3.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w3.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w4.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ZZA Topic sort Test&quot;</span>
+w4.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that topic is correctly sorted&quot;</span>
+w4.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span>
+w4.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w5.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ZZB Topic sort Test&quot;</span>
+w5.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that topic is correctly sorted&quot;</span>
+w5.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span>
+w5.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w6.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ZZC Topic sort Test&quot;</span>
+w6.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that topic is correctly sorted&quot;</span>
+w6.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span>
+w6.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w7.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Msg sort Test&quot;</span>
+w7.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;AAA Test that msg is correctly sorted&quot;</span>
+w7.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span>
+w7.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w8.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Msg sort Test&quot;</span>
+w8.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;BBB Test that msg is correctly sorted&quot;</span>
+w8.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span>
+w8.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w9.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Long line&quot;</span>
+w9.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test very long line: a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a&quot;</span>
+w9.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span>
+w9.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w10.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Repeated warnings&quot;</span>
+w10.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test repeated warnings&quot;</span>
+w10.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w10.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w11.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Repeated warnings&quot;</span>
+w11.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test repeated warnings&quot;</span>
+w11.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w11.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w12.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Repeated warnings&quot;</span>
+w12.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test repeated warnings&quot;</span>
+w12.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w12.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w13.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Not all involved (0)&quot;</span>
+w13.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test warnings raised by a fraction of ranks&quot;</span>
+w13.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w13.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+w13.who_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+
+w14.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Not all involved (0)&quot;</span>
+w14.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test warnings raised by a fraction of ranks&quot;</span>
+w14.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w14.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+w14.who_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+
+w15.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Not all involved (1)&quot;</span>
+w15.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test warnings raised by a fraction of ranks&quot;</span>
+w15.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w15.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+w15.who_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w16.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Not all involved (1,2)&quot;</span>
+w16.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test warnings raised by a fraction of ranks&quot;</span>
+w16.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;high&quot;</span>
+w16.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+w16.who_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+
+w17.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Different counters&quot;</span>
+w17.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that different counters are correctly summed&quot;</span>
+w17.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;low&quot;</span>
+w17.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w18.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Different counters&quot;</span>
+w18.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that different counters are correctly summed&quot;</span>
+w18.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;low&quot;</span>
+w18.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w19.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Different counters&quot;</span>
+w19.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that different counters are correctly summed&quot;</span>
+w19.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;low&quot;</span>
+w19.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+w19.who_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+
+w20.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Different counters B&quot;</span>
+w20.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that different counters are correctly summed&quot;</span>
+w20.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;low&quot;</span>
+w20.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w21.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Different counters B&quot;</span>
+w21.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that different counters are correctly summed&quot;</span>
+w21.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;low&quot;</span>
+w21.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+
+w22.topic<span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Different counters B&quot;</span>
+w22.msg<span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Test that different counters are correctly summed&quot;</span>
+w22.priority<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;low&quot;</span>
+w22.all_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>
+w22.who_involved<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>should generate the following warning list (if run on 4 MPI ranks):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>****<span class="w"> </span>WARNINGS<span class="w"> </span>******************************************************************
+*<span class="w"> </span>GLOBAL<span class="w"> </span>warning<span class="w"> </span>list<span class="w">  </span>after<span class="w">  </span><span class="o">[</span><span class="w"> </span>THE<span class="w"> </span>END<span class="w"> </span><span class="o">]</span>
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!!<span class="o">]</span><span class="w"> </span><span class="o">[</span>Not<span class="w"> </span>all<span class="w"> </span>involved<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="o">)]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span>twice<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>warnings<span class="w"> </span>raised<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>fraction<span class="w"> </span>of<span class="w"> </span>ranks
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span><span class="m">0</span>
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!!<span class="o">]</span><span class="w"> </span><span class="o">[</span>Not<span class="w"> </span>all<span class="w"> </span>involved<span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="o">)]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span>once<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>warnings<span class="w"> </span>raised<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>fraction<span class="w"> </span>of<span class="w"> </span>ranks
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span><span class="m">1</span>
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!!<span class="o">]</span><span class="w"> </span><span class="o">[</span>Not<span class="w"> </span>all<span class="w"> </span>involved<span class="w"> </span><span class="o">(</span><span class="m">1</span>,2<span class="o">)]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span>twice<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>warnings<span class="w"> </span>raised<span class="w"> </span>by<span class="w"> </span>a<span class="w"> </span>fraction<span class="w"> </span>of<span class="w"> </span>ranks
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!!<span class="o">]</span><span class="w"> </span><span class="o">[</span>Priority<span class="w"> </span>Sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>priority<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!!<span class="o">]</span><span class="w"> </span><span class="o">[</span>Repeated<span class="w"> </span>warnings<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">12</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>repeated<span class="w"> </span>warnings
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Long<span class="w"> </span>line<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>very<span class="w"> </span>long<span class="w"> </span>line:<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a
+*<span class="w">     </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a<span class="w"> </span>a
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Msg<span class="w"> </span>sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>AAA<span class="w"> </span>Test<span class="w"> </span>that<span class="w"> </span>msg<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Msg<span class="w"> </span>sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>BBB<span class="w"> </span>Test<span class="w"> </span>that<span class="w"> </span>msg<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Priority<span class="w"> </span>Sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>priority<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>ZZA<span class="w"> </span>Topic<span class="w"> </span>sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>topic<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>ZZB<span class="w"> </span>Topic<span class="w"> </span>sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>topic<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>ZZC<span class="w"> </span>Topic<span class="w"> </span>sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>topic<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!<span class="w">  </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Different<span class="w"> </span>counters<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">9</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>different<span class="w"> </span>counters<span class="w"> </span>are<span class="w"> </span>correctly<span class="w"> </span>summed
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!<span class="w">  </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Different<span class="w"> </span>counters<span class="w"> </span>B<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">9</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>different<span class="w"> </span>counters<span class="w"> </span>are<span class="w"> </span>correctly<span class="w"> </span>summed
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+*<span class="w"> </span>--&gt;<span class="w"> </span><span class="o">[</span>!<span class="w">  </span><span class="o">]</span><span class="w"> </span><span class="o">[</span>Priority<span class="w"> </span>Sort<span class="w"> </span>Test<span class="o">]</span><span class="w"> </span><span class="o">[</span>raised<span class="w"> </span><span class="m">4</span><span class="w"> </span>times<span class="o">]</span>
+*<span class="w">     </span>Test<span class="w"> </span>that<span class="w"> </span>priority<span class="w"> </span>is<span class="w"> </span>correctly<span class="w"> </span>sorted
+*<span class="w">     </span>@<span class="w"> </span>Raised<span class="w"> </span>by:<span class="w"> </span>ALL
+*
+********************************************************************************
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

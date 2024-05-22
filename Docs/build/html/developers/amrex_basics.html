@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMReX basics (excessively basic) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/users.html">Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/cmake.html">Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/hpc.html">HPC</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">AMReX basics (excessively basic)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/amrex_basics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="amrex-basics-excessively-basic">
+<span id="developers-amrex-basics"></span><h1>AMReX basics (excessively basic)<a class="headerlink" href="#amrex-basics-excessively-basic" title="Link to this heading"></a></h1>
+<p>WarpX is built on the Adaptive Mesh Refinement (AMR) library <a class="reference external" href="https://github.com/AMReX-Codes/amrex">AMReX</a>. This section provides a very sporadic description of the main AMReX classes and concepts relevant for WarpX, that can serve as a reminder. Please read the AMReX basics <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html">doc page</a>, of which this section is largely inspired.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">amrex::Box</span></code>: Dimension-dependent lower and upper indices defining a rectangular volume in 3D (or surface in 2D) in the index space. <code class="docutils literal notranslate"><span class="pre">Box</span></code> is a lightweight meta-data class, with useful member functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amrex::BoxArray</span></code>: Collection of <code class="docutils literal notranslate"><span class="pre">Box</span></code> on a single AMR level. The information of which MPI rank owns which <code class="docutils literal notranslate"><span class="pre">Box</span></code> in a <code class="docutils literal notranslate"><span class="pre">BoxArray</span></code> is in <code class="docutils literal notranslate"><span class="pre">DistributionMapping</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amrex::FArrayBox</span></code>: Fortran-ordered array of floating-point <code class="docutils literal notranslate"><span class="pre">amrex::Real</span></code> elements defined on a <code class="docutils literal notranslate"><span class="pre">Box</span></code>. A <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> can represent scalar data or vector data, with <code class="docutils literal notranslate"><span class="pre">ncomp</span></code> components.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amrex::MultiFab</span></code>: Collection of <cite>FAB</cite> (= <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code>) on a single AMR level, distributed over MPI ranks. The concept of <cite>ghost cells</cite> is defined at the <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> level.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amrex::ParticleContainer</span></code>: A collection of particles, typically for particles of a physical species. Particles in a <code class="docutils literal notranslate"><span class="pre">ParticleContainer</span></code> are organized per <code class="docutils literal notranslate"><span class="pre">Box</span></code>. Particles in a <code class="docutils literal notranslate"><span class="pre">Box</span></code> are organized per tile (this feature is off when running on GPU). Particles within a tile are stored in several structures, each being contiguous in memory: (i) an Array-Of-Struct (AoS) (often called <cite>data</cite>, they are the 3D position, the particle ID and the index of the CPU owning the particle), where the Struct is an <code class="docutils literal notranslate"><span class="pre">amrex::Particle</span></code> and (ii) Struct-Of-Arrays (SoA) for extra variables (often called <code class="docutils literal notranslate"><span class="pre">attribs</span></code>, in WarpX they are the momentum, field on particle etc.).</p></li>
+</ul>
+<p>The simulation domain is decomposed in several <code class="docutils literal notranslate"><span class="pre">Box</span></code>, and each MPI rank owns (and performs operations on) the fields and particles defined on a few of these <code class="docutils literal notranslate"><span class="pre">Box</span></code>, but has the metadata of all of them. For convenience, AMReX provides iterators, to easily iterate over all <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> (or even tile-by-tile, optionally) in a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> own by the MPI rank (<code class="docutils literal notranslate"><span class="pre">MFIter</span></code>), or over all particles in a <code class="docutils literal notranslate"><span class="pre">ParticleContainer</span></code> on a per-box basis (<code class="docutils literal notranslate"><span class="pre">ParIter</span></code>, or its derived class <code class="docutils literal notranslate"><span class="pre">WarpXParIter</span></code>). These are respectively done in loops like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// mf is a pointer to MultiFab</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">amrex</span><span class="o">::</span><span class="n">MFIter</span><span class="w"> </span><span class="n">mfi</span><span class="p">(</span><span class="n">mf</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w"> </span><span class="n">mfi</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">mfi</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// *this is a pointer to a ParticleContainer</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">WarpXParIter</span><span class="w"> </span><span class="n">pti</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">lev</span><span class="p">);</span><span class="w"> </span><span class="n">pti</span><span class="p">.</span><span class="n">isValid</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">pti</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>When looping over <code class="docutils literal notranslate"><span class="pre">FArrayBox</span></code> in a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code>, the iterator provides functions to retrieve the metadata of the <code class="docutils literal notranslate"><span class="pre">Box</span></code> on which the <code class="docutils literal notranslate"><span class="pre">FAB</span></code> is defined (<code class="docutils literal notranslate"><span class="pre">MFIter::box()</span></code>, <code class="docutils literal notranslate"><span class="pre">MFIter::tilebox()</span></code> or variations) or the particles defined on this <code class="docutils literal notranslate"><span class="pre">Box</span></code> (<code class="docutils literal notranslate"><span class="pre">ParIter::GetParticles()</span></code>).</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

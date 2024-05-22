@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lawrencium (LBNL) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ferrox.html">FerroX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/how_to_run.html">Run WarpX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/domain_decomposition.html">Domain Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/parameters.html">Input Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/python.html">Python (PICMI)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/examples.html">Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdviewer.html">openPMD-viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/openpmdapi.html">openPMD-api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/paraview.html">3D Visualization: ParaView</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visit.html">3D Visualization: VisIt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/visualpic.html">VisualPIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/picviewer.html">PICViewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/reduced_diags.html">Reduced diagnostics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/workflows.html">Workflows</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Lawrencium (LBNL)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/install/hpc/lawrencium.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lawrencium-lbnl">
+<span id="building-lawrencium"></span><h1>Lawrencium (LBNL)<a class="headerlink" href="#lawrencium-lbnl" title="Link to this heading"></a></h1>
+<p>The <a class="reference external" href="http://scs.lbl.gov/Systems">Lawrencium cluster</a> is located at LBNL.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>If you are new to this system, <strong>please see the following resources</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sites.google.com/a/lbl.gov/high-performance-computing-services-group/lbnl-supercluster/lawrencium">Lawrencium user guide</a></p></li>
+<li><p>Batch system: <a class="reference external" href="https://sites.google.com/a/lbl.gov/high-performance-computing-services-group/scheduler/slurm-usage-instructions">Slurm</a></p></li>
+<li><p><a class="reference external" href="https://sites.google.com/a/lbl.gov/high-performance-computing-services-group/lbnl-supercluster/lawrencium#backup">Production directories</a>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/global/scratch/users/$USER/</span></code>: production directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/global/home/groups/$GROUP/</span></code>: group production directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/global/home/users/$USER</span></code>: home directory (10 GB)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+</pre></div>
+</div>
+<p>We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/lawrencium_warpx.profile</span></code>).</p>
+<p>We recommend to store the above lines in a file, such as <code class="docutils literal notranslate"><span class="pre">$HOME/lawrencium_warpx.profile</span></code>, and load it into your shell after a login:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/lawrencium_warpx.profile
+</pre></div>
+</div>
+<p>And since Lawrencium does not yet provide a module for them, install ADIOS2, BLAS++ and LAPACK++:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># c-blosc (I/O compression)</span>
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.21.1<span class="w"> </span>https://github.com/Blosc/c-blosc.git<span class="w"> </span>src/c-blosc
+rm<span class="w"> </span>-rf<span class="w"> </span>src/c-blosc-v100-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/c-blosc<span class="w"> </span>-B<span class="w"> </span>src/c-blosc-v100-build<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_BENCHMARKS<span class="o">=</span>OFF<span class="w"> </span>-DDEACTIVATE_AVX2<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/sw/v100/c-blosc-1.21.1
+cmake<span class="w"> </span>--build<span class="w"> </span>src/c-blosc-v100-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">12</span>
+
+<span class="c1"># ADIOS2</span>
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v2.8.3<span class="w"> </span>https://github.com/ornladios/ADIOS2.git<span class="w"> </span>src/adios2
+rm<span class="w"> </span>-rf<span class="w"> </span>src/adios2-v100-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/adios2<span class="w"> </span>-B<span class="w"> </span>src/adios2-v100-build<span class="w"> </span>-DADIOS2_USE_Blosc<span class="o">=</span>ON<span class="w"> </span>-DADIOS2_USE_Fortran<span class="o">=</span>OFF<span class="w"> </span>-DADIOS2_USE_Python<span class="o">=</span>OFF<span class="w"> </span>-DADIOS2_USE_ZeroMQ<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/sw/v100/adios2-2.8.3
+cmake<span class="w"> </span>--build<span class="w"> </span>src/adios2-v100-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>-j<span class="w"> </span><span class="m">12</span>
+
+<span class="c1"># BLAS++ (for PSATD+RZ)</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/icl-utk-edu/blaspp.git<span class="w"> </span>src/blaspp
+rm<span class="w"> </span>-rf<span class="w"> </span>src/blaspp-v100-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/blaspp<span class="w"> </span>-B<span class="w"> </span>src/blaspp-v100-build<span class="w"> </span>-Duse_openmp<span class="o">=</span>OFF<span class="w"> </span>-Dgpu_backend<span class="o">=</span>cuda<span class="w"> </span>-DCMAKE_CXX_STANDARD<span class="o">=</span><span class="m">17</span><span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/sw/v100/blaspp-master
+cmake<span class="w"> </span>--build<span class="w"> </span>src/blaspp-v100-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">12</span>
+
+<span class="c1"># LAPACK++ (for PSATD+RZ)</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/icl-utk-edu/lapackpp.git<span class="w"> </span>src/lapackpp
+rm<span class="w"> </span>-rf<span class="w"> </span>src/lapackpp-v100-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/lapackpp<span class="w"> </span>-B<span class="w"> </span>src/lapackpp-v100-build<span class="w"> </span>-DCMAKE_CXX_STANDARD<span class="o">=</span><span class="m">17</span><span class="w"> </span>-Dgpu_backend<span class="o">=</span>cuda<span class="w"> </span>-Dbuild_tests<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$HOME</span>/sw/v100/lapackpp-master<span class="w"> </span>-Duse_cmake_find_lapack<span class="o">=</span>ON<span class="w"> </span>-DBLAS_LIBRARIES<span class="o">=</span><span class="si">${</span><span class="nv">LAPACK_DIR</span><span class="si">}</span>/lib/libblas.a<span class="w"> </span>-DLAPACK_LIBRARIES<span class="o">=</span><span class="si">${</span><span class="nv">LAPACK_DIR</span><span class="si">}</span>/lib/liblapack.a
+cmake<span class="w"> </span>--build<span class="w"> </span>src/lapackpp-v100-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">12</span>
+</pre></div>
+</div>
+<p>Optionally, download and install Python packages for <a class="reference internal" href="../../usage/python.html#usage-picmi"><span class="std std-ref">PICMI</span></a> or dynamic ensemble optimizations (<a class="reference internal" href="../../usage/workflows/libensemble.html#libensemble"><span class="std std-ref">libEnsemble</span></a>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>virtualenv
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>cache<span class="w"> </span>purge
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="nv">$HOME</span>/sw/v100/venvs/warpx
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="nv">$HOME</span>/sw/v100/venvs/warpx
+<span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/sw/v100/venvs/warpx/bin/activate
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>wheel
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>cython
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>numpy
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pandas
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>scipy
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>mpi4py<span class="w"> </span>--no-build-isolation<span class="w"> </span>--no-binary<span class="w"> </span>mpi4py
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>openpmd-api
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>matplotlib
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>yt
+<span class="c1"># optional: for libEnsemble</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span><span class="nv">$HOME</span>/src/warpx/Tools/LibEnsemble/requirements.txt
+</pre></div>
+</div>
+<p>Then, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the directory <code class="docutils literal notranslate"><span class="pre">$HOME/src/warpx</span></code> and use the following commands to compile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+rm<span class="w"> </span>-rf<span class="w"> </span>build
+
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span><span class="m">3</span><span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>CUDA<span class="w"> </span>-DWarpX_PSATD<span class="o">=</span>ON
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">12</span>
+</pre></div>
+</div>
+<p>The general <a class="reference internal" href="../cmake.html#building-cmake"><span class="std std-ref">cmake compile-time options</span></a> apply as usual.</p>
+<p><strong>That’s it!</strong>
+A 3D WarpX executable is now in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code> and <a class="reference internal" href="#running-cpp-lawrencium"><span class="std std-ref">can be run</span></a> with a <a class="reference internal" href="../../usage/examples.html#usage-examples"><span class="std std-ref">3D example inputs file</span></a>.
+Most people execute the binary directly or copy it out to a location in <code class="docutils literal notranslate"><span class="pre">/global/scratch/users/$USER/</span></code>.</p>
+<p>For a <em>full PICMI install</em>, follow the <a class="reference internal" href="../cmake.html#building-cmake-python"><span class="std std-ref">instructions for Python (PICMI) bindings</span></a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># PICMI build</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+
+<span class="c1"># install or update dependencies</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># compile parallel PICMI interfaces in 3D, 2D, 1D and RZ</span>
+<span class="nv">WARPX_MPI</span><span class="o">=</span>ON<span class="w"> </span><span class="nv">WARPX_COMPUTE</span><span class="o">=</span>CUDA<span class="w"> </span><span class="nv">WARPX_PSATD</span><span class="o">=</span>ON<span class="w"> </span><span class="nv">BUILD_PARALLEL</span><span class="o">=</span><span class="m">12</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--force-reinstall<span class="w"> </span>--no-deps<span class="w"> </span>-v<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Or, if you are <em>developing</em>, do a quick PICMI install of a <em>single geometry</em> (see: <a class="reference internal" href="../cmake.html#building-cmake-options"><span class="std std-ref">WarpX_DIMS</span></a>) using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># find dependencies &amp; configure</span>
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>CUDA<span class="w"> </span>-DWarpX_PSATD<span class="o">=</span>ON<span class="w"> </span>-DWarpX_LIB<span class="o">=</span>ON<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span>RZ
+
+<span class="c1"># build and then call &quot;python3 -m pip install ...&quot;</span>
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>pip_install<span class="w"> </span>-j<span class="w"> </span><span class="m">12</span>
+</pre></div>
+</div>
+</section>
+<section id="running">
+<span id="running-cpp-lawrencium"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<section id="v100-gpus-16-gb">
+<span id="running-cpp-lawrencium-v100-gpus"></span><h3>V100 GPUs (16 GB)<a class="headerlink" href="#v100-gpus-16-gb" title="Link to this heading"></a></h3>
+<p>12 nodes with each two NVIDIA V100 GPUs.</p>
+<p>To run a simulation, copy the lines above to a file <code class="docutils literal notranslate"><span class="pre">v100.sbatch</span></code> and run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>lawrencium_v100.sbatch
+</pre></div>
+</div>
+</section>
+<section id="ti-gpus-10-gb">
+<span id="running-cpp-lawrencium-2080ti-gpus"></span><h3>2080 Ti GPUs (10 GB)<a class="headerlink" href="#ti-gpus-10-gb" title="Link to this heading"></a></h3>
+<p>18 nodes with each four NVIDIA 2080 TI GPUs.
+These are most interesting if you run in single precision.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">--constraint=es1_2080ti</span> <span class="pre">--cpus-per-task=2</span></code> in the above template to run on those nodes.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
