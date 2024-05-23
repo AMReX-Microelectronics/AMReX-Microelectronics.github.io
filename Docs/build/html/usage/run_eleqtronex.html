@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run ELEQTRONeX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -115,11 +111,11 @@
            <div itemprop="articleBody">
              
   <section id="run-eleqtronex">
-<span id="usage-run"></span><h1>Run ELEQTRONeX<a class="headerlink" href="#run-eleqtronex" title="Link to this heading"></a></h1>
+<span id="usage-run"></span><h1>Run ELEQTRONeX<a class="headerlink" href="#run-eleqtronex" title="Permalink to this heading"></a></h1>
 <section id="run">
-<h2>Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
 <section id="run-locally">
-<h3>Run locally<a class="headerlink" href="#run-locally" title="Link to this heading"></a></h3>
+<h3>Run locally<a class="headerlink" href="#run-locally" title="Permalink to this heading"></a></h3>
 <p>Upon compilation, executable is generated in Exec/ folder in the ELEQTRONeX folder.
 To run the executable with an input file from the <cite>input/</cite> folder in the <cite>ELEQTRONeX</cite> folder,
 we can do the following:</p>
@@ -135,7 +131,7 @@ Alternatively, you can specify this parameter on the command line in &lt;other a
 </div>
 </section>
 <section id="run-on-perlmutter">
-<h3>Run on Perlmutter<a class="headerlink" href="#run-on-perlmutter" title="Link to this heading"></a></h3>
+<h3>Run on Perlmutter<a class="headerlink" href="#run-on-perlmutter" title="Permalink to this heading"></a></h3>
 <p>To run the code on <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/">Perlmutter</a>, we can submit a jobscript as shown below for 2 nodes and 8 GPUs.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH -N 2</span>
@@ -164,9 +160,9 @@ NERSC also provides a script generator, <code class="docutils literal notranslat
 </section>
 </section>
 <section id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Link to this heading"></a></h2>
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
 <section id="module-enabling-parameters">
-<h3>Module enabling parameters<a class="headerlink" href="#module-enabling-parameters" title="Link to this heading"></a></h3>
+<h3>Module enabling parameters<a class="headerlink" href="#module-enabling-parameters" title="Permalink to this heading"></a></h3>
 <p>The following flags enable particular modules.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">use_electrostatic</span> <span class="pre">=</span> <span class="pre">1</span></code> uses the electrostatic module.</p></li>
@@ -177,23 +173,23 @@ NERSC also provides a script generator, <code class="docutils literal notranslat
 </ul>
 </section>
 <section id="data-output-parameters">
-<h3>Data output parameters<a class="headerlink" href="#data-output-parameters" title="Link to this heading"></a></h3>
+<h3>Data output parameters<a class="headerlink" href="#data-output-parameters" title="Permalink to this heading"></a></h3>
 </section>
 <section id="restart-parameters">
-<h3>Restart parameters<a class="headerlink" href="#restart-parameters" title="Link to this heading"></a></h3>
+<h3>Restart parameters<a class="headerlink" href="#restart-parameters" title="Permalink to this heading"></a></h3>
 </section>
 <section id="negf-parameters">
-<h3>NEGF parameters<a class="headerlink" href="#negf-parameters" title="Link to this heading"></a></h3>
+<h3>NEGF parameters<a class="headerlink" href="#negf-parameters" title="Permalink to this heading"></a></h3>
 </section>
 <section id="electrostatics-parameters">
-<h3>Electrostatics parameters<a class="headerlink" href="#electrostatics-parameters" title="Link to this heading"></a></h3>
+<h3>Electrostatics parameters<a class="headerlink" href="#electrostatics-parameters" title="Permalink to this heading"></a></h3>
 </section>
 <section id="diagnostics">
-<h3>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading"></a></h3>
+<h3>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this heading"></a></h3>
 </section>
 </section>
 <section id="output">
-<h2>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this heading"></a></h2>
 <hr class="docutils" />
 </section>
 </section>

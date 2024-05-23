@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Particle-in-Cell Method &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -97,11 +93,11 @@
            <div itemprop="articleBody">
              
   <section id="particle-in-cell-method">
-<span id="theory-pic"></span><h1>Particle-in-Cell Method<a class="headerlink" href="#particle-in-cell-method" title="Link to this heading"></a></h1>
+<span id="theory-pic"></span><h1>Particle-in-Cell Method<a class="headerlink" href="#particle-in-cell-method" title="Permalink to this heading"></a></h1>
 <figure class="align-default" id="id6">
 <img alt="[fig:PIC] The Particle-In-Cell (PIC) method follows the evolution of a collection of charged macro-particles (positively charged in blue on the left plot, negatively charged in red) that evolve self-consistently with their electromagnetic (or electrostatic) fields. The core PIC algorithm involves four operations at each time step: 1) evolve the velocity and position of the particles using the Newton-Lorentz equations, 2) deposit the charge and/or current densities through interpolation from the particles distributions onto the grid, 3) evolve Maxwell’s wave equations (for electromagnetic) or solve Poisson’s equation (for electrostatic) on the grid, 4) interpolate the fields from the grid onto the particles for the next particle push. Additional “add-ons” operations are inserted between these core operations to account for additional physics (e.g. absorption/emission of particles, addition of external forces to account for accelerator focusing or accelerating component) or numerical effects (e.g. smoothing/filtering of the charge/current densities and/or fields on the grid)." src="../_images/PIC.png" />
 <figcaption>
-<p><span class="caption-text">[fig:PIC] The Particle-In-Cell (PIC) method follows the evolution of a collection of charged macro-particles (positively charged in blue on the left plot, negatively charged in red) that evolve self-consistently with their electromagnetic (or electrostatic) fields. The core PIC algorithm involves four operations at each time step: 1) evolve the velocity and position of the particles using the Newton-Lorentz equations, 2) deposit the charge and/or current densities through interpolation from the particles distributions onto the grid, 3) evolve Maxwell’s wave equations (for electromagnetic) or solve Poisson’s equation (for electrostatic) on the grid, 4) interpolate the fields from the grid onto the particles for the next particle push. Additional “add-ons” operations are inserted between these core operations to account for additional physics (e.g. absorption/emission of particles, addition of external forces to account for accelerator focusing or accelerating component) or numerical effects (e.g. smoothing/filtering of the charge/current densities and/or fields on the grid).</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+<p><span class="caption-text">[fig:PIC] The Particle-In-Cell (PIC) method follows the evolution of a collection of charged macro-particles (positively charged in blue on the left plot, negatively charged in red) that evolve self-consistently with their electromagnetic (or electrostatic) fields. The core PIC algorithm involves four operations at each time step: 1) evolve the velocity and position of the particles using the Newton-Lorentz equations, 2) deposit the charge and/or current densities through interpolation from the particles distributions onto the grid, 3) evolve Maxwell’s wave equations (for electromagnetic) or solve Poisson’s equation (for electrostatic) on the grid, 4) interpolate the fields from the grid onto the particles for the next particle push. Additional “add-ons” operations are inserted between these core operations to account for additional physics (e.g. absorption/emission of particles, addition of external forces to account for accelerator focusing or accelerating component) or numerical effects (e.g. smoothing/filtering of the charge/current densities and/or fields on the grid).</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>In the <em>electromagnetic particle-in-cell method</em> (Birdsall and Langdon 1991),
@@ -129,7 +125,7 @@ on the grid from the particles’ positions and velocities, while the
 electric and magnetic field components are interpolated from the grid
 to the particles’ positions for the velocity update.</p>
 <section id="particle-push">
-<span id="theory-pic-push"></span><h2>Particle push<a class="headerlink" href="#particle-push" title="Link to this heading"></a></h2>
+<span id="theory-pic-push"></span><h2>Particle push<a class="headerlink" href="#particle-push" title="Permalink to this heading"></a></h2>
 <p>A centered finite-difference discretization of the Newton-Lorentz
 equations of motion is given by</p>
 <div class="math notranslate nohighlight">
@@ -139,7 +135,7 @@ equations of motion is given by</p>
 <p>In order to close the system, <span class="math notranslate nohighlight">\(\bar{\mathbf{v}}^{i}\)</span> must be
 expressed as a function of the other quantities. The two implementations that have become the most popular are presented below.</p>
 <section id="boris-relativistic-velocity-rotation">
-<span id="theory-pic-push-boris"></span><h3>Boris relativistic velocity rotation<a class="headerlink" href="#boris-relativistic-velocity-rotation" title="Link to this heading"></a></h3>
+<span id="theory-pic-push-boris"></span><h3>Boris relativistic velocity rotation<a class="headerlink" href="#boris-relativistic-velocity-rotation" title="Permalink to this heading"></a></h3>
 <p>The solution proposed by Boris (Boris 1970) is given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
@@ -160,7 +156,7 @@ velocity is updated using the following sequence:</p>
 <p>The Boris implementation is second-order accurate, time-reversible and fast. Its implementation is very widespread and used in the vast majority of PIC codes.</p>
 </section>
 <section id="vay-lorentz-invariant-formulation">
-<span id="theory-pic-push-vay"></span><h3>Vay Lorentz-invariant formulation<a class="headerlink" href="#vay-lorentz-invariant-formulation" title="Link to this heading"></a></h3>
+<span id="theory-pic-push-vay"></span><h3>Vay Lorentz-invariant formulation<a class="headerlink" href="#vay-lorentz-invariant-formulation" title="Permalink to this heading"></a></h3>
 <p>It was shown in (Vay 2008) that the Boris formulation is
 not Lorentz invariant and can lead to significant errors in the treatment
 of relativistic dynamics. A Lorentz invariant formulation is obtained
@@ -185,7 +181,7 @@ shown in (Vay 2008).</p>
 </section>
 </section>
 <section id="field-solve">
-<span id="theory-pic-mwsolve"></span><h2>Field solve<a class="headerlink" href="#field-solve" title="Link to this heading"></a></h2>
+<span id="theory-pic-mwsolve"></span><h2>Field solve<a class="headerlink" href="#field-solve" title="Permalink to this heading"></a></h2>
 <p>Various methods are available for solving Maxwell’s equations on a
 grid, based on finite-differences, finite-volume, finite-element,
 spectral, or other discretization techniques that apply most commonly
@@ -197,7 +193,7 @@ analytical time-domain (PSATD) and pseudo-spectral time-domain (PSTD)
 algorithms. Extension to multiresolution (or mesh refinement) PIC
 is described in, e.g. (Vay et al. 2012; Vay, Adam, and Heron 2004).</p>
 <section id="finite-difference-time-domain-fdtd">
-<span id="theory-pic-mwsolve-fdtd"></span><h3>Finite-Difference Time-Domain (FDTD)<a class="headerlink" href="#finite-difference-time-domain-fdtd" title="Link to this heading"></a></h3>
+<span id="theory-pic-mwsolve-fdtd"></span><h3>Finite-Difference Time-Domain (FDTD)<a class="headerlink" href="#finite-difference-time-domain-fdtd" title="Permalink to this heading"></a></h3>
 <p>The most popular algorithm for electromagnetic PIC codes is the Finite-Difference
 Time-Domain (or FDTD) solver</p>
 <div class="math notranslate nohighlight">
@@ -209,7 +205,7 @@ D_{t}\mathbf{E} &amp; = &amp; \nabla\times\mathbf{B}-\mathbf{J}\label{Eq:Ampere-
 <figure class="align-default" id="id7">
 <img alt="[fig:yee_grid](left) Layout of field components on the staggered “Yee” grid. Current densities and electric fields are defined on the edges of the cells and magnetic fields on the faces. (right) Time integration using a second-order finite-difference &quot;leapfrog&quot; integrator." src="../_images/Yee_grid.png" />
 <figcaption>
-<p><span class="caption-text">[fig:yee_grid](left) Layout of field components on the staggered “Yee” grid. Current densities and electric fields are defined on the edges of the cells and magnetic fields on the faces. (right) Time integration using a second-order finite-difference “leapfrog” integrator.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+<p><span class="caption-text">[fig:yee_grid](left) Layout of field components on the staggered “Yee” grid. Current densities and electric fields are defined on the edges of the cells and magnetic fields on the faces. (right) Time integration using a second-order finite-difference “leapfrog” integrator.</span><a class="headerlink" href="#id7" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>The differential operator is defined as <span class="math notranslate nohighlight">\(\nabla=D_{x}\mathbf{\hat{x}}+D_{y}\mathbf{\hat{y}}+D_{z}\mathbf{\hat{z}}\)</span>
@@ -233,7 +229,7 @@ the electric field components are updated alternately with the magnetic
 field components at integer and half-integer steps respectively.</p>
 </section>
 <section id="non-standard-finite-difference-time-domain-nsfdtd">
-<span id="theory-pic-mwsolve-nsfdtd"></span><h3>Non-Standard Finite-Difference Time-Domain (NSFDTD)<a class="headerlink" href="#non-standard-finite-difference-time-domain-nsfdtd" title="Link to this heading"></a></h3>
+<span id="theory-pic-mwsolve-nsfdtd"></span><h3>Non-Standard Finite-Difference Time-Domain (NSFDTD)<a class="headerlink" href="#non-standard-finite-difference-time-domain-nsfdtd" title="Permalink to this heading"></a></h3>
 <p>In (Cole 1997, 2002), Cole introduced an implementation
 of the source-free Maxwell’s wave equations for narrow-band applications
 based on non-standard finite-differences (NSFD). In (Karkkainen et al. 2006),
@@ -284,7 +280,7 @@ terms using a bilinear filter (see description of the filter below)
 suppresses this instability.</p>
 </section>
 <section id="pseudo-spectral-analytical-time-domain-psatd">
-<span id="theory-pic-mwsolve-psatd"></span><h3>Pseudo Spectral Analytical Time Domain (PSATD)<a class="headerlink" href="#pseudo-spectral-analytical-time-domain-psatd" title="Link to this heading"></a></h3>
+<span id="theory-pic-mwsolve-psatd"></span><h3>Pseudo Spectral Analytical Time Domain (PSATD)<a class="headerlink" href="#pseudo-spectral-analytical-time-domain-psatd" title="Permalink to this heading"></a></h3>
 <p>Maxwell’s equations in Fourier space are given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -354,7 +350,7 @@ a collocated and a staggered formulation is application-dependent.</p>
 </section>
 </section>
 <section id="current-deposition">
-<span id="id1"></span><h2>Current deposition<a class="headerlink" href="#current-deposition" title="Link to this heading"></a></h2>
+<span id="id1"></span><h2>Current deposition<a class="headerlink" href="#current-deposition" title="Permalink to this heading"></a></h2>
 <p>The current densities are deposited on the computational grid from
 the particle position and velocities, employing splines of various
 orders (Abe et al. 1986).</p>
@@ -380,7 +376,7 @@ those implementations, including the expressions for the numerical
 dispersion and Courant condition are given
 in (Pukhov 1999; Vay et al. 2011; Cowan et al. 2013; Lehe et al. 2013).</p>
 <section id="current-correction">
-<h3>Current correction<a class="headerlink" href="#current-correction" title="Link to this heading"></a></h3>
+<h3>Current correction<a class="headerlink" href="#current-correction" title="Permalink to this heading"></a></h3>
 <p>In the case of the pseudospectral solvers, the current deposition
 algorithm generally does not satisfy the discretized continuity equation
 in Fourier space <span class="math notranslate nohighlight">\(\tilde{\rho}^{n+1}=\tilde{\rho}^{n}-i\Delta t\mathbf{k}\cdot\mathbf{\tilde{J}}^{n+1/2}\)</span>.
@@ -399,7 +395,7 @@ the electric field is that it is more local and thus more compatible with
 domain decomposition of the fields for parallel computation (Jean Luc Vay, Haber, and Godfrey 2013).</p>
 </section>
 <section id="vay-deposition">
-<h3>Vay deposition<a class="headerlink" href="#vay-deposition" title="Link to this heading"></a></h3>
+<h3>Vay deposition<a class="headerlink" href="#vay-deposition" title="Permalink to this heading"></a></h3>
 <p>Alternatively, an exact current deposition can be written for the pseudo-spectral solvers, following the geometrical interpretation of existing methods in real space (<a class="reference external" href="https://doi.org/10.1063/1.1693518">Morse and Nielson, 1971</a>; <a class="reference external" href="https://doi.org/10.1016/0010-4655(92)90169-Y">Villasenor and Buneman, 1992</a>; <a class="reference external" href="https://doi.org/10.1016/S0010-4655(00)00228-9">Esirkepov, 2001</a>).</p>
 <p>The Vay deposition scheme is the generalization of the Esirkepov deposition scheme for the spectral case with arbitrary-order stencils <a class="reference external" href="https://doi.org/10.1016/j.jcp.2013.03.010">(Vay et al, 2013)</a>.
 The current density <span class="math notranslate nohighlight">\(\widehat{\boldsymbol{J}}^{\,n+1/2}\)</span> in Fourier space is computed as <span class="math notranslate nohighlight">\(\widehat{\boldsymbol{J}}^{\,n+1/2} = i \, \widehat{\boldsymbol{D}} / \boldsymbol{k}\)</span> when <span class="math notranslate nohighlight">\(\boldsymbol{k} \neq 0\)</span> and set to zero otherwise.
@@ -468,7 +464,7 @@ Note that in 2D Cartesian geometry, <span class="math notranslate nohighlight">\
 </section>
 </section>
 <section id="field-gather">
-<h2>Field gather<a class="headerlink" href="#field-gather" title="Link to this heading"></a></h2>
+<h2>Field gather<a class="headerlink" href="#field-gather" title="Permalink to this heading"></a></h2>
 <p>In general, the field is gathered from the mesh onto the macroparticles
 using splines of the same order as for the current deposition <span class="math notranslate nohighlight">\(\mathbf{S}=\left(S_{x},S_{y},S_{z}\right)\)</span>.
 Three variations are considered:</p>
@@ -502,7 +498,7 @@ of relativistically drifting plasmas <a href="#id4"><span class="problematic" id
 </section>
 </section>
 <section id="filtering">
-<span id="theory-pic-filter"></span><h1>Filtering<a class="headerlink" href="#filtering" title="Link to this heading"></a></h1>
+<span id="theory-pic-filter"></span><h1>Filtering<a class="headerlink" href="#filtering" title="Permalink to this heading"></a></h1>
 <p>It is common practice to apply digital filtering to the charge or
 current density in Particle-In-Cell simulations as a complement or
 an alternative to using higher order splines (Birdsall and Langdon 1991).

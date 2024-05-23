@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Python (PICMI) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -97,7 +93,7 @@
            <div itemprop="articleBody">
              
   <section id="python-picmi">
-<span id="usage-picmi"></span><h1>Python (PICMI)<a class="headerlink" href="#python-picmi" title="Link to this heading"></a></h1>
+<span id="usage-picmi"></span><h1>Python (PICMI)<a class="headerlink" href="#python-picmi" title="Permalink to this heading"></a></h1>
 <p>WarpX uses the <a class="reference external" href="https://github.com/picmi-standard/picmi">PICMI standard</a> for its Python input files.
 Python version 3.7 or newer is required.</p>
 <p>Example input files can be found in <a class="reference internal" href="examples.html#usage-examples"><span class="std std-ref">the examples section</span></a>.
@@ -105,14 +101,14 @@ In the input file, instances of classes are created defining the various aspects
 The <cite>Simulation</cite> object is the central object, where the instances are passed,
 defining the simulation time, field solver, registered species, etc.</p>
 <section id="classes">
-<span id="usage-picmi-parameters"></span><h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<span id="usage-picmi-parameters"></span><h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading"></a></h2>
 <section id="simulation-and-grid-setup">
-<h3>Simulation and grid setup<a class="headerlink" href="#simulation-and-grid-setup" title="Link to this heading"></a></h3>
+<h3>Simulation and grid setup<a class="headerlink" href="#simulation-and-grid-setup" title="Permalink to this heading"></a></h3>
 <section id="simulation">
-<h4>Simulation<a class="headerlink" href="#simulation" title="Link to this heading"></a></h4>
+<h4>Simulation<a class="headerlink" href="#simulation" title="Permalink to this heading"></a></h4>
 </section>
 <section id="constants">
-<h4>Constants<a class="headerlink" href="#constants" title="Link to this heading"></a></h4>
+<h4>Constants<a class="headerlink" href="#constants" title="Permalink to this heading"></a></h4>
 <p>For convenience, the PICMI interface defines the following constants,
 which can be used directly inside any PICMI script. The values are in SI units.</p>
 <ul class="simple">
@@ -126,123 +122,123 @@ which can be used directly inside any PICMI script. The values are in SI units.<
 <p>Field solvers define the updates of electric and magnetic fields.</p>
 </section>
 <section id="electromagneticsolver">
-<h4>ElectromagneticSolver<a class="headerlink" href="#electromagneticsolver" title="Link to this heading"></a></h4>
+<h4>ElectromagneticSolver<a class="headerlink" href="#electromagneticsolver" title="Permalink to this heading"></a></h4>
 </section>
 <section id="electrostaticsolver">
-<h4>ElectrostaticSolver<a class="headerlink" href="#electrostaticsolver" title="Link to this heading"></a></h4>
+<h4>ElectrostaticSolver<a class="headerlink" href="#electrostaticsolver" title="Permalink to this heading"></a></h4>
 </section>
 <section id="cartesian3dgrid">
-<h4>Cartesian3DGrid<a class="headerlink" href="#cartesian3dgrid" title="Link to this heading"></a></h4>
+<h4>Cartesian3DGrid<a class="headerlink" href="#cartesian3dgrid" title="Permalink to this heading"></a></h4>
 </section>
 <section id="cartesian2dgrid">
-<h4>Cartesian2DGrid<a class="headerlink" href="#cartesian2dgrid" title="Link to this heading"></a></h4>
+<h4>Cartesian2DGrid<a class="headerlink" href="#cartesian2dgrid" title="Permalink to this heading"></a></h4>
 </section>
 <section id="cartesian1dgrid">
-<h4>Cartesian1DGrid<a class="headerlink" href="#cartesian1dgrid" title="Link to this heading"></a></h4>
+<h4>Cartesian1DGrid<a class="headerlink" href="#cartesian1dgrid" title="Permalink to this heading"></a></h4>
 </section>
 <section id="cylindricalgrid">
-<h4>CylindricalGrid<a class="headerlink" href="#cylindricalgrid" title="Link to this heading"></a></h4>
+<h4>CylindricalGrid<a class="headerlink" href="#cylindricalgrid" title="Permalink to this heading"></a></h4>
 </section>
 <section id="embeddedboundary">
-<h4>EmbeddedBoundary<a class="headerlink" href="#embeddedboundary" title="Link to this heading"></a></h4>
+<h4>EmbeddedBoundary<a class="headerlink" href="#embeddedboundary" title="Permalink to this heading"></a></h4>
 </section>
 </section>
 <section id="applied-fields">
-<h3>Applied fields<a class="headerlink" href="#applied-fields" title="Link to this heading"></a></h3>
+<h3>Applied fields<a class="headerlink" href="#applied-fields" title="Permalink to this heading"></a></h3>
 <section id="constantappliedfield">
-<h4>ConstantAppliedField<a class="headerlink" href="#constantappliedfield" title="Link to this heading"></a></h4>
+<h4>ConstantAppliedField<a class="headerlink" href="#constantappliedfield" title="Permalink to this heading"></a></h4>
 </section>
 <section id="analyticappliedfield">
-<h4>AnalyticAppliedField<a class="headerlink" href="#analyticappliedfield" title="Link to this heading"></a></h4>
+<h4>AnalyticAppliedField<a class="headerlink" href="#analyticappliedfield" title="Permalink to this heading"></a></h4>
 </section>
 <section id="plasmalens">
-<h4>PlasmaLens<a class="headerlink" href="#plasmalens" title="Link to this heading"></a></h4>
+<h4>PlasmaLens<a class="headerlink" href="#plasmalens" title="Permalink to this heading"></a></h4>
 </section>
 <section id="mirror">
-<h4>Mirror<a class="headerlink" href="#mirror" title="Link to this heading"></a></h4>
+<h4>Mirror<a class="headerlink" href="#mirror" title="Permalink to this heading"></a></h4>
 </section>
 </section>
 <section id="diagnostics">
-<h3>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading"></a></h3>
+<h3>Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this heading"></a></h3>
 <section id="particlediagnostic">
-<h4>ParticleDiagnostic<a class="headerlink" href="#particlediagnostic" title="Link to this heading"></a></h4>
+<h4>ParticleDiagnostic<a class="headerlink" href="#particlediagnostic" title="Permalink to this heading"></a></h4>
 </section>
 <section id="fielddiagnostic">
-<h4>FieldDiagnostic<a class="headerlink" href="#fielddiagnostic" title="Link to this heading"></a></h4>
+<h4>FieldDiagnostic<a class="headerlink" href="#fielddiagnostic" title="Permalink to this heading"></a></h4>
 </section>
 <section id="electrostaticfielddiagnostic">
-<h4>ElectrostaticFieldDiagnostic<a class="headerlink" href="#electrostaticfielddiagnostic" title="Link to this heading"></a></h4>
+<h4>ElectrostaticFieldDiagnostic<a class="headerlink" href="#electrostaticfielddiagnostic" title="Permalink to this heading"></a></h4>
 <p>Lab-frame diagnostics diagnostics are used when running boosted-frame simulations.</p>
 </section>
 <section id="labframefielddiagnostic">
-<h4>LabFrameFieldDiagnostic<a class="headerlink" href="#labframefielddiagnostic" title="Link to this heading"></a></h4>
+<h4>LabFrameFieldDiagnostic<a class="headerlink" href="#labframefielddiagnostic" title="Permalink to this heading"></a></h4>
 </section>
 <section id="checkpoint">
-<h4>Checkpoint<a class="headerlink" href="#checkpoint" title="Link to this heading"></a></h4>
+<h4>Checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this heading"></a></h4>
 </section>
 </section>
 <section id="particles">
-<h3>Particles<a class="headerlink" href="#particles" title="Link to this heading"></a></h3>
+<h3>Particles<a class="headerlink" href="#particles" title="Permalink to this heading"></a></h3>
 <p>Species objects are a collection of particles with similar properties.
 For instance, background plasma electrons, background plasma ions and an externally injected beam could each be their own particle species.</p>
 <section id="species">
-<h4>Species<a class="headerlink" href="#species" title="Link to this heading"></a></h4>
+<h4>Species<a class="headerlink" href="#species" title="Permalink to this heading"></a></h4>
 </section>
 <section id="multispecies">
-<h4>MultiSpecies<a class="headerlink" href="#multispecies" title="Link to this heading"></a></h4>
+<h4>MultiSpecies<a class="headerlink" href="#multispecies" title="Permalink to this heading"></a></h4>
 <p>Particle distributions can be used for to initialize particles in a particle species.</p>
 </section>
 <section id="gaussianbunchdistribution">
-<h4>GaussianBunchDistribution<a class="headerlink" href="#gaussianbunchdistribution" title="Link to this heading"></a></h4>
+<h4>GaussianBunchDistribution<a class="headerlink" href="#gaussianbunchdistribution" title="Permalink to this heading"></a></h4>
 </section>
 <section id="uniformdistribution">
-<h4>UniformDistribution<a class="headerlink" href="#uniformdistribution" title="Link to this heading"></a></h4>
+<h4>UniformDistribution<a class="headerlink" href="#uniformdistribution" title="Permalink to this heading"></a></h4>
 </section>
 <section id="analyticdistribution">
-<h4>AnalyticDistribution<a class="headerlink" href="#analyticdistribution" title="Link to this heading"></a></h4>
+<h4>AnalyticDistribution<a class="headerlink" href="#analyticdistribution" title="Permalink to this heading"></a></h4>
 </section>
 <section id="particlelistdistribution">
-<h4>ParticleListDistribution<a class="headerlink" href="#particlelistdistribution" title="Link to this heading"></a></h4>
+<h4>ParticleListDistribution<a class="headerlink" href="#particlelistdistribution" title="Permalink to this heading"></a></h4>
 <p>Particle layouts determine how to microscopically place macro particles in a grid cell.</p>
 </section>
 <section id="griddedlayout">
-<h4>GriddedLayout<a class="headerlink" href="#griddedlayout" title="Link to this heading"></a></h4>
+<h4>GriddedLayout<a class="headerlink" href="#griddedlayout" title="Permalink to this heading"></a></h4>
 </section>
 <section id="pseudorandomlayout">
-<h4>PseudoRandomLayout<a class="headerlink" href="#pseudorandomlayout" title="Link to this heading"></a></h4>
+<h4>PseudoRandomLayout<a class="headerlink" href="#pseudorandomlayout" title="Permalink to this heading"></a></h4>
 <p>Other operations related to particles</p>
 </section>
 <section id="coulombcollisions">
-<h4>CoulombCollisions<a class="headerlink" href="#coulombcollisions" title="Link to this heading"></a></h4>
+<h4>CoulombCollisions<a class="headerlink" href="#coulombcollisions" title="Permalink to this heading"></a></h4>
 </section>
 <section id="mcccollisions">
-<h4>MCCCollisions<a class="headerlink" href="#mcccollisions" title="Link to this heading"></a></h4>
+<h4>MCCCollisions<a class="headerlink" href="#mcccollisions" title="Permalink to this heading"></a></h4>
 </section>
 </section>
 <section id="lasers">
-<h3>Lasers<a class="headerlink" href="#lasers" title="Link to this heading"></a></h3>
+<h3>Lasers<a class="headerlink" href="#lasers" title="Permalink to this heading"></a></h3>
 <p>Laser profiles can be used to initialize laser pulses in the simulation.</p>
 <section id="gaussianlaser">
-<h4>GaussianLaser<a class="headerlink" href="#gaussianlaser" title="Link to this heading"></a></h4>
+<h4>GaussianLaser<a class="headerlink" href="#gaussianlaser" title="Permalink to this heading"></a></h4>
 </section>
 <section id="analyticlaser">
-<h4>AnalyticLaser<a class="headerlink" href="#analyticlaser" title="Link to this heading"></a></h4>
+<h4>AnalyticLaser<a class="headerlink" href="#analyticlaser" title="Permalink to this heading"></a></h4>
 <p>Laser injectors control where to initialize laser pulses on the simulation grid.</p>
 </section>
 <section id="laserantenna">
-<h4>LaserAntenna<a class="headerlink" href="#laserantenna" title="Link to this heading"></a></h4>
+<h4>LaserAntenna<a class="headerlink" href="#laserantenna" title="Permalink to this heading"></a></h4>
 </section>
 </section>
 </section>
 <section id="running">
-<span id="usage-picmi-run"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<span id="usage-picmi-run"></span><h2>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h2>
 <p>WarpX can be run in one of two modes. It can run as a preprocessor, using the
 Python input file to generate an input file to be used by the C++ version, or
 it can be run directly from Python.
 The examples support running in both modes by commenting and uncommenting the appropriate lines.</p>
 <p>In either mode, if using a <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>, be sure to activate it before compiling and running WarpX.</p>
 <section id="running-warpx-directly-from-python">
-<h3>Running WarpX directly from Python<a class="headerlink" href="#running-warpx-directly-from-python" title="Link to this heading"></a></h3>
+<h3>Running WarpX directly from Python<a class="headerlink" href="#running-warpx-directly-from-python" title="Permalink to this heading"></a></h3>
 <p>For this, a full Python installation of WarpX is required, as described in <span class="xref std std-ref">the install documentation</span> (<a class="reference internal" href="../install/cmake.html#install-developers"><span class="std std-ref">developers</span></a>).</p>
 <p>In order to run a new simulation:</p>
 <ul class="simple">
@@ -260,7 +256,7 @@ The examples support running in both modes by commenting and uncommenting the ap
 is the name of the script.</p>
 </section>
 <section id="extending-a-simulation-from-python">
-<h3>Extending a Simulation from Python<a class="headerlink" href="#extending-a-simulation-from-python" title="Link to this heading"></a></h3>
+<h3>Extending a Simulation from Python<a class="headerlink" href="#extending-a-simulation-from-python" title="Permalink to this heading"></a></h3>
 <p>When running WarpX directly from Python it is possible to interact with the simulation
 by installing <code class="docutils literal notranslate"><span class="pre">CallbackFunctions</span></code>, which will execute a given Python function at a
 specific location in the WarpX simulation loop.</p>
@@ -291,7 +287,7 @@ with scraped particle data.</p>
 <p>The embedded boundary conditions can be modified when using the electrostatic solver.</p>
 </section>
 <section id="using-python-input-as-a-preprocessor">
-<h3>Using Python input as a preprocessor<a class="headerlink" href="#using-python-input-as-a-preprocessor" title="Link to this heading"></a></h3>
+<h3>Using Python input as a preprocessor<a class="headerlink" href="#using-python-input-as-a-preprocessor" title="Permalink to this heading"></a></h3>
 <p>In this case, only the pure Python version needs to be installed, as described <a class="reference internal" href="../developers/gnumake/python.html#developers-gnumake-python"><span class="std std-ref">here</span></a>.</p>
 <p>In order to run a new simulation:</p>
 <ul class="simple">

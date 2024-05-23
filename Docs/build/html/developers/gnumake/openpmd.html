@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Building WarpX with support for openPMD output &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -96,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="building-warpx-with-support-for-openpmd-output">
-<span id="building-openpmd"></span><h1>Building WarpX with support for openPMD output<a class="headerlink" href="#building-warpx-with-support-for-openpmd-output" title="Link to this heading"></a></h1>
+<span id="building-openpmd"></span><h1>Building WarpX with support for openPMD output<a class="headerlink" href="#building-warpx-with-support-for-openpmd-output" title="Permalink to this heading"></a></h1>
 <p>WarpX can dump data in the <a class="reference external" href="https://github.com/openPMD">openPMD format</a>.
 This feature currently requires to have a parallel version of HDF5 installed ;
 therefore we recommend to use <a class="reference external" href="https://spack.io">spack</a> in order to facilitate the installation.</p>
@@ -116,7 +112,7 @@ library from source.</p>
 </pre></div>
 </div>
 <section id="warpx-development-environment-with-spack">
-<span id="building-openpmd-spack"></span><h2>WarpX Development Environment with Spack<a class="headerlink" href="#warpx-development-environment-with-spack" title="Link to this heading"></a></h2>
+<span id="building-openpmd-spack"></span><h2>WarpX Development Environment with Spack<a class="headerlink" href="#warpx-development-environment-with-spack" title="Permalink to this heading"></a></h2>
 <p>Create and activate a Spack environment with all software needed to build WarpX</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spack<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>warpx-dev<span class="w">    </span><span class="c1"># you do this once</span>
 spack<span class="w"> </span>env<span class="w"> </span>activate<span class="w"> </span>warpx-dev
@@ -146,7 +142,7 @@ spack<span class="w"> </span>env<span class="w"> </span>st<span class="w">    </
 </div>
 </section>
 <section id="installing-openpmd-api-from-source">
-<span id="building-openpmd-source"></span><h2>Installing openPMD-api from source<a class="headerlink" href="#installing-openpmd-api-from-source" title="Link to this heading"></a></h2>
+<span id="building-openpmd-source"></span><h2>Installing openPMD-api from source<a class="headerlink" href="#installing-openpmd-api-from-source" title="Permalink to this heading"></a></h2>
 <p>You can also build openPMD-api from source, e.g. to build against the module environment of a supercomputer cluster.</p>
 <p>First, load the according modules of the cluster to support the openPMD-api dependencies.
 You can find the <a class="reference external" href="https://github.com/openPMD/openPMD-api#dependencies">required and optional dependencies here</a>.</p>

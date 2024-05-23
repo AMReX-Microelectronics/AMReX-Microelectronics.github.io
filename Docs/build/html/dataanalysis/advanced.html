@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advanced Visualization of Plotfiles With yt (for developers) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,7 +92,7 @@
            <div itemprop="articleBody">
              
   <section id="advanced-visualization-of-plotfiles-with-yt-for-developers">
-<h1>Advanced Visualization of Plotfiles With yt (for developers)<a class="headerlink" href="#advanced-visualization-of-plotfiles-with-yt-for-developers" title="Link to this heading"></a></h1>
+<h1>Advanced Visualization of Plotfiles With yt (for developers)<a class="headerlink" href="#advanced-visualization-of-plotfiles-with-yt-for-developers" title="Permalink to this heading"></a></h1>
 <p>This sections contains yt commands for advanced users. The Particle-In-Cell methods uses a
 staggered grid (see <a class="reference internal" href="../theory/picsar_theory.html#theory-pic"><span class="std std-ref">particle-in-cell theory</span></a>), so that the x, y, and z components of the
 electric and magnetic fields are all defined at different locations in space. Regular output
@@ -108,13 +104,13 @@ fine and auxiliary, see <a class="reference internal" href="../theory/intro.html
 them (regular output return the auxiliary grid only). This page provides information to read
 raw data of all grids.</p>
 <section id="write-raw-data">
-<h2>Write Raw Data<a class="headerlink" href="#write-raw-data" title="Link to this heading"></a></h2>
+<h2>Write Raw Data<a class="headerlink" href="#write-raw-data" title="Permalink to this heading"></a></h2>
 <p>For a given diagnostic the user has the option to write the raw data by setting <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.plot_raw_fields</span> <span class="pre">=</span> <span class="pre">1</span></code>.
 Moreover, the user has the option to write also the values of the fields in the guard cells by setting <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.plot_raw_fields_guards</span> <span class="pre">=</span> <span class="pre">1</span></code>.
 Please refer to <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters"><span class="std std-ref">Input Parameters</span></a> for more information.</p>
 </section>
 <section id="read-raw-data">
-<h2>Read Raw Data<a class="headerlink" href="#read-raw-data" title="Link to this heading"></a></h2>
+<h2>Read Raw Data<a class="headerlink" href="#read-raw-data" title="Permalink to this heading"></a></h2>
 <p>Meta-data relevant to this topic (for example, number and locations of grids in the simulation) are accessed with</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">yt</span>
 <span class="c1"># get yt dataset</span>
@@ -157,7 +153,7 @@ grid (<code class="docutils literal notranslate"><span class="pre">_fp</span></c
 way, i.e., <code class="docutils literal notranslate"><span class="pre">my_grid['raw',</span> <span class="pre">'Ey_aux']</span></code> or <code class="docutils literal notranslate"><span class="pre">my_grid['raw',</span> <span class="pre">'Bz_cp']</span></code> are valid queries.</p>
 </section>
 <section id="read-raw-data-with-guard-cells">
-<h2>Read Raw Data With Guard Cells<a class="headerlink" href="#read-raw-data-with-guard-cells" title="Link to this heading"></a></h2>
+<h2>Read Raw Data With Guard Cells<a class="headerlink" href="#read-raw-data-with-guard-cells" title="Permalink to this heading"></a></h2>
 <p>When the output includes the data in the guard cells, the user can read such data using the post-processing tool <code class="docutils literal notranslate"><span class="pre">read_raw_data.py</span></code>, available in <code class="docutils literal notranslate"><span class="pre">Tools/PostProcessing/</span></code>, as illustrated in the following example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">read_raw_data</span> <span class="kn">import</span> <span class="n">read_data</span>
 

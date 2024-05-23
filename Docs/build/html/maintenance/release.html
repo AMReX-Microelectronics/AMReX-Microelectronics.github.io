@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dependencies &amp; Releases &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,9 +92,9 @@
            <div itemprop="articleBody">
              
   <section id="dependencies-releases">
-<span id="developers-release"></span><h1>Dependencies &amp; Releases<a class="headerlink" href="#dependencies-releases" title="Link to this heading"></a></h1>
+<span id="developers-release"></span><h1>Dependencies &amp; Releases<a class="headerlink" href="#dependencies-releases" title="Permalink to this heading"></a></h1>
 <section id="update-warpx-core-dependencies">
-<h2>Update WarpX’ Core Dependencies<a class="headerlink" href="#update-warpx-core-dependencies" title="Link to this heading"></a></h2>
+<h2>Update WarpX’ Core Dependencies<a class="headerlink" href="#update-warpx-core-dependencies" title="Permalink to this heading"></a></h2>
 <p>WarpX has direct dependencies on AMReX and PICSAR, which we periodically update.</p>
 <p>The following scripts automate this workflow, in case one needs a newer commit of AMReX or PICSAR between releases:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./Tools/Release/updateAMReX.py
@@ -107,7 +103,7 @@
 </div>
 </section>
 <section id="create-a-new-warpx-release">
-<h2>Create a new WarpX release<a class="headerlink" href="#create-a-new-warpx-release" title="Link to this heading"></a></h2>
+<h2>Create a new WarpX release<a class="headerlink" href="#create-a-new-warpx-release" title="Permalink to this heading"></a></h2>
 <p>WarpX has one release per month.
 The version number is set at the beginning of the month and follows the format <code class="docutils literal notranslate"><span class="pre">YY.MM</span></code>.</p>
 <p>In order to create a GitHub release, you need to:</p>

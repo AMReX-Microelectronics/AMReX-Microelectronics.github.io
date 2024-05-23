@@ -1,25 +1,21 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Summit (OLCF) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -96,10 +92,10 @@
            <div itemprop="articleBody">
              
   <section id="summit-olcf">
-<span id="building-summit"></span><h1>Summit (OLCF)<a class="headerlink" href="#summit-olcf" title="Link to this heading"></a></h1>
+<span id="building-summit"></span><h1>Summit (OLCF)<a class="headerlink" href="#summit-olcf" title="Permalink to this heading"></a></h1>
 <p>The <a class="reference external" href="https://www.olcf.ornl.gov/summit/">Summit cluster</a> is located at OLCF.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>If you are new to this system, <strong>please see the following resources</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.olcf.ornl.gov/systems/summit_user_guide.html">Summit user guide</a></p></li>
@@ -118,7 +114,7 @@ That means you cannot run in your <code class="docutils literal notranslate"><sp
 </ul>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
 </pre></div>
@@ -194,9 +190,9 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 </div>
 </section>
 <section id="running">
-<span id="running-cpp-summit"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<span id="running-cpp-summit"></span><h2>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h2>
 <section id="v100-gpus-16gb">
-<span id="running-cpp-summit-v100-gpus"></span><h3>V100 GPUs (16GB)<a class="headerlink" href="#v100-gpus-16gb" title="Link to this heading"></a></h3>
+<span id="running-cpp-summit-v100-gpus"></span><h3>V100 GPUs (16GB)<a class="headerlink" href="#v100-gpus-16gb" title="Permalink to this heading"></a></h3>
 <p>The batch script below can be used to run a WarpX simulation on 2 nodes on
 the supercomputer Summit at OLCF. Replace descriptions between chevrons <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>
 by relevant values, for instance <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">file&gt;</span></code> could be
@@ -222,7 +218,7 @@ node)</p></li>
 <code class="xref download docutils literal notranslate"><span class="pre">Summit</span> <span class="pre">batch</span> <span class="pre">script</span></code></p>
 </section>
 <section id="power9-cpus">
-<span id="running-cpp-summit-power9-cpus"></span><h3>Power9 CPUs<a class="headerlink" href="#power9-cpus" title="Link to this heading"></a></h3>
+<span id="running-cpp-summit-power9-cpus"></span><h3>Power9 CPUs<a class="headerlink" href="#power9-cpus" title="Permalink to this heading"></a></h3>
 <p>Similar to above, the batch script below can be used to run a WarpX simulation on
 1 node on the supercomputer Summit at OLCF, on Power9 CPUs (i.e., the GPUs are
 ignored).</p>
@@ -242,16 +238,16 @@ results in ~49 tiles per OpenMP thread)</p></li>
 </section>
 </section>
 <section id="i-o-performance-tuning">
-<span id="building-summit-io-performance"></span><h2>I/O Performance Tuning<a class="headerlink" href="#i-o-performance-tuning" title="Link to this heading"></a></h2>
+<span id="building-summit-io-performance"></span><h2>I/O Performance Tuning<a class="headerlink" href="#i-o-performance-tuning" title="Permalink to this heading"></a></h2>
 <section id="gpfs-large-block-i-o">
-<span id="building-summit-large-blocks"></span><h3>GPFS Large Block I/O<a class="headerlink" href="#gpfs-large-block-i-o" title="Link to this heading"></a></h3>
+<span id="building-summit-large-blocks"></span><h3>GPFS Large Block I/O<a class="headerlink" href="#gpfs-large-block-i-o" title="Permalink to this heading"></a></h3>
 <p>Setting <code class="docutils literal notranslate"><span class="pre">IBM_largeblock_io</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> disables data shipping, saving overhead when writing/reading large contiguous I/O chunks.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">IBM_largeblock_io</span><span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </section>
 <section id="romio-mpi-io-hints">
-<span id="building-summit-romio-hints"></span><h3>ROMIO MPI-IO Hints<a class="headerlink" href="#romio-mpi-io-hints" title="Link to this heading"></a></h3>
+<span id="building-summit-romio-hints"></span><h3>ROMIO MPI-IO Hints<a class="headerlink" href="#romio-mpi-io-hints" title="Permalink to this heading"></a></h3>
 <p>You might notice some parallel HDF5 performance improvements on Summit by setting the appropriate ROMIO hints for MPI-IO operations.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">OMPI_MCA_io</span><span class="o">=</span>romio321
 <span class="nb">export</span><span class="w"> </span><span class="nv">ROMIO_HINTS</span><span class="o">=</span>./romio-hints
@@ -274,7 +270,7 @@ you should set the collective buffer size to 16GB and tune the number of aggrega
 </section>
 </section>
 <section id="known-system-issues">
-<span id="building-summit-issues"></span><h2>Known System Issues<a class="headerlink" href="#known-system-issues" title="Link to this heading"></a></h2>
+<span id="building-summit-issues"></span><h2>Known System Issues<a class="headerlink" href="#known-system-issues" title="Permalink to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Sep 16th, 2021 (OLCFHELP-3685):
@@ -341,7 +337,7 @@ There is currently a problem with the pre-installed Jupyter extensions, which ca
 </div>
 </section>
 <section id="post-processing">
-<span id="post-processing-summit"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Link to this heading"></a></h2>
+<span id="post-processing-summit"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Permalink to this heading"></a></h2>
 <p>For post-processing, most users use Python via OLCFs’s <a class="reference external" href="https://jupyter.olcf.ornl.gov">Jupyter service</a> (<a class="reference external" href="https://docs.olcf.ornl.gov/services_and_applications/jupyter/index.html">Docs</a>).</p>
 <p>We usually just install our software on-the-fly on Summit.
 When starting up a post-processing session, run this in your first cells:</p>
