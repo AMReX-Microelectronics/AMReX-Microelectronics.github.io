@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ookami (Stony Brook) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -92,10 +96,10 @@
            <div itemprop="articleBody">
              
   <section id="ookami-stony-brook">
-<span id="building-ookami"></span><h1>Ookami (Stony Brook)<a class="headerlink" href="#ookami-stony-brook" title="Permalink to this heading"></a></h1>
+<span id="building-ookami"></span><h1>Ookami (Stony Brook)<a class="headerlink" href="#ookami-stony-brook" title="Link to this heading"></a></h1>
 <p>The <a class="reference external" href="https://www.stonybrook.edu/ookami/">Ookami cluster</a> is located at Stony Brook University.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>If you are new to this system, <strong>please see the following resources</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.stonybrook.edu/commcms/ookami/support/index_links_and_docs.php">Ookami documentation</a></p></li>
@@ -112,7 +116,7 @@
 The cluster also provides a few extra nodes, e.g. two <code class="docutils literal notranslate"><span class="pre">Thunder</span> <span class="pre">X2</span></code> (ARM) nodes.</p>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
 </pre></div>
@@ -140,7 +144,7 @@ A 3D WarpX executable is now in <code class="docutils literal notranslate"><span
 Most people execute the binary directly or copy it out to a location in <code class="docutils literal notranslate"><span class="pre">/lustre/scratch/&lt;netid&gt;</span></code>.</p>
 </section>
 <section id="running">
-<span id="running-cpp-ookami"></span><h2>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-ookami"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
 <p>For running on 48 cores of a single node:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun<span class="w"> </span>-p<span class="w"> </span>short<span class="w"> </span>-N<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">48</span><span class="w"> </span>--pty<span class="w"> </span>bash
 <span class="nv">OMP_NUM_THREADS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>mpiexec<span class="w"> </span>-n<span class="w"> </span><span class="m">48</span><span class="w"> </span>--map-by<span class="w"> </span>ppr:12:numa:pe<span class="o">=</span><span class="m">1</span><span class="w"> </span>--report-bindings<span class="w"> </span>./warpx<span class="w"> </span>inputs
@@ -152,7 +156,7 @@ Most people execute the binary directly or copy it out to a location in <code cl
 <p>The Ookami HPE Apollo 80 system has 174 A64FX compute nodes each with 32GB of high-bandwidth memory.</p>
 </section>
 <section id="additional-compilers">
-<h2>Additional Compilers<a class="headerlink" href="#additional-compilers" title="Permalink to this heading"></a></h2>
+<h2>Additional Compilers<a class="headerlink" href="#additional-compilers" title="Link to this heading"></a></h2>
 <p>This section is just a note for developers.
 We compiled with the Fujitsu Compiler (Clang) with the following build string:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w">                              </span><span class="se">\</span>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>In situ Visualization with Ascent &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -93,11 +97,11 @@
            <div itemprop="articleBody">
              
   <section id="in-situ-visualization-with-ascent">
-<span id="visualization-ascent"></span><h1>In situ Visualization with Ascent<a class="headerlink" href="#in-situ-visualization-with-ascent" title="Permalink to this heading"></a></h1>
+<span id="visualization-ascent"></span><h1>In situ Visualization with Ascent<a class="headerlink" href="#in-situ-visualization-with-ascent" title="Link to this heading"></a></h1>
 <p>Ascent is a system designed to meet the in-situ visualization and analysis needs of simulation code teams running multi-physics calculations on many-core HPC architectures.
 It provides rendering runtimes that can leverage many-core CPUs and GPUs to render images of simulation meshes.</p>
 <section id="compiling-with-gnu-make">
-<h2>Compiling with GNU Make<a class="headerlink" href="#compiling-with-gnu-make" title="Permalink to this heading"></a></h2>
+<h2>Compiling with GNU Make<a class="headerlink" href="#compiling-with-gnu-make" title="Link to this heading"></a></h2>
 <p>After building and installing Ascent according to the instructions at <a class="reference external" href="https://ascent.readthedocs.io/en/latest/BuildingAscent.html">Building Ascent</a>, you can enable support for it in WarpX by changing the line</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">USE_ASCENT_INSITU</span><span class="o">=</span>FALSE
 </pre></div>
@@ -112,13 +116,13 @@ It provides rendering runtimes that can leverage many-core CPUs and GPUs to rend
 </div>
 </section>
 <section id="inputs-file-configuration">
-<h2>Inputs File Configuration<a class="headerlink" href="#inputs-file-configuration" title="Permalink to this heading"></a></h2>
+<h2>Inputs File Configuration<a class="headerlink" href="#inputs-file-configuration" title="Link to this heading"></a></h2>
 <p>Once WarpX has been compiled with Ascent support, it will need to be enabled and configured at runtime.
 This is done using our usual inputs file (read with <code class="docutils literal notranslate"><span class="pre">amrex::ParmParse</span></code>).
 The supported parameters are part of the <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters-diagnostics"><span class="std std-ref">FullDiagnostics</span></a> with <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.format</span></code> parameter set to <code class="docutils literal notranslate"><span class="pre">ascent</span></code>.</p>
 </section>
 <section id="visualization-analysis-pipeline-configuration">
-<h2>Visualization/Analysis Pipeline Configuration<a class="headerlink" href="#visualization-analysis-pipeline-configuration" title="Permalink to this heading"></a></h2>
+<h2>Visualization/Analysis Pipeline Configuration<a class="headerlink" href="#visualization-analysis-pipeline-configuration" title="Link to this heading"></a></h2>
 <p>Ascent uses the file <code class="code docutils literal notranslate"><span class="pre">ascent_actions.yaml</span></code> to configure analysis and visualization pipelines.
 Ascent looks for the <code class="code docutils literal notranslate"><span class="pre">ascent_actions.yaml</span></code> file in the current working directory.</p>
 <p>For example, the following <code class="code docutils literal notranslate"><span class="pre">ascent_actions.yaml</span></code> file extracts an isosurface of the field <code class="docutils literal notranslate"><span class="pre">Ex</span></code> for <code class="docutils literal notranslate"><span class="pre">15</span></code> levels and saves the resulting images to <code class="code docutils literal notranslate"><span class="pre">levels_&lt;nnnn&gt;.png</span></code>.
@@ -250,7 +254,7 @@ Ascent looks for the <code class="code docutils literal notranslate"><span class
 <p>You can view the Cinema Database result by opening <code class="code docutils literal notranslate"><span class="pre">cinema_databases/cinema_out/index.html</span></code>.</p>
 </section>
 <section id="replay">
-<h2>Replay<a class="headerlink" href="#replay" title="Permalink to this heading"></a></h2>
+<h2>Replay<a class="headerlink" href="#replay" title="Link to this heading"></a></h2>
 <p>With Ascent/Conduit, one can store the intermediate data files before the rendering step is applied to custom files.
 These so-called <em>Conduit Blueprint HDF5</em> files can be “replayed”, i.e. rendered without running the simulation again.
 VisIt 3.0+ also supports those files.</p>
@@ -258,7 +262,7 @@ VisIt 3.0+ also supports those files.</p>
 Replay enables the user or developer to pick specific time steps and load them for Ascent visualization, without running the simulation again.</p>
 <p>We will guide you through the replay procedure.</p>
 <section id="get-blueprint-files">
-<h3>Get Blueprint Files<a class="headerlink" href="#get-blueprint-files" title="Permalink to this heading"></a></h3>
+<h3>Get Blueprint Files<a class="headerlink" href="#get-blueprint-files" title="Link to this heading"></a></h3>
 <p>To use replay, you first need <em>Conduit Blueprint HDF5</em> files.
 The following block can be used in an ascent action to extract <em>Conduit Blueprint HDF5</em> files from a simulation run.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>
@@ -289,7 +293,7 @@ conduit_blueprint.cycle_000050.root
 </div>
 </section>
 <section id="run-replay">
-<h3>Run Replay<a class="headerlink" href="#run-replay" title="Permalink to this heading"></a></h3>
+<h3>Run Replay<a class="headerlink" href="#run-replay" title="Link to this heading"></a></h3>
 <p>For Ascent Replay, two command line tools are provided in the utilities/replay directory of the Ascent installation.
 There are two version of replay: the MPI-parallel version <code class="docutils literal notranslate"><span class="pre">replay_mpi</span></code> and a serial version, <code class="docutils literal notranslate"><span class="pre">replay_ser</span></code>.
 Use an MPI-parallel replay with data sets created with MPI-parallel builds of WarpX.
@@ -320,7 +324,7 @@ srun<span class="w"> </span>-n<span class="w"> </span><span class="m">8</span><s
 </div>
 </section>
 <section id="example-actions">
-<h3>Example Actions<a class="headerlink" href="#example-actions" title="Permalink to this heading"></a></h3>
+<h3>Example Actions<a class="headerlink" href="#example-actions" title="Link to this heading"></a></h3>
 <p>A visualization of the electric field component <span class="math notranslate nohighlight">\(E_x\)</span> (variable: <code class="docutils literal notranslate"><span class="pre">Ex</span></code>) with a contour plot and with added particles can be obtained with the following Ascent Action.
 This action can be used both in replay as well as in situ runs.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span>
@@ -421,7 +425,7 @@ This action can be used both in replay as well as in situ runs.</p>
 <p>There are more <a class="reference external" href="https://ascent.readthedocs.io/en/latest/Actions/Examples.html#yaml-examples">Ascent Actions examples available</a> for you to play.</p>
 </section>
 <section id="workflow">
-<h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading"></a></h3>
+<h3>Workflow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This section is in-progress.

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Out-of-the-box plotting script &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -92,19 +96,19 @@
            <div itemprop="articleBody">
              
   <section id="out-of-the-box-plotting-script">
-<h1>Out-of-the-box plotting script<a class="headerlink" href="#out-of-the-box-plotting-script" title="Permalink to this heading"></a></h1>
+<h1>Out-of-the-box plotting script<a class="headerlink" href="#out-of-the-box-plotting-script" title="Link to this heading"></a></h1>
 <p>A ready-to-use python script for plotting simulation results is available at
 <code class="xref download docutils literal notranslate"><span class="pre">plot_parallel.py</span></code>. Feel free to
 use it out-of-the-box or to modify it to suit your needs.</p>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
 <p>Most of its dependencies are standard Python packages, that come with a default
 Anaconda installation or can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span></code>:
 <cite>os, matplotlib, sys, argparse, matplotlib, scipy</cite>.</p>
 <p>Additional dependencies are <code class="docutils literal notranslate"><span class="pre">yt</span> <span class="pre">&gt;=</span> <span class="pre">4.0.1</span></code> and <code class="docutils literal notranslate"><span class="pre">mpi4py</span></code>.</p>
 </section>
 <section id="run-serial">
-<h2>Run serial<a class="headerlink" href="#run-serial" title="Permalink to this heading"></a></h2>
+<h2>Run serial<a class="headerlink" href="#run-serial" title="Link to this heading"></a></h2>
 <p>Executing the script with</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">python</span><span class="w"> </span><span class="n">plot_parallel</span><span class="p">.</span><span class="n">py</span>
 </pre></div>
@@ -124,7 +128,7 @@ a scalar quantity over time (by default, the max of the Ey field). Feel free to 
 to plot the evolution of other quantities.</p>
 </section>
 <section id="run-parallel">
-<h2>Run parallel<a class="headerlink" href="#run-parallel" title="Permalink to this heading"></a></h2>
+<h2>Run parallel<a class="headerlink" href="#run-parallel" title="Link to this heading"></a></h2>
 <p>To execute the script in parallel, you can run for instance</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mpirun</span><span class="w"> </span><span class="o">-</span><span class="n">np</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">plot_parallel</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="o">--</span><span class="n">parallel</span>
 </pre></div>

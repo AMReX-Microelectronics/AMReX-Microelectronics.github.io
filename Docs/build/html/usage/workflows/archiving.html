@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Archiving &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -92,11 +96,11 @@
            <div itemprop="articleBody">
              
   <section id="archiving">
-<span id="id1"></span><h1>Archiving<a class="headerlink" href="#archiving" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>Archiving<a class="headerlink" href="#archiving" title="Link to this heading"></a></h1>
 <p>Archiving simulation inputs, scripts and output data is a common need for computational physicists.
 Here are some popular tools and workflows to make archiving easy.</p>
 <section id="hpc-systems-hpss">
-<span id="archiving-hpss"></span><h2>HPC Systems: HPSS<a class="headerlink" href="#hpc-systems-hpss" title="Permalink to this heading"></a></h2>
+<span id="archiving-hpss"></span><h2>HPC Systems: HPSS<a class="headerlink" href="#hpc-systems-hpss" title="Link to this heading"></a></h2>
 <p>A very common tape filesystem is HPSS, e.g., on <a class="reference external" href="https://docs.nersc.gov/filesystems/archive/">NERSC</a> or <a class="reference external" href="https://docs.olcf.ornl.gov/data/index.html#data-storage-and-transfers">OLCF</a>.</p>
 <ul class="simple">
 <li><p>What’s in my archive file system? <code class="docutils literal notranslate"><span class="pre">hsi</span> <span class="pre">ls</span></code></p></li>
@@ -142,19 +146,19 @@ You could then consider running it as part of a (single-node/single-cpu) job scr
 </div>
 </section>
 <section id="desktops-laptops-cloud-drives">
-<span id="archiving-desktop"></span><h2>Desktops/Laptops: Cloud Drives<a class="headerlink" href="#desktops-laptops-cloud-drives" title="Permalink to this heading"></a></h2>
+<span id="archiving-desktop"></span><h2>Desktops/Laptops: Cloud Drives<a class="headerlink" href="#desktops-laptops-cloud-drives" title="Link to this heading"></a></h2>
 <p>Even for small simulation runs, it is worth to create data archives.
 A good location for such an archive might be the cloud storage provided by one’s institution.</p>
 <p>Tools like <a class="reference external" href="https://rclone.org">rclone</a> can help with this, e.g., to quickly sync a large amount of directories to a Google Drive.</p>
 </section>
 <section id="asynchronous-file-copies-globus">
-<span id="archiving-globus"></span><h2>Asynchronous File Copies: Globus<a class="headerlink" href="#asynchronous-file-copies-globus" title="Permalink to this heading"></a></h2>
+<span id="archiving-globus"></span><h2>Asynchronous File Copies: Globus<a class="headerlink" href="#asynchronous-file-copies-globus" title="Link to this heading"></a></h2>
 <p>The scientific data service <a class="reference external" href="https://app.globus.org">Globus</a> allows to perform large-scale data copies, between HPC centers as well as local computers, with ease and a graphical user interface.
 Copies can be kicked off asynchronously, often use dedicated internet backbones and are checked when transfers are complete.</p>
 <p>Many HPC centers also add their archives as a storage endpoint and one can download a client program to add also one’s desktop/laptop.</p>
 </section>
 <section id="scientific-data-for-publications">
-<span id="archiving-open-data"></span><h2>Scientific Data for Publications<a class="headerlink" href="#scientific-data-for-publications" title="Permalink to this heading"></a></h2>
+<span id="archiving-open-data"></span><h2>Scientific Data for Publications<a class="headerlink" href="#scientific-data-for-publications" title="Link to this heading"></a></h2>
 <p>It is good practice to make computational results accessible, scrutinizable and ideally even reusable.</p>
 <p>For data artifacts up to approximately 50 GB, consider using free services like <a class="reference external" href="https://www.zenodo.org">Zenodo</a> and <a class="reference external" href="https://figshare.com">Figshare</a> to store supplementary materials of your publications.</p>
 <p>For more information, see the open science movement, open data and open access.</p>
