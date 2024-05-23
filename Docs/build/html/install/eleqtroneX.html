@@ -48,7 +48,12 @@
               <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="artemis.html">ARTEMIS</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ELEQTRONeX</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ELEQTRONeX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download">1. Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-parameters">2. Build Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preprocessor-flags">3. Preprocessor Flags</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ferrox.html">FerroX</a></li>
 <li class="toctree-l1"><a class="reference internal" href="magnex.html">MagneX</a></li>
 </ul>
@@ -105,23 +110,57 @@
     float: left;
 }
 </style><p>Our community is here to help.
-Please <a class="reference external" href="https://github.com/AMReX-Microelectronics/FerroX/issues/new">report installation problems</a> in case you should get stuck.</p>
-<p>Download AMReX Repository</p>
+Please <a class="reference external" href="https://github.com/AMReX-Microelectronics/ELEQTRONeX/issues/new">report installation problems</a> in case you are stuck.</p>
+<p>Follow these instructions for compilation.</p>
+<section id="download">
+<h2>1. Download<a class="headerlink" href="#download" title="Link to this heading"></a></h2>
+<p>To download the codes in your local linux system or on a specific high-performance computing (HPC) system:</p>
+<p>Download AMReX Repository as</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:AMReX-Codes/amrex.git
 </pre></div>
 </div>
-<p>Download FerroX Repository</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git@github.com:AMReX-Microelectronics/FerroX.git
+<p>Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git@github.com:AMReX-Microelectronics/ELEQTRONeX.git
 </pre></div>
 </div>
-<p>Make sure that the AMReX and FerroX are cloned in the same location in their filesystem. Navogate to the Exec folder of FerroX and execute</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
+</section>
+<section id="build-parameters">
+<h2>2. Build Parameters<a class="headerlink" href="#build-parameters" title="Link to this heading"></a></h2>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">Exec/</span></code> folder of ELEQTRONeX and execute</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span>&lt;np&gt;
 </pre></div>
 </div>
-<p>If want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>toolkit
-</pre></div>
-</div>
+<p>Replace &lt;np&gt; with the number of processes you want to use.</p>
+<p>To build with MPI and CUDA, ensure that either MPICH or OpenMPI, along with the appropriate CUDA modules, are installed and loaded. In the <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code> located in the <code class="docutils literal notranslate"><span class="pre">Exec/</span></code> directory, set <code class="docutils literal notranslate"><span class="pre">USE_MPI=TRUE</span></code> to enable MPI support, <code class="docutils literal notranslate"><span class="pre">USE_OMP=FALSE</span></code> to disable OpenMP, and <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code> to activate CUDA support for GPU utilization.</p>
+<p>Other flags are explained below, with their default values shown:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AMREX_HOME</span> <span class="pre">?=</span> <span class="pre">../../amrex</span></code> specifies the location of the AMReX library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEBUG=FALSE</span></code> sets the debug mode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_HYPRE=FALSE</span></code> can be used to set HYPRE for the multigrid bottom solver. Installation instructions for HYPRE are provided <a class="reference external" href="https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html">here</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMP=gnu</span></code> sets the GNU compiler.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DIM=3</span></code> builds the code for 3D domain.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CXXSTD=c++17</span></code> sets  C++17 for compilation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TINY_PROFILE=FALSE</span></code> is used to enable the AMReX profiler.</p></li>
+</ul>
+<p>Set the following flags based on your configuration needs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_EB=TRUE</span></code> if the input file sets embedded boundaries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_TRANSPORT=TRUE</span></code> for enabling the transport solver, which uses the nonequilibrium Green’s function (NEGF) method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMPUTE_GREENS_FUNCTION_OFFDIAG_ELEMS=FALSE</span></code> and <code class="docutils literal notranslate"><span class="pre">COMPUTE_SPECTRAL_FUNCTION_OFFDIAG_ELEMS=FALSE</span></code> to switch off computations and storage of off-diagonal elements of Green’s and spectral functions in the NEGF solver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BROYDEN_PARALLEL=TRUE</span></code> uses an efficient parallel version of the Broyden’s algorithm for self-consistency between electrostatics and NEGF modules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TIME_DEPENDENT=TRUE</span></code> builds the code for accepting voltages on the embedded boundaries with varying values, for example setting a range of values to obtain full current-voltage characteristics.</p></li>
+</ul>
+</section>
+<section id="preprocessor-flags">
+<h2>3. Preprocessor Flags<a class="headerlink" href="#preprocessor-flags" title="Link to this heading"></a></h2>
+<p>Set preprocessor flags in the <code class="docutils literal notranslate"><span class="pre">../Source/Code_Definitions.H</span></code> file before compiling the code, depending on your configuration needs.</p>
+<p>The important ones are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">NUM_MODES</span> <span class="pre">1</span></code> sets the size of block for each matrix element used in NEGF.
+For example, for modeling carbon nanotubes with single mode using mode-space approximation, NUM_MODES is set to 1, which implies each element of Hamiltonian matrix is a number. If it were 2, it would be an array of size 2. For other materials, this number may set the matrix block as a submatrix of size <code class="docutils literal notranslate"><span class="pre">NUM_MODES</span> <span class="pre">x</span> <span class="pre">NUM_MODES</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">NUM_CONTACTS</span> <span class="pre">2</span></code> sets number of metal leads to 2 for source and drain. At present, the code is verified for 2 leads.</p></li>
+</ul>
+</section>
 </section>
 
 

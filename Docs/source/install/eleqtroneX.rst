@@ -17,33 +17,64 @@ ELEQTRONeX
    </style>
 
 Our community is here to help.
-Please `report installation problems <https://github.com/AMReX-Microelectronics/FerroX/issues/new>`_ in case you should get stuck.
+Please `report installation problems <https://github.com/AMReX-Microelectronics/ELEQTRONeX/issues/new>`_ in case you are stuck.
 
+Follow these instructions for compilation.
 
-Download AMReX Repository
+1. Download 
+-----------
+
+To download the codes in your local linux system or on a specific high-performance computing (HPC) system:
+
+Download AMReX Repository as
 
 .. code-block:: bash
    
    git clone git@github.com:AMReX-Codes/amrex.git
 
-Download FerroX Repository
+Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as
 
 .. code-block:: bash
 
-   git@github.com:AMReX-Microelectronics/FerroX.git
+   git@github.com:AMReX-Microelectronics/ELEQTRONeX.git
 
-Make sure that the AMReX and FerroX are cloned in the same location in their filesystem. Navogate to the Exec folder of FerroX and execute 
+2. Build Parameters
+-------------------
 
-.. code-block:: bash
-
-   make -j 4
-
-If want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:
+Navigate to the ``Exec/`` folder of ELEQTRONeX and execute 
 
 .. code-block:: bash
 
-   module load toolkit
+   make -j <np>
+Replace <np> with the number of processes you want to use. 
 
+To build with MPI and CUDA, ensure that either MPICH or OpenMPI, along with the appropriate CUDA modules, are installed and loaded. In the ``GNUmakefile`` located in the ``Exec/`` directory, set ``USE_MPI=TRUE`` to enable MPI support, ``USE_OMP=FALSE`` to disable OpenMP, and ``USE_CUDA=TRUE`` to activate CUDA support for GPU utilization.
 
+Other flags are explained below, with their default values shown:
 
+- ``AMREX_HOME ?= ../../amrex`` specifies the location of the AMReX library.
+- ``DEBUG=FALSE`` sets the debug mode.
+- ``USE_HYPRE=FALSE`` can be used to set HYPRE for the multigrid bottom solver. Installation instructions for HYPRE are provided `here <https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html>`_.
+- ``COMP=gnu`` sets the GNU compiler.
+- ``DIM=3`` builds the code for 3D domain.
+- ``CXXSTD=c++17`` sets  C++17 for compilation.
+- ``TINY_PROFILE=FALSE`` is used to enable the AMReX profiler.
 
+Set the following flags based on your configuration needs:
+
+- ``USE_EB=TRUE`` if the input file sets embedded boundaries.
+- ``USE_TRANSPORT=TRUE`` for enabling the transport solver, which uses the nonequilibrium Green's function (NEGF) method.
+- ``COMPUTE_GREENS_FUNCTION_OFFDIAG_ELEMS=FALSE`` and ``COMPUTE_SPECTRAL_FUNCTION_OFFDIAG_ELEMS=FALSE`` to switch off computations and storage of off-diagonal elements of Green's and spectral functions in the NEGF solver.
+- ``BROYDEN_PARALLEL=TRUE`` uses an efficient parallel version of the Broyden's algorithm for self-consistency between electrostatics and NEGF modules.
+- ``TIME_DEPENDENT=TRUE`` builds the code for accepting voltages on the embedded boundaries with varying values, for example setting a range of values to obtain full current-voltage characteristics.
+
+3. Preprocessor Flags
+---------------------
+Set preprocessor flags in the ``../Source/Code_Definitions.H`` file before compiling the code, depending on your configuration needs.
+
+The important ones are: 
+
+- ``#define NUM_MODES 1`` sets the size of block for each matrix element used in NEGF. 
+  For example, for modeling carbon nanotubes with single mode using mode-space approximation, NUM_MODES is set to 1, which implies each element of Hamiltonian matrix is a number. If it were 2, it would be an array of size 2. For other materials, this number may set the matrix block as a submatrix of size ``NUM_MODES x NUM_MODES``.
+
+- ``#define NUM_CONTACTS 2`` sets number of metal leads to 2 for source and drain. At present, the code is verified for 2 leads.
