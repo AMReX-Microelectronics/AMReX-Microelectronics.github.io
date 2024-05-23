@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run ELEQTRONeX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -56,12 +60,21 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="run_artemis.html">Run ARTEMIS</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Run ELEQTRONeX</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#run-with-a-single-processor">1. Run with a single processor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-with-a-multiple-processors">2. Run with a multiple processors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-on-perlmutter">2. Run on Perlmutter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#inputs">2. Inputs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run">4. Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#outputs">5. Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run">Run</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#run-locally">Run locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-on-perlmutter">Run on Perlmutter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#inputs">Inputs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-enabling-parameters">Module enabling parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-output-parameters">Data output parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restart-parameters">Restart parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#negf-parameters">NEGF parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#electrostatics-parameters">Electrostatics parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#diagnostics">Diagnostics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="run_ferrox.html">Run FerroX</a></li>
@@ -102,28 +115,28 @@
            <div itemprop="articleBody">
              
   <section id="run-eleqtronex">
-<span id="usage-run"></span><h1>Run ELEQTRONeX<a class="headerlink" href="#run-eleqtronex" title="Permalink to this heading"></a></h1>
+<span id="usage-run"></span><h1>Run ELEQTRONeX<a class="headerlink" href="#run-eleqtronex" title="Link to this heading"></a></h1>
+<section id="run">
+<h2>Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
+<section id="run-locally">
+<h3>Run locally<a class="headerlink" href="#run-locally" title="Link to this heading"></a></h3>
 <p>Upon compilation, executable is generated in Exec/ folder in the ELEQTRONeX folder.
 To run the executable with an input file from the <cite>input/</cite> folder in the <cite>ELEQTRONeX</cite> folder,
 we can do the following:</p>
-<section id="run-with-a-single-processor">
-<h2>1. Run with a single processor<a class="headerlink" href="#run-with-a-single-processor" title="Permalink to this heading"></a></h2>
-<p>Assuming we are in the <cite>Exec/</cite> folder, do:</p>
+<p>Assuming we are in the <cite>Exec/</cite> folder, to run with a single processor, execute:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./&lt;executable&gt;<span class="w"> </span>../input/&lt;specific<span class="w"> </span>input<span class="w"> </span>folder&gt;/&lt;input<span class="w"> </span>file&gt;<span class="w"> </span>&lt;other<span class="w"> </span>arguments&gt;
 </pre></div>
 </div>
 <p>Ensure the <cite>plot.folder_name</cite> parameter in the input file specifies the output directory.
 Alternatively, you can specify this parameter on the command line in &lt;other arguments&gt;, which will override what is specified in the input file.</p>
-</section>
-<section id="run-with-a-multiple-processors">
-<h2>2. Run with a multiple processors<a class="headerlink" href="#run-with-a-multiple-processors" title="Permalink to this heading"></a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpiexec<span class="w"> </span>-np<span class="w"> </span>&lt;mpi<span class="w"> </span>ranks&gt;<span class="w"> </span>./&lt;executable&gt;<span class="w"> </span>../input/&lt;specific<span class="w"> </span>input<span class="w"> </span>folder&gt;/&lt;input<span class="w"> </span>file&gt;<span class="w"> </span>&lt;other<span class="w"> </span>arguments&gt;
+<p>For multiple processors, execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpiexec<span class="w"> </span>-np<span class="w"> </span>&lt;np&gt;<span class="w"> </span>./&lt;executable&gt;<span class="w"> </span>../input/&lt;specific<span class="w"> </span>input<span class="w"> </span>folder&gt;/&lt;input<span class="w"> </span>file&gt;<span class="w"> </span>&lt;other<span class="w"> </span>arguments&gt;
 </pre></div>
 </div>
 </section>
 <section id="run-on-perlmutter">
-<h2>2. Run on Perlmutter<a class="headerlink" href="#run-on-perlmutter" title="Permalink to this heading"></a></h2>
-<p>To run the code on Perlmutter, we can submit a jobscript as shown below for 2 nodes and 8 GPUs.</p>
+<h3>Run on Perlmutter<a class="headerlink" href="#run-on-perlmutter" title="Link to this heading"></a></h3>
+<p>To run the code on <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/">Perlmutter</a>, we can submit a jobscript as shown below for 2 nodes and 8 GPUs.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH -N 2</span>
 <span class="c1">#SBATCH -C gpu</span>
@@ -149,48 +162,39 @@ srun<span class="w"> </span>-n<span class="w"> </span><span class="m">8</span><s
 <p>For more information on, see <code class="docutils literal notranslate"><span class="pre">https://docs.nersc.gov/systems/perlmutter/running-jobs/</span></code>.
 NERSC also provides a script generator, <code class="docutils literal notranslate"><span class="pre">https://my.nersc.gov/script_generator.php</span></code>.</p>
 </section>
+</section>
 <section id="inputs">
-<h2>2. Inputs<a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
-<p>Add an <strong>input file</strong> in the directory (see <a class="reference internal" href="examples.html#usage-examples"><span class="std std-ref">examples</span></a> and <a class="reference internal" href="parameters.html#running-cpp-parameters"><span class="std std-ref">parameters</span></a>).
-This file contains the numerical and physical parameters that define the situation to be simulated.</p>
-<p>On <a class="reference internal" href="../install/hpc.html#install-hpc"><span class="std std-ref">HPC systems</span></a>, also copy and adjust a submission script that allocated computing nodes for you.
-Please <span class="xref std std-ref">reach out to us</span> if you need help setting up a template that runs with ideal performance.</p>
+<h2>Inputs<a class="headerlink" href="#inputs" title="Link to this heading"></a></h2>
+<section id="module-enabling-parameters">
+<h3>Module enabling parameters<a class="headerlink" href="#module-enabling-parameters" title="Link to this heading"></a></h3>
+<p>The following flags enable particular modules.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">use_electrostatic</span> <span class="pre">=</span> <span class="pre">1</span></code> uses the electrostatic module.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_transport</span> <span class="pre">=</span> <span class="pre">1</span></code> uses the transport module.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transport.use_negf</span> <span class="pre">=</span> <span class="pre">1</span></code> sets the transport module to use the NEGF solver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">use_diagnostics</span> <span class="pre">=</span> <span class="pre">1</span></code> can be used to set the diagnostics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amrex.the_arena_is_managed=1</span></code> uses managed memory for CUDA. At present, the code is tested for managed memory enabled.</p></li>
+</ul>
 </section>
-<section id="run">
-<h2>4. Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
-<p><strong>Run</strong> the executable, e.g. with MPI:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;run_directory&gt;
-
-<span class="c1"># run with an inputs file:</span>
-mpirun<span class="w"> </span>-np<span class="w"> </span>&lt;n_ranks&gt;<span class="w"> </span>./warpx<span class="w"> </span>&lt;input_file&gt;
-</pre></div>
-</div>
-<p>or</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run with a PICMI input script:</span>
-mpirun<span class="w"> </span>-np<span class="w"> </span>&lt;n_ranks&gt;<span class="w"> </span>python<span class="w"> </span>&lt;python_script&gt;
-</pre></div>
-</div>
-<p>Here, <code class="docutils literal notranslate"><span class="pre">&lt;n_ranks&gt;</span></code> is the number of MPI ranks used, and <code class="docutils literal notranslate"><span class="pre">&lt;input_file&gt;</span></code> is the name of the input file (<code class="docutils literal notranslate"><span class="pre">&lt;python_script&gt;</span></code> is the name of the <a class="reference internal" href="python.html#usage-picmi"><span class="std std-ref">PICMI</span></a> script).
-Note that the actual executable might have a longer name, depending on build options.</p>
-<p>We used the copied executable in the current directory (<code class="docutils literal notranslate"><span class="pre">./</span></code>); if you installed with a package manager, skip the <code class="docutils literal notranslate"><span class="pre">./</span></code> because WarpX is in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
-<p>On an <a class="reference internal" href="../install/hpc.html#install-hpc"><span class="std std-ref">HPC system</span></a>, you would instead submit the <a class="reference internal" href="../install/hpc.html#install-hpc"><span class="std std-ref">job script</span></a> at this point, e.g. <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;submission_script&gt;</span></code> (SLURM on Cori/NERSC) or <code class="docutils literal notranslate"><span class="pre">bsub</span> <span class="pre">&lt;submission_script&gt;</span></code> (LSF on Summit/OLCF).</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>In the <a class="reference internal" href="parameters.html#running-cpp-parameters"><span class="std std-ref">next sections</span></a>, we will explain parameters of the <code class="docutils literal notranslate"><span class="pre">&lt;input_file&gt;</span></code>.
-You can overwrite all parameters inside this file also from the command line, e.g.:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpirun<span class="w"> </span>-np<span class="w"> </span><span class="m">4</span><span class="w"> </span>./warpx<span class="w"> </span>&lt;input_file&gt;<span class="w"> </span><span class="nv">max_step</span><span class="o">=</span><span class="m">10</span><span class="w"> </span>warpx.numprocs<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span>
-</pre></div>
-</div>
-</div>
+<section id="data-output-parameters">
+<h3>Data output parameters<a class="headerlink" href="#data-output-parameters" title="Link to this heading"></a></h3>
 </section>
-<section id="outputs">
-<h2>5. Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
-<p>By default, WarpX will write a status update to the terminal (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>).
-On <a class="reference internal" href="../install/hpc.html#install-hpc"><span class="std std-ref">HPC systems</span></a>, we usually store a copy of this in a file called <code class="docutils literal notranslate"><span class="pre">outputs.txt</span></code>.</p>
-<p>We also store by default an exact copy of all explicitly and implicitly used inputs parameters in a file called <code class="docutils literal notranslate"><span class="pre">warpx_used_inputs</span></code> (this file name can be changed).
-This is important for reproducibility, since as we wrote in the previous paragraph, the options in the input file can be extended and overwritten from the command line.</p>
-<p><a class="reference internal" href="parameters.html#running-cpp-parameters-diagnostics"><span class="std std-ref">Further configured diagnostics</span></a> are explained in the next sections.
-By default, they are written to a subdirectory in <code class="docutils literal notranslate"><span class="pre">diags/</span></code> and can use various <a class="reference internal" href="../dataanalysis/formats.html#dataanalysis-formats"><span class="std std-ref">output formats</span></a>.</p>
+<section id="restart-parameters">
+<h3>Restart parameters<a class="headerlink" href="#restart-parameters" title="Link to this heading"></a></h3>
+</section>
+<section id="negf-parameters">
+<h3>NEGF parameters<a class="headerlink" href="#negf-parameters" title="Link to this heading"></a></h3>
+</section>
+<section id="electrostatics-parameters">
+<h3>Electrostatics parameters<a class="headerlink" href="#electrostatics-parameters" title="Link to this heading"></a></h3>
+</section>
+<section id="diagnostics">
+<h3>Diagnostics<a class="headerlink" href="#diagnostics" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading"></a></h2>
+<hr class="docutils" />
 </section>
 </section>
 

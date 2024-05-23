@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run ARTEMIS &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -101,7 +105,7 @@
            <div itemprop="articleBody">
              
   <section id="run-artemis">
-<span id="usage-run"></span><h1>Run ARTEMIS<a class="headerlink" href="#run-artemis" title="Permalink to this heading"></a></h1>
+<span id="usage-run"></span><h1>Run ARTEMIS<a class="headerlink" href="#run-artemis" title="Link to this heading"></a></h1>
 <p>In order to run a new simulation:</p>
 <ol class="arabic simple">
 <li><p>create a <strong>new directory</strong>, where the simulation will be run</p></li>
@@ -110,7 +114,7 @@
 <li><p>run</p></li>
 </ol>
 <section id="run-directory">
-<h2>1. Run Directory<a class="headerlink" href="#run-directory" title="Permalink to this heading"></a></h2>
+<h2>1. Run Directory<a class="headerlink" href="#run-directory" title="Link to this heading"></a></h2>
 <p>On Linux/macOS, this is as easy as this</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>&lt;run_directory&gt;
 </pre></div>
@@ -118,7 +122,7 @@
 <p>Where <code class="docutils literal notranslate"><span class="pre">&lt;run_directory&gt;</span></code> by the actual path to the run directory.</p>
 </section>
 <section id="executable">
-<h2>2. Executable<a class="headerlink" href="#executable" title="Permalink to this heading"></a></h2>
+<h2>2. Executable<a class="headerlink" href="#executable" title="Link to this heading"></a></h2>
 <p>If you installed warpX with a <span class="xref std std-ref">package manager</span>, a <code class="docutils literal notranslate"><span class="pre">warpx</span></code>-prefixed executable will be available as a regular system command to you.
 Depending on the choosen build options, the name is suffixed with more details.
 Try it like this:</p>
@@ -140,14 +144,14 @@ Copy the <strong>executable</strong> to this directory:</p>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;warpx_executable&gt;</span></code> should be replaced by the actual name of the executable (see above) and <code class="docutils literal notranslate"><span class="pre">&lt;run_directory&gt;</span></code> by the actual path to the run directory.</p>
 </section>
 <section id="inputs">
-<h2>3. Inputs<a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<h2>3. Inputs<a class="headerlink" href="#inputs" title="Link to this heading"></a></h2>
 <p>Add an <strong>input file</strong> in the directory (see <a class="reference internal" href="examples.html#usage-examples"><span class="std std-ref">examples</span></a> and <a class="reference internal" href="parameters.html#running-cpp-parameters"><span class="std std-ref">parameters</span></a>).
 This file contains the numerical and physical parameters that define the situation to be simulated.</p>
 <p>On <a class="reference internal" href="../install/hpc.html#install-hpc"><span class="std std-ref">HPC systems</span></a>, also copy and adjust a submission script that allocated computing nodes for you.
 Please <span class="xref std std-ref">reach out to us</span> if you need help setting up a template that runs with ideal performance.</p>
 </section>
 <section id="run">
-<h2>4. Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
+<h2>4. Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
 <p><strong>Run</strong> the executable, e.g. with MPI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;run_directory&gt;
 
@@ -174,7 +178,7 @@ You can overwrite all parameters inside this file also from the command line, e.
 </div>
 </section>
 <section id="outputs">
-<h2>5. Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<h2>5. Outputs<a class="headerlink" href="#outputs" title="Link to this heading"></a></h2>
 <p>By default, WarpX will write a status update to the terminal (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>).
 On <a class="reference internal" href="../install/hpc.html#install-hpc"><span class="std std-ref">HPC systems</span></a>, we usually store a copy of this in a file called <code class="docutils literal notranslate"><span class="pre">outputs.txt</span></code>.</p>
 <p>We also store by default an exact copy of all explicitly and implicitly used inputs parameters in a file called <code class="docutils literal notranslate"><span class="pre">warpx_used_inputs</span></code> (this file name can be changed).

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Automated performance tests &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -92,12 +96,12 @@
            <div itemprop="articleBody">
              
   <section id="automated-performance-tests">
-<span id="developers-performance-tests"></span><h1>Automated performance tests<a class="headerlink" href="#automated-performance-tests" title="Permalink to this heading"></a></h1>
+<span id="developers-performance-tests"></span><h1>Automated performance tests<a class="headerlink" href="#automated-performance-tests" title="Link to this heading"></a></h1>
 <p>WarpX has automated performance test scripts, which run weak scalings for various tests on a weekly basis. The results are stored in the <a class="reference external" href="https://github.com/ECP-WarpX/perf_logs">perf_logs repo</a> and plots of the performance history can be found on <a class="reference external" href="https://ecp-warpx.github.io/perf_logs/">this page</a>.</p>
 <p>These performance tests run automatically, so they need to do <code class="docutils literal notranslate"><span class="pre">git</span></code> operations etc. For this reason, they need a separate clone of the source repos, so they don’t conflict with one’s usual operations. This is typically in a sub-directory in the <code class="docutils literal notranslate"><span class="pre">$HOME</span></code>, with variable <code class="docutils literal notranslate"><span class="pre">$AUTOMATED_PERF_TESTS</span></code> pointing to it. Similarly, a directory is needed to run the simulations and store the results. By default, it is <code class="docutils literal notranslate"><span class="pre">$SCRATCH/performance_warpx</span></code>.</p>
 <p>The test runs a weak scaling (1,2,8,64,256,512 nodes) for 6 different tests <code class="docutils literal notranslate"><span class="pre">Tools/PerformanceTests/automated_test_{1,2,3,4,5,6}_*</span></code>, gathered in 1 batch job per number of nodes to avoid submitting too many jobs.</p>
 <section id="setup-on-summit-olcf">
-<h2>Setup on Summit &#64; OLCF<a class="headerlink" href="#setup-on-summit-olcf" title="Permalink to this heading"></a></h2>
+<h2>Setup on Summit &#64; OLCF<a class="headerlink" href="#setup-on-summit-olcf" title="Link to this heading"></a></h2>
 <p>Here is an example setup for Summit:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># I put the next three lines in $HOME/my_bashrc.sh</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">proj</span><span class="o">=</span>aph114<span class="w">  </span><span class="c1"># project for job submission</span>
@@ -208,7 +212,7 @@ git<span class="w"> </span>push
 </div>
 </section>
 <section id="setup-on-cori-nersc">
-<h2>Setup on Cori &#64; NERSC<a class="headerlink" href="#setup-on-cori-nersc" title="Permalink to this heading"></a></h2>
+<h2>Setup on Cori &#64; NERSC<a class="headerlink" href="#setup-on-cori-nersc" title="Link to this heading"></a></h2>
 <p>Still to be written!</p>
 </section>
 </section>

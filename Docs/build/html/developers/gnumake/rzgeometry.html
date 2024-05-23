@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Building WarpX to use RZ geometry &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -92,7 +96,7 @@
            <div itemprop="articleBody">
              
   <section id="building-warpx-to-use-rz-geometry">
-<h1>Building WarpX to use RZ geometry<a class="headerlink" href="#building-warpx-to-use-rz-geometry" title="Permalink to this heading"></a></h1>
+<h1>Building WarpX to use RZ geometry<a class="headerlink" href="#building-warpx-to-use-rz-geometry" title="Link to this heading"></a></h1>
 <p>WarpX can be built to run with RZ geometry. Both an FDTD solver (the default)
 and a PSATD solver are available. Both solvers allow multiple azimuthal modes.</p>
 <p>To select RZ geometry, set the flag USE_RZ = TRUE when compiling:</p>
@@ -102,7 +106,7 @@ and a PSATD solver are available. Both solvers allow multiple azimuthal modes.</
 <p>Note that this sets DIM=2, which is required with USE_RZ=TRUE.
 The executable produced will have “RZ” as a suffix.</p>
 <section id="rz-geometry-with-spectral-solver">
-<h2>RZ geometry with spectral solver<a class="headerlink" href="#rz-geometry-with-spectral-solver" title="Permalink to this heading"></a></h2>
+<h2>RZ geometry with spectral solver<a class="headerlink" href="#rz-geometry-with-spectral-solver" title="Link to this heading"></a></h2>
 <p>Additional steps are needed to build the spectral solver. Some of the steps
 are the same as is done for the Cartesian spectral solver, setting up the FFTW
 package and setting <code class="docutils literal notranslate"><span class="pre">USE_PSATD=TRUE</span></code>.</p>

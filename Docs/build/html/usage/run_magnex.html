@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run MagneX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -98,7 +102,7 @@
            <div itemprop="articleBody">
              
   <section id="run-magnex">
-<span id="usage-run"></span><h1>Run MagneX<a class="headerlink" href="#run-magnex" title="Permalink to this heading"></a></h1>
+<span id="usage-run"></span><h1>Run MagneX<a class="headerlink" href="#run-magnex" title="Link to this heading"></a></h1>
 <p>In order to run a new simulation:</p>
 <ol class="arabic simple">
 <li><p>Create a <strong>new directory</strong>, where the simulation will be run</p></li>
@@ -114,14 +118,14 @@ mpiexec<span class="w"> </span>-n<span class="w"> </span>&lt;num_mpi_ranks&gt;<s
 </pre></div>
 </div>
 <section id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<h2>Inputs<a class="headerlink" href="#inputs" title="Link to this heading"></a></h2>
 <p>An <strong>input file</strong> contains the numerical and physical parameters that define the situation to be simulated.</p>
 <p>Many sample inputs files can be found in <code class="docutils literal notranslate"><span class="pre">MagneX/Exec</span></code>, <code class="docutils literal notranslate"><span class="pre">MagneX/Exec/regression_inputs</span></code>, and <code class="docutils literal notranslate"><span class="pre">MagneX/Exec/standard_problem_inputs</span></code>.</p>
 <p>A list of parameters, with descriptions, can be found in <code class="docutils literal notranslate"><span class="pre">MagneX/Source/MagneX.cpp</span></code>.
 Also, MagneX uses a python-style parser for material properties and external bias field; see <code class="docutils literal notranslate"><span class="pre">MagneX/Source/Initialization.cpp</span></code>.</p>
 </section>
 <section id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<h2>Outputs<a class="headerlink" href="#outputs" title="Link to this heading"></a></h2>
 <p>By default, MagneX will write a status update to the terminal (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>).
 Based on <code class="docutils literal notranslate"><span class="pre">plot_int</span></code> the code will also write out plotfiles.
 Refer to the <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Visualization_Chapter.html">following link</a> for several visualization tools that can be used for AMReX plotfiles.</p>
