@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profiling the Code &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,14 +94,14 @@
            <div itemprop="articleBody">
              
   <section id="profiling-the-code">
-<span id="developers-profiling"></span><h1>Profiling the Code<a class="headerlink" href="#profiling-the-code" title="Link to this heading"></a></h1>
+<span id="developers-profiling"></span><h1>Profiling the Code<a class="headerlink" href="#profiling-the-code" title="Permalink to this heading"></a></h1>
 <p>Profiling allows us to find the bottle-necks of the code as it is currently implemented.
 Bottle-necks are the parts of the code that may delay the simulation, making it more computationally expensive.
 Once found, we can update the related code sections and improve its efficiency.
 Profiling tools can also be used to check how load balanced the simulation is, i.e. if the work is well distributed across all MPI ranks used.
 Load balancing can be activated in WarpX by setting input parameters, see the <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters-parallelization"><span class="std std-ref">parallelization input parameter section</span></a>.</p>
 <section id="amrex-s-tiny-profiler">
-<span id="developers-profiling-tiny-profiler"></span><h2>AMReX’s Tiny Profiler<a class="headerlink" href="#amrex-s-tiny-profiler" title="Link to this heading"></a></h2>
+<span id="developers-profiling-tiny-profiler"></span><h2>AMReX’s Tiny Profiler<a class="headerlink" href="#amrex-s-tiny-profiler" title="Permalink to this heading"></a></h2>
 <p>By default, WarpX uses the AMReX baseline tool, the TINYPROFILER, to evaluate the time information for different parts of the code (functions) between the different MPI ranks.
 The results, timers, are stored into four tables in the standard output, stdout, that are located below the simulation steps information and above the warnings regarding unused input file parameters (if there were any).</p>
 <p>The timers are displayed in tables for which the columns correspond to:</p>
@@ -127,7 +125,7 @@ The bottom two are related to the Evolve() section of the code (where each time 
 There is a script located <a class="reference external" href="https://github.com/AMReX-Codes/amrex/tree/development/Tools/TinyProfileParser">here</a> that parses the Tiny Profiler output and generates a JSON file that can be used with <a class="reference external" href="https://hatchet.readthedocs.io/en/latest/">Hatchet</a> in order to analyze performance.</p>
 </section>
 <section id="amrex-s-full-profiler">
-<h2>AMReX’s Full Profiler<a class="headerlink" href="#amrex-s-full-profiler" title="Link to this heading"></a></h2>
+<h2>AMReX’s Full Profiler<a class="headerlink" href="#amrex-s-full-profiler" title="Permalink to this heading"></a></h2>
 <p>The Tiny Profiler provides a summary across all MPI ranks. However, when analyzing
 load-balancing, it can be useful to have more detailed information about the
 behavior of <em>each</em> individual MPI rank. The workflow for doing so is the following:</p>
@@ -203,13 +201,13 @@ using Tab completion, in a Terminal.</p>
 </ul>
 </section>
 <section id="nvidia-nsight-systems">
-<span id="developers-profiling-nsight-systems"></span><h2>Nvidia Nsight-Systems<a class="headerlink" href="#nvidia-nsight-systems" title="Link to this heading"></a></h2>
+<span id="developers-profiling-nsight-systems"></span><h2>Nvidia Nsight-Systems<a class="headerlink" href="#nvidia-nsight-systems" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://developer.nvidia.com/nsight-systems">Vendor homepage</a> and <a class="reference external" href="https://docs.nvidia.com/nsight-systems/">product manual</a>.</p>
 <p>Nsight-Systems provides system level profiling data, including CPU and GPU
 interactions. It runs quickly, and provides a convenient visualization of
 profiling results including NVTX timers.</p>
 <section id="perlmutter-example">
-<h3>Perlmutter Example<a class="headerlink" href="#perlmutter-example" title="Link to this heading"></a></h3>
+<h3>Perlmutter Example<a class="headerlink" href="#perlmutter-example" title="Permalink to this heading"></a></h3>
 <p>Example on how to create traces on a multi-GPU system that uses the Slurm scheduler (e.g., NERSC’s Perlmutter system).
 You can either run this on an interactive node or use the Slurm batch script header <a class="reference internal" href="../install/hpc/perlmutter.html#running-cpp-perlmutter-a100-gpus"><span class="std std-ref">documented here</span></a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># GPU-aware MPI</span>
@@ -256,7 +254,7 @@ In WarpX, every MPI rank is associated with one GPU, which each creates one trac
 </div>
 </section>
 <section id="summit-example">
-<h3>Summit Example<a class="headerlink" href="#summit-example" title="Link to this heading"></a></h3>
+<h3>Summit Example<a class="headerlink" href="#summit-example" title="Permalink to this heading"></a></h3>
 <blockquote>
 <div><p>Example on how to create traces on a multi-GPU system that uses the <code class="docutils literal notranslate"><span class="pre">jsrun</span></code> scheduler (e.g., <a class="reference external" href="https://docs.olcf.ornl.gov/systems/summit_user_guide.html#optimizing-and-profiling">OLCF’s Summit system</a>):</p>
 </div></blockquote>
@@ -286,7 +284,7 @@ This is reported to Nvidia and OLCF.</p>
 </div>
 </section>
 <section id="details">
-<h3>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h3>
+<h3>Details<a class="headerlink" href="#details" title="Permalink to this heading"></a></h3>
 <p>In these examples, the individual lines for recording a trace profile are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">srun</span></code>: execute multi-GPU runs with <code class="docutils literal notranslate"><span class="pre">srun</span></code> (Slurm’s <code class="docutils literal notranslate"><span class="pre">mpiexec</span></code> wrapper), here for four GPUs</p></li>
@@ -303,14 +301,14 @@ For example, if you record on a cluster and open the analysis GUI on your laptop
 </section>
 </section>
 <section id="nvidia-nsight-compute">
-<h2>Nvidia Nsight-Compute<a class="headerlink" href="#nvidia-nsight-compute" title="Link to this heading"></a></h2>
+<h2>Nvidia Nsight-Compute<a class="headerlink" href="#nvidia-nsight-compute" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://developer.nvidia.com/nsight-compute">Vendor homepage</a> and <a class="reference external" href="https://docs.nvidia.com/nsight-compute/">product manual</a>.</p>
 <p>Nsight-Compute captures fine grained information at the kernel level
 concerning resource utilization. By default, it collects a lot of data and runs
 slowly (can be a few minutes per step), but provides detailed information about
 occupancy, and memory bandwidth for a kernel.</p>
 <section id="example">
-<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h3>
 <p>Example of how to create traces on a single-GPU system. A jobscript for
 Perlmutter is shown, but the <cite>SBATCH</cite> headers are not strictly necessary as the
 command only profiles a single process. This can also be run on an interactive
@@ -348,7 +346,7 @@ information.</p>
 </div>
 </section>
 <section id="id1">
-<h3>Details<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>Details<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <p>In the example above, the individual lines for recording a trace profile are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dcgmi</span> <span class="pre">profile</span> <span class="pre">--pause</span></code> other profiling tools can’t be collecting data,

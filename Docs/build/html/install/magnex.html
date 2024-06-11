@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MagneX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -104,7 +102,7 @@
            <div itemprop="articleBody">
              
   <section id="magnex">
-<span id="install-ferrox"></span><h1>MagneX<a class="headerlink" href="#magnex" title="Link to this heading"></a></h1>
+<span id="install-ferrox"></span><h1>MagneX<a class="headerlink" href="#magnex" title="Permalink to this heading"></a></h1>
 <style>
 .rst-content section>img {
     width: 30px;
@@ -117,11 +115,11 @@
 </style><p>MagneX is a massively parallel, 3D micromagnetics solver for modeling magnetic materials. MagneX solves the Landau-Lifshitz-Gilbert (LLG) equations, including exchange, anisotropy, demagnetization, and Dzyaloshinskii-Moriya interaction (DMI) coupling. The algorithm is implemented using Exascale Computing Project software framework, AMReX, which provides effective scalability on manycore and GPU-based supercomputing architectures.</p>
 <p>Our community is here to help. Please report installation problems or general questions about the code in the <a class="reference external" href="https://github.com/AMReX-Microelectronics/MagneX/issues">github Issues</a> tab.</p>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>We begin with instructions for a basic, pure-MPI (no GPU) installation. More detailed instructions for GPU systems are below.</p>
 </section>
 <section id="download-amrex-and-magnex-repositories">
-<h2>Download AMReX and MagneX Repositories<a class="headerlink" href="#download-amrex-and-magnex-repositories" title="Link to this heading"></a></h2>
+<h2>Download AMReX and MagneX Repositories<a class="headerlink" href="#download-amrex-and-magnex-repositories" title="Permalink to this heading"></a></h2>
 <p>Make sure that AMReX and MagneX are cloned at the same root location.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com:AMReX-Codes/amrex.git
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com:AMReX-Microelectronics/MagneX.git
@@ -129,7 +127,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com:AMReX
 </div>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>Beyond a standard Ubuntu22 installation, the Ubuntu packages libfftw3-dev, libfftw3-mpi-dev, and cmake are required.
 SUNDIALS is optional and enabled Runge-Kutta, implicit, and multirate integrators (more detailed instructions in the full documentation).
 heFFTe is a required dependancy. At the same level that AMReX and MagneX are cloned, run:</p>
@@ -144,7 +142,7 @@ make<span class="w"> </span>install
 </div>
 </section>
 <section id="build">
-<h2>Build<a class="headerlink" href="#build" title="Link to this heading"></a></h2>
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this heading"></a></h2>
 <p>Navigate to MagneX/Exec/ and run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j4
 </pre></div>

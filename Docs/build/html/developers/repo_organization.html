@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WarpX Structure &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,9 +94,9 @@
            <div itemprop="articleBody">
              
   <section id="warpx-structure">
-<span id="developers-repo-structure"></span><h1>WarpX Structure<a class="headerlink" href="#warpx-structure" title="Link to this heading"></a></h1>
+<span id="developers-repo-structure"></span><h1>WarpX Structure<a class="headerlink" href="#warpx-structure" title="Permalink to this heading"></a></h1>
 <section id="repo-organization">
-<h2>Repo Organization<a class="headerlink" href="#repo-organization" title="Link to this heading"></a></h2>
+<h2>Repo Organization<a class="headerlink" href="#repo-organization" title="Permalink to this heading"></a></h2>
 <p>All the WarpX source code is located in <code class="docutils literal notranslate"><span class="pre">Source/</span></code>.
 All sub-directories have a pretty straightforward name.
 The PIC loop is part of the WarpX class, in function <code class="docutils literal notranslate"><span class="pre">WarpX::EvolveEM</span></code> implemented in <code class="docutils literal notranslate"><span class="pre">Source/WarpXEvolveEM.cpp</span></code>.
@@ -106,11 +104,11 @@ The core of the PIC loop (i.e., without diagnostics etc.) is in <code class="doc
 Here is a <a class="reference external" href="https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=ECP-WarpX%2FWarpX">visual representation</a> of the repository structure.</p>
 </section>
 <section id="code-organization">
-<h2>Code organization<a class="headerlink" href="#code-organization" title="Link to this heading"></a></h2>
+<h2>Code organization<a class="headerlink" href="#code-organization" title="Permalink to this heading"></a></h2>
 <p>The main WarpX class is WarpX, implemented in <code class="docutils literal notranslate"><span class="pre">Source/WarpX.cpp</span></code>.</p>
 </section>
 <section id="build-system">
-<h2>Build System<a class="headerlink" href="#build-system" title="Link to this heading"></a></h2>
+<h2>Build System<a class="headerlink" href="#build-system" title="Permalink to this heading"></a></h2>
 <p>WarpX uses the <a class="reference internal" href="../install/cmake.html#building-cmake"><span class="std std-ref">CMake build system generator</span></a>.
 Each sub-folder contains a file <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> with the names of the source files (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code>) that are added to the build.
 Do not list header files (<code class="docutils literal notranslate"><span class="pre">.H</span></code>) here.</p>
@@ -118,7 +116,7 @@ Do not list header files (<code class="docutils literal notranslate"><span class
 The file <code class="docutils literal notranslate"><span class="pre">Make.package</span></code> in each sub-folder has the same purpose as the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file, please add new <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> files to both dirs.</p>
 </section>
 <section id="c-includes">
-<span id="developers-cpp-includes"></span><h2>C++ Includes<a class="headerlink" href="#c-includes" title="Link to this heading"></a></h2>
+<span id="developers-cpp-includes"></span><h2>C++ Includes<a class="headerlink" href="#c-includes" title="Permalink to this heading"></a></h2>
 <p>All WarpX header files need to be specified relative to the <code class="docutils literal notranslate"><span class="pre">Source/</span></code> directory.</p>
 <ul class="simple">
 <li><p>e.g. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;Utils/WarpXConst.H&quot;</span></code></p></li>
@@ -157,7 +155,7 @@ The include order (see <a class="reference external" href="https://github.com/EC
 <p>For details why this is needed, please see <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/pull/874#issuecomment-607038803">PR #874</a>, <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/pull/1947">PR #1947</a>, the <a class="reference external" href="https://llvm.org/docs/CodingStandards.html#include-style">LLVM guidelines</a>, and <a class="reference external" href="https://github.com/include-what-you-use/include-what-you-use/blob/master/docs/WhyIWYU.md">include-what-you-use</a>.</p>
 </section>
 <section id="forward-declaration-headers">
-<span id="developers-cpp-includes-fwd"></span><h2>Forward Declaration Headers<a class="headerlink" href="#forward-declaration-headers" title="Link to this heading"></a></h2>
+<span id="developers-cpp-includes-fwd"></span><h2>Forward Declaration Headers<a class="headerlink" href="#forward-declaration-headers" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Forward_declaration">Forward declarations</a> can be used when a header file needs only to know that a given class exists, without any further detail (e.g., when only a pointer to an instance of
 that class is used). Forward declaration headers are a convenient way to organize forward declarations. If a forward declaration is needed for a given class <code class="docutils literal notranslate"><span class="pre">MyClass</span></code>, declared in <code class="docutils literal notranslate"><span class="pre">MyClass.H</span></code>,
 the forward declaration should appear in a header file named <code class="docutils literal notranslate"><span class="pre">MyClass_fwd.H</span></code>, placed in the same folder containing <code class="docutils literal notranslate"><span class="pre">MyClass.H</span></code>. As for regular header files, forward declaration headers must have

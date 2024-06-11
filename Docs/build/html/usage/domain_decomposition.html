@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Domain Decomposition &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,10 +94,10 @@
            <div itemprop="articleBody">
              
   <section id="domain-decomposition">
-<span id="usage-domain-decomposition"></span><h1>Domain Decomposition<a class="headerlink" href="#domain-decomposition" title="Link to this heading"></a></h1>
+<span id="usage-domain-decomposition"></span><h1>Domain Decomposition<a class="headerlink" href="#domain-decomposition" title="Permalink to this heading"></a></h1>
 <p>WarpX relies on a spatial domain decomposition for MPI parallelization. It provides two different ways for users to specify this decomposition, a <cite>simple</cite> way recommended for most users, and a <cite>flexible</cite> way recommended if more control is desired. The <cite>flexible</cite> method is required for dynamic load balancing to be useful.</p>
 <section id="simple-method">
-<h2>1. Simple Method<a class="headerlink" href="#simple-method" title="Link to this heading"></a></h2>
+<h2>1. Simple Method<a class="headerlink" href="#simple-method" title="Permalink to this heading"></a></h2>
 <p>The first and simplest method is to provide the <code class="docutils literal notranslate"><span class="pre">warpx.numprocs</span> <span class="pre">=</span> <span class="pre">nx</span> <span class="pre">ny</span> <span class="pre">nz</span></code> parameter, either at the command line or somewhere in your inputs deck. In this case, WarpX will split up the overall problem domain into exactly the specified number of subdomains, or <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html#box-intvect-and-indextype">Boxes</a> in the AMReX terminology, with the data defined on each <cite>Box</cite> having its own guard cells. The product of <code class="docutils literal notranslate"><span class="pre">nx,</span> <span class="pre">ny,</span> <span class="pre">and</span> <span class="pre">nz</span></code> must be exactly the desired number of MPI ranks. Note that, because there is exactly one <cite>Box</cite> per MPI rank when run this way, dynamic load balancing will not be possible, as there is no way of shifting <cite>Boxes</cite> around to achieve a more even load. This is the approach recommended for new users as it is the easiest to use.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -107,7 +105,7 @@
 </div>
 </section>
 <section id="more-general-method">
-<h2>2. More General Method<a class="headerlink" href="#more-general-method" title="Link to this heading"></a></h2>
+<h2>2. More General Method<a class="headerlink" href="#more-general-method" title="Permalink to this heading"></a></h2>
 <p>The second way of specifying the domain decomposition provides greater flexibility and enables dynamic load balancing, but is not as easy to use. In this method, the user specifies inputs parameters <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size</span></code> and <code class="docutils literal notranslate"><span class="pre">amr.blocking_factor</span></code>, which can be thought of as the maximum and minimum allowed <cite>Box</cite> sizes. Now, the overall problem domain (specified by the <code class="docutils literal notranslate"><span class="pre">amr.ncell</span></code> input parameter) will be broken up into some number of <cite>Boxes</cite> with the specified characteristics. By default, WarpX will make the <cite>Boxes</cite> as big as possible given the constraints.</p>
 <p>For example, if <code class="docutils literal notranslate"><span class="pre">amr.ncell</span> <span class="pre">=</span> <span class="pre">768</span> <span class="pre">768</span> <span class="pre">768</span></code>, <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size</span> <span class="pre">=</span>&#160; <span class="pre">128</span></code>, and <code class="docutils literal notranslate"><span class="pre">amr.blocking_factor</span> <span class="pre">=</span> <span class="pre">32</span></code>, then AMReX will make 6 <cite>Boxes</cite> in each direction, for a total of 216 (the <code class="docutils literal notranslate"><span class="pre">amr.blocking_factor</span></code> does not factor in yet; however, see the section on mesh refinement below). If this problem is then run on 54 MPI ranks, there will be 4 boxes per rank initially. This problem could be run on as many as 216 ranks without performing any splitting.</p>
 <div class="admonition note">
@@ -122,7 +120,7 @@
 <p>You can also specify a separate <cite>max_grid_size</cite> and <cite>blocking_factor</cite> for each direction, using the parameters <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size_x</span></code>, <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size_y</span></code>, etc… . This allows you to request, for example, a “pencil” type domain decomposition that is long in one direction. Note that, in RZ geometry, the parameters corresponding to the longitudinal direction are <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size_y</span></code> and <code class="docutils literal notranslate"><span class="pre">amr.blocking_factor_y</span></code>.</p>
 </section>
 <section id="performance-considerations">
-<h2>3. Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading"></a></h2>
+<h2>3. Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permalink to this heading"></a></h2>
 <p>In terms of performance, in general there is a trade off. Having many small boxes provides flexibility in terms of load balancing; however, the cost is increased time spent in communication due to surface-to-volume effects and increased kernel launch overhead when running on the GPUs. The ideal number of boxes per rank depends on how important dynamic load balancing is on your problem. If your problem is intrinsically well-balanced, like in a uniform plasma, then having a few, large boxes is best. But, if the problem is non-uniform and achieving a good load balance is critical for performance, having more, smaller <cite>Boxes</cite> can be worth it. In general, we find that running with something in the range of 4-8 <cite>Boxes</cite> per process is a good compromise for most problems.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -158,7 +156,7 @@ If max grid size and/or blocking factor are too large, they will be silently red
 If there are too many processors so that there is not enough blocks for the number processors, WarpX will abort.</p>
 </section>
 <section id="mesh-refinement">
-<h2>4. Mesh Refinement<a class="headerlink" href="#mesh-refinement" title="Link to this heading"></a></h2>
+<h2>4. Mesh Refinement<a class="headerlink" href="#mesh-refinement" title="Permalink to this heading"></a></h2>
 <p>With mesh refinement, the above picture is more complicated, as in general the number of boxes can not be predicted at the start of the simulation. The decomposition of the base level will proceed as outlined above. The refined region, however, will be covered by some number of Boxes whose sizes are consistent with <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size</span></code> and <code class="docutils literal notranslate"><span class="pre">amr.blocking_factor</span></code>. With mesh refinement, the blocking factor is important, as WarpX may decide to use <cite>Boxes</cite> smaller than <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size</span></code> so as not to over-refine outside of the requested area. Note that you can specify a vector of values to make these parameters vary by level. For example, <code class="docutils literal notranslate"><span class="pre">amr.max_grid_size</span> <span class="pre">=</span> <span class="pre">128</span> <span class="pre">64</span></code> will make the max grid size be 128 on level 0 and 64 on level 1.</p>
 <p>In general, the above performance considerations apply - varying these values such that there are 4-8 Boxes per rank on each level is a good guideline.</p>
 </section>

@@ -5,10 +5,10 @@ Run FerroX
 
 In order to run a new simulation:
 
-#. create a **new directory**, where the simulation will be run
-#. make sure the FerroX **executable** is copied into this directory 
-#. add an **inputs file** to the directory
-#. run
+#. Create a **new directory**, where the simulation will be run
+#. Make sure the FerroX **executable** is copied into this directory 
+#. Add an **inputs file** to the directory
+#. Run
 
 1. Run Directory
 ----------------

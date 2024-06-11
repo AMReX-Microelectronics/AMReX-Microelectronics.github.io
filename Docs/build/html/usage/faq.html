@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -97,10 +95,10 @@
            <div itemprop="articleBody">
              
   <section id="faq">
-<span id="usage-faq"></span><h1>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h1>
+<span id="usage-faq"></span><h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading"></a></h1>
 <p>This section lists frequently asked usage questions.</p>
 <section id="what-is-mpi-initialized-with-thread-support-level">
-<h2>What is “MPI initialized with thread support level …”?<a class="headerlink" href="#what-is-mpi-initialized-with-thread-support-level" title="Link to this heading"></a></h2>
+<h2>What is “MPI initialized with thread support level …”?<a class="headerlink" href="#what-is-mpi-initialized-with-thread-support-level" title="Permalink to this heading"></a></h2>
 <p>When we start up WarpX, we report a couple of information on used MPI processes across parallel compute processes, CPU threads or GPUs and further capabilities.
 For instance, a parallel, multi-process, multi-threaded CPU run could output:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">MPI</span><span class="w"> </span><span class="n">initialized</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">MPI</span><span class="w"> </span><span class="n">processes</span>
@@ -119,19 +117,19 @@ Thus, we request it by default but you can overwrite it with a <a class="referen
 After that, information on software versions follow.</p>
 </section>
 <section id="how-do-i-suppress-tiny-profiler-output-if-i-do-not-care-to-see-it">
-<h2>How do I suppress tiny profiler output if I do not care to see it?<a class="headerlink" href="#how-do-i-suppress-tiny-profiler-output-if-i-do-not-care-to-see-it" title="Link to this heading"></a></h2>
+<h2>How do I suppress tiny profiler output if I do not care to see it?<a class="headerlink" href="#how-do-i-suppress-tiny-profiler-output-if-i-do-not-care-to-see-it" title="Permalink to this heading"></a></h2>
 <p>Via <code class="docutils literal notranslate"><span class="pre">AMReX_TINY_PROFILE=OFF</span></code> (see: <a class="reference internal" href="../install/cmake.html#building-cmake-options"><span class="std std-ref">build options</span></a> and then <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/BuildingAMReX.html#customization-options">AMReX build options</a>).
 We change the default in <code class="docutils literal notranslate"><span class="pre">cmake/dependencies/AMReX.cmake</span></code>.</p>
 <p>Note that the tiny profiler adds literally no overhead to the simulation runtime, thus we enable it by default.</p>
 </section>
 <section id="what-design-principles-should-i-keep-in-mind-when-creating-an-input-file">
-<h2>What design principles should I keep in mind when creating an input file?<a class="headerlink" href="#what-design-principles-should-i-keep-in-mind-when-creating-an-input-file" title="Link to this heading"></a></h2>
+<h2>What design principles should I keep in mind when creating an input file?<a class="headerlink" href="#what-design-principles-should-i-keep-in-mind-when-creating-an-input-file" title="Permalink to this heading"></a></h2>
 <p>Leave a cushion between lasers, particles, and the edge of computational domain.
 The laser antenna and plasma species <code class="docutils literal notranslate"><span class="pre">zmin</span></code> can be less than or greater than  the <code class="docutils literal notranslate"><span class="pre">geometry.prob_hi</span></code>,
 but not exactly equal.</p>
 </section>
 <section id="what-do-i-need-to-know-about-using-the-boosted-frame">
-<h2>What do I need to know about using the boosted frame?<a class="headerlink" href="#what-do-i-need-to-know-about-using-the-boosted-frame" title="Link to this heading"></a></h2>
+<h2>What do I need to know about using the boosted frame?<a class="headerlink" href="#what-do-i-need-to-know-about-using-the-boosted-frame" title="Permalink to this heading"></a></h2>
 <p>The input deck can be designed in the lab frame and little modification to the physical set-up is needed –
 most of the work is done internally.
 Here are a few practical items to assist in designing boosted frame simulations:</p>
@@ -145,11 +143,11 @@ Here are a few practical items to assist in designing boosted frame simulations:
 <p>An in-depth discussion of the boosted frame is provided in the <a class="reference internal" href="../theory/boosted_frame.html#theory-boostedframe"><span class="std std-ref">moving window and optimal Lorentz boosted frame</span></a> section.</p>
 </section>
 <section id="what-about-back-transformed-diagnostics-btd">
-<h2>What about Back-transformed diagnostics (BTD)?<a class="headerlink" href="#what-about-back-transformed-diagnostics-btd" title="Link to this heading"></a></h2>
+<h2>What about Back-transformed diagnostics (BTD)?<a class="headerlink" href="#what-about-back-transformed-diagnostics-btd" title="Permalink to this heading"></a></h2>
 <figure class="align-default" id="id1">
 <img alt="[fig:BTD_features] Minkowski diagram indicating several features of the back-transformed diagnostic (BTD). The diagram explains why the first BTD begins to fill at boosted time :math:`t'=0` but this doesn't necessarily correspond to lab time :math:`t=0`, how the BTD grid-spacing is determined by the boosted time step :math:`\Delta t'`, hence why the snapshot length don't correspond to the grid spacing and length in the input script, and how the BTD snapshots complete when the effective snapshot length is covered in the boosted frame." src="https://user-images.githubusercontent.com/10621396/198702232-9dd595ad-479e-4170-bd25-51e2b72cd50a.png" />
 <figcaption>
-<p><span class="caption-text">[fig:BTD_features] Minkowski diagram indicating several features of the back-transformed diagnostic (BTD). The diagram explains why the first BTD begins to fill at boosted time <span class="math notranslate nohighlight">\(t'=0\)</span> but this doesn’t necessarily correspond to lab time <span class="math notranslate nohighlight">\(t=0\)</span>, how the BTD grid-spacing is determined by the boosted time step <span class="math notranslate nohighlight">\(\Delta t'\)</span>, hence why the snapshot length don’t correspond to the grid spacing and length in the input script, and how the BTD snapshots complete when the effective snapshot length is covered in the boosted frame.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-text">[fig:BTD_features] Minkowski diagram indicating several features of the back-transformed diagnostic (BTD). The diagram explains why the first BTD begins to fill at boosted time <span class="math notranslate nohighlight">\(t'=0\)</span> but this doesn’t necessarily correspond to lab time <span class="math notranslate nohighlight">\(t=0\)</span>, how the BTD grid-spacing is determined by the boosted time step <span class="math notranslate nohighlight">\(\Delta t'\)</span>, hence why the snapshot length don’t correspond to the grid spacing and length in the input script, and how the BTD snapshots complete when the effective snapshot length is covered in the boosted frame.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Several BTD quantities differ slightly from the lab frame domain described in the input deck.
@@ -162,7 +160,7 @@ In the following discussion, we will use a subscript input (e.g. <span class="ma
 </ul>
 </section>
 <section id="what-kinds-of-rz-output-do-you-support">
-<h2>What kinds of RZ output do you support?<a class="headerlink" href="#what-kinds-of-rz-output-do-you-support" title="Link to this heading"></a></h2>
+<h2>What kinds of RZ output do you support?<a class="headerlink" href="#what-kinds-of-rz-output-do-you-support" title="Permalink to this heading"></a></h2>
 <p>In RZ, supported detail of RZ output depends on the <a class="reference internal" href="../dataanalysis/formats.html#dataanalysis-formats"><span class="std std-ref">output format</span></a> that is configured in the <a class="reference internal" href="parameters.html#running-cpp-parameters-diagnostics"><span class="std std-ref">inputs file</span></a>.</p>
 <p>openPMD supports output of the detailed RZ modes and reconstructs representations on-the-fly in post-processing, e.g, in <code class="docutils literal notranslate"><span class="pre">openPMD-viewer</span></code> or other tools.
 For some tools, this is in-development.</p>

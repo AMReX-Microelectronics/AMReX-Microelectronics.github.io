@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>3D Visualization: VisIt &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,15 +94,15 @@
            <div itemprop="articleBody">
              
   <section id="d-visualization-visit">
-<span id="dataanalysis-visualization-visit"></span><h1>3D Visualization: VisIt<a class="headerlink" href="#d-visualization-visit" title="Link to this heading"></a></h1>
+<span id="dataanalysis-visualization-visit"></span><h1>3D Visualization: VisIt<a class="headerlink" href="#d-visualization-visit" title="Permalink to this heading"></a></h1>
 <p>WarpX results can be visualized by VisIt, an open source visualization and analysis software. VisIt can be downloaded and installed from <a class="reference external" href="https://wci.llnl.gov/simulation/computer-codes/visit">https://wci.llnl.gov/simulation/computer-codes/visit</a>.</p>
 <section id="openpmd-hdf5">
-<h2>openPMD (HDF5)<a class="headerlink" href="#openpmd-hdf5" title="Link to this heading"></a></h2>
+<h2>openPMD (HDF5)<a class="headerlink" href="#openpmd-hdf5" title="Permalink to this heading"></a></h2>
 <p>WarpX’ openPMD files can be visualized with VisIt 3.1.0+.
 VisIt supports openPMD HDF5 files and requires to rename the files from <code class="docutils literal notranslate"><span class="pre">.h5</span></code> to <code class="docutils literal notranslate"><span class="pre">.opmd</span></code> to be automatically detected.</p>
 </section>
 <section id="plotfiles-amrex">
-<h2>Plotfiles (AMReX)<a class="headerlink" href="#plotfiles-amrex" title="Link to this heading"></a></h2>
+<h2>Plotfiles (AMReX)<a class="headerlink" href="#plotfiles-amrex" title="Permalink to this heading"></a></h2>
 <p>Assuming that you ran a 2D simulation, here are instructions for making a simple plot from a given plotfile:</p>
 <ul class="simple">
 <li><p>Open the header file: Run VisIt, then select “File” -&gt; “Open file …”, then select the Header file associated with the plotfile of interest (e.g., <code class="docutils literal notranslate"><span class="pre">plt10000/Header</span></code>).</p></li>

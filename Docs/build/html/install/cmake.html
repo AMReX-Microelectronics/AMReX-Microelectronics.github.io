@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developers &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,12 +94,12 @@
            <div itemprop="articleBody">
              
   <section id="developers">
-<span id="building-cmake-intro"></span><span id="building-cmake"></span><span id="install-developers"></span><h1>Developers<a class="headerlink" href="#developers" title="Link to this heading"></a></h1>
+<span id="building-cmake-intro"></span><span id="building-cmake"></span><span id="install-developers"></span><h1>Developers<a class="headerlink" href="#developers" title="Permalink to this heading"></a></h1>
 <p><a class="reference external" href="https://cmake.org">CMake</a> is our primary build system.
 If you are new to CMake, <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/">this short tutorial</a> from the HEP Software foundation is the perfect place to get started.
 If you just want to use CMake to build the project, jump into sections <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/01-intro/index.html">1. Introduction</a>, <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/02-building/index.html">2. Building with CMake</a> and <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/09-findingpackages/index.html">9. Finding Packages</a>.</p>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>Before you start, you will need a copy of the WarpX source code:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
 <span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
@@ -116,7 +114,7 @@ If you just want to use CMake to build the project, jump into sections <a class=
 </div>
 </section>
 <section id="compile">
-<h2>Compile<a class="headerlink" href="#compile" title="Link to this heading"></a></h2>
+<h2>Compile<a class="headerlink" href="#compile" title="Permalink to this heading"></a></h2>
 <p>From the base of the WarpX source directory, execute:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># find dependencies &amp; configure</span>
 <span class="c1">#   see additional options below, e.g.</span>
@@ -146,8 +144,13 @@ For example, this builds WarpX in 2D geometry and enables Nvidia GPU (CUDA) supp
 </div>
 </section>
 <section id="build-options">
-<span id="building-cmake-options"></span><h2>Build Options<a class="headerlink" href="#build-options" title="Link to this heading"></a></h2>
+<span id="building-cmake-options"></span><h2>Build Options<a class="headerlink" href="#build-options" title="Permalink to this heading"></a></h2>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 26%" />
+<col style="width: 57%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>CMake Option</p></th>
 <th class="head"><p>Default &amp; Values</p></th>
@@ -249,6 +252,11 @@ For example, this builds WarpX in 2D geometry and enables Nvidia GPU (CUDA) supp
 <p><strong>Developers</strong> might be interested in additional options that control dependencies of WarpX.
 By default, the most important dependencies of WarpX are automatically downloaded for convenience:</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 34%" />
+<col style="width: 44%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>CMake Option</p></th>
 <th class="head"><p>Default &amp; Values</p></th>
@@ -330,7 +338,7 @@ Please see the <a class="reference internal" href="#building-cmake-intro"><span 
 Pass <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">Ninja</span></code> to the CMake configuration call to speed up parallel compiles.</p>
 </section>
 <section id="configure-your-compiler">
-<span id="building-cmake-envvars"></span><h2>Configure your compiler<a class="headerlink" href="#configure-your-compiler" title="Link to this heading"></a></h2>
+<span id="building-cmake-envvars"></span><h2>Configure your compiler<a class="headerlink" href="#configure-your-compiler" title="Permalink to this heading"></a></h2>
 <p>If you don’t want to use your default compiler, you can set the following environment variables.
 For example, using a Clang/LLVM:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>clang<span class="k">)</span>
@@ -354,7 +362,7 @@ Now call <code class="docutils literal notranslate"><span class="pre">cmake</spa
 </div>
 </section>
 <section id="run">
-<h2>Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
 <p>An executable WarpX binary with the current compile-time options encoded in its file name will be created in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code>.
 Note that you need separate binaries to run 1D, 2D, 3D, and RZ geometry inputs scripts.
 Additionally, a <a class="reference external" href="https://en.wikipedia.org/wiki/Symbolic_link">symbolic link</a> named <code class="docutils literal notranslate"><span class="pre">warpx</span></code> can be found in that directory, which points to the last built WarpX executable.</p>
@@ -362,7 +370,7 @@ Additionally, a <a class="reference external" href="https://en.wikipedia.org/wik
 Alternatively, read on and also build our PICMI Python interface.</p>
 </section>
 <section id="picmi-python-bindings">
-<span id="building-cmake-python"></span><h2>PICMI Python Bindings<a class="headerlink" href="#picmi-python-bindings" title="Link to this heading"></a></h2>
+<span id="building-cmake-python"></span><h2>PICMI Python Bindings<a class="headerlink" href="#picmi-python-bindings" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Preparation: make sure you work with up-to-date Python tooling.</p>
@@ -403,7 +411,7 @@ Otherwise, without a virtual environment, you likely need to add the CMake optio
 </div>
 </section>
 <section id="python-bindings-package-management">
-<span id="building-pip-python"></span><h2>Python Bindings (Package Management)<a class="headerlink" href="#python-bindings-package-management" title="Link to this heading"></a></h2>
+<span id="building-pip-python"></span><h2>Python Bindings (Package Management)<a class="headerlink" href="#python-bindings-package-management" title="Permalink to this heading"></a></h2>
 <p>This section is relevant for Python package management, mainly for maintainers or people that rather like to interact only with <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
 <p>One can build and install <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code> from the root of the WarpX source tree:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>wheel<span class="w"> </span>-v<span class="w"> </span>.
@@ -414,6 +422,11 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 Using this workflow has the advantage that it can build and package up multiple libraries with varying <code class="docutils literal notranslate"><span class="pre">WarpX_DIMS</span></code> into one <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code> package.</p>
 <p>Environment variables can be used to control the build step:</p>
 <table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 26%" />
+<col style="width: 57%" />
+</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Environment Variable</p></th>
 <th class="head"><p>Default &amp; Values</p></th>
