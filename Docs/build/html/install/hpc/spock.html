@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Spock (OLCF) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/design-tabs.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -96,10 +94,10 @@
            <div itemprop="articleBody">
              
   <section id="spock-olcf">
-<span id="building-spock"></span><h1>Spock (OLCF)<a class="headerlink" href="#spock-olcf" title="Link to this heading"></a></h1>
+<span id="building-spock"></span><h1>Spock (OLCF)<a class="headerlink" href="#spock-olcf" title="Permalink to this heading"></a></h1>
 <p>The <a class="reference external" href="https://docs.olcf.ornl.gov/systems/spock_quick_start_guide.html">Spock cluster</a> is located at OLCF.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
 <p>If you are new to this system, <strong>please see the following resources</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.olcf.ornl.gov/systems/spock_quick_start_guide.html">Spock user guide</a></p></li>
@@ -116,7 +114,7 @@ That means you cannot run in your <code class="docutils literal notranslate"><sp
 </ul>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
 </pre></div>
@@ -140,9 +138,9 @@ A 3D WarpX executable is now in <code class="docutils literal notranslate"><span
 Most people execute the binary directly or copy it out to a location in <code class="docutils literal notranslate"><span class="pre">$PROJWORK/$proj/</span></code>.</p>
 </section>
 <section id="running">
-<span id="running-cpp-spock"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<span id="running-cpp-spock"></span><h2>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h2>
 <section id="mi100-gpus-32-gb">
-<span id="running-cpp-spock-mi100-gpus"></span><h3>MI100 GPUs (32 GB)<a class="headerlink" href="#mi100-gpus-32-gb" title="Link to this heading"></a></h3>
+<span id="running-cpp-spock-mi100-gpus"></span><h3>MI100 GPUs (32 GB)<a class="headerlink" href="#mi100-gpus-32-gb" title="Permalink to this heading"></a></h3>
 <p>After requesting an interactive node with the <code class="docutils literal notranslate"><span class="pre">getNode</span></code> alias above, run a simulation like this, here using 4 MPI ranks:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>srun<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>--ntasks-per-node<span class="o">=</span><span class="m">4</span><span class="w"> </span>./warpx<span class="w"> </span>inputs
 </pre></div>
@@ -152,7 +150,7 @@ Most people execute the binary directly or copy it out to a location in <code cl
 </section>
 </section>
 <section id="post-processing">
-<span id="post-processing-spock"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Link to this heading"></a></h2>
+<span id="post-processing-spock"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Permalink to this heading"></a></h2>
 <p>For post-processing, most users use Python via OLCFs’s <a class="reference external" href="https://jupyter.olcf.ornl.gov">Jupyter service</a> (<a class="reference external" href="https://docs.olcf.ornl.gov/services_and_applications/jupyter/index.html">Docs</a>).</p>
 <p>Please follow the same guidance as for <a class="reference internal" href="summit.html#post-processing-summit"><span class="std std-ref">OLCF Summit post-processing</span></a>.</p>
 </section>

@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ELEQTRONeX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -103,7 +101,7 @@
            <div itemprop="articleBody">
              
   <section id="eleqtronex">
-<span id="install-ferrox"></span><h1>ELEQTRONeX<a class="headerlink" href="#eleqtronex" title="Link to this heading"></a></h1>
+<span id="install-ferrox"></span><h1>ELEQTRONeX<a class="headerlink" href="#eleqtronex" title="Permalink to this heading"></a></h1>
 <style>
 .rst-content section>img {
     width: 30px;
@@ -117,7 +115,7 @@
 Please <a class="reference external" href="https://github.com/AMReX-Microelectronics/ELEQTRONeX/issues/new">report installation problems</a> in case you are stuck.</p>
 <p>Follow these instructions for compilation.</p>
 <section id="download">
-<h2>1. Download<a class="headerlink" href="#download" title="Link to this heading"></a></h2>
+<h2>1. Download<a class="headerlink" href="#download" title="Permalink to this heading"></a></h2>
 <p>To download the codes in your local linux system or on a specific high-performance computing (HPC) system:</p>
 <p>Download AMReX Repository as</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:AMReX-Codes/amrex.git
@@ -129,7 +127,7 @@ Please <a class="reference external" href="https://github.com/AMReX-Microelectro
 </div>
 </section>
 <section id="build-parameters">
-<h2>2. Build Parameters<a class="headerlink" href="#build-parameters" title="Link to this heading"></a></h2>
+<h2>2. Build Parameters<a class="headerlink" href="#build-parameters" title="Permalink to this heading"></a></h2>
 <p>Navigate to the <code class="docutils literal notranslate"><span class="pre">Exec/</span></code> folder of ELEQTRONeX and execute</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span>&lt;np&gt;
 </pre></div>
@@ -156,7 +154,7 @@ Please <a class="reference external" href="https://github.com/AMReX-Microelectro
 </ul>
 </section>
 <section id="preprocessor-flags">
-<h2>3. Preprocessor Flags<a class="headerlink" href="#preprocessor-flags" title="Link to this heading"></a></h2>
+<h2>3. Preprocessor Flags<a class="headerlink" href="#preprocessor-flags" title="Permalink to this heading"></a></h2>
 <p>Set preprocessor flags in the <code class="docutils literal notranslate"><span class="pre">../Source/Code_Definitions.H</span></code> file before compiling the code, depending on your configuration needs.</p>
 <p>The important ones are:</p>
 <ul class="simple">

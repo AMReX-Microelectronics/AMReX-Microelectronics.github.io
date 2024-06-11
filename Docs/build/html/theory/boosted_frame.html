@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Moving window and optimal Lorentz boosted frame &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -97,12 +95,12 @@
            <div itemprop="articleBody">
              
   <section id="moving-window-and-optimal-lorentz-boosted-frame">
-<span id="theory-boostedframe"></span><h1>Moving window and optimal Lorentz boosted frame<a class="headerlink" href="#moving-window-and-optimal-lorentz-boosted-frame" title="Link to this heading"></a></h1>
+<span id="theory-boostedframe"></span><h1>Moving window and optimal Lorentz boosted frame<a class="headerlink" href="#moving-window-and-optimal-lorentz-boosted-frame" title="Permalink to this heading"></a></h1>
 <p>The simulations of plasma accelerators from first principles are extremely computationally intensive, due to the need to resolve the evolution of a driver (laser or particle beam) and an accelerated particle beam into a plasma structure that is orders of magnitude longer and wider than the accelerated beam. As is customary in the modeling of particle beam dynamics in standard particle accelerators, a moving window is commonly used to follow the driver, the wake and the accelerated beam. This results in huge savings, by avoiding the meshing of the entire plasma that is orders of magnitude longer than the other length scales of interest.</p>
 <figure class="align-default" id="id1">
 <img alt="[fig:PIC] A first principle simulation of a short driver beam (laser or charged particles) propagating through a plasma that is orders of magnitude longer necessitates a very large number of time steps. Recasting the simulation in a frame of reference that is moving close to the speed of light in the direction of the driver beam leads to simulating a driver beam that appears longer propagating through a plasma that appears shorter than in the laboratory. Thus, this relativistic transformation of space and time reduces the disparity of scales, and thereby the number of time steps to complete the simulation, by orders of magnitude." src="../_images/Boosted_frame.png" />
 <figcaption>
-<p><span class="caption-text">[fig:PIC] A first principle simulation of a short driver beam (laser or charged particles) propagating through a plasma that is orders of magnitude longer necessitates a very large number of time steps. Recasting the simulation in a frame of reference that is moving close to the speed of light in the direction of the driver beam leads to simulating a driver beam that appears longer propagating through a plasma that appears shorter than in the laboratory. Thus, this relativistic transformation of space and time reduces the disparity of scales, and thereby the number of time steps to complete the simulation, by orders of magnitude.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-text">[fig:PIC] A first principle simulation of a short driver beam (laser or charged particles) propagating through a plasma that is orders of magnitude longer necessitates a very large number of time steps. Recasting the simulation in a frame of reference that is moving close to the speed of light in the direction of the driver beam leads to simulating a driver beam that appears longer propagating through a plasma that appears shorter than in the laboratory. Thus, this relativistic transformation of space and time reduces the disparity of scales, and thereby the number of time steps to complete the simulation, by orders of magnitude.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
 <p>Even using a moving window, however, a full PIC simulation of a plasma accelerator can be extraordinarily demanding computationally, as many time steps are needed to resolve the crossing of the short driver beam with the plasma column. As it turns out, choosing an optimal frame of reference that travels close to the speed of light in the direction of the laser or particle beam (as opposed to the usual choice of the laboratory frame) enables speedups by orders of magnitude (Vay 2007; J -L. Vay et al. 2011). This is a result of the properties of Lorentz contraction and dilation of space and time. In the frame of the laboratory, a very short driver (laser or particle) beam propagates through a much longer plasma column, necessitating millions to tens of millions of time steps for parameters in the range of the BELLA or FACET-II experiments. As sketched in Fig. <a class="reference external" href="#fig:PIC">[fig:PIC]</a>, in a frame moving with the driver beam in the plasma at velocity <span class="math notranslate nohighlight">\(v=\beta c\)</span> (where <span class="math notranslate nohighlight">\(c\)</span> is the speed of light in vacuum), the beam length is now elongated by <span class="math notranslate nohighlight">\(\approx(1+\beta)\gamma\)</span> while the plasma contracts by <span class="math notranslate nohighlight">\(\gamma\)</span> (where <span class="math notranslate nohighlight">\(\gamma=1/\sqrt{1-\beta^2}\)</span> is the relativistic factor associated with the frame velocity). The number of time steps that is needed to simulate a “longer” beam through a “shorter” plasma is now reduced by up to <span class="math notranslate nohighlight">\(\approx(1+\beta) \gamma^2\)</span> (a detailed derivation of the speedup is given below).</p>
@@ -122,7 +120,7 @@ can be neglected in the modeling of plasma accelerator stages. The accuracy of t
 comparison between explicit codes which include both forward and backward waves and envelope or quasistatic codes which neglect backward waves
 (Geddes et al. 2008; Geddes et al. 2009; Cowan et al. 2009).</p>
 <section id="theoretical-speedup-dependency-with-the-frame-boost">
-<h2>Theoretical speedup dependency with the frame boost<a class="headerlink" href="#theoretical-speedup-dependency-with-the-frame-boost" title="Link to this heading"></a></h2>
+<h2>Theoretical speedup dependency with the frame boost<a class="headerlink" href="#theoretical-speedup-dependency-with-the-frame-boost" title="Permalink to this heading"></a></h2>
 <p>The derivation that is given here reproduces the one given in (J -L. Vay et al. 2011), where the obtainable speedup is derived as an extension of the formula that was derived earlier(Vay 2007), taking in addition into account the group velocity of the laser as it traverses the plasma.</p>
 <p>Assuming that the simulation box is a fixed number of plasma periods long, which implies the use (which is standard) of a moving window following
 the wake and accelerated beam, the speedup is given by the ratio of the time taken by the laser pulse and the plasma to cross each other, divided by the shortest time scale of interest, that is the laser period. To first order, the wake velocity <span class="math notranslate nohighlight">\(v_w\)</span> is set by the 1D group velocity of the laser driver, which in the linear (low intensity) limit, is given by (Esarey, Schroeder, and Leemans 2009):</p>
@@ -176,7 +174,7 @@ Acceleration is compromised beyond <span class="math notranslate nohighlight">\(
 <p>Note that without the use of a moving window, the relativistic effects that are at play in the time domain would also be at play in the spatial domain (Vay 2007), and the <span class="math notranslate nohighlight">\(\gamma^2\)</span> scaling would transform to <span class="math notranslate nohighlight">\(\gamma^4\)</span>. Hence, it is important to use a moving window even in simulations in a Lorentz boosted frame. For very high values of the boosted frame, the optimal velocity of the moving window may vanish (i.e. no moving window) or even reverse.</p>
 </section>
 <section id="numerical-stability-and-alternate-formulation-in-a-galilean-frame">
-<span id="theory-boostedframe-galilean"></span><h2>Numerical Stability and alternate formulation in a Galilean frame<a class="headerlink" href="#numerical-stability-and-alternate-formulation-in-a-galilean-frame" title="Link to this heading"></a></h2>
+<span id="theory-boostedframe-galilean"></span><h2>Numerical Stability and alternate formulation in a Galilean frame<a class="headerlink" href="#numerical-stability-and-alternate-formulation-in-a-galilean-frame" title="Permalink to this heading"></a></h2>
 <p>The numerical Cherenkov instability (NCI) (Godfrey 1974)
 is the most serious numerical instability affecting multidimensional
 PIC simulations of relativistic particle beams and streaming plasmas

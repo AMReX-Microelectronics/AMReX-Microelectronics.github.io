@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contribute to WarpX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -96,11 +94,11 @@
            <div itemprop="articleBody">
              
   <section id="contribute-to-warpx">
-<span id="developers-contributing"></span><h1>Contribute to WarpX<a class="headerlink" href="#contribute-to-warpx" title="Link to this heading"></a></h1>
+<span id="developers-contributing"></span><h1>Contribute to WarpX<a class="headerlink" href="#contribute-to-warpx" title="Permalink to this heading"></a></h1>
 <p>We welcome new contributors!
 Here is how to participate to the WarpX development.</p>
 <section id="git-workflow">
-<h2>Git workflow<a class="headerlink" href="#git-workflow" title="Link to this heading"></a></h2>
+<h2>Git workflow<a class="headerlink" href="#git-workflow" title="Permalink to this heading"></a></h2>
 <p>The WarpX project uses <a class="reference external" href="https://git-scm.com">git</a> for version control.
 If you are new to git, you can follow one of these tutorials:</p>
 <ul class="simple">
@@ -108,7 +106,7 @@ If you are new to git, you can follow one of these tutorials:</p>
 <li><p><a class="reference external" href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a></p></li>
 </ul>
 <section id="configure-your-github-account-development-machine">
-<h3>Configure your GitHub Account &amp; Development Machine<a class="headerlink" href="#configure-your-github-account-development-machine" title="Link to this heading"></a></h3>
+<h3>Configure your GitHub Account &amp; Development Machine<a class="headerlink" href="#configure-your-github-account-development-machine" title="Permalink to this heading"></a></h3>
 <p>First, let’s setup your Git environment and GitHub account.</p>
 <ol class="arabic simple">
 <li><p>Go to <a class="reference external" href="https://github.com/settings/profile">https://github.com/settings/profile</a> and add your real name and affiliation</p></li>
@@ -123,7 +121,7 @@ If you are new to git, you can follow one of these tutorials:</p>
 </ol>
 </section>
 <section id="make-your-own-fork">
-<h3>Make your own fork<a class="headerlink" href="#make-your-own-fork" title="Link to this heading"></a></h3>
+<h3>Make your own fork<a class="headerlink" href="#make-your-own-fork" title="Permalink to this heading"></a></h3>
 <p>First, fork the WarpX <a class="reference external" href="https://github.com/ECP-WarpX/WarpX">“mainline” repo on GitHub</a> by pressing the <em>Fork</em> button on the top right of the page.
 A fork is a copy of WarpX on GitHub, which is under your full control.</p>
 <p>Then, we create local copies, for development:</p>
@@ -150,7 +148,7 @@ git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </s
 </div>
 </section>
 <section id="let-s-develop">
-<h3>Let’s Develop<a class="headerlink" href="#let-s-develop" title="Link to this heading"></a></h3>
+<h3>Let’s Develop<a class="headerlink" href="#let-s-develop" title="Permalink to this heading"></a></h3>
 <p>You are all set!
 Now, the basic WarpX development workflow is:</p>
 <ol class="arabic simple">
@@ -179,12 +177,12 @@ git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </
 </div>
 </section>
 <section id="build-your-changes">
-<h3>Build your changes<a class="headerlink" href="#build-your-changes" title="Link to this heading"></a></h3>
+<h3>Build your changes<a class="headerlink" href="#build-your-changes" title="Permalink to this heading"></a></h3>
 <p>If you changed C++ files, then now is a good time to test those changes by compiling WarpX locally.
 Follow the <a class="reference external" href="https://warpx.readthedocs.io/en/latest/install/cmake.html">developer instructions in our manual</a> to set up a local development environment, then compile and <a class="reference external" href="https://warpx.readthedocs.io/en/latest/usage/how_to_run.html">run</a> WarpX.</p>
 </section>
 <section id="commit-push-your-changes">
-<h3>Commit &amp; push your changes<a class="headerlink" href="#commit-push-your-changes" title="Link to this heading"></a></h3>
+<h3>Commit &amp; push your changes<a class="headerlink" href="#commit-push-your-changes" title="Permalink to this heading"></a></h3>
 <p>Periodically commit your changes with</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit
 </pre></div>
@@ -213,7 +211,7 @@ You can push them to your fork with</p>
 <p>and fix any conflict that may occur.</p>
 </section>
 <section id="submit-a-pull-request">
-<h3>Submit a Pull Request<a class="headerlink" href="#submit-a-pull-request" title="Link to this heading"></a></h3>
+<h3>Submit a Pull Request<a class="headerlink" href="#submit-a-pull-request" title="Permalink to this heading"></a></h3>
 <p>A Pull Request (PR) is the way to efficiently visualize the changes you made and to propose your new feature/improvement/fix to the WarpX project.
 Right after you push changes, a banner should appear on the Github page of your fork, with your <code class="docutils literal notranslate"><span class="pre">&lt;branch_name&gt;</span></code>.</p>
 <ul class="simple">
@@ -241,14 +239,14 @@ Submit tests, documentation changes and implementation of a feature together for
 In this case, please put the <code class="docutils literal notranslate"><span class="pre">[WIP]</span></code> tag (for Work-In-Progress) at the beginning of the PR title.
 You can also use the GitHub project tab in your fork to organize the work into separate tasks/PRs and share it with the WarpX community to get feedback.</p>
 <section id="include-a-test-to-your-pr">
-<h4>Include a test to your PR<a class="headerlink" href="#include-a-test-to-your-pr" title="Link to this heading"></a></h4>
+<h4>Include a test to your PR<a class="headerlink" href="#include-a-test-to-your-pr" title="Permalink to this heading"></a></h4>
 <p>A new feature is great, a <strong>working</strong> new feature is even better!
 Please test your code and add your test to the automated test suite.
 It’s the way to protect your work from adventurous developers.
 Instructions are given in the <a class="reference internal" href="testing.html#developers-testing"><span class="std std-ref">testing section</span></a> of our <a class="reference external" href="https://warpx.readthedocs.io/en/latest/developers/testing.html">developer’s documentation</a>.</p>
 </section>
 <section id="include-documentation-about-your-pr">
-<h4>Include documentation about your PR<a class="headerlink" href="#include-documentation-about-your-pr" title="Link to this heading"></a></h4>
+<h4>Include documentation about your PR<a class="headerlink" href="#include-documentation-about-your-pr" title="Permalink to this heading"></a></h4>
 <p>Now, let users know about your new feature by describing its usage in the <a class="reference external" href="https://warpx.readthedocs.io">WarpX documentation</a>.
 Our documentation uses <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/quickstart.html">Sphinx</a>, and it is located in <code class="docutils literal notranslate"><span class="pre">Docs/source/</span></code>.
 For instance, if you introduce a new runtime parameter in the input file, you can add it to <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters"><span class="std std-ref">Docs/source/running_cpp/parameters.rst</span></a>.
@@ -265,7 +263,7 @@ Reviewers will interact with you if they have comments/questions.</p>
 </section>
 </section>
 <section id="style-and-conventions">
-<span id="developers-contributing-style-conventions"></span><h2>Style and conventions<a class="headerlink" href="#style-and-conventions" title="Link to this heading"></a></h2>
+<span id="developers-contributing-style-conventions"></span><h2>Style and conventions<a class="headerlink" href="#style-and-conventions" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>For indentation, WarpX uses four spaces (no tabs)</p></li>
 <li><p>Some text editors automatically modify the files you open. We recommend to turn on to remove trailing spaces and replace Tabs with 4 spaces.</p></li>
