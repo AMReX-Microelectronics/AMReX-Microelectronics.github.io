@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cori (NERSC) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -94,10 +96,10 @@
            <div itemprop="articleBody">
              
   <section id="cori-nersc">
-<span id="building-cori"></span><h1>Cori (NERSC)<a class="headerlink" href="#cori-nersc" title="Permalink to this heading"></a></h1>
+<span id="building-cori"></span><h1>Cori (NERSC)<a class="headerlink" href="#cori-nersc" title="Link to this heading"></a></h1>
 <p>The <a class="reference external" href="https://docs.nersc.gov/systems/cori/">Cori cluster</a> is located at NERSC.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>If you are new to this system, <strong>please see the following resources</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs-dev.nersc.gov/cgpu/access">GPU nodes</a></p></li>
@@ -114,13 +116,13 @@
 </ul>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
 </pre></div>
 </div>
 <section id="knl">
-<h3>KNL<a class="headerlink" href="#knl" title="Permalink to this heading"></a></h3>
+<h3>KNL<a class="headerlink" href="#knl" title="Link to this heading"></a></h3>
 <p>We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/knl_warpx.profile</span></code>).</p>
 <p>And install ADIOS2, BLAS++ and LAPACK++:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/knl_warpx.profile
@@ -174,7 +176,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 </div>
 </section>
 <section id="haswell">
-<h3>Haswell<a class="headerlink" href="#haswell" title="Permalink to this heading"></a></h3>
+<h3>Haswell<a class="headerlink" href="#haswell" title="Link to this heading"></a></h3>
 <p>We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/haswell_warpx.profile</span></code>).</p>
 <p>And install ADIOS2, BLAS++ and LAPACK++:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/haswell_warpx.profile
@@ -228,7 +230,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 </div>
 </section>
 <section id="gpu-v100">
-<h3>GPU (V100)<a class="headerlink" href="#gpu-v100" title="Permalink to this heading"></a></h3>
+<h3>GPU (V100)<a class="headerlink" href="#gpu-v100" title="Link to this heading"></a></h3>
 <p>Cori provides a partition with <a class="reference external" href="https://docs-dev.nersc.gov/cgpu/">18 nodes that include V100 (16 GB) GPUs</a>.
 We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/gpu_warpx.profile</span></code>).
 You can copy this file from <code class="docutils literal notranslate"><span class="pre">Tools/machines/cori-nersc/gpu_warpx.profile.example</span></code>:</p>
@@ -272,7 +274,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 </section>
 </section>
 <section id="building-warpx">
-<h2>Building WarpX<a class="headerlink" href="#building-warpx" title="Permalink to this heading"></a></h2>
+<h2>Building WarpX<a class="headerlink" href="#building-warpx" title="Link to this heading"></a></h2>
 <p>We recommend to store the above lines in individual <code class="docutils literal notranslate"><span class="pre">warpx.profile</span></code> files, as suggested above.
 If you want to run on either of the three partitions of Cori, open a new terminal, log into Cori and <em>source</em> the environment you want to work with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># KNL:</span>
@@ -318,7 +320,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 </div>
 </section>
 <section id="testing">
-<span id="building-cori-tests"></span><h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h2>
+<span id="building-cori-tests"></span><h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
 <p>To run all tests (here on KNL), do:</p>
 <ul class="simple">
 <li><p>change in <code class="docutils literal notranslate"><span class="pre">Regressions/WarpX-tests.ini</span></code> from <code class="docutils literal notranslate"><span class="pre">mpiexec</span></code> to <code class="docutils literal notranslate"><span class="pre">srun</span></code>: <code class="docutils literal notranslate"><span class="pre">MPIcommand</span> <span class="pre">=</span> <span class="pre">srun</span> <span class="pre">-n</span> <span class="pre">&#64;nprocs&#64;</span> <span class="pre">&#64;command&#64;</span></code></p></li>
@@ -337,10 +339,10 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 </div>
 </section>
 <section id="running">
-<span id="running-cpp-cori"></span><h2>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-cori"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
 <p>Navigate (i.e. <code class="docutils literal notranslate"><span class="pre">cd</span></code>) into one of the production directories (e.g. <code class="docutils literal notranslate"><span class="pre">$SCRATCH</span></code>) before executing the instructions below.</p>
 <section id="id1">
-<h3>KNL<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>KNL<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>The batch script below can be used to run a WarpX simulation on 2 KNL nodes on
 the supercomputer Cori at NERSC. Replace descriptions between chevrons <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code>
 by relevant values, for instance <code class="docutils literal notranslate"><span class="pre">&lt;job</span> <span class="pre">name&gt;</span></code> could be <code class="docutils literal notranslate"><span class="pre">laserWakefield</span></code>.</p>
@@ -365,7 +367,7 @@ system).</p></li>
 </ul>
 </section>
 <section id="id2">
-<h3>Haswell<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<h3>Haswell<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>The batch script below can be used to run a WarpX simulation on 1 <a class="reference external" href="https://docs.nersc.gov/systems/cori/">Haswell node</a> on the supercomputer Cori at NERSC.</p>
 <p>Do not forget to first <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">$HOME/haswell_warpx.profile</span></code> if you have not done so already for this terminal session.</p>
 <p>To run a simulation, copy the lines above to a file <code class="docutils literal notranslate"><span class="pre">cori_haswell.sbatch</span></code> and
@@ -383,7 +385,7 @@ regime), the following set of parameters provided good performance:</p>
 </ul>
 </section>
 <section id="id3">
-<h3>GPU (V100)<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<h3>GPU (V100)<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>Do not forget to first <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">$HOME/gpu_warpx.profile</span></code> if you have not done so already for this terminal session.</p>
 <p>Due to the limited amount of GPU development nodes, just request a single node with the above defined <code class="docutils literal notranslate"><span class="pre">getNode</span></code> function.
 For single-node runs, try to run one grid per GPU.</p>
@@ -391,7 +393,7 @@ For single-node runs, try to run one grid per GPU.</p>
 </section>
 </section>
 <section id="post-processing">
-<span id="post-processing-cori"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Permalink to this heading"></a></h2>
+<span id="post-processing-cori"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Link to this heading"></a></h2>
 <p>For post-processing, most users use Python via NERSC’s <a class="reference external" href="https://jupyter.nersc.gov">Jupyter service</a> (<a class="reference external" href="https://docs.nersc.gov/services/jupyter/">Docs</a>).</p>
 <p>As a one-time preparatory setup, <a class="reference external" href="https://docs.nersc.gov/services/jupyter/#conda-environments-as-kernels">create your own Conda environment as described in NERSC docs</a>.
 In this manual, we often use this <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">create</span></code> line over the officially documented one:</p>

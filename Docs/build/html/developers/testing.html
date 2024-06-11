@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing the code &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -94,20 +96,20 @@
            <div itemprop="articleBody">
              
   <section id="testing-the-code">
-<span id="developers-testing"></span><h1>Testing the code<a class="headerlink" href="#testing-the-code" title="Permalink to this heading"></a></h1>
+<span id="developers-testing"></span><h1>Testing the code<a class="headerlink" href="#testing-the-code" title="Link to this heading"></a></h1>
 <p>When adding a new feature, you want to make sure that (i) you did not break the existing code and (ii) your contribution gives correct results. While existing capabilities are tested regularly remotely (when commits are pushed to an open PR on CI, and every night on local clusters), it can also be useful to run tests on your custom input file. This section details how to use both automated and custom tests.</p>
 <section id="continuous-integration-in-warpx">
-<h2>Continuous Integration in WarpX<a class="headerlink" href="#continuous-integration-in-warpx" title="Permalink to this heading"></a></h2>
+<h2>Continuous Integration in WarpX<a class="headerlink" href="#continuous-integration-in-warpx" title="Link to this heading"></a></h2>
 <section id="configuration">
-<h3>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h3>
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
 <p>Our regression tests are using the suite published and documented at <a class="reference external" href="https://github.com/AMReX-Codes/regression_testing">AMReX-Codes/regression_testing</a>.</p>
 <p>Most of the configuration of our regression tests happens in <code class="docutils literal notranslate"><span class="pre">Regression/Warpx-tests.ini</span></code>.
 We slightly modify this file in <code class="docutils literal notranslate"><span class="pre">Regression/prepare_file_ci.py</span></code>.</p>
 <p>For example, if you like to change the compiler to compilation to build on Nvidia GPUs, modify this block to add <code class="docutils literal notranslate"><span class="pre">-DWarpX_COMPUTE=CUDA</span></code>:</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span>[source]
-dir = /home/regtester/AMReX_RegTesting/warpx
-branch = development
-cmakeSetupOpts = -DAMReX_ASSERTIONS=ON -DAMReX_TESTING=ON -DWarpX_COMPUTE=CUDA
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[source]</span>
+<span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">/home/regtester/AMReX</span><span class="mi">_</span><span class="n">RegTesting</span><span class="err">/</span><span class="n">warpx</span>
+<span class="n">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">development</span>
+<span class="n">cmakeSetupOpts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">-DAMReX</span><span class="mi">_</span><span class="n">ASSERTIONS</span><span class="o">=</span><span class="err">ON -DAMReX</span><span class="mi">_</span><span class="n">TESTING</span><span class="o">=</span><span class="err">ON -DWarpX</span><span class="mi">_</span><span class="n">COMPUTE</span><span class="o">=</span><span class="err">CUDA</span>
 </pre></div>
 </div>
 <p>We also support changing compilation options via the usual <a class="reference internal" href="../install/cmake.html#building-cmake-envvars"><span class="std std-ref">build enviroment variables</span></a>.
@@ -119,7 +121,7 @@ For instance, compiling with <code class="docutils literal notranslate"><span cl
 </section>
 </section>
 <section id="run-the-test-suite-locally">
-<h2>Run the test suite locally<a class="headerlink" href="#run-the-test-suite-locally" title="Permalink to this heading"></a></h2>
+<h2>Run the test suite locally<a class="headerlink" href="#run-the-test-suite-locally" title="Link to this heading"></a></h2>
 <p>Once your new feature is ready, there are ways to check that you did not break anything.
 WarpX has automated tests running every time a commit is added to an open pull request.
 The list of automated tests is defined in <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/blob/development/Regression/WarpX-tests.ini">./Regression/WarpX-tests.ini</a>.</p>
@@ -162,7 +164,7 @@ pml_x_yee.run.out<span class="w">       </span><span class="c1"># test output</s
 </div>
 </section>
 <section id="add-a-test-to-the-suite">
-<h2>Add a test to the suite<a class="headerlink" href="#add-a-test-to-the-suite" title="Permalink to this heading"></a></h2>
+<h2>Add a test to the suite<a class="headerlink" href="#add-a-test-to-the-suite" title="Link to this heading"></a></h2>
 <p>There are three steps to follow to add a new automated test (illustrated here for PML boundary conditions):</p>
 <ul class="simple">
 <li><p>An input file for your test, in folder <cite>Example/Tests/…</cite>. For the PML test, the input file is at <code class="docutils literal notranslate"><span class="pre">Examples/Tests/pml/inputs_2d</span></code>. You can also re-use an existing input file (even better!) and pass specific parameters at runtime (see below).</p></li>
@@ -199,7 +201,7 @@ Thus, make sure that the product of <code class="docutils literal notranslate"><
 </div>
 </section>
 <section id="useful-tool-for-plotfile-comparison-fcompare">
-<h2>Useful tool for plotfile comparison: <code class="docutils literal notranslate"><span class="pre">fcompare</span></code><a class="headerlink" href="#useful-tool-for-plotfile-comparison-fcompare" title="Permalink to this heading"></a></h2>
+<h2>Useful tool for plotfile comparison: <code class="docutils literal notranslate"><span class="pre">fcompare</span></code><a class="headerlink" href="#useful-tool-for-plotfile-comparison-fcompare" title="Link to this heading"></a></h2>
 <p>AMReX provides <code class="docutils literal notranslate"><span class="pre">fcompare</span></code>, an executable that takes two <code class="docutils literal notranslate"><span class="pre">plotfiles</span></code> as input and returns the absolute and relative difference for each field between these two plotfiles. For some changes in the code, it is very convenient to run the same input file with an old and your current version, and <code class="docutils literal notranslate"><span class="pre">fcompare</span></code> the plotfiles at the same iteration. To use it:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compile the executable</span>
 <span class="nb">cd</span><span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>AMReX&gt;/Tools/Plotfile/<span class="w"> </span><span class="c1"># This may change</span>

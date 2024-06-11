@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Particles &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -94,9 +96,9 @@
            <div itemprop="articleBody">
              
   <section id="particles">
-<span id="developers-particles"></span><h1>Particles<a class="headerlink" href="#particles" title="Permalink to this heading"></a></h1>
+<span id="developers-particles"></span><h1>Particles<a class="headerlink" href="#particles" title="Link to this heading"></a></h1>
 <section id="particle-containers">
-<h2>Particle containers<a class="headerlink" href="#particle-containers" title="Permalink to this heading"></a></h2>
+<h2>Particle containers<a class="headerlink" href="#particle-containers" title="Link to this heading"></a></h2>
 <p>Particle structures and functions are defined in <code class="docutils literal notranslate"><span class="pre">Source/Particles/</span></code>. WarpX uses the <code class="docutils literal notranslate"><span class="pre">Particle</span></code> class from AMReX for single particles. An ensemble of particles (e.g., a plasma species, or laser particles) is stored as a <code class="docutils literal notranslate"><span class="pre">WarpXParticleContainer</span></code> (see description below) in a per-box (and even per-tile on CPU) basis.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -114,7 +116,7 @@
 </div>
 </section>
 <section id="loop-over-particles">
-<h2>Loop over particles<a class="headerlink" href="#loop-over-particles" title="Permalink to this heading"></a></h2>
+<h2>Loop over particles<a class="headerlink" href="#loop-over-particles" title="Link to this heading"></a></h2>
 <p>A typical loop over particles reads:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// pc is a std::unique_ptr&lt;WarpXParticleContainer&gt;</span>
 <span class="c1">// Loop over MR levels</span>
@@ -142,7 +144,7 @@
 </div>
 </section>
 <section id="link-fields-and-particles">
-<h2>Link fields and particles?<a class="headerlink" href="#link-fields-and-particles" title="Permalink to this heading"></a></h2>
+<h2>Link fields and particles?<a class="headerlink" href="#link-fields-and-particles" title="Link to this heading"></a></h2>
 <p>In WarpX, the loop over boxes through a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> iterator <code class="docutils literal notranslate"><span class="pre">MFIter</span></code> and the loop over boxes through a <code class="docutils literal notranslate"><span class="pre">ParticleContainer</span></code> iterator <code class="docutils literal notranslate"><span class="pre">WarpXParIter</span></code> are consistent.</p>
 <p>On a loop over boxes in a <code class="docutils literal notranslate"><span class="pre">MultiFab</span></code> (<code class="docutils literal notranslate"><span class="pre">MFIter</span></code>), it can be useful to access particle data on a GPU-friendly way. This can be done by:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Index of grid (= box)</span>
@@ -168,7 +170,7 @@
 </div>
 </section>
 <section id="main-functions">
-<h2>Main functions<a class="headerlink" href="#main-functions" title="Permalink to this heading"></a></h2>
+<h2>Main functions<a class="headerlink" href="#main-functions" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>doxygenfunction: Cannot find function “PhysicalParticleContainer::PushPX” in doxygen xml output for project “MicroEleX” from directory: ../doxyxml/</p>
@@ -183,7 +185,7 @@
 </div>
 </section>
 <section id="buffers">
-<h2>Buffers<a class="headerlink" href="#buffers" title="Permalink to this heading"></a></h2>
+<h2>Buffers<a class="headerlink" href="#buffers" title="Link to this heading"></a></h2>
 <p>To reduce numerical artifacts at the boundary of a mesh-refinement patch, WarpX has an option to use buffers: When particles evolve on the fine level, they gather from the coarse level (e.g., <code class="docutils literal notranslate"><span class="pre">Efield_cax</span></code>, a copy of the <code class="docutils literal notranslate"><span class="pre">aux</span></code> data from the level below) if they are located on the fine level but fewer than <code class="docutils literal notranslate"><span class="pre">WarpX::n_field_gather_buffer</span></code> cells away from the coarse-patch boundary. Similarly, when particles evolve on the fine level, they deposit on the coarse level (e.g., <code class="docutils literal notranslate"><span class="pre">Efield_cp</span></code>) if they are located on the fine level but fewer than <code class="docutils literal notranslate"><span class="pre">WarpX::n_current_deposition_buffer</span></code> cells away from the coarse-patch boundary.</p>
 <p><code class="docutils literal notranslate"><span class="pre">WarpX::gather_buffer_masks</span></code> and <code class="docutils literal notranslate"><span class="pre">WarpX::current_buffer_masks</span></code> contain masks indicating if a cell is in the interior of the fine-resolution patch or in the buffers. Then, particles depending on this mask in</p>
 <div class="admonition warning">
@@ -196,19 +198,11 @@
 </div>
 </section>
 <section id="particle-attributes">
-<h2>Particle attributes<a class="headerlink" href="#particle-attributes" title="Permalink to this heading"></a></h2>
+<h2>Particle attributes<a class="headerlink" href="#particle-attributes" title="Link to this heading"></a></h2>
 <p>WarpX adds the following particle attributes by default to WarpX particles.
 These attributes are either stored in an Array-of-Struct (AoS) or Struct-of-Array (SoA) location of the AMReX particle containers.
 The data structures for those are either pre-described at compile-time (CT) or runtime (RT).</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 16%" />
-<col style="width: 34%" />
-<col style="width: 5%" />
-<col style="width: 4%" />
-<col style="width: 21%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Attribute name</p></th>
 <th class="head"><p><code class="docutils literal notranslate"><span class="pre">int</span></code>/<code class="docutils literal notranslate"><span class="pre">real</span></code></p></th>
@@ -278,12 +272,6 @@ The attribute is initialized with a required user-defined parser function.
 Please see the <a class="reference internal" href="../usage/parameters.html#running-cpp-parameters-particle"><span class="std std-ref">input options</span></a> <code class="docutils literal notranslate"><span class="pre">addIntegerAttributes</span></code> and <code class="docutils literal notranslate"><span class="pre">addRealAttributes</span></code> for a user-facing documentation.</p>
 <p>Commonly used runtime attributes are described in the table below and are all part of SoA particle storage:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 20%" />
-<col style="width: 41%" />
-<col style="width: 17%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Attribute name</p></th>
 <th class="head"><p><code class="docutils literal notranslate"><span class="pre">int</span></code>/<code class="docutils literal notranslate"><span class="pre">real</span></code></p></th>

@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Input Parameters &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -95,7 +97,7 @@
            <div itemprop="articleBody">
              
   <section id="input-parameters">
-<span id="running-cpp-parameters"></span><h1>Input Parameters<a class="headerlink" href="#input-parameters" title="Permalink to this heading"></a></h1>
+<span id="running-cpp-parameters"></span><h1>Input Parameters<a class="headerlink" href="#input-parameters" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>WarpX input options are read via AMReX <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html#parmparse">ParmParse</a>.</p>
@@ -105,7 +107,7 @@
 <p>The AMReX parser (see <a class="reference internal" href="#running-cpp-parameters-parser"><span class="std std-ref">Math parser and user-defined constants</span></a>) is used for the right-hand-side of all input parameters that consist of one or more integers or floats, so expressions like <code class="docutils literal notranslate"><span class="pre">&lt;species_name&gt;.density_max</span> <span class="pre">=</span> <span class="pre">&quot;2.+1.&quot;</span></code> and/or using user-defined constants are accepted.</p>
 </div>
 <section id="overall-simulation-parameters">
-<span id="running-cpp-parameters-overall"></span><h2>Overall simulation parameters<a class="headerlink" href="#overall-simulation-parameters" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-overall"></span><h2>Overall simulation parameters<a class="headerlink" href="#overall-simulation-parameters" title="Link to this heading"></a></h2>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">authors</span></code> (<cite>string</cite>: e.g. <code class="docutils literal notranslate"><span class="pre">&quot;Jane</span> <span class="pre">Doe</span> <span class="pre">&lt;jane&#64;example.com&gt;,</span> <span class="pre">Jimmy</span> <span class="pre">Joe</span> <span class="pre">&lt;jimmy&#64;example.com&gt;&quot;</span></code>)</dt><dd><p>Authors of an input file / simulation setup.
@@ -284,7 +286,7 @@ For all regular WarpX operations, we therefore do explicit memory transfers with
 </li>
 </ul>
 <section id="signal-handling">
-<h3>Signal Handling<a class="headerlink" href="#signal-handling" title="Permalink to this heading"></a></h3>
+<h3>Signal Handling<a class="headerlink" href="#signal-handling" title="Link to this heading"></a></h3>
 <p>WarpX can handle Unix (Linux/macOS) <a class="reference external" href="https://en.wikipedia.org/wiki/Signal_(IPC)">process signals</a>.
 This can be useful to configure jobs on HPC and cloud systems to shut down cleanly when they are close to reaching their allocated walltime or to steer the simulation behavior interactively.</p>
 <p>Allowed signal names are documented in the <a class="reference external" href="https://en.cppreference.com/w/cpp/utility/program/SIG_types">C++ standard</a> and <a class="reference external" href="https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/signal.h.html">POSIX</a>.
@@ -337,7 +339,7 @@ jsrun<span class="w"> </span>...<span class="w">                  </span><span c
 </section>
 </section>
 <section id="setting-up-the-field-mesh">
-<span id="running-cpp-parameters-box"></span><h2>Setting up the field mesh<a class="headerlink" href="#setting-up-the-field-mesh" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-box"></span><h2>Setting up the field mesh<a class="headerlink" href="#setting-up-the-field-mesh" title="Link to this heading"></a></h2>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">amr.n_cell</span></code> (<cite>2 integers in 2D</cite>, <cite>3 integers in 3D</cite>)</dt><dd><p>The number of grid points along each direction (on the <strong>coarsest level</strong>)</p>
@@ -473,7 +475,7 @@ in the list will gather their fields from the main grid
 </ul>
 </section>
 <section id="domain-boundary-conditions">
-<span id="running-cpp-parameters-bc"></span><h2>Domain Boundary Conditions<a class="headerlink" href="#domain-boundary-conditions" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-bc"></span><h2>Domain Boundary Conditions<a class="headerlink" href="#domain-boundary-conditions" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">boundary.field_lo</span></code> and <code class="docutils literal notranslate"><span class="pre">boundary.field_hi</span></code> (<cite>2 strings</cite> for 2D, <cite>3 strings</cite> for 3D, <cite>pml</cite> by default)</dt><dd><p>Boundary conditions applied to fields at the lower and upper domain boundaries.
@@ -519,7 +521,7 @@ In <a class="reference external" href="https://doi.org/10.1006/jcph.2001.6923">V
 </ul>
 </section>
 <section id="additional-pml-parameters">
-<h2>Additional PML parameters<a class="headerlink" href="#additional-pml-parameters" title="Permalink to this heading"></a></h2>
+<h2>Additional PML parameters<a class="headerlink" href="#additional-pml-parameters" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.pml_ncell</span></code> (<cite>int</cite>; default: 10)</dt><dd><p>The depth of the PML, in number of cells.</p>
@@ -579,7 +581,7 @@ This option seems to be necessary in order to avoid strong Nyquist instabilities
 </ul>
 </section>
 <section id="embedded-boundary-conditions">
-<span id="running-cpp-parameters-eb"></span><h2>Embedded Boundary Conditions<a class="headerlink" href="#embedded-boundary-conditions" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-eb"></span><h2>Embedded Boundary Conditions<a class="headerlink" href="#embedded-boundary-conditions" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.eb_implicit_function</span></code> (<cite>string</cite>)</dt><dd><p>A function of <cite>x</cite>, <cite>y</cite>, <cite>z</cite> that defines the surface of the embedded
@@ -601,7 +603,7 @@ this function in such a way that it is constant inside the embedded boundary.</p
 </ul>
 </section>
 <section id="distribution-across-mpi-ranks-and-parallelization">
-<span id="running-cpp-parameters-parallelization"></span><h2>Distribution across MPI ranks and parallelization<a class="headerlink" href="#distribution-across-mpi-ranks-and-parallelization" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-parallelization"></span><h2>Distribution across MPI ranks and parallelization<a class="headerlink" href="#distribution-across-mpi-ranks-and-parallelization" title="Link to this heading"></a></h2>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.numprocs</span></code> (<cite>2 ints</cite> for 2D, <cite>3 ints</cite> for 3D) optional (default <cite>none</cite>)</dt><dd><p>This optional parameter can be used to control the domain decomposition on the
@@ -700,12 +702,6 @@ the particle weight is set to a value determined from single-GPU tests on Summit
 depending on the choice of solver (FDTD or PSATD) and order of the particle shape.
 If running on CPU, the default value is <cite>0.9</cite>. If running on GPU, the default value is</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 23%" />
-<col style="width: 23%" />
-<col style="width: 23%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head" colspan="3"><p>Particle shape factor</p></th>
@@ -738,12 +734,6 @@ the cell weight is set to a value determined from single-GPU tests on Summit,
 depending on the choice of solver (FDTD or PSATD) and order of the particle shape.
 If running on CPU, the default value is <cite>0.1</cite>. If running on GPU, the default value is</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 32%" />
-<col style="width: 23%" />
-<col style="width: 23%" />
-<col style="width: 23%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head" colspan="3"><p>Particle shape factor</p></th>
@@ -778,7 +768,7 @@ If running on CPU, the default value is <cite>0.1</cite>. If running on GPU, the
 </ul>
 </section>
 <section id="math-parser-and-user-defined-constants">
-<span id="running-cpp-parameters-parser"></span><h2>Math parser and user-defined constants<a class="headerlink" href="#math-parser-and-user-defined-constants" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-parser"></span><h2>Math parser and user-defined constants<a class="headerlink" href="#math-parser-and-user-defined-constants" title="Link to this heading"></a></h2>
 <p>WarpX uses AMReX’s math parser that reads expressions in the input file.
 It can be used in all input parameters that consist of one or more integers or floats.
 Integer input expecting boolean, 0 or 1, are not parsed.
@@ -786,13 +776,9 @@ Note that when multiple values are expected, the expressions are space delimited
 For integer input values, the expressions are evaluated as real numbers and the final result rounded to the nearest integer.
 See <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html#parser">this section</a> of the AMReX documentation for a complete list of functions supported by the math parser.</p>
 <section id="warpx-constants">
-<h3>WarpX constants<a class="headerlink" href="#warpx-constants" title="Permalink to this heading"></a></h3>
+<h3>WarpX constants<a class="headerlink" href="#warpx-constants" title="Link to this heading"></a></h3>
 <p>WarpX provides a few pre-defined constants, that can be used for any parameter that consists of one or more floats.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 80%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>q_e</p></td>
 <td><p>elementary charge</p></td>
@@ -829,7 +815,7 @@ See <a class="reference external" href="https://amrex-codes.github.io/amrex/docs
 <p>See <code class="docutils literal notranslate"><span class="pre">Source/Utils/WarpXConst.H</span></code> for the values.</p>
 </section>
 <section id="user-defined-constants">
-<h3>User-defined constants<a class="headerlink" href="#user-defined-constants" title="Permalink to this heading"></a></h3>
+<h3>User-defined constants<a class="headerlink" href="#user-defined-constants" title="Link to this heading"></a></h3>
 <p>Users can define their own constants in the input file.
 These constants can be used for any parameter that consists of one or more integers or floats.
 User-defined constant names can contain only letters, numbers and the character <code class="docutils literal notranslate"><span class="pre">_</span></code>.
@@ -845,7 +831,7 @@ For example:</p>
 </ul>
 </section>
 <section id="coordinates">
-<h3>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this heading"></a></h3>
+<h3>Coordinates<a class="headerlink" href="#coordinates" title="Link to this heading"></a></h3>
 <p>Besides, for profiles that depend on spatial coordinates (the plasma momentum distribution or the laser field, see below <cite>Particle initialization</cite> and <cite>Laser initialization</cite>), the parser will interpret some variables as spatial coordinates. These are specified in the input parameter, i.e., <code class="docutils literal notranslate"><span class="pre">density_function(x,y,z)</span></code> and <code class="docutils literal notranslate"><span class="pre">field_function(X,Y,t)</span></code>.</p>
 <p>The parser reads python-style expressions between double quotes, for instance
 <code class="docutils literal notranslate"><span class="pre">&quot;a0*x**2</span> <span class="pre">*</span> <span class="pre">(1-y*1.e2)</span> <span class="pre">*</span> <span class="pre">(x&gt;0)&quot;</span></code> is a valid expression where <code class="docutils literal notranslate"><span class="pre">a0</span></code> is a
@@ -856,7 +842,7 @@ Alternatively the expression above can be written as <code class="docutils liter
 </section>
 </section>
 <section id="particle-initialization">
-<span id="running-cpp-parameters-particle"></span><h2>Particle initialization<a class="headerlink" href="#particle-initialization" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-particle"></span><h2>Particle initialization<a class="headerlink" href="#particle-initialization" title="Link to this heading"></a></h2>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">particles.species_names</span></code> (<cite>strings</cite>, separated by spaces)</dt><dd><p>The name of each species. This is then used in the rest of the input deck ;
@@ -1462,7 +1448,7 @@ averaged over the whole simulation domain exceeds this parameter.</p>
 </ul>
 </section>
 <section id="laser-initialization">
-<span id="running-cpp-parameters-laser"></span><h2>Laser initialization<a class="headerlink" href="#laser-initialization" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-laser"></span><h2>Laser initialization<a class="headerlink" href="#laser-initialization" title="Link to this heading"></a></h2>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">lasers.names</span></code> (list of <cite>string</cite>)</dt><dd><p>Name of each laser. This is then used in the rest of the input deck ;
@@ -1725,9 +1711,9 @@ so that it contains at least <code class="docutils literal notranslate"><span cl
 </ul>
 </section>
 <section id="external-fields">
-<h2>External fields<a class="headerlink" href="#external-fields" title="Permalink to this heading"></a></h2>
+<h2>External fields<a class="headerlink" href="#external-fields" title="Link to this heading"></a></h2>
 <section id="grid-initialization">
-<h3>Grid initialization<a class="headerlink" href="#grid-initialization" title="Permalink to this heading"></a></h3>
+<h3>Grid initialization<a class="headerlink" href="#grid-initialization" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.B_ext_grid_init_style</span></code> (string) optional (default is “default”)</dt><dd><p>This parameter determines the type of initialization for the external
@@ -1851,7 +1837,7 @@ This requires <cite>USE_LLG=TRUE</cite> in the GNUMakefile.</p>
 </ul>
 </section>
 <section id="applied-to-particles">
-<h3>Applied to Particles<a class="headerlink" href="#applied-to-particles" title="Permalink to this heading"></a></h3>
+<h3>Applied to Particles<a class="headerlink" href="#applied-to-particles" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">particles.E_ext_particle_init_style</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">particles.B_ext_particle_init_style</span></code> (string) optional (default “none”)</dt><dd><p>These parameters determine the type of the external electric and
@@ -2041,7 +2027,7 @@ This requires <cite>USE_LLG=TRUE</cite> in the GNUMakefile.</p>
 </ul>
 </section>
 <section id="accelerator-lattice">
-<h3>Accelerator Lattice<a class="headerlink" href="#accelerator-lattice" title="Permalink to this heading"></a></h3>
+<h3>Accelerator Lattice<a class="headerlink" href="#accelerator-lattice" title="Link to this heading"></a></h3>
 <p>Several accelerator lattice elements can be defined as described below.
 The elements are defined relative to the <cite>z</cite> axis and in the lab frame, starting at <cite>z = 0</cite>.
 They are described using a simplified MAD like syntax.
@@ -2119,7 +2105,7 @@ Reverse the list of elements in the line before appending to the lattice.</p></l
 </section>
 </section>
 <section id="collision-models">
-<span id="running-cpp-parameters-collision"></span><h2>Collision models<a class="headerlink" href="#collision-models" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-collision"></span><h2>Collision models<a class="headerlink" href="#collision-models" title="Link to this heading"></a></h2>
 <p>WarpX provides several particle collision models, using varying degrees of approximation.</p>
 <ul>
 <li><dl class="simple">
@@ -2321,10 +2307,10 @@ for the background gas, a species of argon ions should be specified here.</p>
 </ul>
 </section>
 <section id="numerics-and-algorithms">
-<span id="running-cpp-parameters-numerics"></span><h2>Numerics and algorithms<a class="headerlink" href="#numerics-and-algorithms" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-numerics"></span><h2>Numerics and algorithms<a class="headerlink" href="#numerics-and-algorithms" title="Link to this heading"></a></h2>
 <p>This section describes the input parameters used to select numerical methods and algorithms for your simulation setup.</p>
 <section id="time-step">
-<h3>Time step<a class="headerlink" href="#time-step" title="Permalink to this heading"></a></h3>
+<h3>Time step<a class="headerlink" href="#time-step" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.cfl</span></code> (<cite>float</cite>) optional (default <cite>0.999</cite>)</dt><dd><p>The ratio between the actual timestep that is used in the simulation
@@ -2345,7 +2331,7 @@ it is up to the user to ensure that the CFL condition is met.</p>
 </ul>
 </section>
 <section id="filtering">
-<h3>Filtering<a class="headerlink" href="#filtering" title="Permalink to this heading"></a></h3>
+<h3>Filtering<a class="headerlink" href="#filtering" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.use_filter</span></code> (<cite>0</cite> or <cite>1</cite>; default: <cite>1</cite>, except for RZ FDTD)</dt><dd><p>Whether to smooth the charge and currents on the mesh, after depositing them from the macro-particles.
@@ -2374,7 +2360,7 @@ This is only supported with the RZ spectral solver.</p>
 </ul>
 </section>
 <section id="particle-push-charge-and-current-deposition-field-gathering">
-<h3>Particle push, charge and current deposition, field gathering<a class="headerlink" href="#particle-push-charge-and-current-deposition-field-gathering" title="Permalink to this heading"></a></h3>
+<h3>Particle push, charge and current deposition, field gathering<a class="headerlink" href="#particle-push-charge-and-current-deposition-field-gathering" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">algo.current_deposition</span></code> (<cite>string</cite>, optional)</dt><dd><p>This parameter selects the algorithm for the deposition of the current density.
@@ -2452,7 +2438,7 @@ High-order shape factors are computationally more expensive, but may increase th
 </ul>
 </section>
 <section id="maxwell-solver">
-<h3>Maxwell solver<a class="headerlink" href="#maxwell-solver" title="Permalink to this heading"></a></h3>
+<h3>Maxwell solver<a class="headerlink" href="#maxwell-solver" title="Link to this heading"></a></h3>
 <p>Two families of Maxwell solvers are implemented in WarpX, based on the Finite-Difference Time-Domain method (FDTD) or the Pseudo-Spectral Analytical Time-Domain method (PSATD), respectively.</p>
 <ul>
 <li><dl>
@@ -2672,7 +2658,7 @@ Note that this input parameter is not optional and must always be set in all inp
 </ul>
 </section>
 <section id="maxwell-solver-psatd-method">
-<h3>Maxwell solver: PSATD method<a class="headerlink" href="#maxwell-solver-psatd-method" title="Permalink to this heading"></a></h3>
+<h3>Maxwell solver: PSATD method<a class="headerlink" href="#maxwell-solver-psatd-method" title="Link to this heading"></a></h3>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">psatd.nox</span></code>, <code class="docutils literal notranslate"><span class="pre">psatd.noy</span></code>, <code class="docutils literal notranslate"><span class="pre">pstad.noz</span></code> (<cite>integer</cite>) optional (default <cite>16</cite> for all)</dt><dd><p>The order of accuracy of the spatial derivatives, when using the code compiled with a PSATD solver.
@@ -2830,7 +2816,7 @@ Note that this input parameter is not optional and must always be set in all inp
 </ul>
 </section>
 <section id="maxwell-solver-macroscopic-media">
-<h3>Maxwell solver: macroscopic media<a class="headerlink" href="#maxwell-solver-macroscopic-media" title="Permalink to this heading"></a></h3>
+<h3>Maxwell solver: macroscopic media<a class="headerlink" href="#maxwell-solver-macroscopic-media" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">algo.macroscopic_sigma_method</span></code> (<cite>string</cite>, optional)</dt><dd><p>The algorithm for updating electric field when <code class="docutils literal notranslate"><span class="pre">algo.em_solver_medium</span></code> is macroscopic. Available options are:</p>
@@ -2860,7 +2846,7 @@ in vacuum.</p>
 </ul>
 </section>
 <section id="grid-types-collocated-staggered-hybrid">
-<h3>Grid types (collocated, staggered, hybrid)<a class="headerlink" href="#grid-types-collocated-staggered-hybrid" title="Permalink to this heading"></a></h3>
+<h3>Grid types (collocated, staggered, hybrid)<a class="headerlink" href="#grid-types-collocated-staggered-hybrid" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.grid_type</span></code> (<cite>string</cite>, <code class="docutils literal notranslate"><span class="pre">collocated</span></code>, <code class="docutils literal notranslate"><span class="pre">staggered</span></code> or <code class="docutils literal notranslate"><span class="pre">hybrid</span></code>)</dt><dd><p>Whether to use a collocated grid (all fields defined at the cell nodes),
@@ -2907,7 +2893,7 @@ At present, this parameter is intended mainly for testing and development purpos
 </ul>
 </section>
 <section id="additional-parameters">
-<h3>Additional parameters<a class="headerlink" href="#additional-parameters" title="Permalink to this heading"></a></h3>
+<h3>Additional parameters<a class="headerlink" href="#additional-parameters" title="Link to this heading"></a></h3>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.do_dive_cleaning</span></code> (<cite>0</cite> or <cite>1</cite> ; default: 0)</dt><dd><p>Whether to use modified Maxwell equations that progressively eliminate
@@ -3052,9 +3038,9 @@ block (tpb), i.e. the number of threads operating on a shared buffer.</p>
 </section>
 </section>
 <section id="diagnostics-and-output">
-<span id="running-cpp-parameters-diagnostics"></span><h2>Diagnostics and output<a class="headerlink" href="#diagnostics-and-output" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-diagnostics"></span><h2>Diagnostics and output<a class="headerlink" href="#diagnostics-and-output" title="Link to this heading"></a></h2>
 <section id="in-situ-visualization">
-<span id="running-cpp-parameters-diagnostics-insitu"></span><h3>In-situ visualization<a class="headerlink" href="#in-situ-visualization" title="Permalink to this heading"></a></h3>
+<span id="running-cpp-parameters-diagnostics-insitu"></span><h3>In-situ visualization<a class="headerlink" href="#in-situ-visualization" title="Link to this heading"></a></h3>
 <p>WarpX has four types of diagnostics:
 <code class="docutils literal notranslate"><span class="pre">FullDiagnostics</span></code> consist in dumps of fields and particles at given iterations,
 <code class="docutils literal notranslate"><span class="pre">BackTransformedDiagnostics</span></code> are used when running a simulation in a boosted frame, to reconstruct output data to the lab frame,
@@ -3064,7 +3050,7 @@ Similar to what is done for physical species, WarpX has a class Diagnostics that
 This currently applies to standard diagnostics, but should be extended to back-transformed diagnostics and reduced diagnostics (and others) in a near future.</p>
 </section>
 <section id="full-diagnostics">
-<span id="running-cpp-parameters-diagnostics-full"></span><h3>Full Diagnostics<a class="headerlink" href="#full-diagnostics" title="Permalink to this heading"></a></h3>
+<span id="running-cpp-parameters-diagnostics-full"></span><h3>Full Diagnostics<a class="headerlink" href="#full-diagnostics" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">FullDiagnostics</span></code> consist in dumps of fields and particles at given iterations.
 Similar to what is done for physical species, WarpX has a class Diagnostics that allows users to initialize different diagnostics, each of them with different fields, resolution and period.
 The user specifies the number of diagnostics and the name of each of them, and then specifies options for each of them separately.
@@ -3384,7 +3370,7 @@ Please see the <a class="reference internal" href="../dataanalysis/formats.html#
 </ul>
 </section>
 <section id="backtransformed-diagnostics">
-<span id="running-cpp-parameters-diagnostics-btd"></span><h3>BackTransformed Diagnostics<a class="headerlink" href="#backtransformed-diagnostics" title="Permalink to this heading"></a></h3>
+<span id="running-cpp-parameters-diagnostics-btd"></span><h3>BackTransformed Diagnostics<a class="headerlink" href="#backtransformed-diagnostics" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">BackTransformed</span></code> diag type are used when running a simulation in a boosted frame, to reconstruct output data to the lab frame. This option can be set using <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.diag_type</span> <span class="pre">=</span> <span class="pre">BackTransformed</span></code>. Note that this diagnostic is not currently supported for RZ.  Additional options for this diagnostic include:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -3442,7 +3428,7 @@ optimum I/O performance.</p>
 </ul>
 </section>
 <section id="boundary-scraping-diagnostics">
-<h3>Boundary Scraping Diagnostics<a class="headerlink" href="#boundary-scraping-diagnostics" title="Permalink to this heading"></a></h3>
+<h3>Boundary Scraping Diagnostics<a class="headerlink" href="#boundary-scraping-diagnostics" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">BoundaryScrapingDiagnostics</span></code> are used to collect the particles that are absorbed at the boundaries, throughout the simulation.
 This diagnostic type is specified by setting <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.diag_type</span></code> = <code class="docutils literal notranslate"><span class="pre">BoundaryScraping</span></code>.
 Currently, the only supported output format is openPMD, so the user also needs to set <code class="docutils literal notranslate"><span class="pre">&lt;diag&gt;.format=openpmd</span></code> and WarpX must be compiled with openPMD turned on.
@@ -3456,7 +3442,7 @@ This can be important if a large number of particles are lost, avoiding filling 
 indicates the PIC iteration at which each particle was absorbed at the boundary.</p>
 </section>
 <section id="reduced-diagnostics">
-<span id="running-cpp-parameters-diagnostics-reduced"></span><h3>Reduced Diagnostics<a class="headerlink" href="#reduced-diagnostics" title="Permalink to this heading"></a></h3>
+<span id="running-cpp-parameters-diagnostics-reduced"></span><h3>Reduced Diagnostics<a class="headerlink" href="#reduced-diagnostics" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">ReducedDiags</span></code> allow the user to compute some reduced quantity (particle temperature, max of a field) and write a small amount of data to text files.</p>
 <ul>
 <li><dl class="simple">
@@ -3940,7 +3926,7 @@ depending on the simulation size.</p>
 <p>When providing <code class="docutils literal notranslate"><span class="pre">&lt;reduced_diags_name&gt;.weighting_function(x,y,z)</span></code>, the
 computed integral is weighted:
 .. math:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span>Q = \epsilon_0 \iint dS \cdot E \times weighting(x, y, z)
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">\</span><span class="n">epsilon_0</span><span class="w"> </span><span class="err">\</span><span class="n">iint</span><span class="w"> </span><span class="n">dS</span><span class="w"> </span><span class="err">\</span><span class="n">cdot</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="err">\</span><span class="n">times</span><span class="w"> </span><span class="n">weighting</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In particular, by choosing a weighting function which returns either
@@ -3979,7 +3965,7 @@ The default separator is a whitespace.</p>
 </section>
 </section>
 <section id="lookup-tables-and-other-settings-for-qed-modules">
-<h2>Lookup tables and other settings for QED modules<a class="headerlink" href="#lookup-tables-and-other-settings-for-qed-modules" title="Permalink to this heading"></a></h2>
+<h2>Lookup tables and other settings for QED modules<a class="headerlink" href="#lookup-tables-and-other-settings-for-qed-modules" title="Link to this heading"></a></h2>
 <p>Lookup tables store pre-computed values for functions used by the QED modules.
 <strong>This feature requires to compile with QED=TRUE (and also with QED_TABLE_GEN=TRUE for table generation)</strong></p>
 <ul>
@@ -4124,7 +4110,7 @@ per timestep per species (with a weight corresponding to the number of physical 
 </ul>
 </section>
 <section id="checkpoints-and-restart">
-<h2>Checkpoints and restart<a class="headerlink" href="#checkpoints-and-restart" title="Permalink to this heading"></a></h2>
+<h2>Checkpoints and restart<a class="headerlink" href="#checkpoints-and-restart" title="Link to this heading"></a></h2>
 <p>WarpX supports checkpoints/restart via AMReX.
 The checkpoint capability can be turned with regular diagnostics: <code class="docutils literal notranslate"><span class="pre">&lt;diag_name&gt;.format</span> <span class="pre">=</span> <span class="pre">checkpoint</span></code>.</p>
 <ul class="simple">
@@ -4137,7 +4123,7 @@ or if it is not properly formatted.</p>
 </ul>
 </section>
 <section id="intervals-parser">
-<h2>Intervals parser<a class="headerlink" href="#intervals-parser" title="Permalink to this heading"></a></h2>
+<h2>Intervals parser<a class="headerlink" href="#intervals-parser" title="Link to this heading"></a></h2>
 <p>WarpX can parse time step interval expressions of the form <code class="docutils literal notranslate"><span class="pre">start:stop:period</span></code>, e.g.
 <code class="docutils literal notranslate"><span class="pre">1:2:3,</span> <span class="pre">4::,</span> <span class="pre">5:6,</span> <span class="pre">:,</span> <span class="pre">::10</span></code>.
 A comma is used as a separator between groups of intervals, which we call slices.
@@ -4174,7 +4160,7 @@ For example, <code class="docutils literal notranslate"><span class="pre">someth
 <code class="docutils literal notranslate"><span class="pre">something_intervals</span> <span class="pre">=</span> <span class="pre">::-1,100:1000:25</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">something_intervals</span> <span class="pre">=</span> <span class="pre">100:1000:25</span></code>.</p>
 </section>
 <section id="solving-magnetization-using-llg-equation">
-<h2>Solving magnetization using LLG equation<a class="headerlink" href="#solving-magnetization-using-llg-equation" title="Permalink to this heading"></a></h2>
+<h2>Solving magnetization using LLG equation<a class="headerlink" href="#solving-magnetization-using-llg-equation" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">warpx.M_ext_grid_init_style</span></code> (string) optional (default is “default”)</dt><dd><p>This parameter determines the type of initialization for the
@@ -4321,7 +4307,7 @@ then this input property must be provided.</p>
 </ul>
 </section>
 <section id="testing-and-debugging">
-<span id="running-cpp-parameters-test-debug"></span><h2>Testing and Debugging<a class="headerlink" href="#testing-and-debugging" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-parameters-test-debug"></span><h2>Testing and Debugging<a class="headerlink" href="#testing-and-debugging" title="Link to this heading"></a></h2>
 <p>When developing, testing and <a class="reference internal" href="workflows/debugging.html#debugging-warpx"><span class="std std-ref">debugging WarpX</span></a>, the following options can be considered.</p>
 <ul class="simple">
 <li><dl class="simple">
