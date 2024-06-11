@@ -5,9 +5,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Particles &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
 
   
   <!--[if lt IE 9]>
@@ -102,17 +102,17 @@
 <p>Particle structures and functions are defined in <code class="docutils literal notranslate"><span class="pre">Source/Particles/</span></code>. WarpX uses the <code class="docutils literal notranslate"><span class="pre">Particle</span></code> class from AMReX for single particles. An ensemble of particles (e.g., a plasma species, or laser particles) is stored as a <code class="docutils literal notranslate"><span class="pre">WarpXParticleContainer</span></code> (see description below) in a per-box (and even per-tile on CPU) basis.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenclass: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <p>Physical species are stored in <code class="docutils literal notranslate"><span class="pre">PhysicalParticleContainer</span></code>, that derives from <code class="docutils literal notranslate"><span class="pre">WarpXParticleContainer</span></code>. In particular, the main function to advance all particles in a physical species is <code class="docutils literal notranslate"><span class="pre">PhysicalParticleContainer::Evolve</span></code> (see below).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <p>Finally, all particle species (physical plasma species <code class="docutils literal notranslate"><span class="pre">PhysicalParticleContainer</span></code>, photon species <code class="docutils literal notranslate"><span class="pre">PhotonParticleContainer</span></code> or non-physical species <code class="docutils literal notranslate"><span class="pre">LaserParticleContainer</span></code>) are stored in <code class="docutils literal notranslate"><span class="pre">MultiParticleContainer</span></code>. The class <code class="docutils literal notranslate"><span class="pre">WarpX</span></code> holds one instance of <code class="docutils literal notranslate"><span class="pre">MultiParticleContainer</span></code> as a member variable, called <code class="docutils literal notranslate"><span class="pre">WarpX::mypc</span></code> (where <cite>mypc</cite> stands for “my particle containers”):</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenclass: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 </section>
 <section id="loop-over-particles">
@@ -173,11 +173,11 @@
 <h2>Main functions<a class="headerlink" href="#main-functions" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -190,7 +190,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">WarpX::gather_buffer_masks</span></code> and <code class="docutils literal notranslate"><span class="pre">WarpX::current_buffer_masks</span></code> contain masks indicating if a cell is in the interior of the fine-resolution patch or in the buffers. Then, particles depending on this mask in</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

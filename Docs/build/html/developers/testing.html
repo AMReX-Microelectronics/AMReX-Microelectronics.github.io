@@ -5,9 +5,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Testing the code &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
 
   
   <!--[if lt IE 9]>
@@ -107,9 +107,9 @@
 We slightly modify this file in <code class="docutils literal notranslate"><span class="pre">Regression/prepare_file_ci.py</span></code>.</p>
 <p>For example, if you like to change the compiler to compilation to build on Nvidia GPUs, modify this block to add <code class="docutils literal notranslate"><span class="pre">-DWarpX_COMPUTE=CUDA</span></code>:</p>
 <div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[source]</span>
-<span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">/home/regtester/AMReX</span><span class="mi">_</span><span class="n">RegTesting</span><span class="err">/</span><span class="n">warpx</span>
-<span class="n">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">development</span>
-<span class="n">cmakeSetupOpts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">-DAMReX</span><span class="mi">_</span><span class="n">ASSERTIONS</span><span class="o">=</span><span class="err">ON -DAMReX</span><span class="mi">_</span><span class="n">TESTING</span><span class="o">=</span><span class="err">ON -DWarpX</span><span class="mi">_</span><span class="n">COMPUTE</span><span class="o">=</span><span class="err">CUDA</span>
+<span class="n">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">/</span><span class="n">home</span><span class="err">/</span><span class="n">regtester</span><span class="err">/</span><span class="n">AMReX_RegTesting</span><span class="err">/</span><span class="n">warpx</span>
+<span class="n">branch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">development</span>
+<span class="n">cmakeSetupOpts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">-</span><span class="n">DAMReX_ASSERTIONS</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="err">-</span><span class="n">DAMReX_TESTING</span><span class="o">=</span><span class="n">ON</span><span class="w"> </span><span class="err">-</span><span class="n">DWarpX_COMPUTE</span><span class="o">=</span><span class="n">CUDA</span>
 </pre></div>
 </div>
 <p>We also support changing compilation options via the usual <a class="reference internal" href="../install/cmake.html#building-cmake-envvars"><span class="std std-ref">build enviroment variables</span></a>.
