@@ -5,9 +5,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fields &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b76e3c8a" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
 
   
   <!--[if lt IE 9]>
@@ -172,15 +172,15 @@ discretization algorithms can be found in <code class="docutils literal notransl
 <p>This is mostly implemented in <code class="docutils literal notranslate"><span class="pre">Source/Parallelization</span></code>, see the following functions (you may complain to the authors if the documentation is empty)</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 </section>
 <section id="filter">
@@ -188,18 +188,18 @@ discretization algorithms can be found in <code class="docutils literal notransl
 <p>General functions for filtering can be found in <code class="docutils literal notranslate"><span class="pre">Source/Filter/</span></code>, where the main <code class="docutils literal notranslate"><span class="pre">Filter</span></code> class is defined (see below). All filters (so far there are two of them) in WarpX derive from this class.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenclass: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <section id="bilinear-filter">
 <h3>Bilinear filter<a class="headerlink" href="#bilinear-filter" title="Link to this heading"></a></h3>
 <p>The multi-pass bilinear filter (applied on the current density) is implemented in <code class="docutils literal notranslate"><span class="pre">Source/Filter/</span></code>, and class <code class="docutils literal notranslate"><span class="pre">WarpX</span></code> holds an instance of this class in member variable <code class="docutils literal notranslate"><span class="pre">WarpX::bilinear_filter</span></code>. For performance reasons (to avoid creating too many guard cells), this filter is directly applied in communication routines, see <code class="docutils literal notranslate"><span class="pre">WarpX::AddCurrentFromFineLevelandSumBoundary</span></code> above and</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 </section>
 <section id="godfrey-s-anti-nci-filter-for-fdtd-simulations">
@@ -207,12 +207,12 @@ discretization algorithms can be found in <code class="docutils literal notransl
 <p>This filter is applied on the electric and magnetic field (on the auxiliary grid) to suppress the Numerical Cherenkov Instability when running FDTD. It is implemented in <code class="docutils literal notranslate"><span class="pre">Source/Filter/</span></code>, and there are two different stencils, one for <code class="docutils literal notranslate"><span class="pre">Ex</span></code>, <code class="docutils literal notranslate"><span class="pre">Ey</span></code> and <code class="docutils literal notranslate"><span class="pre">Bz</span></code> and the other for <code class="docutils literal notranslate"><span class="pre">Ez</span></code>, <code class="docutils literal notranslate"><span class="pre">Bx</span></code> and <code class="docutils literal notranslate"><span class="pre">By</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenclass: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenclass: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 <p>The class <code class="docutils literal notranslate"><span class="pre">WarpX</span></code> holds two corresponding instances of this class in member variables <code class="docutils literal notranslate"><span class="pre">WarpX::nci_godfrey_filter_exeybz</span></code> and <code class="docutils literal notranslate"><span class="pre">WarpX::nci_godfrey_filter_bxbyez</span></code>. It is a 9-point stencil (is the <code class="docutils literal notranslate"><span class="pre">z</span></code> direction only), for which the coefficients are computed using tabulated values (depending on dz/dx) in <code class="docutils literal notranslate"><span class="pre">Source/Utils/NCIGodfreyTables.H</span></code>, see variable <code class="docutils literal notranslate"><span class="pre">table_nci_godfrey_galerkin_Ex_Ey_Bz</span></code>. The filter is applied in <code class="docutils literal notranslate"><span class="pre">PhysicalParticleContainer::Evolve</span></code>, right after field gather and before particle push, see</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>doxygenfunction: Cannot find file: /home/saru/sata/codes/lbnl/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
+<p>doxygenfunction: Cannot find file: /root/AMReX-Microelectronics.github.io/Docs/doxyxml/index.xml</p>
 </div>
 </section>
 </section>

@@ -5,9 +5,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MicroEleX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
 
   
   <!--[if lt IE 9]>
@@ -128,7 +128,7 @@ In addition, ARTEMIS is also a <em>multi-platform code</em> and runs on Linux, m
 </section>
 <section id="eleqtronex">
 <h1>ELEQTRONeX<a class="headerlink" href="#eleqtronex" title="Link to this heading"></a></h1>
-<p><a class="reference external" href="https://github.com/AMReX-Microelectronics/eXstatic">ELEQTRONeX</a> is a framework for electrostatic-quantum transport modeling of nanomaterials at exascale, built using the AMReX library, currently supporting the modeling carbon nanotube field-effect transistors (CNTFETs) with multiple nanotubes. It is developed as part of a DOE-funded project called ‘Codesign and Integration of Nanosensors on CMOS’. It builds upon the AMReX library, developed as part of DOE’s exascale computing projects (ECP).</p>
+<p><a class="reference external" href="https://github.com/AMReX-Microelectronics/eXstatic">ELEQTRONeX</a> is a framework for electrostatic-quantum transport modeling of nanomaterials at exascale, built using the AMReX library, currently supporting the modeling carbon nanotube field-effect transistors (CNTFETs) with many nanotubes. It is developed as part of a DOE-funded project called ‘Codesign and Integration of Nanosensors on CMOS’. It builds upon the AMReX library, developed as part of DOE’s exascale computing projects (ECP).</p>
 <p>The framework comprises three major components: the electrostatic module, the quantum transport module, and the part that self-consistently couples the two modules. The electrostatic module computes the electrostatic potential induced by charges on the surface of carbon nanotubes, as well as by source, drain, and gate terminals, which can be modeled as embedded boundaries with intricate shapes. The quantum transport module uses the nonequilibrium Green’s function (NEGF) method to model induced charge. Currently, it supports coherent (ballistic) transport, contacts modeled as semi-infinite leads, and Hamiltonian representation using the tight-binding approximation. The self-consistency between the two modules is achieved using Broyden’s modified second algorithm, which is parallelized on both CPUs and GPUs. Preliminary studies have demonstrated that the electrostatic and quantum transport modules can compute the potential on billions of grid cells and compute the Green’s function for a material with millions of site locations within a couple of seconds, respectively.</p>
 </section>
 <section id="magnex">
