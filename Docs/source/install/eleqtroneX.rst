@@ -32,6 +32,13 @@ Download AMReX Repository as
    
    git clone git@github.com:AMReX-Codes/amrex.git
 
+Make the Repository using
+
+.. code-block:: bash
+   ./configure
+   make
+   make install
+
 Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as
 
 .. code-block:: bash
