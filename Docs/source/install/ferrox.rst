@@ -62,7 +62,7 @@ If want to use FerroX on a specific high-performance computing (HPC) system, fol
 Incorporating Sundials
 ----------------------
 
-If you want to incorporate the Sundials library into your FerroX code, first follow the Sundials installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_. Make appropriate adjustments to the GNUmakefile and to the code as necessary, depending on individual implementation goals.
+If you want to incorporate the Sundials library into your FerroX code, first follow the Sundials installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_. Depending on individual implementation goals, make appropriate adjustments to the GNUmakefile and to the code as necessary, 
 
 
 
