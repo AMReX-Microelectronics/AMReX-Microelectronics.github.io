@@ -111,4 +111,4 @@ For debugging, we typically need:
 
 Issue with all_around_metal when running on Hypre
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The all_around_metal input file is a good starting place when using ELEQTRONeX. However, the input file of this case is not configured to work on an HPC using Hypre. This is due to an issue with the embedded boundaries of the system. To correct this, navigate to the ''input/negf/all_around_metal'' input file, and locate the ''Gate.height'' input value. Change this from ''Ly + 2*dy/5'' to ''Ly - 16*dy - dy/5''.
+The all_around_metal input file is a good starting place when using ELEQTRONeX. However, the input file of this case is not configured to work on an HPC using Hypre. This is due to an issue with the embedded boundaries of the system. To correct this, navigate to the ''input/negf/all_around_metal'' input file, and locate the ``Gate.height`` input value. Change this from ``Ly + 2*dy/5`` to ``Ly - 16*dy - dy/5``.

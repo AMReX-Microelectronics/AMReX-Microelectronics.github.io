@@ -225,7 +225,7 @@ For Robin boundaries, we need to set a string parameter, for example <code class
 </section>
 <section id="issue-with-all-around-metal-when-running-on-hypre">
 <h3>Issue with all_around_metal when running on Hypre<a class="headerlink" href="#issue-with-all-around-metal-when-running-on-hypre" title="Link to this heading"></a></h3>
-<p>The all_around_metal input file is a good starting place when using ELEQTRONeX. However, the input file of this case is not configured to work on an HPC using Hypre. This is due to an issue with the embedded boundaries of the system. To correct this, navigate to the ‘’input/negf/all_around_metal’’ input file, and locate the ‘’Gate.height’’ input value. Change this from ‘’Ly + 2*dy/5’’ to ‘’Ly - 16*dy - dy/5’’.</p>
+<p>The all_around_metal input file is a good starting place when using ELEQTRONeX. However, the input file of this case is not configured to work on an HPC using Hypre. This is due to an issue with the embedded boundaries of the system. To correct this, navigate to the ‘’input/negf/all_around_metal’’ input file, and locate the <code class="docutils literal notranslate"><span class="pre">Gate.height</span></code> input value. Change this from <code class="docutils literal notranslate"><span class="pre">Ly</span> <span class="pre">+</span> <span class="pre">2*dy/5</span></code> to <code class="docutils literal notranslate"><span class="pre">Ly</span> <span class="pre">-</span> <span class="pre">16*dy</span> <span class="pre">-</span> <span class="pre">dy/5</span></code>.</p>
 </section>
 </section>
 </section>
