@@ -116,6 +116,11 @@ Overall simulation parameters
 
      TimeIntegratorOrder = 2 for second-order Predictor-Corrector time integrator for the TDGL equation
 
+* ``use_sundials`` (`integer`, 0 or 1)
+      This integer parameter enables the user to decide whether or not they 
+      want to run FerroX with the Sundials library. Note that 
+      this parameter takes on a default value of 0 (disable Sundials).
+
 * ``plot_int`` (`integer`)
     This string defines the timesteps at which data is dumped.
     Use a negative number or 0 to disable data dumping.

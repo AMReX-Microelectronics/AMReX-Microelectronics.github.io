@@ -39,30 +39,37 @@ At the same directory level as AMReX, download the FerroX Repository:
 Build
 -----
 
-Make sure that the AMReX and FerroX are cloned in the same location in their filesystem before continuing. Note that the commands to build FerroX code depends on the computer's build. Navigate to the Exec folder of FerroX and execute the following:
+Make sure that the AMReX and FerroX are cloned in the same location in your filesystem before 
+continuing. Note that the commands to build FerroX depend on your computer's hardware configuration. Navigate to the Exec folder within the FerroX directory and execute the following commands based on your setup:
 
-If running on a computer with a GPU build:
+If running on a computer with a GPU:
 
 .. code-block:: bash
 
    make -j 4
 
-If running on a computer with a CPU build:
+If running on a computer with a CPU:
 
 .. code-block:: bash
 
    make -j 4 USE_CUDA=FALSE
 
-If want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:
+Enabling sundials support while building (computer with GPU):
+
+.. code-block:: bash
+        
+   make -j 4 USE_SUNDIALS=TRUE
+
+
+If you want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:
 
 .. code-block:: bash
 
-   module load toolkit
+   module load cudatoolkit
 
 Incorporating Sundials
 ----------------------
 
-If you want to incorporate the Sundials library into your FerroX code, first follow the Sundials installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_. Depending on individual implementation goals, make appropriate adjustments to the GNUmakefile and to the code as necessary, 
-
+If you want to incorporate the Sundials library into your FerroX code, first follow the Sundials installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_. If you want to build the code with sundials support enabled, you can include the USE_SUNDIALS=TRUE option (refer to the example under the 'Build' heading).
 
 
