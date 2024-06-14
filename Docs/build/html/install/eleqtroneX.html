@@ -123,7 +123,7 @@ Please <a class="reference external" href="https://github.com/AMReX-Microelectro
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:AMReX-Codes/amrex.git
 </pre></div>
 </div>
-<p>From the amrex directory, make the repository:</p>
+<p>From the ‘’amrex/’’ directory, make the repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/.configure
 make
 make<span class="w"> </span>install
@@ -134,10 +134,16 @@ make<span class="w"> </span>install
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/hypre-space/hypre.git
 </pre></div>
 </div>
-<p>From the hypre/src directory, make the library in the same way as AMReX. The following environment variable also needs to be added, pointing to the location of the library:</p>
+<p>From the’’hypre/src/’’ directory, make the library in the same way as AMReX. The following environment variable also needs to be added, pointing to the location of the library:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">HYPRE_DIR</span><span class="o">=</span><span class="s2">&quot;&lt;path to hypre&gt;/src/hypre&quot;</span>
 </pre></div>
 </div>
+<p>Full instructions on Hypre installation are in the AMReX documentation, ‘here &lt;<a class="reference external" href="https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html">https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html</a>&gt;’_.</p>
+<p>If working locally, not on an HPC, the OpenMPI will also have to be added. This is done with the following sudo command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>openmpi-bin<span class="w"> </span>openmpi-doc<span class="w"> </span>libopenmpi-dev
+</pre></div>
+</div>
+<p>If this does not work, alternative methods can be found ‘here &lt;<a class="reference external" href="https://webpages.charlotte.edu/abw/coit-grid01.uncc.edu/ParallelProgSoftware/Software/OpenMPIInstall.pdf">https://webpages.charlotte.edu/abw/coit-grid01.uncc.edu/ParallelProgSoftware/Software/OpenMPIInstall.pdf</a>&gt;’_.</p>
 <p>Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git@github.com:AMReX-Microelectronics/ELEQTRONeX.git
 </pre></div>
@@ -155,7 +161,7 @@ make<span class="w"> </span>install
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">AMREX_HOME</span> <span class="pre">?=</span> <span class="pre">../../amrex</span></code> specifies the location of the AMReX library.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DEBUG=FALSE</span></code> sets the debug mode.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">USE_HYPRE=FALSE</span></code> can be used to set HYPRE for the multigrid bottom solver. Installation instructions for HYPRE are provided <a class="reference external" href="https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html">here</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_HYPRE=FALSE</span></code> can be used to set HYPRE for the multigrid bottom solver.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">COMP=gnu</span></code> sets the GNU compiler.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DIM=3</span></code> builds the code for 3D domain.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CXXSTD=c++17</span></code> sets  C++17 for compilation.</p></li>

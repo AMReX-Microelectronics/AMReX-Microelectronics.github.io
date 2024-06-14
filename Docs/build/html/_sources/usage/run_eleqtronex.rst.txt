@@ -39,10 +39,10 @@ To run the code on `Perlmutter <https://docs.nersc.gov/systems/perlmutter/>`_, w
    #SBATCH -G 8
    #SBATCH -J <job name>
    #SBATCH -q regular
-   #SBATCH --mail-user=saurabhsawant@lbl.gov
+   #SBATCH --mail-user=<user email>@lbl.gov
    #SBATCH --mail-type=ALL
    #SBATCH -t 00:30:00
-   #SBATCH -A m4540_g
+   #SBATCH -A <project code>
    #SBATCH -o <job name>.o%j
    #SBATCH -e <job name>.e%j
    
@@ -72,7 +72,7 @@ The following flags enable particular modules.
 
 Data output parameters
 ^^^^^^^^^^^^^^^^^^^^^^
-- ``plot.folder_name = <output_folder>``  Replace ``<output_folder>`` with the foldername.
+- ``plot.folder_name = <output_folder>``  Replace ``<output_folder>`` with the foldername, starting in the directory where the code is being executed.
 - ``plot.fields_to_plot = <MF_name>.<ID> <MF_name> vecField`` vector of ``multiFabs`` to be outputted. Replace <MF_name> with the name of multifab defined in ``macroscopic.fields_to_define``. If ``<ID>`` is not specified, then data is outputted only in the output folder. ``vecField`` outputs the gradient of electrostatic potential in all three directions.
   Additionally, there is an option to create raw_fields folder as ``<output_folder>/raw_fields``, where raw data may be outputted. Replace ``<ID>`` with 1 to output the multifab in the output folder as well as separately in the ``raw_fields`` folder along with the ghost cells. This may be useful while debugging. Replace ``<ID>`` with 2 to output data only in the ``raw_fields`` folder. 
 - ``plot.write_after_init = 1``  Data can be written out after initialization and before the first iteration. This may be useful for debugging before running the simulation.
@@ -87,8 +87,6 @@ Boundary Conditions
   We may choose to specify a string parameter in the paranthesis such as ``dir(Zmax)`` to specify a time and/or spatially varying function. In this case, we need to specify another parameter,  ``boundary.<string_name>_function``, for parsing the function, such as ``boundary.Zmax_function = "10*cos(2*pi*x/(2*Lx))"``. See Parser in the AMReX documentation.
   For Robin boundaries, we need to set a string parameter, for example ``rob(Ymax)`` and set three more Robin boundary specific parameters as ``boundary.<string_name>_a_function``, ``boundary.<string_name>_b_function``, ``boundary.<string_name>_f_function``. If ``domain.is_periodic`` is specified to be periodic, then it overrides the ``boundary.hi`` and ``boundary.lo`` parameters. 
 - ``boundary.lo = neu(-0.5) neu dir(5)`` Similarly, set the minimum domain boundaries in the `X`, `Y`, and `Z` directions. In this example, minimum `X`, `Y` boundaries are Neumann with values of -0.5 and 0., while minimum `Z` boundary is Dirichlet with a potential value of 5~V.
-
-
 
 Restart parameters
 ^^^^^^^^^^^^^^^^^^
@@ -110,3 +108,7 @@ See AMReX documentation for MLMG parameters such as ``mlmg.set_verbose``, ``mlmg
 For debugging, we typically need:
 
 - ``mlmg.set_verbose = <integer number>`` which sets the verbosity level for output of the MLMG multigrid solver. Useful for debugging. Usually set to 0.
+
+Issue with all_around_metal when running on Hypre
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The all_around_metal input file is a good starting place when using ELEQTRONeX. However, the input file of this case is not configured to work on an HPC using Hypre. This is due to an issue with the embedded boundaries of the system. To correct this, navigate to the ''input/negf/all_around_metal'' input file, and locate the ''Gate.height'' input value. Change this from ''Ly + 2*dy/5'' to ''Ly - 16*dy - dy/5''.

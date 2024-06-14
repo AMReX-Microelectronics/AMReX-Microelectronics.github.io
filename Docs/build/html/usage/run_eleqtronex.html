@@ -72,6 +72,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#restart-parameters">Restart parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#negf-parameters">NEGF parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#electrostatics-parameters">Electrostatics parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#issue-with-all-around-metal-when-running-on-hypre">Issue with all_around_metal when running on Hypre</a></li>
 </ul>
 </li>
 </ul>
@@ -142,10 +143,10 @@ Alternatively, you can specify this parameter on the command line in &lt;other a
 <span class="c1">#SBATCH -G 8</span>
 <span class="c1">#SBATCH -J &lt;job name&gt;</span>
 <span class="c1">#SBATCH -q regular</span>
-<span class="c1">#SBATCH --mail-user=saurabhsawant@lbl.gov</span>
+<span class="c1">#SBATCH --mail-user=&lt;user email&gt;@lbl.gov</span>
 <span class="c1">#SBATCH --mail-type=ALL</span>
 <span class="c1">#SBATCH -t 00:30:00</span>
-<span class="c1">#SBATCH -A m4540_g</span>
+<span class="c1">#SBATCH -A &lt;project code&gt;</span>
 <span class="c1">#SBATCH -o &lt;job name&gt;.o%j</span>
 <span class="c1">#SBATCH -e &lt;job name&gt;.e%j</span>
 
@@ -178,7 +179,7 @@ NERSC also provides a script generator, <code class="docutils literal notranslat
 <section id="data-output-parameters">
 <h3>Data output parameters<a class="headerlink" href="#data-output-parameters" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">plot.folder_name</span> <span class="pre">=</span> <span class="pre">&lt;output_folder&gt;</span></code>  Replace <code class="docutils literal notranslate"><span class="pre">&lt;output_folder&gt;</span></code> with the foldername.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot.folder_name</span> <span class="pre">=</span> <span class="pre">&lt;output_folder&gt;</span></code>  Replace <code class="docutils literal notranslate"><span class="pre">&lt;output_folder&gt;</span></code> with the foldername, starting in the directory where the code is being executed.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plot.fields_to_plot</span> <span class="pre">=</span> <span class="pre">&lt;MF_name&gt;.&lt;ID&gt;</span> <span class="pre">&lt;MF_name&gt;</span> <span class="pre">vecField</span></code> vector of <code class="docutils literal notranslate"><span class="pre">multiFabs</span></code> to be outputted. Replace &lt;MF_name&gt; with the name of multifab defined in <code class="docutils literal notranslate"><span class="pre">macroscopic.fields_to_define</span></code>. If <code class="docutils literal notranslate"><span class="pre">&lt;ID&gt;</span></code> is not specified, then data is outputted only in the output folder. <code class="docutils literal notranslate"><span class="pre">vecField</span></code> outputs the gradient of electrostatic potential in all three directions.
 Additionally, there is an option to create raw_fields folder as <code class="docutils literal notranslate"><span class="pre">&lt;output_folder&gt;/raw_fields</span></code>, where raw data may be outputted. Replace <code class="docutils literal notranslate"><span class="pre">&lt;ID&gt;</span></code> with 1 to output the multifab in the output folder as well as separately in the <code class="docutils literal notranslate"><span class="pre">raw_fields</span></code> folder along with the ghost cells. This may be useful while debugging. Replace <code class="docutils literal notranslate"><span class="pre">&lt;ID&gt;</span></code> with 2 to output data only in the <code class="docutils literal notranslate"><span class="pre">raw_fields</span></code> folder.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plot.write_after_init</span> <span class="pre">=</span> <span class="pre">1</span></code>  Data can be written out after initialization and before the first iteration. This may be useful for debugging before running the simulation.</p></li>
@@ -221,6 +222,10 @@ For Robin boundaries, we need to set a string parameter, for example <code class
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">mlmg.set_verbose</span> <span class="pre">=</span> <span class="pre">&lt;integer</span> <span class="pre">number&gt;</span></code> which sets the verbosity level for output of the MLMG multigrid solver. Useful for debugging. Usually set to 0.</p></li>
 </ul>
+</section>
+<section id="issue-with-all-around-metal-when-running-on-hypre">
+<h3>Issue with all_around_metal when running on Hypre<a class="headerlink" href="#issue-with-all-around-metal-when-running-on-hypre" title="Link to this heading"></a></h3>
+<p>The all_around_metal input file is a good starting place when using ELEQTRONeX. However, the input file of this case is not configured to work on an HPC using Hypre. This is due to an issue with the embedded boundaries of the system. To correct this, navigate to the ‘’input/negf/all_around_metal’’ input file, and locate the ‘’Gate.height’’ input value. Change this from ‘’Ly + 2*dy/5’’ to ‘’Ly - 16*dy - dy/5’’.</p>
 </section>
 </section>
 </section>

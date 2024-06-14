@@ -32,7 +32,7 @@ Download AMReX Repository as
    
    git clone git@github.com:AMReX-Codes/amrex.git
 
-From the amrex directory, make the repository:
+From the ''amrex/'' directory, make the repository:
 
 .. code-block:: bash
 
@@ -48,17 +48,27 @@ To run on an HPC system, the Hypre Library is also necessary. Download Hypre, in
    
    git clone https://github.com/hypre-space/hypre.git
 
-From the hypre/src directory, make the library in the same way as AMReX. The following environment variable also needs to be added, pointing to the location of the library:
+From the''hypre/src/'' directory, make the library in the same way as AMReX. The following environment variable also needs to be added, pointing to the location of the library:
 
 .. code-block:: bash
    
    export HYPRE_DIR="<path to hypre>/src/hypre"
+
+Full instructions on Hypre installation are in the AMReX documentation, 'here <https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html>'_.
+
+If working locally, not on an HPC, the OpenMPI will also have to be added. This is done with the following sudo command:
+
+.. code-block:: bash
    
+   sudo apt-get install openmpi-bin openmpi-doc libopenmpi-dev
+
+If this does not work, alternative methods can be found 'here <https://webpages.charlotte.edu/abw/coit-grid01.uncc.edu/ParallelProgSoftware/Software/OpenMPIInstall.pdf>'_.
+
 Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as
 
 .. code-block:: bash
 
-   git@github.com:AMReX-Microelectronics/ELEQTRONeX.git
+   git@github.com:AMReX-Microelectronics/ELEQTRONeX.git   
 
 2. Build Parameters
 -------------------
@@ -76,7 +86,7 @@ Other flags are explained below, with their default values shown:
 
 - ``AMREX_HOME ?= ../../amrex`` specifies the location of the AMReX library.
 - ``DEBUG=FALSE`` sets the debug mode.
-- ``USE_HYPRE=FALSE`` can be used to set HYPRE for the multigrid bottom solver. Installation instructions for HYPRE are provided `here <https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html>`_.
+- ``USE_HYPRE=FALSE`` can be used to set HYPRE for the multigrid bottom solver.
 - ``COMP=gnu`` sets the GNU compiler.
 - ``DIM=3`` builds the code for 3D domain.
 - ``CXXSTD=c++17`` sets  C++17 for compilation.
