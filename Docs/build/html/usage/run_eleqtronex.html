@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run ELEQTRONeX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -112,11 +114,11 @@
            <div itemprop="articleBody">
              
   <section id="run-eleqtronex">
-<span id="usage-run"></span><h1>Run ELEQTRONeX<a class="headerlink" href="#run-eleqtronex" title="Permalink to this heading"></a></h1>
+<span id="usage-run"></span><h1>Run ELEQTRONeX<a class="headerlink" href="#run-eleqtronex" title="Link to this heading"></a></h1>
 <section id="run">
-<h2>Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
+<h2>Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
 <section id="run-locally">
-<h3>Run locally<a class="headerlink" href="#run-locally" title="Permalink to this heading"></a></h3>
+<h3>Run locally<a class="headerlink" href="#run-locally" title="Link to this heading"></a></h3>
 <p>Upon compilation, executable is generated in Exec/ folder in the ELEQTRONeX folder.
 To run the executable with an input file from the <cite>input/</cite> folder in the <cite>ELEQTRONeX</cite> folder,
 we can do the following:</p>
@@ -132,7 +134,7 @@ Alternatively, you can specify this parameter on the command line in &lt;other a
 </div>
 </section>
 <section id="run-on-perlmutter">
-<h3>Run on Perlmutter<a class="headerlink" href="#run-on-perlmutter" title="Permalink to this heading"></a></h3>
+<h3>Run on Perlmutter<a class="headerlink" href="#run-on-perlmutter" title="Link to this heading"></a></h3>
 <p>To run the code on <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/">Perlmutter</a>, we can submit a jobscript as shown below for 2 nodes and 8 GPUs.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1">#SBATCH -N 2</span>
@@ -161,9 +163,9 @@ NERSC also provides a script generator, <code class="docutils literal notranslat
 </section>
 </section>
 <section id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<h2>Inputs<a class="headerlink" href="#inputs" title="Link to this heading"></a></h2>
 <section id="module-enabling-parameters">
-<h3>Module enabling parameters<a class="headerlink" href="#module-enabling-parameters" title="Permalink to this heading"></a></h3>
+<h3>Module enabling parameters<a class="headerlink" href="#module-enabling-parameters" title="Link to this heading"></a></h3>
 <p>The following flags enable particular modules.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">use_electrostatic</span> <span class="pre">=</span> <span class="pre">1</span></code> Electrostatics module enabled.</p></li>
@@ -174,7 +176,7 @@ NERSC also provides a script generator, <code class="docutils literal notranslat
 </ul>
 </section>
 <section id="data-output-parameters">
-<h3>Data output parameters<a class="headerlink" href="#data-output-parameters" title="Permalink to this heading"></a></h3>
+<h3>Data output parameters<a class="headerlink" href="#data-output-parameters" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">plot.folder_name</span> <span class="pre">=</span> <span class="pre">&lt;output_folder&gt;</span></code>  Replace <code class="docutils literal notranslate"><span class="pre">&lt;output_folder&gt;</span></code> with the foldername.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">plot.fields_to_plot</span> <span class="pre">=</span> <span class="pre">&lt;MF_name&gt;.&lt;ID&gt;</span> <span class="pre">&lt;MF_name&gt;</span> <span class="pre">vecField</span></code> vector of <code class="docutils literal notranslate"><span class="pre">multiFabs</span></code> to be outputted. Replace &lt;MF_name&gt; with the name of multifab defined in <code class="docutils literal notranslate"><span class="pre">macroscopic.fields_to_define</span></code>. If <code class="docutils literal notranslate"><span class="pre">&lt;ID&gt;</span></code> is not specified, then data is outputted only in the output folder. <code class="docutils literal notranslate"><span class="pre">vecField</span></code> outputs the gradient of electrostatic potential in all three directions.
@@ -185,7 +187,7 @@ Additionally, there is an option to create raw_fields folder as <code class="doc
 </ul>
 </section>
 <section id="boundary-conditions">
-<h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading"></a></h3>
+<h3>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">domain.is_periodic</span> <span class="pre">=</span> <span class="pre">0</span> <span class="pre">1</span> <span class="pre">0</span></code> sets whether domain is periodic in the X, Y, Z directions, respectively. In this example, <cite>Y</cite> direction is periodic.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">boundary.hi</span> <span class="pre">=</span> <span class="pre">&lt;X_boundary_type&gt;(&lt;dirichlet_value_or_string_name&gt;)</span> <span class="pre">&lt;Y_boundary_type&gt;(&lt;string_name&gt;)</span> <span class="pre">&lt;Z_boundary_type&gt;(&lt;neumann_value_or_string_name&gt;)</span></code> This parameter sets the maximum domain boundaries in the <cite>X</cite>, <cite>Y</cite>, and <cite>Z</cite> directions. Replace <code class="docutils literal notranslate"><span class="pre">&lt;*_boundary_type&gt;</span></code> by <code class="docutils literal notranslate"><span class="pre">dir</span></code> (Dirichlet), <code class="docutils literal notranslate"><span class="pre">rob</span></code> (Robin), <code class="docutils literal notranslate"><span class="pre">neu</span></code> (Neumann), or <code class="docutils literal notranslate"><span class="pre">per</span></code> (Periodic).
@@ -196,14 +198,14 @@ For Robin boundaries, we need to set a string parameter, for example <code class
 </ul>
 </section>
 <section id="restart-parameters">
-<h3>Restart parameters<a class="headerlink" href="#restart-parameters" title="Permalink to this heading"></a></h3>
+<h3>Restart parameters<a class="headerlink" href="#restart-parameters" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">restart</span> <span class="pre">=</span> <span class="pre">1</span></code> set while restarting the code.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">restart_step</span> <span class="pre">=</span> <span class="pre">&lt;step_number&gt;</span></code> Replace <code class="docutils literal notranslate"><span class="pre">&lt;step_number&gt;</span></code> with step to be restarted.</p></li>
 </ul>
 </section>
 <section id="negf-parameters">
-<h3>NEGF parameters<a class="headerlink" href="#negf-parameters" title="Permalink to this heading"></a></h3>
+<h3>NEGF parameters<a class="headerlink" href="#negf-parameters" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_names</span> <span class="pre">=</span> <span class="pre">&lt;NS1&gt;</span> <span class="pre">&lt;NS2&gt;</span></code> Optional parameter to define vector of string names for nanostructures. Folders with these names are created in the <code class="docutils literal notranslate"><span class="pre">&lt;plot.folder_name&gt;/negf/</span></code> folder.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_num</span> <span class="pre">=</span> <span class="pre">&lt;number&gt;</span></code> If <code class="docutils literal notranslate"><span class="pre">transport.NS_names</span></code> is not specified then we need to set this parameter defining the number of nanostructures.</p></li>
@@ -213,7 +215,7 @@ For Robin boundaries, we need to set a string parameter, for example <code class
 </ul>
 </section>
 <section id="electrostatics-parameters">
-<h3>Electrostatics parameters<a class="headerlink" href="#electrostatics-parameters" title="Permalink to this heading"></a></h3>
+<h3>Electrostatics parameters<a class="headerlink" href="#electrostatics-parameters" title="Link to this heading"></a></h3>
 <p>See AMReX documentation for MLMG parameters such as <code class="docutils literal notranslate"><span class="pre">mlmg.set_verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">mlmg.max_order</span></code>, <code class="docutils literal notranslate"><span class="pre">mlmg.absolute_tolerence</span></code>, and <code class="docutils literal notranslate"><span class="pre">mlmg.relative_tolerance</span></code>.</p>
 <p>For debugging, we typically need:</p>
 <ul class="simple">

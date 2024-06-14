@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Run FerroX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -112,7 +114,7 @@
            <div itemprop="articleBody">
              
   <section id="run-ferrox">
-<span id="usage-run"></span><h1>Run FerroX<a class="headerlink" href="#run-ferrox" title="Permalink to this heading"></a></h1>
+<span id="usage-run"></span><h1>Run FerroX<a class="headerlink" href="#run-ferrox" title="Link to this heading"></a></h1>
 <p>In order to run a new simulation:</p>
 <ol class="arabic simple">
 <li><p>Create a <strong>new directory</strong>, where the simulation will be run</p></li>
@@ -121,7 +123,7 @@
 <li><p>Run</p></li>
 </ol>
 <section id="run-directory">
-<h2>1. Run Directory<a class="headerlink" href="#run-directory" title="Permalink to this heading"></a></h2>
+<h2>1. Run Directory<a class="headerlink" href="#run-directory" title="Link to this heading"></a></h2>
 <p>On Linux/macOS, this is as easy as this</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>&lt;run_directory&gt;
 </pre></div>
@@ -129,7 +131,7 @@
 <p>Where <code class="docutils literal notranslate"><span class="pre">&lt;run_directory&gt;</span></code> by the actual path to the run directory.</p>
 </section>
 <section id="executable">
-<h2>2. Executable<a class="headerlink" href="#executable" title="Permalink to this heading"></a></h2>
+<h2>2. Executable<a class="headerlink" href="#executable" title="Link to this heading"></a></h2>
 <p>If you have already compiled the code, the FerroX executable is stored in the Exec folder.
 Copy the <strong>executable</strong> to this directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>FerroX/Exec/&lt;ferrox_executable&gt;<span class="w"> </span>&lt;run_directory&gt;/
@@ -138,13 +140,13 @@ Copy the <strong>executable</strong> to this directory:</p>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;ferrox_executable&gt;</span></code> should be replaced by the actual name of the executable and <code class="docutils literal notranslate"><span class="pre">&lt;run_directory&gt;</span></code> by the actual path to the run directory.</p>
 </section>
 <section id="inputs">
-<h2>3. Inputs<a class="headerlink" href="#inputs" title="Permalink to this heading"></a></h2>
+<h2>3. Inputs<a class="headerlink" href="#inputs" title="Link to this heading"></a></h2>
 <p>Add an <strong>input file</strong> in the directory.
 This file contains the numerical and physical parameters that define the situation to be simulated.</p>
 <p>On HPC systems, also copy and adjust a submission script that allocated computing nodes for you.</p>
 </section>
 <section id="run">
-<h2>4. Run<a class="headerlink" href="#run" title="Permalink to this heading"></a></h2>
+<h2>4. Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
 <p><strong>Run</strong> the executable, e.g. with MPI:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;run_directory&gt;
 
@@ -157,13 +159,13 @@ Sample input files can be found in the <a class="reference external" href="https
 <p>On an HPC system, you would instead submit the <strong>job script</strong> at this point, e.g. <code class="docutils literal notranslate"><span class="pre">sbatch</span> <span class="pre">&lt;submission_script&gt;</span></code> (SLURM on Cori/NERSC) or <code class="docutils literal notranslate"><span class="pre">bsub</span> <span class="pre">&lt;submission_script&gt;</span></code> (LSF on Summit/OLCF).</p>
 </section>
 <section id="outputs">
-<h2>5. Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h2>
+<h2>5. Outputs<a class="headerlink" href="#outputs" title="Link to this heading"></a></h2>
 <p>By default, FerroX will write a status update to the terminal (<code class="docutils literal notranslate"><span class="pre">stdout</span></code>).
 On HPC systems, we usually store a copy of this in a file called <code class="docutils literal notranslate"><span class="pre">outputs.txt</span></code>.</p>
 <p>By default, output file are written in plotfile format and you can use various <a class="reference internal" href="../dataanalysis/formats.html#dataanalysis-formats"><span class="std std-ref">data analysis and visualization tools</span></a>.</p>
 </section>
 <section id="input-parameters">
-<h2>6. Input parameters<a class="headerlink" href="#input-parameters" title="Permalink to this heading"></a></h2>
+<h2>6. Input parameters<a class="headerlink" href="#input-parameters" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>FerroX input options are read via AMReX <a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/Basics.html#parmparse">ParmParse</a>.</p>
@@ -174,7 +176,7 @@ On HPC systems, we usually store a copy of this in a file called <code class="do
 </div>
 </section>
 <section id="overall-simulation-parameters">
-<h2>Overall simulation parameters<a class="headerlink" href="#overall-simulation-parameters" title="Permalink to this heading"></a></h2>
+<h2>Overall simulation parameters<a class="headerlink" href="#overall-simulation-parameters" title="Link to this heading"></a></h2>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">domain.prob_lo</span></code> and <code class="docutils literal notranslate"><span class="pre">domain.prob_hi</span></code> (<cite>3 floats</cite>; in meters)</dt><dd><p>The extent of the full simulation box. This box is rectangular, and thus its
@@ -233,7 +235,7 @@ Use a negative number or 0 to disable data dumping.</p>
 </li>
 </ul>
 <section id="polarization-boundary-conditions">
-<h3>Polarization Boundary Conditions<a class="headerlink" href="#polarization-boundary-conditions" title="Permalink to this heading"></a></h3>
+<h3>Polarization Boundary Conditions<a class="headerlink" href="#polarization-boundary-conditions" title="Link to this heading"></a></h3>
 <ul>
 <li><dl>
 <dt><code class="docutils literal notranslate"><span class="pre">P_BC_flag_lo</span></code> and <a href="#id1"><span class="problematic" id="id2">``</span></a>P_BC_flag_hi``(<cite>3 integers</cite>, 0, 1, 2, or 3)</dt><dd><p>Polarization boundary condition at lo and hi ferroelectric material boundaries.
@@ -254,7 +256,7 @@ The first axis of the coordinates is x, second is y, and the last is z.</p>
 </ul>
 </section>
 <section id="electrical-boundary-conditions">
-<h3>Electrical Boundary Conditions<a class="headerlink" href="#electrical-boundary-conditions" title="Permalink to this heading"></a></h3>
+<h3>Electrical Boundary Conditions<a class="headerlink" href="#electrical-boundary-conditions" title="Link to this heading"></a></h3>
 <ul>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">domain.is_periodic</span></code> (<cite>3 integers</cite>, 0 or 1)</dt><dd><p>Whether or not to use a periodic boundary condition along coordinate directions.
@@ -277,7 +279,7 @@ with <span class="math notranslate nohighlight">\(\Phi = 0.0~V\)</span> at both 
 </ul>
 </section>
 <section id="stack-geometry">
-<h3>Stack Geometry<a class="headerlink" href="#stack-geometry" title="Permalink to this heading"></a></h3>
+<h3>Stack Geometry<a class="headerlink" href="#stack-geometry" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">FE_lo</span></code> and <code class="docutils literal notranslate"><span class="pre">FE_hi</span></code> (<cite>3 floats</cite>)</dt><dd><p>The high and low extent of the ferroelectric material region along x, y, and z.</p>
@@ -297,7 +299,7 @@ with <span class="math notranslate nohighlight">\(\Phi = 0.0~V\)</span> at both 
 </ul>
 </section>
 <section id="material-properties-float">
-<h3>Material Properties (<cite>float</cite>)<a class="headerlink" href="#material-properties-float" title="Permalink to this heading"></a></h3>
+<h3>Material Properties (<cite>float</cite>)<a class="headerlink" href="#material-properties-float" title="Link to this heading"></a></h3>
 <p>epsilon_0 = vacuum permittivity</p>
 <p>epsilonX_fe = relative permittivity of the ferroelectric material in x direction</p>
 <p>epsilonZ_fe = relative permittivity of the ferroelectric material in z direction</p>

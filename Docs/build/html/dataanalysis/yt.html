@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>yt-project &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -105,15 +107,15 @@
            <div itemprop="articleBody">
              
   <section id="yt-project">
-<span id="dataanalysis-yt"></span><h1>yt-project<a class="headerlink" href="#yt-project" title="Permalink to this heading"></a></h1>
+<span id="dataanalysis-yt"></span><h1>yt-project<a class="headerlink" href="#yt-project" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="http://yt-project.org/">yt</a> is a Python package that can help in analyzing and visualizing MicroEleX data (among other data formats).
 It is convenient to use yt within a <a class="reference external" href="http://jupyter.org/">Jupyter notebook</a>.</p>
 <section id="data-support">
-<h2>Data Support<a class="headerlink" href="#data-support" title="Permalink to this heading"></a></h2>
+<h2>Data Support<a class="headerlink" href="#data-support" title="Link to this heading"></a></h2>
 <p>yt primarily supports MicroEleX through plotfiles.</p>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>From the terminal, install the latest version of yt:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>cython
 python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>yt
@@ -122,7 +124,7 @@ python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </s
 <p>Alternatively, yt can be installed via their installation script, see <a class="reference external" href="https://yt-project.org/doc/installing.html">yt installation web page</a>.</p>
 </section>
 <section id="visualizing-the-data">
-<h2>Visualizing the data<a class="headerlink" href="#visualizing-the-data" title="Permalink to this heading"></a></h2>
+<h2>Visualizing the data<a class="headerlink" href="#visualizing-the-data" title="Link to this heading"></a></h2>
 <p>Once data (“plotfiles”) has been created by the simulation, open a Jupyter notebook from
 the terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
@@ -142,7 +144,7 @@ and load the first plot file:</p>
 in our Jupyter notebook
 <code class="xref download docutils literal notranslate"><span class="pre">Visualization.ipynb</span></code></p>
 <section id="field-data">
-<h3>Field data<a class="headerlink" href="#field-data" title="Permalink to this heading"></a></h3>
+<h3>Field data<a class="headerlink" href="#field-data" title="Link to this heading"></a></h3>
 <p>Field data can be visualized using <code class="docutils literal notranslate"><span class="pre">yt.SlicePlot</span></code> (see the docstring of
 this function <a class="reference external" href="http://yt-project.org/doc/reference/api/yt.visualization.plot_window.html#yt.visualization.plot_window.SlicePlot">here</a>)</p>
 <p>For instance, in order to plot the field <code class="docutils literal notranslate"><span class="pre">f</span></code> in a slice orthogonal to <code class="docutils literal notranslate"><span class="pre">y</span></code> (<code class="docutils literal notranslate"><span class="pre">1</span></code>):</p>
@@ -168,7 +170,7 @@ that are difficult to read. You can modify the aspect ratio with the
 </section>
 </section>
 <section id="further-information">
-<h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this heading"></a></h2>
+<h2>Further information<a class="headerlink" href="#further-information" title="Link to this heading"></a></h2>
 <p>A lot more information can be obtained from the yt documentation, and the
 corresponding notebook tutorials <a class="reference external" href="http://yt-project.org/doc/">here</a>.</p>
 </section>

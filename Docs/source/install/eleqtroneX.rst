@@ -32,6 +32,28 @@ Download AMReX Repository as
    
    git clone git@github.com:AMReX-Codes/amrex.git
 
+From the amrex directory, make the repository:
+
+.. code-block:: bash
+
+   /.configure
+   make
+   make install
+
+More information on AMReX installation can be found 'here <https://amrex-codes.github.io/amrex/docs_html/BuildingAMReX_Chapter.html>'_.
+
+To run on an HPC system, the Hypre Library is also necessary. Download Hypre, in the same directory level as AMReX, using:
+
+.. code-block:: bash
+   
+   git clone https://github.com/hypre-space/hypre.git
+
+From the hypre/src directory, make the library in the same way as AMReX. The following environment variable also needs to be added, pointing to the location of the library:
+
+.. code-block:: bash
+   
+   export HYPRE_DIR="<path to hypre>/src/hypre"
+   
 Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as
 
 .. code-block:: bash

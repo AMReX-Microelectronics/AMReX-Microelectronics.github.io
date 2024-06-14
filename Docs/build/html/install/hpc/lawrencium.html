@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lawrencium (LBNL) &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
@@ -94,10 +96,10 @@
            <div itemprop="articleBody">
              
   <section id="lawrencium-lbnl">
-<span id="building-lawrencium"></span><h1>Lawrencium (LBNL)<a class="headerlink" href="#lawrencium-lbnl" title="Permalink to this heading"></a></h1>
+<span id="building-lawrencium"></span><h1>Lawrencium (LBNL)<a class="headerlink" href="#lawrencium-lbnl" title="Link to this heading"></a></h1>
 <p>The <a class="reference external" href="http://scs.lbl.gov/Systems">Lawrencium cluster</a> is located at LBNL.</p>
 <section id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
 <p>If you are new to this system, <strong>please see the following resources</strong>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sites.google.com/a/lbl.gov/high-performance-computing-services-group/lbnl-supercluster/lawrencium">Lawrencium user guide</a></p></li>
@@ -112,7 +114,7 @@
 </ul>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
 </pre></div>
@@ -202,9 +204,9 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 </div>
 </section>
 <section id="running">
-<span id="running-cpp-lawrencium"></span><h2>Running<a class="headerlink" href="#running" title="Permalink to this heading"></a></h2>
+<span id="running-cpp-lawrencium"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
 <section id="v100-gpus-16-gb">
-<span id="running-cpp-lawrencium-v100-gpus"></span><h3>V100 GPUs (16 GB)<a class="headerlink" href="#v100-gpus-16-gb" title="Permalink to this heading"></a></h3>
+<span id="running-cpp-lawrencium-v100-gpus"></span><h3>V100 GPUs (16 GB)<a class="headerlink" href="#v100-gpus-16-gb" title="Link to this heading"></a></h3>
 <p>12 nodes with each two NVIDIA V100 GPUs.</p>
 <p>To run a simulation, copy the lines above to a file <code class="docutils literal notranslate"><span class="pre">v100.sbatch</span></code> and run</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>lawrencium_v100.sbatch
@@ -212,7 +214,7 @@ cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"
 </div>
 </section>
 <section id="ti-gpus-10-gb">
-<span id="running-cpp-lawrencium-2080ti-gpus"></span><h3>2080 Ti GPUs (10 GB)<a class="headerlink" href="#ti-gpus-10-gb" title="Permalink to this heading"></a></h3>
+<span id="running-cpp-lawrencium-2080ti-gpus"></span><h3>2080 Ti GPUs (10 GB)<a class="headerlink" href="#ti-gpus-10-gb" title="Link to this heading"></a></h3>
 <p>18 nodes with each four NVIDIA 2080 TI GPUs.
 These are most interesting if you run in single precision.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">--constraint=es1_2080ti</span> <span class="pre">--cpus-per-task=2</span></code> in the above template to run on those nodes.</p>
