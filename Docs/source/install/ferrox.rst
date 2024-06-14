@@ -24,17 +24,17 @@ Please `report installation problems <https://github.com/AMReX-Microelectronics/
 Installation
 ------------
 
-Download the AMReX and FerroX repository:
+First, download the AMReX repository:
 
 .. code-block:: bash
    
-   git clone git@github.com:AMReX-Codes/amrex.git
+   git clone https://github.com:AMReX-Codes/amrex.git
 
 At the same directory level as AMReX, download the FerroX Repository:
 
 .. code-block:: bash
 
-   git clone git@github.com:AMReX-Microelectronics/FerroX.git
+   git clone https://github.com/AMReX-Microelectronics/FerroX.git 
 
 Build
 -----
@@ -54,11 +54,11 @@ If running on a computer with a CPU:
 
    make -j 4 USE_CUDA=FALSE
 
-Enabling sundials support while building (computer with GPU):
+Enabling sundials support while building (computer with CPU):
 
 .. code-block:: bash
         
-   make -j 4 USE_SUNDIALS=TRUE
+   make -j 4 USE_CUDA=FALSE USE_SUNDIALS=TRUE
 
 
 If you want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:
@@ -67,9 +67,9 @@ If you want to use FerroX on a specific high-performance computing (HPC) system,
 
    module load cudatoolkit
 
-Incorporating Sundials
+Incorporating SUNDIALS
 ----------------------
 
-If you want to incorporate the Sundials library into your FerroX code, first follow the Sundials installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_. If you want to build the code with sundials support enabled, you can include the USE_SUNDIALS=TRUE option (refer to the example under the 'Build' heading).
+If you want to incorporate the SUNDIALS library into your FerroX code, first follow the SUNDIALS installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_. To build the code with SUNDIALS support enabled, you can include the USE_SUNDIALS=TRUE option with the appropriate build command (refer to the example under the 'Build' heading).
 
 

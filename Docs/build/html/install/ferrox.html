@@ -51,7 +51,12 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="artemis.html">ARTEMIS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="eleqtroneX.html">ELEQTRONeX</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">FerroX</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FerroX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build">Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#incorporating-sundials">Incorporating SUNDIALS</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="magnex.html">MagneX</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
@@ -106,24 +111,45 @@
     margin-left: 15px;
     float: left;
 }
-</style><p>Our community is here to help.
+</style><p>FerroX is a massively parallel, 3D phase-field simulation framework for modeling ferroelectric materials based scalable logic devices. We self-consistently solve the time-dependent Ginzburg Landau (TDGL) equation for ferroelectric polarization, Poisson’s equation for electric potential, and semiconductor charge equation for carrier densities in semiconductor regions. The algorithm is implemented using Exascale Computing Project software framework, AMReX, which provides effective scalability on manycore and GPU-based supercomputing architectures. The code can be used for simulations of ferroelectric domain-wall induced negative capacitance (NC) effect in Metal-Ferroelectric-Insulator-Metal (MFIM) and Metal-Ferroelectric-Insulator-Semiconductor-Metal (MFISM) devices.</p>
+<p>Our community is here to help.
 Please <a class="reference external" href="https://github.com/AMReX-Microelectronics/FerroX/issues/new">report installation problems</a> in case you should get stuck.</p>
-<p>Download AMReX Repository</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:AMReX-Codes/amrex.git
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>First, download the AMReX repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com:AMReX-Codes/amrex.git
 </pre></div>
 </div>
-<p>Download FerroX Repository</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git@github.com:AMReX-Microelectronics/FerroX.git
+<p>At the same directory level as AMReX, download the FerroX Repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/AMReX-Microelectronics/FerroX.git
 </pre></div>
 </div>
-<p>Make sure that the AMReX and FerroX are cloned in the same location in their filesystem. Navogate to the Exec folder of FerroX and execute</p>
+</section>
+<section id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this heading"></a></h2>
+<p>Make sure that the AMReX and FerroX are cloned in the same location in your filesystem before
+continuing. Note that the commands to build FerroX depend on your computer’s hardware configuration. Navigate to the Exec folder within the FerroX directory and execute the following commands based on your setup:</p>
+<p>If running on a computer with a GPU:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
 </pre></div>
 </div>
-<p>If want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>toolkit
+<p>If running on a computer with a CPU:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">USE_CUDA</span><span class="o">=</span>FALSE
 </pre></div>
 </div>
+<p>Enabling sundials support while building (computer with CPU):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="nv">USE_CUDA</span><span class="o">=</span>FALSE<span class="w"> </span><span class="nv">USE_SUNDIALS</span><span class="o">=</span>TRUE
+</pre></div>
+</div>
+<p>If you want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module<span class="w"> </span>load<span class="w"> </span>cudatoolkit
+</pre></div>
+</div>
+</section>
+<section id="incorporating-sundials">
+<h2>Incorporating SUNDIALS<a class="headerlink" href="#incorporating-sundials" title="Permalink to this heading"></a></h2>
+<p>If you want to incorporate the SUNDIALS library into your FerroX code, first follow the SUNDIALS installation steps as described <a class="reference external" href="https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials">here</a>. To build the code with SUNDIALS support enabled, you can include the USE_SUNDIALS=TRUE option with the appropriate build command (refer to the example under the ‘Build’ heading).</p>
+</section>
 </section>
 
 
