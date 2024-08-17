@@ -38,7 +38,7 @@ jobs:
         with:
           repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
           branch: gh-pages #The branch the action should deploy to.
-          folder: Docs/build/html #The folder the action should deploy.
+          folder: Docs/build/html/ #The folder the action should deploy.
           target-folder: / #the folder the action should deploy to.
           clean: false #Do not remove existing files from the deploy target
         env:
