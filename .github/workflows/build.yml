@@ -1,0 +1,33 @@
+name: Build Documentation
+
+on:
+  push:
+    branches: [development]
+  pull_request:
+    branches: [development]
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.head_ref }}-ci-workflow
+  cancel-in-progress: true
+
+permissions:
+  contents: read  # Required to read repository contents
+  id-token: write  # Required to request an ID token for deployment    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r Docs/requirements.txt
+
+      - name: Build documentation
+        run: |
+          cd Docs
+          make clean
+          make html
