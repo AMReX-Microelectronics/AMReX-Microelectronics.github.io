@@ -1,0 +1,45 @@
+name: Build and Deploy Documentation
+
+on:
+  push:
+    branches: [development]
+  pull_request:
+    branches: [development]
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.head_ref }}-ci-workflow
+  cancel-in-progress: true
+
+permissions:
+  contents: read  # Required to read repository contents
+  id-token: write  # Required to request an ID token for deployment    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r Docs/requirements.txt
+
+      - name: Build documentation
+        run: |
+          cd Docs
+          make clean
+          make html
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/development'
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
+          branch: gh-pages #The branch the action should deploy to.
+          folder: Docs/build/html #The folder the action should deploy.
+          target-folder: / #the folder the action should deploy to.
+          clean: false #Do not remove existing files from the deploy target
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
