@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FerroX &mdash; MicroEleX 1.0 documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -101,7 +103,7 @@
            <div itemprop="articleBody">
              
   <section id="ferrox">
-<span id="install-ferrox"></span><h1>FerroX<a class="headerlink" href="#ferrox" title="Permalink to this heading"></a></h1>
+<span id="install-ferrox"></span><h1>FerroX<a class="headerlink" href="#ferrox" title="Link to this heading"></a></h1>
 <style>
 .rst-content section>img {
     width: 30px;
@@ -115,7 +117,7 @@
 <p>Our community is here to help.
 Please <a class="reference external" href="https://github.com/AMReX-Microelectronics/FerroX/issues/new">report installation problems</a> in case you should get stuck.</p>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>First, download the AMReX repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com:AMReX-Codes/amrex.git
 </pre></div>
@@ -126,7 +128,7 @@ Please <a class="reference external" href="https://github.com/AMReX-Microelectro
 </div>
 </section>
 <section id="build">
-<h2>Build<a class="headerlink" href="#build" title="Permalink to this heading"></a></h2>
+<h2>Build<a class="headerlink" href="#build" title="Link to this heading"></a></h2>
 <p>Make sure that the AMReX and FerroX are cloned in the same location in your filesystem before
 continuing. Note that the commands to build FerroX depend on your computer’s hardware configuration. Navigate to the Exec folder within the FerroX directory and execute the following commands based on your setup:</p>
 <p>If running on a computer with a GPU:</p>
@@ -147,7 +149,7 @@ continuing. Note that the commands to build FerroX depend on your computer’s h
 </div>
 </section>
 <section id="incorporating-sundials">
-<h2>Incorporating SUNDIALS<a class="headerlink" href="#incorporating-sundials" title="Permalink to this heading"></a></h2>
+<h2>Incorporating SUNDIALS<a class="headerlink" href="#incorporating-sundials" title="Link to this heading"></a></h2>
 <p>If you want to incorporate the SUNDIALS library into your FerroX code, first follow the SUNDIALS installation steps as described <a class="reference external" href="https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials">here</a>. To build the code with SUNDIALS support enabled, you can include the USE_SUNDIALS=TRUE option with the appropriate build command (refer to the example under the ‘Build’ heading).</p>
 </section>
 </section>

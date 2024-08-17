@@ -3052,6 +3052,11 @@
     <base>openPMD::AbstractParameter</base>
   </compound>
   <compound kind="struct">
+    <name>openPMD::Parameter&lt; Operation::SET_WRITTEN &gt;</name>
+    <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_s_e_t___w_r_i_t_t_e_n_01_4.html</filename>
+    <base>openPMD::AbstractParameter</base>
+  </compound>
+  <compound kind="struct">
     <name>openPMD::Parameter&lt; Operation::TOUCH &gt;</name>
     <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_t_o_u_c_h_01_4.html</filename>
     <base>openPMD::AbstractParameter</base>
@@ -4257,6 +4262,7 @@
     <class kind="struct">openPMD::Parameter&lt; Operation::AVAILABLE_CHUNKS &gt;</class>
     <class kind="struct">openPMD::Parameter&lt; Operation::DEREGISTER &gt;</class>
     <class kind="struct">openPMD::Parameter&lt; Operation::TOUCH &gt;</class>
+    <class kind="struct">openPMD::Parameter&lt; Operation::SET_WRITTEN &gt;</class>
     <class kind="class">openPMD::IOTask</class>
     <class kind="struct">openPMD::JSONFilePosition</class>
     <class kind="class">openPMD::JSONIOHandler</class>
@@ -4770,6 +4776,20 @@
       <anchorfile>namespaceopenpmd__api_1_1_data_frame.html</anchorfile>
       <anchor>a12e3cfcdc325a461b255de47717603da</anchor>
       <arglist>(particle_species, slice=None)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>iterations_to_dataframe</name>
+      <anchorfile>namespaceopenpmd__api_1_1_data_frame.html</anchorfile>
+      <anchor>a5f98130962bc8402f483f184d5782ad0</anchor>
+      <arglist>(series, species_name)</arglist>
+    </member>
+    <member kind="function">
+      <type>def</type>
+      <name>iterations_to_cudf</name>
+      <anchorfile>namespaceopenpmd__api_1_1_data_frame.html</anchorfile>
+      <anchor>af389334f4b454a7c5982855ee1639eea</anchor>
+      <arglist>(series, species_name)</arglist>
     </member>
   </compound>
   <compound kind="namespace">
