@@ -9,6 +9,10 @@ on:
 concurrency:
   group: ${{ github.ref }}-${{ github.head_ref }}-ci-workflow
   cancel-in-progress: true
+
+permissions:
+  contents: read  # Required to read repository contents
+  id-token: write  # Required to request an ID token for deployment    
       
 jobs:
   build:
