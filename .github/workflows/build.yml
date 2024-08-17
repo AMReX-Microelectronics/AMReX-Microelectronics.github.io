@@ -31,3 +31,15 @@ jobs:
           cd Docs
           make clean
           make html
+
+      - name: Deploy to GitHub Pages 
+        if: github.event_name == 'push' && github.ref == 'refs/heads/development' 
+        uses: JamesIves/github-pages-deploy-action@v4.5.0 
+        with: 
+          repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
+          branch: gh-pages #The branch the action should deploy to. 
+          folder: Docs/build/html/ #The folder the action should deploy. 
+          target-folder: / #the folder the action should deploy to. 
+            #clean: false #Do not remove existing files from the deploy target 
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}           
