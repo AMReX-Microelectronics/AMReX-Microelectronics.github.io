@@ -28,8 +28,8 @@ jobs:
           python3 -m pip install -r Docs/requirements.txt
 
       - name: Build documentation
-        working-directory: ${{ runner.workspace }}/Docs
         run: |
+          cd Docs
           make clean
           make html
 
@@ -37,11 +37,17 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/development'
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4.5.0          
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
           branch: gh-pages
-          folder: ${{runner.workspace}}/Docs/build/html
-          single_commit: true
+          folder: Docs/build/html
+          target-folder: /
+          clean: false
+        env:        
+          github_token: ${{ secrets.GITHUB_TOKEN }}
