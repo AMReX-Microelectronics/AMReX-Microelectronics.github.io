@@ -12,7 +12,8 @@ concurrency:
 
 permissions:
   contents: read  # Required to read repository contents
-  id-token: write  # Required to request an ID token for deployment    
+  pages: write    # Required to deploy to GitHub Pages
+  id-token: write # Required to request an ID token for deployment    
 
 jobs:
   build:
