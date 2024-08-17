@@ -36,6 +36,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download documentation artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
@@ -43,4 +48,4 @@ jobs:
           folder: Docs/build/html/
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}          
+      url: ${{ steps.deployment.outputs.page_url }}
