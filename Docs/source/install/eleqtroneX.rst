@@ -54,7 +54,7 @@ Other flags are explained below, with their default values shown:
 
 - ``AMREX_HOME ?= ../../amrex`` specifies the location of the AMReX library.
 - ``DEBUG=FALSE`` sets the debug mode.
-- ``USE_HYPRE=FALSE`` can be used to set HYPRE for the multigrid bottom solver. Installation instructions for HYPRE are provided `here <https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html>`_.
+- ``USE_HYPRE=FALSE`` can be used to set ``hypre`` for the multigrid bottom solver. Installation instructions for ``hypre`` are provided `here <https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html>`_.
 - ``COMP=gnu`` sets the GNU compiler.
 - ``DIM=3`` builds the code for 3D domain.
 - ``CXXSTD=c++17`` sets  C++17 for compilation.
