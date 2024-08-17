@@ -28,26 +28,20 @@ jobs:
           python3 -m pip install -r Docs/requirements.txt
 
       - name: Build documentation
+        working-directory: ${{ runner.workspace }}/Docs
         run: |
-          cd Docs
           make clean
           make html
-
-      - name: Upload documentation as artifact
-        id: upload
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: Docs/build/html/  # Ensure this path is correct          
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download documentation artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/development'
         uses: actions/deploy-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: ${{runner.workspace}}/Docs/build/html
+          single_commit: true
