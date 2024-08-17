@@ -12,7 +12,7 @@ Upon compilation, executable is generated in ``Exec/`` folder in the ELEQTRONeX 
 To run the executable with an input file from the `input/` folder in the `ELEQTRONeX` folder,
 we can do the following:
 
-Assuming we are in the `Exec/` folder, to run with a single processor, execute:
+Assuming we are in the ``Exec/`` folder, to run with a single processor, execute:
 
 .. code-block:: bash
 
