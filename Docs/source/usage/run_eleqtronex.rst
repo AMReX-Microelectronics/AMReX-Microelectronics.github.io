@@ -8,7 +8,7 @@ Run
 
 Run locally
 ^^^^^^^^^^^
-Upon compilation, executable is generated in Exec/ folder in the ELEQTRONeX folder.
+Upon compilation, executable is generated in ``Exec/`` folder in the ELEQTRONeX folder.
 To run the executable with an input file from the `input/` folder in the `ELEQTRONeX` folder,
 we can do the following:
 
