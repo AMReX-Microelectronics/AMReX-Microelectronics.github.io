@@ -3,16 +3,13 @@ name: Build Documentation
 on:
   push:
     branches: [development]
-  pull_request:
-    branches: [development]
 
 concurrency:
   group: ${{ github.ref }}-${{ github.head_ref }}-ci-workflow
   cancel-in-progress: true
 
 permissions:
-  contents: read  # Required to read repository contents
-  pages: write    # Required to deploy to GitHub Pages
+  contents: write  # Required to read repository contents
 
 jobs:
   build:
