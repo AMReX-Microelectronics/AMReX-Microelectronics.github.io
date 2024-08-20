@@ -36,7 +36,7 @@ jobs:
         run: git status
 
       - name: Upload documentation artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           name: documentation
           path: Docs/build/html
