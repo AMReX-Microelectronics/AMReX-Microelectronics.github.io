@@ -13,7 +13,6 @@ concurrency:
 permissions:
   contents: read  # Required to read repository contents
   pages: write    # Required to deploy to GitHub Pages
-  id-token: write # Required to request an ID token for deployment    
 
 jobs:
   build:
@@ -42,13 +41,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/development'
-        uses: JamesIves/github-pages-deploy-action@v4.5.0          
+        uses: JamesIves/github-pages-deploy-action@v4          
         with:
           repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
           branch: gh-pages
           folder: Docs/build/html
-          clean: false
-        env:        
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-        #current error: remote: Permission to AMReX-Microelectronics/AMReX-Microelectronics.github.io.git denied to github-actions[bot].
