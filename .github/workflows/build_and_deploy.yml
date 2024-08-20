@@ -1,4 +1,4 @@
-name: Build Documentation
+name: Build & Deploy Documentation
 
 on:
   push:
@@ -36,8 +36,9 @@ jobs:
         run: git status
 
       - name: Upload documentation artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
+          name: documentation
           path: Docs/build/html
 
   deploy:        
@@ -45,14 +46,7 @@ jobs:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/development'
     steps:
-      - name: deploy to gh-pages
-        uses: actions/deploy-pages@v1
+      - name: deploy to gh-pages branch
+        uses: actions/deploy-pages@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-        #uses: JamesIves/github-pages-deploy-action@v4          
-        #with:
-        #  repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
-        #  branch: gh-pages
-        #  folder: ${{ github.workspace }}/Docs/build/html
-        #  clean: true
-        #  commit-message: "Force update - $(date +'%Y-%m-%d %H:%M:%S')"
