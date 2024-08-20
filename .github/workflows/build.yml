@@ -28,37 +28,19 @@ jobs:
           cd Docs
           make clean
           make html
+          touch Docs/build/html/.nojekyll
 
       - name: List modified files
         run: |
           cd Docs/build/html
           git status          
-
-      - name: Add modified files to Git
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add Docs/build/html
-
-      - name: Commit changes
-        run: git commit -m "Auto-update documentation"
-
-      - name: Push changes
-        run: git push origin development
-          
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 
-        uses: actions/checkout@v4
-
+   
       - name: deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/development'
         uses: JamesIves/github-pages-deploy-action@v4          
         with:
           repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
           branch: gh-pages
-          folder: Docs/build/html
+          folder: {{runner.workspace}}/Docs/build/html
           clean: true
           commit-message: "Force update - $(date +'%Y-%m-%d %H:%M:%S')"
