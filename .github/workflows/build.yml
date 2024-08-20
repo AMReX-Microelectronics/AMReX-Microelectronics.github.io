@@ -11,6 +11,7 @@ concurrency:
 permissions:
   contents: write  # Required to read repository contents
   pages: write # Required to deploy GitHub Pages
+  id-token: write  # Required for deploying GitHub Pages
 
 jobs:
   build:
@@ -47,8 +48,7 @@ jobs:
       - name: deploy to gh-pages
         uses: actions/deploy-pages@v1
         with:
-          deployment-environment: github-pages
-          commit-message: "Force update - $(date +'%Y-%m-%d %H:%M:%S')"
+          token: ${{ secrets.GITHUB_TOKEN }}
         #uses: JamesIves/github-pages-deploy-action@v4          
         #with:
         #  repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
