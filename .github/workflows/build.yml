@@ -34,6 +34,18 @@ jobs:
           cd Docs/build/html
           git status          
 
+      - name: Add modified files to Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add Docs/build/html
+
+      - name: Commit changes
+        run: git commit -m "Auto-update documentation"
+
+      - name: Push changes
+        run: git push origin development
+          
   deploy:
     needs: build
     runs-on: ubuntu-latest
