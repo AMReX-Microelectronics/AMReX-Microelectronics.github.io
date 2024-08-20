@@ -7,7 +7,7 @@
   <title>Run ELEQTRONeX &mdash; MicroEleX 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
 
   
   <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
         <script src="../_static/documentation_options.js?v=f2a433a1"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=36754332"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -70,7 +70,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#data-output-parameters">Data output parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#restart-parameters">Restart parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#negf-parameters">NEGF parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-specific-to-the-negf-method">Parameters specific to the NEGF method</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#electrostatics-parameters">Electrostatics parameters</a></li>
 </ul>
 </li>
@@ -204,12 +204,12 @@ For Robin boundaries, we need to set a string parameter, for example <code class
 <li><p><code class="docutils literal notranslate"><span class="pre">restart_step</span> <span class="pre">=</span> <span class="pre">&lt;step_number&gt;</span></code> Replace <code class="docutils literal notranslate"><span class="pre">&lt;step_number&gt;</span></code> with step to be restarted.</p></li>
 </ul>
 </section>
-<section id="negf-parameters">
-<h3>NEGF parameters<a class="headerlink" href="#negf-parameters" title="Link to this heading"></a></h3>
+<section id="parameters-specific-to-the-negf-method">
+<h3>Parameters specific to the NEGF method<a class="headerlink" href="#parameters-specific-to-the-negf-method" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_names</span> <span class="pre">=</span> <span class="pre">&lt;NS1&gt;</span> <span class="pre">&lt;NS2&gt;</span></code> Optional parameter to define vector of string names for nanostructures. Folders with these names are created in the <code class="docutils literal notranslate"><span class="pre">&lt;plot.folder_name&gt;/negf/</span></code> folder.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_num</span> <span class="pre">=</span> <span class="pre">&lt;number&gt;</span></code> If <code class="docutils literal notranslate"><span class="pre">transport.NS_names</span></code> is not specified then we need to set this parameter defining the number of nanostructures.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_type_default</span> <span class="pre">=</span> <span class="pre">CNT</span></code> Default type of nanostructures. Here it is defined as CNT, referring to carbon nanotube.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_type_default</span> <span class="pre">=</span> <span class="pre">CNT</span></code> The default type of nanostructures. Here it is defined as CNT, referring to carbon nanotube.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_initial_deposit_value</span> <span class="pre">=</span> <span class="pre">&lt;value&gt;</span></code> This is the initial charge deposited on the surface of the material while starting the simulation.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.gate_terminal_type</span> <span class="pre">=</span> <span class="pre">&lt;Type&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;Type&gt;</span></code> can be EB, representing gate terminal defined as an embedded boundary, or <code class="docutils literal notranslate"><span class="pre">Boundary</span></code>, representing gate terminal defined on the domain boundary.</p></li>
 </ul>
