@@ -25,15 +25,12 @@ jobs:
 
       - name: Build documentation
         run: |
-          cd Docs
-          make clean
-          make html
+          make Docs/clean
+          make Docs/html
           touch Docs/build/html/.nojekyll
 
       - name: List modified files
-        run: |
-          cd Docs/build/html
-          git status          
+        run: git status
    
       - name: deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/development'
