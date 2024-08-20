@@ -44,3 +44,4 @@ jobs:
           branch: gh-pages
           folder: Docs/build/html
           target-folder: deploy
+          clean: true
