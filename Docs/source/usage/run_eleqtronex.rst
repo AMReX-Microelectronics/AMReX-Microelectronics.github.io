@@ -95,8 +95,8 @@ Restart parameters
 - ``restart = 1`` set while restarting the code.
 - ``restart_step = <step_number>`` Replace ``<step_number>`` with step to be restarted.
 
-NEGF parameters
-^^^^^^^^^^^^^^^
+Parameters specific to the NEGF method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - ``transport.NS_names = <NS1> <NS2>`` Optional parameter to define vector of string names for nanostructures. Folders with these names are created in the ``<plot.folder_name>/negf/`` folder.
 - ``transport.NS_num = <number>`` If ``transport.NS_names`` is not specified then we need to set this parameter defining the number of nanostructures.
 - ``transport.NS_type_default = CNT`` The default type of nanostructures. Here it is defined as CNT, referring to carbon nanotube.
