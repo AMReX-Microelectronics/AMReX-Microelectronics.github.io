@@ -42,6 +42,4 @@ jobs:
         with:
           repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
           branch: gh-pages
-          folder: Docs/build/html
-          target-folder: deploy
           clean: true
