@@ -95,7 +95,7 @@ Restart parameters
 - ``restart = 1`` set while restarting the code.
 - ``restart_step = <step_number>`` Replace ``<step_number>`` with step to be restarted.
 
-Parameters specific to the NEGF method
+Parameters specific to the NEGF module
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - ``transport.NS_names = <NS1> <NS2>`` Optional parameter to define vector of string names for nanostructures. Folders with these names are created in the ``<plot.folder_name>/negf/`` folder.
 - ``transport.NS_num = <number>`` If ``transport.NS_names`` is not specified then we need to set this parameter defining the number of nanostructures.
@@ -103,8 +103,8 @@ Parameters specific to the NEGF method
 - ``transport.NS_initial_deposit_value = <value>`` This is the initial charge deposited on the surface of the material while starting the simulation.
 - ``transport.gate_terminal_type = <Type>`` ``<Type>`` can be EB, representing gate terminal defined as an embedded boundary, or ``Boundary``, representing gate terminal defined on the domain boundary.
 
-Electrostatics parameters
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Parameters specific to Electrostatics module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 See AMReX documentation for MLMG parameters such as ``mlmg.set_verbose``, ``mlmg.max_order``, ``mlmg.absolute_tolerence``, and ``mlmg.relative_tolerance``.
 
 For debugging, we typically need:
