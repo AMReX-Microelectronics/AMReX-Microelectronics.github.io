@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimensionality &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Dimensionality</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/dimensionality.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dimensionality">
+<span id="developers-dimensionality"></span><h1>Dimensionality<a class="headerlink" href="#dimensionality" title="Link to this heading"></a></h1>
+<p>This section describes the handling of dimensionality in WarpX.</p>
+<section id="build-options">
+<h2>Build Options<a class="headerlink" href="#build-options" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Dimensions</p></th>
+<th class="head"><p>CMake Option</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>3D3V</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WarpX_DIMS=3</span></code> (default)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2D3V</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WarpX_DIMS=2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1D3V</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WarpX_DIMS=1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>RZ</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">WarpX_DIMS=RZ</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>See <a class="reference internal" href="../install/cmake.html#install-developers"><span class="std std-ref">building from source</span></a> for further details.</p>
+</section>
+<section id="defines">
+<h2>Defines<a class="headerlink" href="#defines" title="Link to this heading"></a></h2>
+<p>Depending on the build variant of WarpX, the following preprocessor macros will be set:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Macro</p></th>
+<th class="head"><p>3D3V</p></th>
+<th class="head"><p>2D3V</p></th>
+<th class="head"><p>1D3V</p></th>
+<th class="head"><p>RZ</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AMREX_SPACEDIM</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_DIM_3D</span></code></p></td>
+<td><p><strong>defined</strong></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><em>undefined</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_DIM_1D_Z</span></code></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><strong>defined</strong></p></td>
+<td><p><em>undefined</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_DIM_XZ</span></code></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><strong>defined</strong></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><em>undefined</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_DIM_RZ</span></code></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><em>undefined</em></p></td>
+<td><p><strong>defined</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_ZINDEX</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>At the same time, the following conventions will apply:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Convention</strong></p></td>
+<td><p><strong>3D3V</strong></p></td>
+<td><p><strong>2D3V</strong></p></td>
+<td><p><strong>1D3V</strong></p></td>
+<td><p><strong>RZ</strong></p></td>
+</tr>
+<tr class="row-even"><td colspan="5"><p><em>Fields</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>AMReX Box dimensions</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>WarpX axis labels</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">z</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">z</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">z</span></code></p></td>
+</tr>
+<tr class="row-odd"><td colspan="5"><p><em>Particles</em></p></td>
+</tr>
+<tr class="row-even"><td><p>AMReX AoS <code class="docutils literal notranslate"><span class="pre">.pos()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">2</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>WarpX position names</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x,</span> <span class="pre">z</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">z</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">r,</span> <span class="pre">z</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>extra SoA attribute</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">theta</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Please see the following sections for particle AoS and SoA details.</p>
+</section>
+<section id="conventions">
+<h2>Conventions<a class="headerlink" href="#conventions" title="Link to this heading"></a></h2>
+<p>In 2D3V, we assume that the position of a particle in <code class="docutils literal notranslate"><span class="pre">y</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>.
+In 1D3V, we assume that the position of a particle in <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

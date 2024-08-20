@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perlmutter (NERSC) &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Perlmutter (NERSC)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/install/hpc/perlmutter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="perlmutter-nersc">
+<span id="building-perlmutter"></span><h1>Perlmutter (NERSC)<a class="headerlink" href="#perlmutter-nersc" title="Link to this heading"></a></h1>
+<p>The <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/">Perlmutter cluster</a> is located at NERSC.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>If you are new to this system, <strong>please see the following resources</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.nersc.gov/">NERSC user guide</a></p></li>
+<li><p>Batch system: <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/#running-jobs">Slurm</a></p></li>
+<li><p><a class="reference external" href="https://docs.nersc.gov/services/jupyter/">Jupyter service</a></p></li>
+<li><p><a class="reference external" href="https://docs.nersc.gov/filesystems/perlmutter-scratch/">Production directories</a>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">$PSCRATCH</span></code>: per-user production directory, purged every 30 days (&lt;TBD&gt;TB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/global/cscratch1/sd/m3239</span></code>: shared production directory for users in the project <code class="docutils literal notranslate"><span class="pre">m3239</span></code>, purged every 30 days (50TB)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/global/cfs/cdirs/m3239/</span></code>: community file system for users in the project <code class="docutils literal notranslate"><span class="pre">m3239</span></code> (100TB)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>Use the following commands to download the WarpX source code and switch to the correct branch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+</pre></div>
+</div>
+<p>On Perlmutter, you can run either on GPU nodes with fast A100 GPUs (recommended) or CPU nodes.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+A100 GPUs</label><div class="sd-tab-content docutils">
+<blockquote>
+<div><p>We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/perlmutter_gpu_warpx.profile</span></code>).</p>
+<p>We recommend to store the above lines in a file, such as <code class="docutils literal notranslate"><span class="pre">$HOME/perlmutter_gpu_warpx.profile</span></code>, and load it into your shell after a login:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/perlmutter_gpu_warpx.profile
+</pre></div>
+</div>
+<p>And since Perlmutter does not yet provide a module for them, install ADIOS2, BLAS++ and LAPACK++:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># c-blosc (I/O compression)</span>
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.21.1<span class="w"> </span>https://github.com/Blosc/c-blosc.git<span class="w"> </span>src/c-blosc
+rm<span class="w"> </span>-rf<span class="w"> </span>src/c-blosc-pm-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/c-blosc<span class="w"> </span>-B<span class="w"> </span>src/c-blosc-pm-build<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_BENCHMARKS<span class="o">=</span>OFF<span class="w"> </span>-DDEACTIVATE_AVX2<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/gpu/c-blosc-1.21.1
+cmake<span class="w"> </span>--build<span class="w"> </span>src/c-blosc-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># ADIOS2</span>
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v2.8.3<span class="w"> </span>https://github.com/ornladios/ADIOS2.git<span class="w"> </span>src/adios2
+rm<span class="w"> </span>-rf<span class="w"> </span>src/adios2-pm-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/adios2<span class="w"> </span>-B<span class="w"> </span>src/adios2-pm-build<span class="w"> </span>-DADIOS2_USE_Blosc<span class="o">=</span>ON<span class="w"> </span>-DADIOS2_USE_Fortran<span class="o">=</span>OFF<span class="w"> </span>-DADIOS2_USE_Python<span class="o">=</span>OFF<span class="w"> </span>-DADIOS2_USE_ZeroMQ<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/gpu/adios2-2.8.3
+cmake<span class="w"> </span>--build<span class="w"> </span>src/adios2-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>-j<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># BLAS++ (for PSATD+RZ)</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/icl-utk-edu/blaspp.git<span class="w"> </span>src/blaspp
+rm<span class="w"> </span>-rf<span class="w"> </span>src/blaspp-pm-build
+<span class="nv">CXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>CC<span class="k">)</span><span class="w"> </span>cmake<span class="w"> </span>-S<span class="w"> </span>src/blaspp<span class="w"> </span>-B<span class="w"> </span>src/blaspp-pm-build<span class="w"> </span>-Duse_openmp<span class="o">=</span>OFF<span class="w"> </span>-Dgpu_backend<span class="o">=</span>cuda<span class="w"> </span>-DCMAKE_CXX_STANDARD<span class="o">=</span><span class="m">17</span><span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/gpu/blaspp-master
+cmake<span class="w"> </span>--build<span class="w"> </span>src/blaspp-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># LAPACK++ (for PSATD+RZ)</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/icl-utk-edu/lapackpp.git<span class="w"> </span>src/lapackpp
+rm<span class="w"> </span>-rf<span class="w"> </span>src/lapackpp-pm-build
+<span class="nv">CXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>CC<span class="k">)</span><span class="w"> </span><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;-DLAPACK_FORTRAN_ADD_&quot;</span><span class="w"> </span>cmake<span class="w"> </span>-S<span class="w"> </span>src/lapackpp<span class="w"> </span>-B<span class="w"> </span>src/lapackpp-pm-build<span class="w"> </span>-DCMAKE_CXX_STANDARD<span class="o">=</span><span class="m">17</span><span class="w"> </span>-Dbuild_tests<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/gpu/lapackpp-master
+cmake<span class="w"> </span>--build<span class="w"> </span>src/lapackpp-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">16</span>
+</pre></div>
+</div>
+<p>Optionally, download and install Python packages for <a class="reference internal" href="../../usage/python.html#usage-picmi"><span class="std std-ref">PICMI</span></a> or dynamic ensemble optimizations (<a class="reference internal" href="../../usage/workflows/libensemble.html#libensemble"><span class="std std-ref">libEnsemble</span></a>):</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>virtualenv
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>cache<span class="w"> </span>purge
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/gpu/venvs/warpx
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/gpu/venvs/warpx
+<span class="nb">source</span><span class="w"> </span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/gpu/venvs/warpx/bin/activate
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>wheel
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>cython
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>numpy
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pandas
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>scipy
+<span class="nv">MPICC</span><span class="o">=</span><span class="s2">&quot;cc -target-accel=nvidia80 -shared&quot;</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>mpi4py<span class="w"> </span>--no-build-isolation<span class="w"> </span>--no-binary<span class="w"> </span>mpi4py
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>openpmd-api
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>matplotlib
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>yt
+<span class="c1"># optional: for libEnsemble</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span><span class="nv">$HOME</span>/src/warpx/Tools/LibEnsemble/requirements.txt
+<span class="c1"># optional: for optimas (based on libEnsemble &amp; ax-&gt;botorch-&gt;gpytorch-&gt;pytorch)</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>torch<span class="w">  </span><span class="c1"># CUDA 11.7 compatible wheel</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span><span class="nv">$HOME</span>/src/warpx/Tools/optimas/requirements.txt
+</pre></div>
+</div>
+<p>Then, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the directory <code class="docutils literal notranslate"><span class="pre">$HOME/src/warpx</span></code> and use the following commands to compile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+rm<span class="w"> </span>-rf<span class="w"> </span>build
+
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span><span class="m">3</span><span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>CUDA<span class="w"> </span>-DWarpX_PSATD<span class="o">=</span>ON
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">16</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+CPU Nodes</label><div class="sd-tab-content docutils">
+<blockquote>
+<div><p>We use the following modules and environments on the system (<code class="docutils literal notranslate"><span class="pre">$HOME/perlmutter_cpu_warpx.profile</span></code>).</p>
+<p>We recommend to store the above lines in a file, such as <code class="docutils literal notranslate"><span class="pre">$HOME/perlmutter_cpu_warpx.profile</span></code>, and load it into your shell after a login:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span><span class="nv">$HOME</span>/perlmutter_cpu_warpx.profile
+</pre></div>
+</div>
+<p>And since Perlmutter does not yet provide a module for them, install ADIOS2, BLAS++ and LAPACK++:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># c-blosc (I/O compression)</span>
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.21.1<span class="w"> </span>https://github.com/Blosc/c-blosc.git<span class="w"> </span>src/c-blosc
+rm<span class="w"> </span>-rf<span class="w"> </span>src/c-blosc-pm-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/c-blosc<span class="w"> </span>-B<span class="w"> </span>src/c-blosc-pm-build<span class="w"> </span>-DBUILD_TESTS<span class="o">=</span>OFF<span class="w"> </span>-DBUILD_BENCHMARKS<span class="o">=</span>OFF<span class="w"> </span>-DDEACTIVATE_AVX2<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/cpu/c-blosc-1.21.1
+cmake<span class="w"> </span>--build<span class="w"> </span>src/c-blosc-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># ADIOS2</span>
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v2.8.3<span class="w"> </span>https://github.com/ornladios/ADIOS2.git<span class="w"> </span>src/adios2
+rm<span class="w"> </span>-rf<span class="w"> </span>src/adios2-pm-build
+cmake<span class="w"> </span>-S<span class="w"> </span>src/adios2<span class="w"> </span>-B<span class="w"> </span>src/adios2-pm-build<span class="w"> </span>-DADIOS2_USE_Blosc<span class="o">=</span>ON<span class="w"> </span>-DADIOS2_USE_CUDA<span class="o">=</span>OFF<span class="w"> </span>-DADIOS2_USE_Fortran<span class="o">=</span>OFF<span class="w"> </span>-DADIOS2_USE_Python<span class="o">=</span>OFF<span class="w"> </span>-DADIOS2_USE_ZeroMQ<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/cpu/adios2-2.8.3
+cmake<span class="w"> </span>--build<span class="w"> </span>src/adios2-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>-j<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># BLAS++ (for PSATD+RZ)</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/icl-utk-edu/blaspp.git<span class="w"> </span>src/blaspp
+rm<span class="w"> </span>-rf<span class="w"> </span>src/blaspp-pm-build
+<span class="nv">CXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>CC<span class="k">)</span><span class="w"> </span>cmake<span class="w"> </span>-S<span class="w"> </span>src/blaspp<span class="w"> </span>-B<span class="w"> </span>src/blaspp-pm-build<span class="w"> </span>-Duse_openmp<span class="o">=</span>ON<span class="w"> </span>-Dgpu_backend<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_CXX_STANDARD<span class="o">=</span><span class="m">17</span><span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/cpu/blaspp-master
+cmake<span class="w"> </span>--build<span class="w"> </span>src/blaspp-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">16</span>
+
+<span class="c1"># LAPACK++ (for PSATD+RZ)</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/icl-utk-edu/lapackpp.git<span class="w"> </span>src/lapackpp
+rm<span class="w"> </span>-rf<span class="w"> </span>src/lapackpp-pm-build
+<span class="nv">CXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>CC<span class="k">)</span><span class="w"> </span><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;-DLAPACK_FORTRAN_ADD_&quot;</span><span class="w"> </span>cmake<span class="w"> </span>-S<span class="w"> </span>src/lapackpp<span class="w"> </span>-B<span class="w"> </span>src/lapackpp-pm-build<span class="w"> </span>-DCMAKE_CXX_STANDARD<span class="o">=</span><span class="m">17</span><span class="w"> </span>-Dbuild_tests<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_INSTALL_RPATH_USE_LINK_PATH<span class="o">=</span>ON<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/cpu/lapackpp-master
+cmake<span class="w"> </span>--build<span class="w"> </span>src/lapackpp-pm-build<span class="w"> </span>--target<span class="w"> </span>install<span class="w"> </span>--parallel<span class="w"> </span><span class="m">16</span>
+</pre></div>
+</div>
+<p>Optionally, download and install Python packages for <a class="reference internal" href="../../usage/python.html#usage-picmi"><span class="std std-ref">PICMI</span></a> or dynamic ensemble optimizations (<a class="reference internal" href="../../usage/workflows/libensemble.html#libensemble"><span class="std std-ref">libEnsemble</span></a>):</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>virtualenv
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>cache<span class="w"> </span>purge
+rm<span class="w"> </span>-rf<span class="w"> </span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/cpu/venvs/warpx
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/cpu/venvs/warpx
+<span class="nb">source</span><span class="w"> </span><span class="si">${</span><span class="nv">CFS</span><span class="si">}</span>/<span class="si">${</span><span class="nv">proj</span><span class="p">%_g</span><span class="si">}</span>/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/sw/perlmutter/cpu/venvs/warpx/bin/activate
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>wheel
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>cython
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>numpy
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pandas
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>scipy
+<span class="nv">MPICC</span><span class="o">=</span><span class="s2">&quot;cc -shared&quot;</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>mpi4py<span class="w"> </span>--no-build-isolation<span class="w"> </span>--no-binary<span class="w"> </span>mpi4py
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>openpmd-api
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>matplotlib
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>yt
+<span class="c1"># optional: for libEnsemble</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span><span class="nv">$HOME</span>/src/warpx/Tools/LibEnsemble/requirements.txt
+</pre></div>
+</div>
+<p>Then, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into the directory <code class="docutils literal notranslate"><span class="pre">$HOME/src/warpx</span></code> and use the following commands to compile:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+rm<span class="w"> </span>-rf<span class="w"> </span>build
+
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span><span class="m">3</span><span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>OMP<span class="w"> </span>-DWarpX_PSATD<span class="o">=</span>ON
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">16</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The general <a class="reference internal" href="../cmake.html#building-cmake"><span class="std std-ref">cmake compile-time options</span></a> apply as usual.</p>
+<p><strong>That’s it!</strong>
+A 3D WarpX executable is now in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code> and <a class="reference internal" href="#running-cpp-perlmutter"><span class="std std-ref">can be run</span></a> with a <a class="reference internal" href="../../usage/examples.html#usage-examples"><span class="std std-ref">3D example inputs file</span></a>.
+Most people execute the binary directly or copy it out to a location in <code class="docutils literal notranslate"><span class="pre">$PSCRATCH</span></code>.</p>
+<p>For a <em>full PICMI install</em>, follow the <a class="reference internal" href="../cmake.html#building-cmake-python"><span class="std std-ref">instructions for Python (PICMI) bindings</span></a>:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+A100 GPUs</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">WARPX_COMPUTE</span><span class="o">=</span>CUDA
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+CPU Nodes</label><div class="sd-tab-content docutils">
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">WARPX_COMPUTE</span><span class="o">=</span>OMP
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># PICMI build</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+
+<span class="c1"># install or update dependencies</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c1"># compile parallel PICMI interfaces in 3D, 2D, 1D and RZ</span>
+<span class="nv">WARPX_MPI</span><span class="o">=</span>ON<span class="w"> </span><span class="nv">WARPX_PSATD</span><span class="o">=</span>ON<span class="w"> </span><span class="nv">BUILD_PARALLEL</span><span class="o">=</span><span class="m">16</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--force-reinstall<span class="w"> </span>--no-deps<span class="w"> </span>-v<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Or, if you are <em>developing</em>, do a quick PICMI install of a <em>single geometry</em> (see: <a class="reference internal" href="../cmake.html#building-cmake-options"><span class="std std-ref">WarpX_DIMS</span></a>) using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># find dependencies &amp; configure</span>
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span><span class="si">${</span><span class="nv">WARPX_COMPUTE</span><span class="si">}</span><span class="w"> </span>-DWarpX_PSATD<span class="o">=</span>ON<span class="w"> </span>-DWarpX_LIB<span class="o">=</span>ON<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span>RZ
+
+<span class="c1"># build and then call &quot;python3 -m pip install ...&quot;</span>
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>pip_install<span class="w"> </span>-j<span class="w"> </span><span class="m">16</span>
+</pre></div>
+</div>
+</section>
+<section id="running">
+<span id="running-cpp-perlmutter"></span><h2>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h2>
+<section id="a100-gpus-40-gb">
+<span id="running-cpp-perlmutter-a100-gpus"></span><h3>A100 GPUs (40 GB)<a class="headerlink" href="#a100-gpus-40-gb" title="Link to this heading"></a></h3>
+<p>The batch script below can be used to run a WarpX simulation on multiple nodes (change <code class="docutils literal notranslate"><span class="pre">-N</span></code> accordingly) on the supercomputer Perlmutter at NERSC.
+This partition as up to <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/architecture/">1536 nodes</a>.</p>
+<p>Replace descriptions between chevrons <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> by relevant values, for instance <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">file&gt;</span></code> could be <code class="docutils literal notranslate"><span class="pre">plasma_mirror_inputs</span></code>.
+Note that we run one MPI rank per GPU.</p>
+<p>To run a simulation, copy the lines above to a file <code class="docutils literal notranslate"><span class="pre">perlmutter_gpu.sbatch</span></code> and run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sbatch<span class="w"> </span>perlmutter.sbatch
+</pre></div>
+</div>
+<p>to submit the job.</p>
+</section>
+<section id="a100-gpus-80-gb">
+<h3>A100 GPUs (80 GB)<a class="headerlink" href="#a100-gpus-80-gb" title="Link to this heading"></a></h3>
+<p>Perlmutter has <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/architecture/">256 nodes</a> that provide 80 GB HBM per A100 GPU.
+Replace <code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">gpu</span></code> with <code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">gpu&amp;hbm80g</span></code> in the above job script to use these large-memory GPUs.</p>
+</section>
+<section id="cpus-2x-amd-epyc-7763">
+<span id="running-cpp-perlmutter-cpus"></span><h3>CPUs: 2x AMD EPYC 7763<a class="headerlink" href="#cpus-2x-amd-epyc-7763" title="Link to this heading"></a></h3>
+<p>The Perlmutter CPU partition as up to <a class="reference external" href="https://docs.nersc.gov/systems/perlmutter/architecture/">3072 nodes</a>.</p>
+</section>
+</section>
+<section id="post-processing">
+<span id="post-processing-perlmutter"></span><h2>Post-Processing<a class="headerlink" href="#post-processing" title="Link to this heading"></a></h2>
+<p>For post-processing, most users use Python via NERSC’s <a class="reference external" href="https://jupyter.nersc.gov">Jupyter service</a> (<a class="reference external" href="https://docs.nersc.gov/services/jupyter/">Docs</a>).</p>
+<p>Please follow the same process as for <a class="reference internal" href="cori.html#post-processing-cori"><span class="std std-ref">NERSC Cori post-processing</span></a>.
+<strong>Important:</strong> The <em>environment + Jupyter kernel</em> must separate from the one you create for Cori.</p>
+<p>The Perlmutter <code class="docutils literal notranslate"><span class="pre">$PSCRATCH</span></code> filesystem is only available on <em>Perlmutter</em> Jupyter nodes.
+Likewise, Cori’s <code class="docutils literal notranslate"><span class="pre">$SCRATCH</span></code> filesystem is only available on <em>Cori</em> Jupyter nodes.
+You can use the Community FileSystem (CFS) from everywhere.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

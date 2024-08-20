@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developers &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/install/cmake.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="developers">
+<span id="building-cmake-intro"></span><span id="building-cmake"></span><span id="install-developers"></span><h1>Developers<a class="headerlink" href="#developers" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://cmake.org">CMake</a> is our primary build system.
+If you are new to CMake, <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/">this short tutorial</a> from the HEP Software foundation is the perfect place to get started.
+If you just want to use CMake to build the project, jump into sections <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/01-intro/index.html">1. Introduction</a>, <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/02-building/index.html">2. Building with CMake</a> and <a class="reference external" href="https://hsf-training.github.io/hsf-training-cmake-webpage/09-findingpackages/index.html">9. Finding Packages</a>.</p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p>Before you start, you will need a copy of the WarpX source code:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ECP-WarpX/WarpX.git<span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME</span>/src/warpx
+</pre></div>
+</div>
+<p>WarpX depends on popular third party software.</p>
+<ul class="simple">
+<li><p>On your development machine, <a class="reference internal" href="dependencies.html#install-dependencies"><span class="std std-ref">follow the instructions here</span></a>.</p></li>
+<li><p>If you are on an HPC machine, <a class="reference internal" href="hpc.html#install-hpc"><span class="std std-ref">follow the instructions here</span></a>.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="compile">
+<h2>Compile<a class="headerlink" href="#compile" title="Link to this heading"></a></h2>
+<p>From the base of the WarpX source directory, execute:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># find dependencies &amp; configure</span>
+<span class="c1">#   see additional options below, e.g.</span>
+<span class="c1">#                   -DCMAKE_INSTALL_PREFIX=$HOME/sw/warpx</span>
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build
+
+<span class="c1"># compile, here we use four threads</span>
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
+</pre></div>
+</div>
+<p><strong>That’s it!</strong>
+A 3D WarpX binary is now in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code> and <a class="reference internal" href="../usage/run_magnex.html#usage-run"><span class="std std-ref">can be run</span></a> with a <a class="reference internal" href="../usage/examples.html#usage-examples"><span class="std std-ref">3D example inputs file</span></a>.
+Most people execute the binary directly or copy it out.</p>
+<p>If you want to install the executables in a programmatic way, run this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># for default install paths, you will need administrator rights, e.g. with sudo:</span>
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>install
+</pre></div>
+</div>
+<p>You can inspect and modify build options after running <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-S</span> <span class="pre">.</span> <span class="pre">-B</span> <span class="pre">build</span></code> with either</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ccmake<span class="w"> </span>build
+</pre></div>
+</div>
+<p>or by adding arguments with <code class="docutils literal notranslate"><span class="pre">-D&lt;OPTION&gt;=&lt;VALUE&gt;</span></code> to the first CMake call.
+For example, this builds WarpX in 2D geometry and enables Nvidia GPU (CUDA) support:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span><span class="m">2</span><span class="w"> </span>-DWarpX_COMPUTE<span class="o">=</span>CUDA
+</pre></div>
+</div>
+</section>
+<section id="build-options">
+<span id="building-cmake-options"></span><h2>Build Options<a class="headerlink" href="#build-options" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>CMake Option</p></th>
+<th class="head"><p>Default &amp; Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE</span></code></p></td>
+<td><p>RelWithDebInfo/<strong>Release</strong>/Debug</p></td>
+<td><p>Type of build, symbols &amp; optimizations</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_PREFIX</span></code></p></td>
+<td><p>system-dependent path</p></td>
+<td><p>Install path prefix</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">CMAKE_VERBOSE_MAKEFILE</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Print all compiler commands to the terminal during build</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PYINSTALLOPTIONS</span></code></p></td>
+<td></td>
+<td><p>Additional options for <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>, e.g., <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">--user</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_APP</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Build the WarpX executable application</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_ASCENT</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Ascent in situ visualization</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_COMPUTE</span></code></p></td>
+<td><p>NOACC/<strong>OMP</strong>/CUDA/SYCL/HIP</p></td>
+<td><p>On-node, accelerated computing backend</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_DIMS</span></code></p></td>
+<td><p><strong>3</strong>/2/1/RZ</p></td>
+<td><p>Simulation dimensionality</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_EB</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Embedded boundary support (not supported in RZ yet)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_GPUCLOCK</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Add GPU kernel timers (cost function, +4 registers/kernel)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_IPO</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Compile WarpX with interprocedural optimization (aka LTO)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_LIB</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Build WarpX as a shared library, e.g., for PICMI Python</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_MPI</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Multi-node support (message-passing)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_MPI_THREAD_MULTIPLE</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>MPI thread-multiple support, i.e. for <code class="docutils literal notranslate"><span class="pre">async_io</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_OPENPMD</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>openPMD I/O (HDF5, ADIOS)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_PRECISION</span></code></p></td>
+<td><p>SINGLE/<strong>DOUBLE</strong></p></td>
+<td><p>Floating point precision (single/double)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_PARTICLE_PRECISION</span></code></p></td>
+<td><p>SINGLE/<strong>DOUBLE</strong></p></td>
+<td><p>Particle floating point precision (single/double), defaults to WarpX_PRECISION value if not set</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_PSATD</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Spectral solver</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_QED</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>QED support (requires PICSAR)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_QED_TABLE_GEN</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>QED table generation support (requires PICSAR and Boost)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_SENSEI</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>SENSEI in situ visualization</p></td>
+</tr>
+</tbody>
+</table>
+<p>WarpX can be configured in further detail with options from AMReX, which are documented in the AMReX manual:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/BuildingAMReX.html#customization-options">general AMReX build options</a></p></li>
+<li><p><a class="reference external" href="https://amrex-codes.github.io/amrex/docs_html/GPU.html#building-gpu-support">GPU-specific options</a>.</p></li>
+</ul>
+<p><strong>Developers</strong> might be interested in additional options that control dependencies of WarpX.
+By default, the most important dependencies of WarpX are automatically downloaded for convenience:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>CMake Option</p></th>
+<th class="head"><p>Default &amp; Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BUILD_SHARED_LIBS</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Build shared libraries for dependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">CCACHE_PROGRAM</span></code></p></td>
+<td><p>First found <code class="docutils literal notranslate"><span class="pre">ccache</span></code> executable.</p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">-DCCACHE_PROGRAM=NO</span></code> to disable CCache.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">AMReX_CUDA_PTX_VERBOSE</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Print CUDA code generation statistics from <code class="docutils literal notranslate"><span class="pre">ptxas</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_amrex_src</span></code></p></td>
+<td><p><em>None</em></p></td>
+<td><p>Path to AMReX source directory (preferred if set)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_amrex_repo</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://github.com/AMReX-Codes/amrex.git</span></code></p></td>
+<td><p>Repository URI to pull and build AMReX from</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_amrex_branch</span></code></p></td>
+<td><p><em>we set and maintain a compatible commit</em></p></td>
+<td><p>Repository branch for <code class="docutils literal notranslate"><span class="pre">WarpX_amrex_repo</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_amrex_internal</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Needs a pre-installed AMReX library if set to <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_openpmd_src</span></code></p></td>
+<td><p><em>None</em></p></td>
+<td><p>Path to openPMD-api source directory (preferred if set)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_openpmd_repo</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://github.com/openPMD/openPMD-api.git</span></code></p></td>
+<td><p>Repository URI to pull and build openPMD-api from</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_openpmd_branch</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.15.1</span></code></p></td>
+<td><p>Repository branch for <code class="docutils literal notranslate"><span class="pre">WarpX_openpmd_repo</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_openpmd_internal</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Needs a pre-installed openPMD-api library if set to <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_picsar_src</span></code></p></td>
+<td><p><em>None</em></p></td>
+<td><p>Path to PICSAR source directory (preferred if set)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_picsar_repo</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">https://github.com/ECP-WarpX/picsar.git</span></code></p></td>
+<td><p>Repository URI to pull and build PICSAR from</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_picsar_branch</span></code></p></td>
+<td><p><em>we set and maintain a compatible commit</em></p></td>
+<td><p>Repository branch for <code class="docutils literal notranslate"><span class="pre">WarpX_picsar_repo</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WarpX_picsar_internal</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Needs a pre-installed PICSAR library if set to <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>For example, one can also build against a local AMReX copy.
+Assuming AMReX’ source is located in <code class="docutils literal notranslate"><span class="pre">$HOME/src/amrex</span></code>, add the <code class="docutils literal notranslate"><span class="pre">cmake</span></code> argument <code class="docutils literal notranslate"><span class="pre">-DWarpX_amrex_src=$HOME/src/amrex</span></code>.
+Relative paths are also supported, e.g. <code class="docutils literal notranslate"><span class="pre">-DWarpX_amrex_src=../amrex</span></code>.</p>
+<p>Or build against an AMReX feature branch of a colleague.
+Assuming your colleague pushed AMReX to <code class="docutils literal notranslate"><span class="pre">https://github.com/WeiqunZhang/amrex/</span></code> in a branch <code class="docutils literal notranslate"><span class="pre">new-feature</span></code> then pass to <code class="docutils literal notranslate"><span class="pre">cmake</span></code> the arguments: <code class="docutils literal notranslate"><span class="pre">-DWarpX_amrex_repo=https://github.com/WeiqunZhang/amrex.git</span> <span class="pre">-DWarpX_amrex_branch=new-feature</span></code>.</p>
+<p>You can speed up the install further if you pre-install these dependencies, e.g. with a package manager.
+Set <code class="docutils literal notranslate"><span class="pre">-DWarpX_&lt;dependency-name&gt;_internal=OFF</span></code> and add installation prefix of the dependency to the environment variable <a class="reference external" href="https://cmake.org/cmake/help/latest/envvar/CMAKE_PREFIX_PATH.html">CMAKE_PREFIX_PATH</a>.
+Please see the <a class="reference internal" href="#building-cmake-intro"><span class="std std-ref">introduction to CMake</span></a> if this sounds new to you.</p>
+<p>If you re-compile often, consider installing the <a class="reference external" href="https://github.com/ninja-build/ninja/wiki/Pre-built-Ninja-packages">Ninja</a> build system.
+Pass <code class="docutils literal notranslate"><span class="pre">-G</span> <span class="pre">Ninja</span></code> to the CMake configuration call to speed up parallel compiles.</p>
+</section>
+<section id="configure-your-compiler">
+<span id="building-cmake-envvars"></span><h2>Configure your compiler<a class="headerlink" href="#configure-your-compiler" title="Link to this heading"></a></h2>
+<p>If you don’t want to use your default compiler, you can set the following environment variables.
+For example, using a Clang/LLVM:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>clang<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>clang++<span class="k">)</span>
+</pre></div>
+</div>
+<p>If you also want to select a CUDA compiler:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CUDACXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>nvcc<span class="k">)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CUDAHOSTCXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>clang++<span class="k">)</span>
+</pre></div>
+</div>
+<p>We also support adding <a class="reference external" href="https://cmake.org/cmake/help/latest/manual/cmake-language.7.html#cmake-language-environment-variables">additional compiler flags via environment variables</a> such as <a class="reference external" href="https://cmake.org/cmake/help/latest/envvar/CXXFLAGS.html">CXXFLAGS</a>/<a class="reference external" href="https://cmake.org/cmake/help/latest/envvar/LDFLAGS.html">LDFLAGS</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># example: treat all compiler warnings as errors</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">CXXFLAGS</span><span class="o">=</span><span class="s2">&quot;-Werror&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please clean your build directory with <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">build/</span></code> after changing the compiler.
+Now call <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">-S</span> <span class="pre">.</span> <span class="pre">-B</span> <span class="pre">build</span></code> (+ further options) again to re-initialize the build configuration.</p>
+</div>
+</section>
+<section id="run">
+<h2>Run<a class="headerlink" href="#run" title="Link to this heading"></a></h2>
+<p>An executable WarpX binary with the current compile-time options encoded in its file name will be created in <code class="docutils literal notranslate"><span class="pre">build/bin/</span></code>.
+Note that you need separate binaries to run 1D, 2D, 3D, and RZ geometry inputs scripts.
+Additionally, a <a class="reference external" href="https://en.wikipedia.org/wiki/Symbolic_link">symbolic link</a> named <code class="docutils literal notranslate"><span class="pre">warpx</span></code> can be found in that directory, which points to the last built WarpX executable.</p>
+<p>More details on running simulations are in the section <a class="reference internal" href="../usage/run_magnex.html#usage-run"><span class="std std-ref">Run WarpX</span></a>.
+Alternatively, read on and also build our PICMI Python interface.</p>
+</section>
+<section id="picmi-python-bindings">
+<span id="building-cmake-python"></span><h2>PICMI Python Bindings<a class="headerlink" href="#picmi-python-bindings" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Preparation: make sure you work with up-to-date Python tooling.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip<span class="w"> </span>setuptools<span class="w"> </span>wheel
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>cmake
+</pre></div>
+</div>
+</div>
+<p>For PICMI Python bindings, configure WarpX to produce a library and call our <code class="docutils literal notranslate"><span class="pre">pip_install</span></code> <em>CMake target</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># find dependencies &amp; configure</span>
+cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_LIB<span class="o">=</span>ON
+
+<span class="c1"># build and then call &quot;python3 -m pip install ...&quot;</span>
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>pip_install<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
+</pre></div>
+</div>
+<p><strong>That’s it!</strong>
+You can now <a class="reference internal" href="../usage/python.html#usage-picmi"><span class="std std-ref">run a first 3D PICMI script</span></a> from our <a class="reference internal" href="../usage/examples.html#usage-examples"><span class="std std-ref">examples</span></a>.</p>
+<p>Developers could now change the WarpX source code and then call the build line again to refresh the Python installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These commands build one <code class="docutils literal notranslate"><span class="pre">-DWarpX_DIMS=...</span></code> dimensionality (default: <code class="docutils literal notranslate"><span class="pre">3</span></code>) at a time.
+If your <code class="docutils literal notranslate"><span class="pre">build/lib*/</span></code> directory contains previously built <code class="docutils literal notranslate"><span class="pre">libwarpx*</span></code> libraries, then <code class="docutils literal notranslate"><span class="pre">--target</span> <span class="pre">pip_install</span></code> picks them up as well.
+A new call to <code class="docutils literal notranslate"><span class="pre">cmake</span> <span class="pre">--build</span> <span class="pre">build</span> <span class="pre">...</span></code> will only rebuild <em>one</em> dimensionality, as set via <code class="docutils literal notranslate"><span class="pre">WarpX_DIMS</span></code>.</p>
+</div>
+<p>If you like to build a WarpX Python package that supports <em>all</em> dimensionalities, you can run this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>RZ<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span><span class="nv">$d</span><span class="w"> </span>-DWarpX_LIB<span class="o">=</span>ON
+<span class="w">    </span>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
+<span class="k">done</span>
+cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--target<span class="w"> </span>pip_install
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you do <em>not</em> develop with <a class="reference internal" href="dependencies.html#install-dependencies"><span class="std std-ref">a user-level package manager</span></a>, e.g., because you rely on a HPC system’s environment modules, then consider to set up a virtual environment via <a class="reference external" href="https://docs.python.org/3/library/venv.html">Python venv</a>.
+Otherwise, without a virtual environment, you likely need to add the CMake option <code class="docutils literal notranslate"><span class="pre">-DPYINSTALLOPTIONS=&quot;--user&quot;</span></code>.</p>
+</div>
+</section>
+<section id="python-bindings-package-management">
+<span id="building-pip-python"></span><h2>Python Bindings (Package Management)<a class="headerlink" href="#python-bindings-package-management" title="Link to this heading"></a></h2>
+<p>This section is relevant for Python package management, mainly for maintainers or people that rather like to interact only with <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p>
+<p>One can build and install <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code> from the root of the WarpX source tree:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>wheel<span class="w"> </span>-v<span class="w"> </span>.
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pywarpx*whl
+</pre></div>
+</div>
+<p>This will call the CMake logic above implicitly.
+Using this workflow has the advantage that it can build and package up multiple libraries with varying <code class="docutils literal notranslate"><span class="pre">WarpX_DIMS</span></code> into one <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code> package.</p>
+<p>Environment variables can be used to control the build step:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Environment Variable</p></th>
+<th class="head"><p>Default &amp; Values</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_COMPUTE</span></code></p></td>
+<td><p>NOACC/<strong>OMP</strong>/CUDA/SYCL/HIP</p></td>
+<td><p>On-node, accelerated computing backend</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_DIMS</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;1;2;3;RZ&quot;</span></code></p></td>
+<td><p>Simulation dimensionalities (semicolon-separated list)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_EB</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Embedded boundary support (not supported in RZ yet)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_MPI</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Multi-node support (message-passing)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_OPENPMD</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>openPMD I/O (HDF5, ADIOS)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_PRECISION</span></code></p></td>
+<td><p>SINGLE/<strong>DOUBLE</strong></p></td>
+<td><p>Floating point precision (single/double)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_PARTICLE_PRECISION</span></code></p></td>
+<td><p>SINGLE/<strong>DOUBLE</strong></p></td>
+<td><p>Particle floating point precision (single/double), defaults to WarpX_PRECISION value if not set</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_PSATD</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Spectral solver</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_QED</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>PICSAR QED (requires PICSAR)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_QED_TABLE_GEN</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>QED table generation (requires PICSAR and Boost)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BUILD_PARALLEL</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>Number of threads to use for parallel builds</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BUILD_SHARED_LIBS</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Build shared libraries for dependencies</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">HDF5_USE_STATIC_LIBRARIES</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Prefer static libraries for HDF5 dependency (openPMD)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ADIOS_USE_STATIC_LIBS</span></code></p></td>
+<td><p>ON/<strong>OFF</strong></p></td>
+<td><p>Prefer static libraries for ADIOS1 dependency (openPMD)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_AMREX_SRC</span></code></p></td>
+<td><p><em>None</em></p></td>
+<td><p>Absolute path to AMReX source directory (preferred if set)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_AMREX_REPO</span></code></p></td>
+<td><p><em>None (uses cmake default)</em></p></td>
+<td><p>Repository URI to pull and build AMReX from</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_AMREX_BRANCH</span></code></p></td>
+<td><p><em>None (uses cmake default)</em></p></td>
+<td><p>Repository branch for <code class="docutils literal notranslate"><span class="pre">WARPX_AMREX_REPO</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_AMREX_INTERNAL</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Needs a pre-installed AMReX library if set to <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_OPENPMD_SRC</span></code></p></td>
+<td><p><em>None</em></p></td>
+<td><p>Absolute path to openPMD-api source directory (preferred if set)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_OPENPMD_INTERNAL</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Needs a pre-installed openPMD-api library if set to <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_PICSAR_SRC</span></code></p></td>
+<td><p><em>None</em></p></td>
+<td><p>Absolute path to PICSAR source directory (preferred if set)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_PICSAR_INTERNAL</span></code></p></td>
+<td><p><strong>ON</strong>/OFF</p></td>
+<td><p>Needs a pre-installed PICSAR library if set to <code class="docutils literal notranslate"><span class="pre">OFF</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">WARPX_CCACHE_PROGRAM</span></code></p></td>
+<td><p>First found <code class="docutils literal notranslate"><span class="pre">ccache</span></code> executable.</p></td>
+<td><p>Set to <code class="docutils literal notranslate"><span class="pre">NO</span></code> to disable CCache.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">PYWARPX_LIB_DIR</span></code></p></td>
+<td><p><em>None</em></p></td>
+<td><p>If set, search for pre-built WarpX C++ libraries (see below)</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note that we currently change the <code class="docutils literal notranslate"><span class="pre">WARPX_MPI</span></code> default intentionally to <code class="docutils literal notranslate"><span class="pre">OFF</span></code>, to simplify a first install from source.</p>
+<p>Some hints and workflows follow.
+Developers, that want to test a change of the source code but did not change the <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code> version number, can force a reinstall via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--force-reinstall<span class="w"> </span>--no-deps<span class="w"> </span>-v<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Some Developers like to code directly against a local copy of AMReX, changing both code-bases at a time:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">WARPX_AMREX_SRC</span><span class="o">=</span><span class="nv">$PWD</span>/../amrex<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--force-reinstall<span class="w"> </span>--no-deps<span class="w"> </span>-v<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Additional environment control as common for CMake (<a class="reference internal" href="#building-cmake-intro"><span class="std std-ref">see above</span></a>) can be set as well, e.g. <code class="docutils literal notranslate"><span class="pre">CC</span></code>, <cite>CXX`</cite>, and <code class="docutils literal notranslate"><span class="pre">CMAKE_PREFIX_PATH</span></code> hints.
+So another sophisticated example might be: use Clang as the compiler, build with local source copies of PICSAR and AMReX, support the PSATD solver, MPI and openPMD, hint a parallel HDF5 installation in <code class="docutils literal notranslate"><span class="pre">$HOME/sw/hdf5-parallel-1.10.4</span></code>, and only build 3D geometry:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">CC</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>clang<span class="k">)</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>clang++<span class="k">)</span><span class="w"> </span><span class="nv">WARPX_AMREX_SRC</span><span class="o">=</span><span class="nv">$PWD</span>/../amrex<span class="w"> </span><span class="nv">WARPX_PICSAR_SRC</span><span class="o">=</span><span class="nv">$PWD</span>/../picsar<span class="w"> </span><span class="nv">WARPX_PSATD</span><span class="o">=</span>ON<span class="w"> </span><span class="nv">WARPX_MPI</span><span class="o">=</span>ON<span class="w"> </span><span class="nv">WARPX_DIMS</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="nv">$HOME</span>/sw/hdf5-parallel-1.10.4:<span class="nv">$CMAKE_PREFIX_PATH</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--force-reinstall<span class="w"> </span>--no-deps<span class="w"> </span>-v<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Here we wrote this all in one line, but one can also set all environment variables in a development environment and keep the pip call nice and short as in the beginning.
+Note that you need to use absolute paths for external source trees, because pip builds in a temporary directory, e.g. <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">WARPX_AMREX_SRC=$HOME/src/amrex</span></code>.</p>
+<p>The Python library <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code> can also be created by pre-building WarpX into one or more shared libraries externally.
+For example, a package manager might split WarpX into a C++ package and a Python package.
+If the C++ libraries are already pre-compiled, we can pick them up in the Python build step instead of compiling them again:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># build WarpX executables and libraries</span>
+<span class="k">for</span><span class="w"> </span>d<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span>RZ<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>cmake<span class="w"> </span>-S<span class="w"> </span>.<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-DWarpX_DIMS<span class="o">=</span><span class="nv">$d</span><span class="w"> </span>-DWarpX_LIB<span class="o">=</span>ON
+<span class="w">  </span>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">4</span>
+<span class="k">done</span>
+
+<span class="c1"># Python package</span>
+<span class="nv">PYWARPX_LIB_DIR</span><span class="o">=</span><span class="nv">$PWD</span>/build/lib<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>wheel<span class="w"> </span>.
+
+<span class="c1"># install</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pywarpx-*whl
+</pre></div>
+</div>
+<p>WarpX release managers might also want to generate a self-contained source package that can be distributed to exotic architectures:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>--dist-dir<span class="w"> </span>.
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>wheel<span class="w"> </span>-v<span class="w"> </span>pywarpx-*.tar.gz
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>*whl
+</pre></div>
+</div>
+<p>The above steps can also be executed in one go to build from source on a machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>setup.py<span class="w"> </span>sdist<span class="w"> </span>--dist-dir<span class="w"> </span>.
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-v<span class="w"> </span>pywarpx-*.tar.gz
+</pre></div>
+</div>
+<p>Last but not least, you can uninstall <code class="docutils literal notranslate"><span class="pre">pywarpx</span></code> as usual with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>uninstall<span class="w"> </span>pywarpx
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

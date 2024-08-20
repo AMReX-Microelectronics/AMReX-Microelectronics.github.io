@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/documentation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="documentation">
+<span id="developers-docs"></span><h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h1>
+<section id="doxygen-documentation">
+<h2>Doxygen documentation<a class="headerlink" href="#doxygen-documentation" title="Link to this heading"></a></h2>
+<p>WarpX uses a <a class="reference external" href="https://www.doxygen.nl/manual/docblocks.html">Doxygen documentation</a>.
+Whenever you create a new class, please document it where it is declared (typically in the header file):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/** A brief title</span>
+<span class="cm"> *</span>
+<span class="cm"> * few-line description explaining the purpose of my_class.</span>
+<span class="cm"> *</span>
+<span class="cm"> * If you are kind enough, also quickly explain how things in my_class work.</span>
+<span class="cm"> * (typically a few more lines)</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">my_class</span>
+<span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Doxygen reads this docstring, so please be accurate with the syntax! See <a class="reference external" href="http://www.doxygen.nl/manual/docblocks.html">Doxygen manual</a> for more information. Similarly, please document functions when you declare them (typically in a header file) like:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/** A brief title</span>
+<span class="cm"> *</span>
+<span class="cm"> * few-line description explaining the purpose of my_function.</span>
+<span class="cm"> *</span>
+<span class="cm"> * \param[in,out] my_int a pointer to an integer variable on which</span>
+<span class="cm"> *                       my_function will operate.</span>
+<span class="cm"> * \return what is the meaning and value range of the returned value</span>
+<span class="cm"> */</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">my_class::my_function</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">my_int</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>An online version of this documentation is <a class="reference internal" href="doxygen.html#development-doxygen"><span class="std std-ref">linked here</span></a>.</p>
+</section>
+<section id="breathe-documentation">
+<h2>Breathe documentation<a class="headerlink" href="#breathe-documentation" title="Link to this heading"></a></h2>
+<p>Your Doxygen documentation is not only useful for people looking into the code, it is also part of the <a class="reference external" href="https://ecp-warpx.github.io">WarpX online documentation</a> based on <a class="reference external" href="http://www.sphinx-doc.org">Sphinx</a>!
+This is done using the Python module <a class="reference external" href="http://breathe.readthedocs.org">Breathe</a>, that allows you to write Doxygen documentation directly in the source and have it included it in your Sphinx documentation, by calling Breathe functions.
+For instance, the following line will get the Doxygen documentation for <code class="docutils literal notranslate"><span class="pre">WarpXParticleContainer</span></code> in <code class="docutils literal notranslate"><span class="pre">Source/Particles/WarpXParticleContainer.H</span></code> and include it to the html page generated by Sphinx:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">doxygenclass</span><span class="p">::</span> WarpXParticleContainer
+</pre></div>
+</div>
+</section>
+<section id="building-the-documentation">
+<h2>Building the documentation<a class="headerlink" href="#building-the-documentation" title="Link to this heading"></a></h2>
+<p>To build the documentation on your local computer, you will need to install Doxygen as well as the Python module <cite>breathe</cite>.
+First, make sure you are in the root directory of WarpX’s source and install the Python requirements:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>Docs/requirements.txt
+</pre></div>
+</div>
+<p>You will also need Doxygen (macOS: <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">doxygen</span></code>; Ubuntu: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">doxygen</span></code>).</p>
+<p>Then, to compile the documentation, use</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Docs/
+
+make<span class="w"> </span>html
+<span class="c1"># This will first compile the Doxygen documentation (execute doxygen)</span>
+<span class="c1"># and then build html pages from rst files using sphinx and breathe.</span>
+</pre></div>
+</div>
+<p>Open the created <code class="docutils literal notranslate"><span class="pre">build/html/index.html</span></code> file with your favorite browser.
+Rebuild and refresh as needed.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

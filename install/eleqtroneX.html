@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELEQTRONeX &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="FerroX" href="ferrox.html" />
+    <link rel="prev" title="ARTEMIS" href="artemis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ELEQTRONeX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download">1. Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-parameters">2. Build Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preprocessor-flags">3. Preprocessor Flags</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ELEQTRONeX</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/install/eleqtroneX.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="eleqtronex">
+<span id="install-ferrox"></span><h1>ELEQTRONeX<a class="headerlink" href="#eleqtronex" title="Link to this heading"></a></h1>
+<style>
+.rst-content section>img {
+    width: 30px;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 15px;
+    margin-left: 15px;
+    float: left;
+}
+</style><p>Our community is here to help.
+Please <a class="reference external" href="https://github.com/AMReX-Microelectronics/ELEQTRONeX/issues/new">report installation problems</a> in case you are stuck.</p>
+<p>Follow these instructions for compilation.</p>
+<section id="download">
+<h2>1. Download<a class="headerlink" href="#download" title="Link to this heading"></a></h2>
+<p>To download the codes in your local linux system or on a specific high-performance computing (HPC) system:</p>
+<p>Download AMReX Repository as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:AMReX-Codes/amrex.git
+</pre></div>
+</div>
+<p>Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git@github.com:AMReX-Microelectronics/ELEQTRONeX.git
+</pre></div>
+</div>
+</section>
+<section id="build-parameters">
+<h2>2. Build Parameters<a class="headerlink" href="#build-parameters" title="Link to this heading"></a></h2>
+<p>Navigate to the <code class="docutils literal notranslate"><span class="pre">Exec/</span></code> folder of ELEQTRONeX and execute</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-j<span class="w"> </span>&lt;np&gt;
+</pre></div>
+</div>
+<p>Replace &lt;np&gt; with the number of processes you want to use.</p>
+<p>To build with MPI and CUDA, ensure that either MPICH or OpenMPI, along with the appropriate CUDA modules, are installed and loaded. In the <code class="docutils literal notranslate"><span class="pre">GNUmakefile</span></code> located in the <code class="docutils literal notranslate"><span class="pre">Exec/</span></code> directory, set <code class="docutils literal notranslate"><span class="pre">USE_MPI=TRUE</span></code> to enable MPI support, <code class="docutils literal notranslate"><span class="pre">USE_OMP=FALSE</span></code> to disable OpenMP, and <code class="docutils literal notranslate"><span class="pre">USE_CUDA=TRUE</span></code> to activate CUDA support for GPU utilization.</p>
+<p>Other flags are explained below, with their default values shown:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AMREX_HOME</span> <span class="pre">?=</span> <span class="pre">../../amrex</span></code> specifies the location of the AMReX library.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DEBUG=FALSE</span></code> sets the debug mode.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_HYPRE=FALSE</span></code> can be used to set HYPRE for the multigrid bottom solver. Installation instructions for HYPRE are provided <a class="reference external" href="https://amrex-codes.github.io/amrex/tutorials_html/Hypre_Install.html">here</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMP=gnu</span></code> sets the GNU compiler.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DIM=3</span></code> builds the code for 3D domain.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CXXSTD=c++17</span></code> sets  C++17 for compilation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TINY_PROFILE=FALSE</span></code> is used to enable the AMReX profiler.</p></li>
+</ul>
+<p>Set the following flags based on your configuration needs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_EB=TRUE</span></code> if the input file sets embedded boundaries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USE_TRANSPORT=TRUE</span></code> for enabling the transport solver, which uses the nonequilibrium Green’s function (NEGF) method.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COMPUTE_GREENS_FUNCTION_OFFDIAG_ELEMS=FALSE</span></code> and <code class="docutils literal notranslate"><span class="pre">COMPUTE_SPECTRAL_FUNCTION_OFFDIAG_ELEMS=FALSE</span></code> to switch off computations and storage of off-diagonal elements of Green’s and spectral functions in the NEGF solver.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BROYDEN_PARALLEL=TRUE</span></code> uses an efficient parallel version of the Broyden’s algorithm for self-consistency between electrostatics and NEGF modules.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TIME_DEPENDENT=TRUE</span></code> builds the code for accepting voltages on the embedded boundaries with varying values, for example setting a range of values to obtain full current-voltage characteristics.</p></li>
+</ul>
+</section>
+<section id="preprocessor-flags">
+<h2>3. Preprocessor Flags<a class="headerlink" href="#preprocessor-flags" title="Link to this heading"></a></h2>
+<p>Set preprocessor flags in the <code class="docutils literal notranslate"><span class="pre">../Source/Code_Definitions.H</span></code> file before compiling the code, depending on your configuration needs.</p>
+<p>The important ones are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">NUM_MODES</span> <span class="pre">1</span></code> sets the size of block for each matrix element used in NEGF.
+For example, for modeling carbon nanotubes with single mode using mode-space approximation, NUM_MODES is set to 1, which implies each element of Hamiltonian matrix is a number. If it were 2, it would be an array of size 2. For other materials, this number may set the matrix block as a submatrix of size <code class="docutils literal notranslate"><span class="pre">NUM_MODES</span> <span class="pre">x</span> <span class="pre">NUM_MODES</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#define</span> <span class="pre">NUM_CONTACTS</span> <span class="pre">2</span></code> sets number of metal leads to 2 for source and drain. At present, the code is verified for 2 leads.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="artemis.html" class="btn btn-neutral float-left" title="ARTEMIS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ferrox.html" class="btn btn-neutral float-right" title="FerroX" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

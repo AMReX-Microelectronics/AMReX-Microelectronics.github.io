@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WarpX Structure &mdash; MicroEleX 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            MicroEleX
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">INSTALLATION</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/artemis.html">ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/eleqtroneX.html">ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/ferrox.html">FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/magnex.html">MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">USAGE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_artemis.html">Run ARTEMIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_eleqtronex.html">Run ELEQTRONeX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_ferrox.html">Run FerroX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/run_magnex.html">Run MagneX</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DATA ANALYSIS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/formats.html">Output Formats and Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dataanalysis/yt.html">yt-project</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">EPILOGUE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgements.html">Funding and Acknowledgements</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MicroEleX</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">WarpX Structure</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/repo_organization.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="warpx-structure">
+<span id="developers-repo-structure"></span><h1>WarpX Structure<a class="headerlink" href="#warpx-structure" title="Link to this heading"></a></h1>
+<section id="repo-organization">
+<h2>Repo Organization<a class="headerlink" href="#repo-organization" title="Link to this heading"></a></h2>
+<p>All the WarpX source code is located in <code class="docutils literal notranslate"><span class="pre">Source/</span></code>.
+All sub-directories have a pretty straightforward name.
+The PIC loop is part of the WarpX class, in function <code class="docutils literal notranslate"><span class="pre">WarpX::EvolveEM</span></code> implemented in <code class="docutils literal notranslate"><span class="pre">Source/WarpXEvolveEM.cpp</span></code>.
+The core of the PIC loop (i.e., without diagnostics etc.) is in <code class="docutils literal notranslate"><span class="pre">WarpX::OneStep_nosub</span></code> (when subcycling is OFF) or <code class="docutils literal notranslate"><span class="pre">WarpX::OneStep_sub1</span></code> (when subcycling is ON, with method 1).
+Here is a <a class="reference external" href="https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=ECP-WarpX%2FWarpX">visual representation</a> of the repository structure.</p>
+</section>
+<section id="code-organization">
+<h2>Code organization<a class="headerlink" href="#code-organization" title="Link to this heading"></a></h2>
+<p>The main WarpX class is WarpX, implemented in <code class="docutils literal notranslate"><span class="pre">Source/WarpX.cpp</span></code>.</p>
+</section>
+<section id="build-system">
+<h2>Build System<a class="headerlink" href="#build-system" title="Link to this heading"></a></h2>
+<p>WarpX uses the <a class="reference internal" href="../install/cmake.html#building-cmake"><span class="std std-ref">CMake build system generator</span></a>.
+Each sub-folder contains a file <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> with the names of the source files (<code class="docutils literal notranslate"><span class="pre">.cpp</span></code>) that are added to the build.
+Do not list header files (<code class="docutils literal notranslate"><span class="pre">.H</span></code>) here.</p>
+<p>For experienced developers, we also support AMReX’ <a class="reference internal" href="gnumake.html#developers-gnumake"><span class="std std-ref">GNUmake build script collection</span></a>.
+The file <code class="docutils literal notranslate"><span class="pre">Make.package</span></code> in each sub-folder has the same purpose as the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file, please add new <code class="docutils literal notranslate"><span class="pre">.cpp</span></code> files to both dirs.</p>
+</section>
+<section id="c-includes">
+<span id="developers-cpp-includes"></span><h2>C++ Includes<a class="headerlink" href="#c-includes" title="Link to this heading"></a></h2>
+<p>All WarpX header files need to be specified relative to the <code class="docutils literal notranslate"><span class="pre">Source/</span></code> directory.</p>
+<ul class="simple">
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;Utils/WarpXConst.H&quot;</span></code></p></li>
+<li><p>files in the same directory as the including header-file can be included with <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;FileName.H&quot;</span></code></p></li>
+</ul>
+<p>By default, in a <code class="docutils literal notranslate"><span class="pre">MyName.cpp</span></code> source file we do not include headers already included in <code class="docutils literal notranslate"><span class="pre">MyName.H</span></code>. Besides this exception, if a function or a class
+is used in a source file, the header file containing its declaration must be included, unless the inclusion of a facade header is more appropriate. This is
+sometimes the case for AMReX headers. For instance <code class="docutils literal notranslate"><span class="pre">AMReX_GpuLaunch.H</span></code> is a façade header for <code class="docutils literal notranslate"><span class="pre">AMReX_GpuLaunchFunctsC.H</span></code> and <code class="docutils literal notranslate"><span class="pre">AMReX_GpuLaunchFunctsG.H</span></code>, which
+contain respectively the CPU and the GPU implemetation of some methods, and which should not be included directly.
+Whenever possible, forward declarations headers are included instead of the actual headers, in order to save compilation time (see dedicated section below). In WarpX forward
+declaration headers have the suffix <code class="docutils literal notranslate"><span class="pre">*_fwd.H</span></code>, while in AMReX they have the suffix <code class="docutils literal notranslate"><span class="pre">*Fwd.H</span></code>.
+The include order (see <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/pull/874#issuecomment-607038803">PR #874</a> and <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/pull/1947">PR #1947</a>) and <a class="reference external" href="https://gcc.gnu.org/onlinedocs/cpp/Include-Syntax.html">proper quotation marks</a> are:</p>
+<p>In a <code class="docutils literal notranslate"><span class="pre">MyName.cpp</span></code> file:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;MyName.H&quot;</span></code> (its header) then</p></li>
+<li><p>(further) WarpX header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;...&quot;</span></code> then</p></li>
+<li><p>WarpX forward declaration header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;..._fwd.H&quot;</span></code></p></li>
+<li><p>AMReX header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...&gt;</span></code> then</p></li>
+<li><p>AMReX forward declaration header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...Fwd.H&gt;</span></code> then</p></li>
+<li><p>PICSAR header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...&gt;</span></code> then</p></li>
+<li><p>other third party includes <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...&gt;</span></code> then</p></li>
+<li><p>standard library includes, e.g. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;vector&gt;</span></code></p></li>
+</ol>
+<p>In a <code class="docutils literal notranslate"><span class="pre">MyName.H</span></code> file:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;MyName_fwd.H&quot;</span></code> (the corresponding forward declaration header, if it exists) then</p></li>
+<li><p>WarpX header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;...&quot;</span></code> then</p></li>
+<li><p>WarpX forward declaration header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&quot;..._fwd.H&quot;</span></code></p></li>
+<li><p>AMReX header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...&gt;</span></code> then</p></li>
+<li><p>AMReX forward declaration header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...Fwd.H&gt;</span></code> then</p></li>
+<li><p>PICSAR header files <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...&gt;</span></code> then</p></li>
+<li><p>other third party includes <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;...&gt;</span></code> then</p></li>
+<li><p>standard library includes, e.g. <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;vector&gt;</span></code></p></li>
+</ol>
+<p>Each of these groups of header files should ideally be sorted alphabetically, and a blank line should be placed between the groups.</p>
+<p>For details why this is needed, please see <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/pull/874#issuecomment-607038803">PR #874</a>, <a class="reference external" href="https://github.com/ECP-WarpX/WarpX/pull/1947">PR #1947</a>, the <a class="reference external" href="https://llvm.org/docs/CodingStandards.html#include-style">LLVM guidelines</a>, and <a class="reference external" href="https://github.com/include-what-you-use/include-what-you-use/blob/master/docs/WhyIWYU.md">include-what-you-use</a>.</p>
+</section>
+<section id="forward-declaration-headers">
+<span id="developers-cpp-includes-fwd"></span><h2>Forward Declaration Headers<a class="headerlink" href="#forward-declaration-headers" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Forward_declaration">Forward declarations</a> can be used when a header file needs only to know that a given class exists, without any further detail (e.g., when only a pointer to an instance of
+that class is used). Forward declaration headers are a convenient way to organize forward declarations. If a forward declaration is needed for a given class <code class="docutils literal notranslate"><span class="pre">MyClass</span></code>, declared in <code class="docutils literal notranslate"><span class="pre">MyClass.H</span></code>,
+the forward declaration should appear in a header file named <code class="docutils literal notranslate"><span class="pre">MyClass_fwd.H</span></code>, placed in the same folder containing <code class="docutils literal notranslate"><span class="pre">MyClass.H</span></code>. As for regular header files, forward declaration headers must have
+include guards. Below we provide a simple example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">MyClass_fwd.H</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef MY_CLASS_FWD_H</span>
+<span class="cp">#define MY_CLASS_FWD_H</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="p">;</span>
+
+<span class="cp">#endif </span><span class="c1">// MY_CLASS_FWD_H</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">MyClass.H</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef MY_CLASS_H</span>
+<span class="cp">#define MY_CLASS_H</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyClass_fwd.H&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;someHeader.H&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">stuff</span><span class="w"> </span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="c1">// MY_CLASS_H</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">MyClass.cpp</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyClass.H&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">stuff</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* stuff */</span><span class="w"> </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>Usage: in <code class="docutils literal notranslate"><span class="pre">SomeType.H</span></code></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef SOMETYPE_H</span>
+<span class="cp">#define SOMETYPE_H</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyClass_fwd.H&quot;</span><span class="c1"> // all info we need here</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">SomeType</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p_my_class</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#endif </span><span class="c1">// SOMETYPE_H</span>
+</pre></div>
+</div>
+<p>Usage: in <code class="docutils literal notranslate"><span class="pre">somewhere.cpp</span></code></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;SomeType.H&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyClass.H&quot;</span><span class="c1">  // because we call &quot;stuff()&quot; we really need</span>
+<span class="w">                      </span><span class="c1">// to know the full declaration of MyClass</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">somewhere</span><span class="w"> </span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">SomeType</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">p_my_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">p_my_class</span><span class="o">-&gt;</span><span class="n">stuff</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>All files that only need to know the type <code class="docutils literal notranslate"><span class="pre">SomeType</span></code> from <code class="docutils literal notranslate"><span class="pre">SomeType.H</span></code> but do not access the implementation details of <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> will benefit from improved compilation times.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2017-2024, MicroEleX collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
