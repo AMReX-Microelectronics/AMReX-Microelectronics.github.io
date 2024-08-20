@@ -25,9 +25,10 @@ jobs:
 
       - name: Build documentation
         run: |
-          make Docs/clean
-          make Docs/html
-          touch Docs/build/html/.nojekyll
+          cd Docs
+          make clean
+          make html
+          touch build/html/.nojekyll
 
       - name: List modified files
         run: git status
