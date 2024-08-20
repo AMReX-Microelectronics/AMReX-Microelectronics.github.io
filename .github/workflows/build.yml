@@ -36,10 +36,11 @@ jobs:
       - name: Checkout 
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
+      - name: deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/development'
         uses: JamesIves/github-pages-deploy-action@v4          
         with:
           repository-name: AMReX-Microelectronics/AMReX-Microelectronics.github.io
           branch: gh-pages
           folder: Docs/build/html
+          target-folder: deploy
