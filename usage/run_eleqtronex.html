@@ -70,8 +70,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#data-output-parameters">Data output parameters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#boundary-conditions">Boundary Conditions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#restart-parameters">Restart parameters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#parameters-specific-to-the-negf-method">Parameters specific to the NEGF method</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#electrostatics-parameters">Electrostatics parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-specific-to-the-negf-module">Parameters specific to the NEGF module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters-specific-to-electrostatics-module">Parameters specific to Electrostatics module</a></li>
 </ul>
 </li>
 </ul>
@@ -204,8 +204,8 @@ For Robin boundaries, we need to set a string parameter, for example <code class
 <li><p><code class="docutils literal notranslate"><span class="pre">restart_step</span> <span class="pre">=</span> <span class="pre">&lt;step_number&gt;</span></code> Replace <code class="docutils literal notranslate"><span class="pre">&lt;step_number&gt;</span></code> with step to be restarted.</p></li>
 </ul>
 </section>
-<section id="parameters-specific-to-the-negf-method">
-<h3>Parameters specific to the NEGF method<a class="headerlink" href="#parameters-specific-to-the-negf-method" title="Link to this heading"></a></h3>
+<section id="parameters-specific-to-the-negf-module">
+<h3>Parameters specific to the NEGF module<a class="headerlink" href="#parameters-specific-to-the-negf-module" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_names</span> <span class="pre">=</span> <span class="pre">&lt;NS1&gt;</span> <span class="pre">&lt;NS2&gt;</span></code> Optional parameter to define vector of string names for nanostructures. Folders with these names are created in the <code class="docutils literal notranslate"><span class="pre">&lt;plot.folder_name&gt;/negf/</span></code> folder.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.NS_num</span> <span class="pre">=</span> <span class="pre">&lt;number&gt;</span></code> If <code class="docutils literal notranslate"><span class="pre">transport.NS_names</span></code> is not specified then we need to set this parameter defining the number of nanostructures.</p></li>
@@ -214,8 +214,8 @@ For Robin boundaries, we need to set a string parameter, for example <code class
 <li><p><code class="docutils literal notranslate"><span class="pre">transport.gate_terminal_type</span> <span class="pre">=</span> <span class="pre">&lt;Type&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;Type&gt;</span></code> can be EB, representing gate terminal defined as an embedded boundary, or <code class="docutils literal notranslate"><span class="pre">Boundary</span></code>, representing gate terminal defined on the domain boundary.</p></li>
 </ul>
 </section>
-<section id="electrostatics-parameters">
-<h3>Electrostatics parameters<a class="headerlink" href="#electrostatics-parameters" title="Link to this heading"></a></h3>
+<section id="parameters-specific-to-electrostatics-module">
+<h3>Parameters specific to Electrostatics module<a class="headerlink" href="#parameters-specific-to-electrostatics-module" title="Link to this heading"></a></h3>
 <p>See AMReX documentation for MLMG parameters such as <code class="docutils literal notranslate"><span class="pre">mlmg.set_verbose</span></code>, <code class="docutils literal notranslate"><span class="pre">mlmg.max_order</span></code>, <code class="docutils literal notranslate"><span class="pre">mlmg.absolute_tolerence</span></code>, and <code class="docutils literal notranslate"><span class="pre">mlmg.relative_tolerance</span></code>.</p>
 <p>For debugging, we typically need:</p>
 <ul class="simple">
