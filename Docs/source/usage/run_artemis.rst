@@ -111,34 +111,6 @@ Advanced Usage
 - **Micromagnetics**: When ``USE_LLG=TRUE``, additional array fields for magnetization components will be allocated, and the FDTD step will couple to LLG updates. 
 - **Superconductivity**: Some versions of ARTEMIS allow modeling superconductors with a two-fluid model. Ensure your input file is set up properly, referencing the parameters introduced in the relevant publication or example.
 
-Common Pitfalls
----------------
-
-1. **MPI Rank Mismatch / Library Errors**:
-   - Ensure that your environment is loading the correct MPI library before running, e.g.:
-     ::
-       module load openmpi
-       mpirun -n 4 ./main3d...
-   - Mixing different MPI implementations at compile/run time can cause errors.
-
-2. **CUDA or HIP Errors**:
-   - If you compiled with ``USE_GPU=TRUE``, verify that your CUDA or HIP drivers match the version you used during compilation. 
-   - On HPC systems:
-     ::
-       module load cuda
-       nvidia-smi
-     to confirm GPU visibility.
-
-3. **Out-of-Memory**:
-   - Very fine meshes or many levels of AMR can exceed GPU or CPU memory. Try reducing resolution or domain size.
-   - Check if your domain decomposition is balanced across MPI ranks.
-
-4. **Missing Output Files**:
-   - Check that the parameter ``plot_int`` in your input file is set appropriately (e.g., 100 steps) to generate plotfiles.
-   - If no plotfiles are produced, you might be running fewer steps than ``plot_int``.
-
-For further assistance, please open an issue on our GitHub or consult the AMReX documentation.
-
 
 Further Documentation
 ---------------------
