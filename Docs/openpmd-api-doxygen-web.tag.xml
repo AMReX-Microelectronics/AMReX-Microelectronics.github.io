@@ -193,6 +193,13 @@
       <anchor>a97199cf24a6c858495efe510f0385d8e</anchor>
       <arglist>(Writable *, Parameter&lt; Operation::READ_ATT &gt; &amp;)=0</arglist>
     </member>
+    <member kind="function" virtualness="virtual">
+      <type>virtual void</type>
+      <name>readAttributeAllsteps</name>
+      <anchorfile>classopen_p_m_d_1_1_abstract_i_o_handler_impl.html</anchorfile>
+      <anchor>acddc1b2324f0b5cfa7f1d73bb21569e7</anchor>
+      <arglist>(Writable *, Parameter&lt; Operation::READ_ATT_ALLSTEPS &gt; &amp;)</arglist>
+    </member>
     <member kind="function" virtualness="pure">
       <type>virtual void</type>
       <name>listPaths</name>
@@ -341,6 +348,40 @@
   <compound kind="struct">
     <name>openPMD::AbstractParameter</name>
     <filename>structopen_p_m_d_1_1_abstract_parameter.html</filename>
+    <class kind="struct">openPMD::AbstractParameter::I_dont_want_to_use_joined_dimensions_t</class>
+    <member kind="function" static="yes">
+      <type>static void</type>
+      <name>warnUnusedParameters</name>
+      <anchorfile>structopen_p_m_d_1_1_abstract_parameter.html</anchorfile>
+      <anchor>a40c1a347943bc565bf6164db2be8328e</anchor>
+      <arglist>(TracingJSON &amp;, std::string const &amp;currentBackendName, std::string const &amp;warningMessage)</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::AbstractSeriesIterator</name>
+    <filename>classopen_p_m_d_1_1_abstract_series_iterator.html</filename>
+    <templarg></templarg>
+    <templarg></templarg>
+    <base>DynamicSeriesIterator&lt; typename ChildClass::value_type &gt;</base>
+  </compound>
+  <compound kind="class">
+    <name>AbstractSeriesIterator&lt; OpaqueSeriesIterator&lt; value_type_in &gt;, value_type_in &gt;</name>
+    <filename>classopen_p_m_d_1_1_abstract_series_iterator.html</filename>
+    <base>openPMD::DynamicSeriesIterator</base>
+  </compound>
+  <compound kind="class">
+    <name>AbstractSeriesIterator&lt; RandomAccessIterator&lt; iterator_t &gt;, detail::iterator_to_value_type&lt; iterator_t &gt; &gt;</name>
+    <filename>classopen_p_m_d_1_1_abstract_series_iterator.html</filename>
+    <base>openPMD::DynamicSeriesIterator</base>
+  </compound>
+  <compound kind="class">
+    <name>AbstractSeriesIterator&lt; StatefulIterator, Container&lt; Iteration, Iteration::IterationIndex_t &gt;::value_type &gt;</name>
+    <filename>classopen_p_m_d_1_1_abstract_series_iterator.html</filename>
+    <base>openPMD::DynamicSeriesIterator</base>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::AbstractSnapshotsContainer</name>
+    <filename>classopen_p_m_d_1_1_abstract_snapshots_container.html</filename>
   </compound>
   <compound kind="class">
     <name>openPMD::detail::ADIOS2File</name>
@@ -603,6 +644,13 @@
     </member>
     <member kind="function">
       <type>void</type>
+      <name>readAttributeAllsteps</name>
+      <anchorfile>classopen_p_m_d_1_1_a_d_i_o_s2_i_o_handler_impl.html</anchorfile>
+      <anchor>a7fa83eefdafcb06ada87017c192f07cc</anchor>
+      <arglist>(Writable *, Parameter&lt; Operation::READ_ATT_ALLSTEPS &gt; &amp;) override</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
       <name>listPaths</name>
       <anchorfile>classopen_p_m_d_1_1_a_d_i_o_s2_i_o_handler_impl.html</anchorfile>
       <anchor>aa56ffa6c11835c2b18cd5c23b7032799</anchor>
@@ -654,9 +702,18 @@
       <type>adios2::Mode</type>
       <name>adios2AccessMode</name>
       <anchorfile>classopen_p_m_d_1_1_a_d_i_o_s2_i_o_handler_impl.html</anchorfile>
-      <anchor>a7e464f31df06979555535c4638e88a36</anchor>
-      <arglist>(std::string const &amp;fullPath)</arglist>
+      <anchor>a039669d129b2305b37b1661eaa7efd78</anchor>
+      <arglist>(std::string const &amp;fullPath, adios_defs::OpenFileAs)</arglist>
     </member>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::AdiosAttributes</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_adios_attributes.html</filename>
+    <class kind="struct">openPMD::detail::AdiosAttributes::StreamAccess_t</class>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::step_status_types::After_t</name>
+    <filename>structopen_p_m_d_1_1detail_1_1step__status__types_1_1_after__t.html</filename>
   </compound>
   <compound kind="struct">
     <name>openPMD::auxiliary::detail::append_to_variant</name>
@@ -778,11 +835,25 @@
       <arglist>(std::string backendConfig=&quot;{}&quot;)</arglist>
     </member>
     <member kind="function">
+      <type>void</type>
+      <name>iterationFlush</name>
+      <anchorfile>classopen_p_m_d_1_1_attributable.html</anchorfile>
+      <anchor>ab472428ee503ae7135a3f6dfe9933e53</anchor>
+      <arglist>(std::string backendConfig=&quot;{}&quot;)</arglist>
+    </member>
+    <member kind="function">
       <type>MyPath</type>
       <name>myPath</name>
       <anchorfile>classopen_p_m_d_1_1_attributable.html</anchorfile>
       <anchor>a216df928ff30f6234139ba5029a4212c</anchor>
       <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>void</type>
+      <name>touch</name>
+      <anchorfile>classopen_p_m_d_1_1_attributable.html</anchorfile>
+      <anchor>ad08ae91e20d44889ed91db3b1bb8f071</anchor>
+      <arglist>()</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -837,13 +908,6 @@
   <compound kind="class">
     <name>openPMD::internal::AttributableData</name>
     <filename>classopen_p_m_d_1_1internal_1_1_attributable_data.html</filename>
-    <member kind="variable">
-      <type>Writable</type>
-      <name>m_writable</name>
-      <anchorfile>classopen_p_m_d_1_1internal_1_1_attributable_data.html</anchorfile>
-      <anchor>a28cdf8e99c75fb72beaa36b3fe457960</anchor>
-      <arglist></arglist>
-    </member>
   </compound>
   <compound kind="class">
     <name>openPMD::Attribute</name>
@@ -869,8 +933,13 @@
     <filename>structopen_p_m_d_1_1detail_1_1_attribute_info.html</filename>
   </compound>
   <compound kind="struct">
+    <name>openPMD::detail::PreloadAdiosAttributes::AttributeLocation</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_preload_adios_attributes_1_1_attribute_location.html</filename>
+  </compound>
+  <compound kind="struct">
     <name>openPMD::detail::AttributeReader</name>
     <filename>structopen_p_m_d_1_1detail_1_1_attribute_reader.html</filename>
+    <class kind="struct">openPMD::detail::AttributeReader::GetAttribute</class>
   </compound>
   <compound kind="struct">
     <name>openPMD::detail::AttributeTypes</name>
@@ -912,6 +981,17 @@
     <templarg></templarg>
   </compound>
   <compound kind="struct">
+    <name>openPMD::detail::AttributeWithShape</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_attribute_with_shape.html</filename>
+    <templarg></templarg>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::AttributeWithShapeAndResource</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_attribute_with_shape_and_resource.html</filename>
+    <templarg></templarg>
+    <base>openPMD::detail::AttributeWithShape</base>
+  </compound>
+  <compound kind="struct">
     <name>openPMD::detail::AttributeWriter</name>
     <filename>structopen_p_m_d_1_1detail_1_1_attribute_writer.html</filename>
   </compound>
@@ -926,10 +1006,10 @@
     <templarg></templarg>
     <base>Container&lt; T_elem &gt;</base>
     <member kind="function">
-      <type>std::array&lt; double, 7 &gt;</type>
+      <type>unit_representations::AsArray</type>
       <name>unitDimension</name>
       <anchorfile>classopen_p_m_d_1_1_base_record.html</anchorfile>
-      <anchor>adcd24ca5844d3c22f8b4b16f08cdaf77</anchor>
+      <anchor>a2945f68c96ada2a8dca6746b83a8d376</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -946,10 +1026,10 @@
     <base>openPMD::Container</base>
     <base>openPMD::MeshRecordComponent</base>
     <member kind="function">
-      <type>std::array&lt; double, 7 &gt;</type>
+      <type>unit_representations::AsArray</type>
       <name>unitDimension</name>
       <anchorfile>classopen_p_m_d_1_1_base_record.html</anchorfile>
-      <anchor>adcd24ca5844d3c22f8b4b16f08cdaf77</anchor>
+      <anchor>a2945f68c96ada2a8dca6746b83a8d376</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -966,10 +1046,10 @@
     <base>openPMD::Container</base>
     <base>openPMD::PatchRecordComponent</base>
     <member kind="function">
-      <type>std::array&lt; double, 7 &gt;</type>
+      <type>unit_representations::AsArray</type>
       <name>unitDimension</name>
       <anchorfile>classopen_p_m_d_1_1_base_record.html</anchorfile>
-      <anchor>adcd24ca5844d3c22f8b4b16f08cdaf77</anchor>
+      <anchor>a2945f68c96ada2a8dca6746b83a8d376</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -986,10 +1066,10 @@
     <base>openPMD::Container</base>
     <base>openPMD::RecordComponent</base>
     <member kind="function">
-      <type>std::array&lt; double, 7 &gt;</type>
+      <type>unit_representations::AsArray</type>
       <name>unitDimension</name>
       <anchorfile>classopen_p_m_d_1_1_base_record.html</anchorfile>
-      <anchor>adcd24ca5844d3c22f8b4b16f08cdaf77</anchor>
+      <anchor>a2945f68c96ada2a8dca6746b83a8d376</anchor>
       <arglist>() const</arglist>
     </member>
     <member kind="function">
@@ -1056,6 +1136,18 @@
     <name>openPMD::detail::BasicDatatype</name>
     <filename>structopen_p_m_d_1_1detail_1_1_basic_datatype.html</filename>
     <templarg></templarg>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::step_status_types::Before_t</name>
+    <filename>structopen_p_m_d_1_1detail_1_1step__status__types_1_1_before__t.html</filename>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::internal::BeginStepTypes::BeginStepRandomAccess</name>
+    <filename>structopen_p_m_d_1_1internal_1_1_begin_step_types_1_1_begin_step_random_access.html</filename>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::internal::BeginStepTypes::BeginStepSequentially</name>
+    <filename>structopen_p_m_d_1_1internal_1_1_begin_step_types_1_1_begin_step_sequentially.html</filename>
   </compound>
   <compound kind="class">
     <name>openPMD::BlockSlicer</name>
@@ -1266,6 +1358,67 @@
   </compound>
   <compound kind="class">
     <name>Container&lt; Iteration, IterationIndex_t &gt;</name>
+    <filename>classopen_p_m_d_1_1_container.html</filename>
+    <base virtualness="virtual">openPMD::Attributable</base>
+    <member kind="function">
+      <type>void</type>
+      <name>clear</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>a3421bc06d8afb8182ee4d51eb2e8d803</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>mapped_type &amp;</type>
+      <name>operator[]</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>a23b3bf3bbe7796807a728bf7517fa66f</anchor>
+      <arglist>(key_type const &amp;key)</arglist>
+    </member>
+    <member kind="function">
+      <type>mapped_type &amp;</type>
+      <name>operator[]</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>af8807bcf1fc7e88e238907ed1a658602</anchor>
+      <arglist>(key_type &amp;&amp;key)</arglist>
+    </member>
+    <member kind="function">
+      <type>size_type</type>
+      <name>count</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>a5cd4fdcf28a83f768d3b2d31fd23c264</anchor>
+      <arglist>(key_type const &amp;key) const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
+      <name>contains</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>a6312423c16c220697cf37c57ea414701</anchor>
+      <arglist>(key_type const &amp;key) const</arglist>
+    </member>
+    <member kind="function">
+      <type>size_type</type>
+      <name>erase</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>a4926d5a489914d8ed2ad7a543677a1cf</anchor>
+      <arglist>(key_type const &amp;key)</arglist>
+    </member>
+    <member kind="function">
+      <type>iterator</type>
+      <name>erase</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>a67479b7fe06c10ea3a65d9b00a4faab6</anchor>
+      <arglist>(iterator res)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>emplace</name>
+      <anchorfile>classopen_p_m_d_1_1_container.html</anchorfile>
+      <anchor>a72d63a55e8629b97cc4b83911159d3cb</anchor>
+      <arglist>(Args &amp;&amp;...args) -&gt; decltype(InternalContainer().emplace(std::forward&lt; Args &gt;(args)...))</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>Container&lt; openPMD::Iteration, key_type &gt;</name>
     <filename>classopen_p_m_d_1_1_container.html</filename>
     <base virtualness="virtual">openPMD::Attributable</base>
     <member kind="function">
@@ -1657,6 +1810,10 @@
       <arglist></arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::CurrentStep</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_current_step.html</filename>
+  </compound>
   <compound kind="class">
     <name>openPMD::auxiliary::CustomDelete</name>
     <filename>classopen_p_m_d_1_1auxiliary_1_1_custom_delete.html</filename>
@@ -1676,12 +1833,36 @@
   <compound kind="class">
     <name>openPMD::Dataset</name>
     <filename>classopen_p_m_d_1_1_dataset.html</filename>
+    <member kind="enumvalue">
+      <name>JOINED_DIMENSION</name>
+      <anchorfile>classopen_p_m_d_1_1_dataset.html</anchorfile>
+      <anchor>ab9c75f8fc117d6bb84c528878dc6960ba8af66fa1ce1008a7baba8ef7fe4f9e1f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>UNDEFINED_EXTENT</name>
+      <anchorfile>classopen_p_m_d_1_1_dataset.html</anchorfile>
+      <anchor>ab9c75f8fc117d6bb84c528878dc6960bac0411295e0214fa8e9bf0310d6a2fc89</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>JOINED_DIMENSION</name>
+      <anchorfile>classopen_p_m_d_1_1_dataset.html</anchorfile>
+      <anchor>ab9c75f8fc117d6bb84c528878dc6960ba8af66fa1ce1008a7baba8ef7fe4f9e1f</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="enumvalue">
+      <name>UNDEFINED_EXTENT</name>
+      <anchorfile>classopen_p_m_d_1_1_dataset.html</anchorfile>
+      <anchor>ab9c75f8fc117d6bb84c528878dc6960bac0411295e0214fa8e9bf0310d6a2fc89</anchor>
+      <arglist></arglist>
+    </member>
     <member kind="function">
       <type></type>
       <name>Dataset</name>
       <anchorfile>classopen_p_m_d_1_1_dataset.html</anchorfile>
-      <anchor>afc65831a1599c23d3fb6a6e1a72ae03e</anchor>
-      <arglist>(Extent)</arglist>
+      <anchor>acdd0d012baf974900551f2e87683662d</anchor>
+      <arglist>(Extent={UNDEFINED_EXTENT})</arglist>
     </member>
     <member kind="variable">
       <type>std::string</type>
@@ -1804,13 +1985,14 @@
       <anchor>abe6265ab7e55eba5df904c9518676656</anchor>
       <arglist></arglist>
     </member>
-    <member kind="variable">
-      <type>std::string</type>
-      <name>filename</name>
-      <anchorfile>structopen_p_m_d_1_1internal_1_1_deferred_parse_access.html</anchorfile>
-      <anchor>a2f9bfa47c609bbc4afae7b99ed804d2b</anchor>
-      <arglist></arglist>
-    </member>
+  </compound>
+  <compound kind="struct">
+    <name>internal::DefineSeriesConstructorPerPathType</name>
+    <filename>structinternal_1_1_define_series_constructor_per_path_type.html</filename>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::internal::BeginStepTypes::DontBeginStep</name>
+    <filename>structopen_p_m_d_1_1internal_1_1_begin_step_types_1_1_dont_begin_step.html</filename>
   </compound>
   <compound kind="class">
     <name>openPMD::DummyIOHandler</name>
@@ -1838,6 +2020,10 @@
       <arglist>() const override</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::step_status_types::During_t</name>
+    <filename>structopen_p_m_d_1_1detail_1_1step__status__types_1_1_during__t.html</filename>
+  </compound>
   <compound kind="class">
     <name>openPMD::DynamicMemoryView</name>
     <filename>classopen_p_m_d_1_1_dynamic_memory_view.html</filename>
@@ -1849,6 +2035,15 @@
       <anchor>a37c390f78e10cc7c3f1c88cc92a93c17</anchor>
       <arglist>()</arglist>
     </member>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::DynamicSeriesIterator</name>
+    <filename>classopen_p_m_d_1_1_dynamic_series_iterator.html</filename>
+    <templarg></templarg>
+  </compound>
+  <compound kind="class">
+    <name>DynamicSeriesIterator&lt; typename ChildClass::value_type &gt;</name>
+    <filename>classopen_p_m_d_1_1_dynamic_series_iterator.html</filename>
   </compound>
   <compound kind="class">
     <name>openPMD::internal::EraseStaleEntries</name>
@@ -1888,6 +2083,24 @@
     <filename>structopen_p_m_d_1_1internal_1_1_flush_params.html</filename>
   </compound>
   <compound kind="struct">
+    <name>auxiliary::ForEachType</name>
+    <filename>structauxiliary_1_1_for_each_type.html</filename>
+    <templarg></templarg>
+    <templarg>Types</templarg>
+  </compound>
+  <compound kind="struct">
+    <name>auxiliary::ForEachType&lt; Functor &gt;</name>
+    <filename>structauxiliary_1_1_for_each_type_3_01_functor_01_4.html</filename>
+    <templarg></templarg>
+  </compound>
+  <compound kind="struct">
+    <name>auxiliary::ForEachType&lt; Functor, FirstType, OtherTypes... &gt;</name>
+    <filename>structauxiliary_1_1_for_each_type_3_01_functor_00_01_first_type_00_01_other_types_8_8_8_01_4.html</filename>
+    <templarg></templarg>
+    <templarg></templarg>
+    <templarg>OtherTypes</templarg>
+  </compound>
+  <compound kind="struct">
     <name>openPMD::traits::GenerationPolicy</name>
     <filename>structopen_p_m_d_1_1traits_1_1_generation_policy.html</filename>
     <templarg></templarg>
@@ -1895,6 +2108,10 @@
   <compound kind="struct">
     <name>openPMD::traits::GenerationPolicy&lt; ParticleSpecies &gt;</name>
     <filename>structopen_p_m_d_1_1traits_1_1_generation_policy_3_01_particle_species_01_4.html</filename>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::AttributeReader::GetAttribute</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_attribute_reader_1_1_get_attribute.html</filename>
   </compound>
   <compound kind="struct">
     <name>openPMD::GetH5DataType</name>
@@ -2107,8 +2324,17 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>openPMD::AbstractParameter::I_dont_want_to_use_joined_dimensions_t</name>
+    <filename>structopen_p_m_d_1_1_abstract_parameter_1_1_i__dont__want__to__use__joined__dimensions__t.html</filename>
+  </compound>
+  <compound kind="struct">
     <name>openPMD::detail::I_UpdateSpan</name>
     <filename>structopen_p_m_d_1_1detail_1_1_i___update_span.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::error::IllegalInOpenPMDStandard</name>
+    <filename>classopen_p_m_d_1_1error_1_1_illegal_in_open_p_m_d_standard.html</filename>
+    <base>openPMD::Error</base>
   </compound>
   <compound kind="class">
     <name>openPMD::IndexedIteration</name>
@@ -2279,6 +2505,13 @@
     </member>
     <member kind="function">
       <type>bool</type>
+      <name>parsed</name>
+      <anchorfile>classopen_p_m_d_1_1_iteration.html</anchorfile>
+      <anchor>a288bf511271cdab3a8787d588aec8274</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>bool</type>
       <name>closedByWriter</name>
       <anchorfile>classopen_p_m_d_1_1_iteration.html</anchorfile>
       <anchor>a71501fba335ae044a3c12e202a008033</anchor>
@@ -2301,13 +2534,6 @@
       <name>m_deferredParseAccess</name>
       <anchorfile>classopen_p_m_d_1_1internal_1_1_iteration_data.html</anchorfile>
       <anchor>ab1bc8c7a07685a570e24f32fa27315bd</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::optional&lt; std::string &gt;</type>
-      <name>m_overrideFilebasedFilename</name>
-      <anchorfile>classopen_p_m_d_1_1internal_1_1_iteration_data.html</anchorfile>
-      <anchor>ac2b99f40a78e572422b8233ae417ab22</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2501,6 +2727,42 @@
       <arglist>(Writable *, Parameter&lt; Operation::TOUCH &gt; const &amp;) override</arglist>
     </member>
   </compound>
+  <compound kind="class">
+    <name>openPMD::json::JsonMatcher</name>
+    <filename>classopen_p_m_d_1_1json_1_1_json_matcher.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>JsonMatcher</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_json_matcher.html</anchorfile>
+      <anchor>a15ca36807de5009311bbf6a25ae7b989</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>JsonMatcher</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_json_matcher.html</anchorfile>
+      <anchor>a843be3a49686c5c034e59238028f7250</anchor>
+      <arglist>(openPMD::json::TracingJSON config)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_json_matcher.html</anchorfile>
+      <anchor>af3b3c3b652574b42693a4c137f6b7747</anchor>
+      <arglist>(std::string const &amp;datasetPath, std::string const &amp;backendName) -&gt; ParsedConfig</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>getDefault</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_json_matcher.html</anchorfile>
+      <anchor>a862ba928dbb2a683c003e0c8b67f06be</anchor>
+      <arglist>(std::string const &amp;backendName) -&gt; TracingJSON</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::LegacyIteratorAdaptor</name>
+    <filename>classopen_p_m_d_1_1_legacy_iterator_adaptor.html</filename>
+  </compound>
   <compound kind="struct">
     <name>openPMD::detail::MakeEmpty</name>
     <filename>structopen_p_m_d_1_1detail_1_1_make_empty.html</filename>
@@ -2521,6 +2783,31 @@
     <name>openPMD::auxiliary::detail::map_variant&lt; F, std::variant&lt;&gt; &gt;</name>
     <filename>structopen_p_m_d_1_1auxiliary_1_1detail_1_1map__variant_3_01_f_00_01std_1_1variant_3_4_01_4.html</filename>
     <templarg></templarg>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::json::MatcherPerBackend</name>
+    <filename>classopen_p_m_d_1_1json_1_1_matcher_per_backend.html</filename>
+    <member kind="function">
+      <type></type>
+      <name>MatcherPerBackend</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_matcher_per_backend.html</anchorfile>
+      <anchor>ab4d7d0493293b8e046950265794d3f32</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type></type>
+      <name>MatcherPerBackend</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_matcher_per_backend.html</anchorfile>
+      <anchor>a9c6daec92a9dbb5843c9b3f88cdfda8b</anchor>
+      <arglist>(std::string backendName, TracingJSON config)</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>get</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_matcher_per_backend.html</anchorfile>
+      <anchor>a07949f85588e5fbbfb6c60a9008b0a6c</anchor>
+      <arglist>(std::string const &amp;datasetPath) const -&gt; nlohmann::json const &amp;</arglist>
+    </member>
   </compound>
   <compound kind="class">
     <name>openPMD::benchmark::MemoryProfiler</name>
@@ -2679,10 +2966,52 @@
     </member>
     <member kind="function">
       <type>Mesh &amp;</type>
+      <name>setGridUnitSI</name>
+      <anchorfile>classopen_p_m_d_1_1_mesh.html</anchorfile>
+      <anchor>a38c603161e82a33949a8c81a17af0007</anchor>
+      <arglist>(std::vector&lt; double &gt; const &amp;gridUnitSI)</arglist>
+    </member>
+    <member kind="function">
+      <type>std::vector&lt; double &gt;</type>
+      <name>gridUnitSIPerDimension</name>
+      <anchorfile>classopen_p_m_d_1_1_mesh.html</anchorfile>
+      <anchor>a3afbc6180522e64c7ba3d1fcd2921de0</anchor>
+      <arglist>() const</arglist>
+    </member>
+    <member kind="function">
+      <type>Mesh &amp;</type>
       <name>setUnitDimension</name>
       <anchorfile>classopen_p_m_d_1_1_mesh.html</anchorfile>
-      <anchor>ae5f7a2da964388dc22c23a9f4281fe76</anchor>
-      <arglist>(std::map&lt; UnitDimension, double &gt; const &amp;unitDimension)</arglist>
+      <anchor>ac3e27af155c993351f4d7665636d66e9</anchor>
+      <arglist>(unit_representations::AsMap const &amp;unitDimension)</arglist>
+    </member>
+    <member kind="function">
+      <type>Mesh &amp;</type>
+      <name>setUnitDimension</name>
+      <anchorfile>classopen_p_m_d_1_1_mesh.html</anchorfile>
+      <anchor>a9f0ce5e962b61d8ca5325fdcd95683cc</anchor>
+      <arglist>(unit_representations::AsArray const &amp;unitDimension)</arglist>
+    </member>
+    <member kind="function">
+      <type>Mesh &amp;</type>
+      <name>setGridUnitDimension</name>
+      <anchorfile>classopen_p_m_d_1_1_mesh.html</anchorfile>
+      <anchor>adf3f3696094a6dbaec9bcb37d5d7799d</anchor>
+      <arglist>(unit_representations::AsMaps const &amp;gridUnitDimension)</arglist>
+    </member>
+    <member kind="function">
+      <type>Mesh &amp;</type>
+      <name>setGridUnitDimension</name>
+      <anchorfile>classopen_p_m_d_1_1_mesh.html</anchorfile>
+      <anchor>af0fdce8a7a237df206768921819d0af5</anchor>
+      <arglist>(unit_representations::AsArrays const &amp;gridUnitDimension)</arglist>
+    </member>
+    <member kind="function">
+      <type>unit_representations::AsArrays</type>
+      <name>gridUnitDimension</name>
+      <anchorfile>classopen_p_m_d_1_1_mesh.html</anchorfile>
+      <anchor>a4b533a3ba63eda9da8a9e6a1eb01f2e9</anchor>
+      <arglist>() const</arglist>
     </member>
     <member kind="function">
       <type>T</type>
@@ -2838,6 +3167,10 @@
     </member>
   </compound>
   <compound kind="struct">
+    <name>openPMD::detail::seek_types::Next_t</name>
+    <filename>structopen_p_m_d_1_1detail_1_1seek__types_1_1_next__t.html</filename>
+  </compound>
+  <compound kind="struct">
     <name>openPMD::Attributable::NoInit</name>
     <filename>structopen_p_m_d_1_1_attributable_1_1_no_init.html</filename>
   </compound>
@@ -2860,6 +3193,33 @@
       <anchorfile>classopen_p_m_d_1_1_one_dimensional_block_slicer.html</anchorfile>
       <anchor>a78a64f2d309473c225bd543b5673d756</anchor>
       <arglist>(Extent &amp;totalExtent, int size, int rank) override</arglist>
+    </member>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::OpaqueSeriesIterator</name>
+    <filename>classopen_p_m_d_1_1_opaque_series_iterator.html</filename>
+    <templarg></templarg>
+    <base>AbstractSeriesIterator&lt; OpaqueSeriesIterator&lt; value_type_in &gt;, value_type_in &gt;</base>
+    <member kind="function">
+      <type>OpaqueSeriesIterator &amp;</type>
+      <name>operator--</name>
+      <anchorfile>classopen_p_m_d_1_1_opaque_series_iterator.html</anchorfile>
+      <anchor>af755cd38cf899ffd97d5eb2ae7cfec38</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>OpaqueSeriesIterator</type>
+      <name>operator++</name>
+      <anchorfile>classopen_p_m_d_1_1_opaque_series_iterator.html</anchorfile>
+      <anchor>a68da98b904785657adff842b138cf483</anchor>
+      <arglist>(int)</arglist>
+    </member>
+    <member kind="function">
+      <type>OpaqueSeriesIterator</type>
+      <name>operator--</name>
+      <anchorfile>classopen_p_m_d_1_1_opaque_series_iterator.html</anchorfile>
+      <anchor>a0713855dda5d50a8a82437bfd77f4d8d</anchor>
+      <arglist>(int)</arglist>
     </member>
   </compound>
   <compound kind="struct">
@@ -2918,18 +3278,12 @@
     <name>openPMD::Parameter&lt; Operation::ADVANCE &gt;</name>
     <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_a_d_v_a_n_c_e_01_4.html</filename>
     <base>openPMD::AbstractParameter</base>
+    <class kind="struct">openPMD::Parameter&lt; Operation::ADVANCE &gt;::StepSelection</class>
     <member kind="variable">
-      <type>AdvanceMode</type>
+      <type>std::variant&lt; AdvanceMode, StepSelection &gt;</type>
       <name>mode</name>
       <anchorfile>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_a_d_v_a_n_c_e_01_4.html</anchorfile>
-      <anchor>a66e8d3954b80e0ace812493349551e8a</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::shared_ptr&lt; AdvanceStatus &gt;</type>
-      <name>status</name>
-      <anchorfile>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_a_d_v_a_n_c_e_01_4.html</anchorfile>
-      <anchor>adb9606da9924e89db8e37b6dde384605</anchor>
+      <anchor>adf572941d46f369ba01a1efe9489f7ce</anchor>
       <arglist></arglist>
     </member>
   </compound>
@@ -2957,13 +3311,6 @@
     <name>openPMD::Parameter&lt; Operation::CREATE_DATASET &gt;</name>
     <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_c_r_e_a_t_e___d_a_t_a_s_e_t_01_4.html</filename>
     <base>openPMD::AbstractParameter</base>
-    <member kind="function" static="yes">
-      <type>static void</type>
-      <name>warnUnusedParameters</name>
-      <anchorfile>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_c_r_e_a_t_e___d_a_t_a_s_e_t_01_4.html</anchorfile>
-      <anchor>a812d7b8e429e21793752cc8c1a10f304</anchor>
-      <arglist>(TracingJSON &amp;, std::string const &amp;currentBackendName, std::string const &amp;warningMessage)</arglist>
-    </member>
   </compound>
   <compound kind="struct">
     <name>openPMD::Parameter&lt; Operation::CREATE_FILE &gt;</name>
@@ -3047,6 +3394,12 @@
     <base>openPMD::AbstractParameter</base>
   </compound>
   <compound kind="struct">
+    <name>openPMD::Parameter&lt; Operation::READ_ATT_ALLSTEPS &gt;</name>
+    <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_r_e_a_d___a_t_t___a_l_l_s_t_e_p_s_01_4.html</filename>
+    <base>openPMD::AbstractParameter</base>
+    <class kind="struct">openPMD::Parameter&lt; Operation::READ_ATT_ALLSTEPS &gt;::to_vector_type</class>
+  </compound>
+  <compound kind="struct">
     <name>openPMD::Parameter&lt; Operation::READ_DATASET &gt;</name>
     <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_r_e_a_d___d_a_t_a_s_e_t_01_4.html</filename>
     <base>openPMD::AbstractParameter</base>
@@ -3110,13 +3463,6 @@
       <arglist>(BaseRecord&lt; PatchRecordComponent &gt; const &amp;)</arglist>
     </member>
     <member kind="function">
-      <type>PatchRecordComponent &amp;</type>
-      <name>resetDataset</name>
-      <anchorfile>classopen_p_m_d_1_1_patch_record_component.html</anchorfile>
-      <anchor>afd61b2e2d90646191dfe5943a705d329</anchor>
-      <arglist>(Dataset) override</arglist>
-    </member>
-    <member kind="function">
       <type>void</type>
       <name>load</name>
       <anchorfile>classopen_p_m_d_1_1_patch_record_component.html</anchorfile>
@@ -3124,13 +3470,51 @@
       <arglist>(std::shared_ptr&lt; T &gt;)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>openPMD::json::Pattern</name>
+    <filename>structopen_p_m_d_1_1json_1_1_pattern.html</filename>
+  </compound>
   <compound kind="class">
     <name>openpmd_api::pipe::__main__::pipe</name>
     <filename>classopenpmd__api_1_1pipe_1_1____main_____1_1pipe.html</filename>
   </compound>
+  <compound kind="class">
+    <name>openPMD::detail::PreloadAdiosAttributes</name>
+    <filename>classopen_p_m_d_1_1detail_1_1_preload_adios_attributes.html</filename>
+    <class kind="struct">openPMD::detail::PreloadAdiosAttributes::AttributeLocation</class>
+    <member kind="function">
+      <type>void</type>
+      <name>preloadAttributes</name>
+      <anchorfile>classopen_p_m_d_1_1detail_1_1_preload_adios_attributes.html</anchorfile>
+      <anchor>a8ebe682159cda2fc8132779acd9763b2</anchor>
+      <arglist>(adios2::IO &amp;IO)</arglist>
+    </member>
+    <member kind="function">
+      <type>AttributeWithShape&lt; T &gt;</type>
+      <name>getAttribute</name>
+      <anchorfile>classopen_p_m_d_1_1detail_1_1_preload_adios_attributes.html</anchorfile>
+      <anchor>ab00a212e4241a569d0f3e68820c704a1</anchor>
+      <arglist>(std::string const &amp;name) const</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>py_object_to_mpi_comm_error</name>
+    <filename>structpy__object__to__mpi__comm__error.html</filename>
+  </compound>
   <compound kind="struct">
     <name>PythonDynamicMemoryView</name>
     <filename>struct_python_dynamic_memory_view.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::RandomAccessIterator</name>
+    <filename>classopen_p_m_d_1_1_random_access_iterator.html</filename>
+    <templarg></templarg>
+    <base>AbstractSeriesIterator&lt; RandomAccessIterator&lt; iterator_t &gt;, detail::iterator_to_value_type&lt; iterator_t &gt; &gt;</base>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::RandomAccessIteratorContainer</name>
+    <filename>classopen_p_m_d_1_1_random_access_iterator_container.html</filename>
+    <base>openPMD::AbstractSnapshotsContainer</base>
   </compound>
   <compound kind="class">
     <name>openPMD::RandomDatasetFiller</name>
@@ -3196,8 +3580,8 @@
       <anchor>a7c50af92833a013a1203b9900b86691d</anchor>
       <arglist>(BaseRecord&lt; RecordComponent &gt; const &amp;)</arglist>
     </member>
-    <member kind="function" virtualness="virtual">
-      <type>virtual RecordComponent &amp;</type>
+    <member kind="function">
+      <type>RecordComponent &amp;</type>
       <name>resetDataset</name>
       <anchorfile>classopen_p_m_d_1_1_record_component.html</anchorfile>
       <anchor>a46d6a63567b78c54bd549e29bd9e34d6</anchor>
@@ -3392,11 +3776,28 @@
       <arglist>(Other const &amp;other)</arglist>
     </member>
   </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::Seek</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_seek.html</filename>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::seek_types::Seek_Iteration_t</name>
+    <filename>structopen_p_m_d_1_1detail_1_1seek__types_1_1_seek___iteration__t.html</filename>
+  </compound>
   <compound kind="class">
     <name>openPMD::Series</name>
     <filename>classopen_p_m_d_1_1_series.html</filename>
     <base>openPMD::Attributable</base>
     <class kind="struct">openPMD::Series::ParsedInput</class>
+    <member kind="enumeration">
+      <type></type>
+      <name>SnapshotWorkflow</name>
+      <anchorfile>classopen_p_m_d_1_1_series.html</anchorfile>
+      <anchor>a56c8e37869e313b17ecec752269087db</anchor>
+      <arglist></arglist>
+      <enumvalue file="classopen_p_m_d_1_1_series.html" anchor="a56c8e37869e313b17ecec752269087dba10db094b878f085cfcdaf63716e1b37c">RandomAccess</enumvalue>
+      <enumvalue file="classopen_p_m_d_1_1_series.html" anchor="a56c8e37869e313b17ecec752269087dba2fe4167817733fec8e6ba1afddf78f1b">Synchronous</enumvalue>
+    </member>
     <member kind="typedef">
       <type>Iteration::IterationIndex_t</type>
       <name>IterationIndex_t</name>
@@ -3664,6 +4065,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>Snapshots</type>
+      <name>snapshots</name>
+      <anchorfile>classopen_p_m_d_1_1_series.html</anchorfile>
+      <anchor>a403afb2c7ce6a47bd13676f4d32a11a3</anchor>
+      <arglist>(std::optional&lt; SnapshotWorkflow &gt; snapshot_workflow=std::nullopt)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>parseBase</name>
       <anchorfile>classopen_p_m_d_1_1_series.html</anchorfile>
@@ -3685,6 +4093,13 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
+      <type>auto</type>
+      <name>iterationFlush</name>
+      <anchorfile>classopen_p_m_d_1_1_series.html</anchorfile>
+      <anchor>a2ad14835fabb7edb6b6ed657a5c790b7</anchor>
+      <arglist>(Args &amp;&amp;...)</arglist>
+    </member>
+    <member kind="function">
       <type>void</type>
       <name>parseJsonOptions</name>
       <anchorfile>classopen_p_m_d_1_1_series.html</anchorfile>
@@ -3699,11 +4114,11 @@
       <arglist>(iterations_iterator begin, iterations_iterator end, internal::FlushParams const &amp;flushParams, bool flushIOHandler=true)</arglist>
     </member>
     <member kind="function">
-      <type>std::optional&lt; std::deque&lt; IterationIndex_t &gt; &gt;</type>
+      <type>std::vector&lt; IterationIndex_t &gt;</type>
       <name>readGorVBased</name>
       <anchorfile>classopen_p_m_d_1_1_series.html</anchorfile>
-      <anchor>a20301ade16db27465ad95535d0183e0c</anchor>
-      <arglist>(bool do_always_throw_errors, bool init, std::set&lt; IterationIndex_t &gt; const &amp;ignoreIterations={})</arglist>
+      <anchor>aa16c0a71e4ede317ed27354e1f8db41a</anchor>
+      <arglist>(bool do_always_throw_errors, bool init, std::optional&lt; IterationIndex_t &gt; read_only_this_single_iteration)</arglist>
     </member>
     <member kind="function">
       <type>iterations_iterator</type>
@@ -3716,8 +4131,8 @@
       <type>AdvanceStatus</type>
       <name>advance</name>
       <anchorfile>classopen_p_m_d_1_1_series.html</anchorfile>
-      <anchor>ad85fd75e0a5f7ee3c130c6983c19637a</anchor>
-      <arglist>(AdvanceMode mode, internal::AttributableData &amp;file, iterations_iterator it, Iteration &amp;iteration)</arglist>
+      <anchor>a8508e6608ad358890e2edd04d77c6310</anchor>
+      <arglist>(AdvanceMode mode, internal::AttributableData &amp;file, iterations_iterator it)</arglist>
     </member>
     <member kind="function">
       <type>void</type>
@@ -3736,17 +4151,10 @@
     <class kind="struct">openPMD::internal::SeriesData::SourceSpecifiedManually</class>
     <class kind="struct">openPMD::internal::SeriesData::SourceSpecifiedViaJSON</class>
     <member kind="variable">
-      <type>std::optional&lt; WriteIterations &gt;</type>
-      <name>m_writeIterations</name>
-      <anchorfile>classopen_p_m_d_1_1internal_1_1_series_data.html</anchorfile>
-      <anchor>a66f12fdf1d3b90782194a551fa9901b6</anchor>
-      <arglist></arglist>
-    </member>
-    <member kind="variable">
-      <type>std::unique_ptr&lt; SeriesIterator &gt;</type>
+      <type>std::unique_ptr&lt; StatefulIterator &gt;</type>
       <name>m_sharedStatefulIterator</name>
       <anchorfile>classopen_p_m_d_1_1internal_1_1_series_data.html</anchorfile>
-      <anchor>a3b74989ae019ea432fafec479b629913</anchor>
+      <anchor>a11cf43447e7791a0bfe1679119312550</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -3754,6 +4162,20 @@
       <name>m_currentlyActiveIterations</name>
       <anchorfile>classopen_p_m_d_1_1internal_1_1_series_data.html</anchorfile>
       <anchor>a2ffcf82114ccfdc163f54a51b931807a</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unordered_map&lt; IterationIndex_t, size_t &gt;</type>
+      <name>m_snapshotToStep</name>
+      <anchorfile>classopen_p_m_d_1_1internal_1_1_series_data.html</anchorfile>
+      <anchor>a08d66a2dcf5a72525619180f115cbfd7</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>std::unordered_map&lt; IterationIndex_t, std::string &gt;</type>
+      <name>m_iterationFilenames</name>
+      <anchorfile>classopen_p_m_d_1_1internal_1_1_series_data.html</anchorfile>
+      <anchor>a45c20a706354a449bc1a690716db087a</anchor>
       <arglist></arglist>
     </member>
     <member kind="variable">
@@ -3841,30 +4263,148 @@
       <arglist></arglist>
     </member>
   </compound>
-  <compound kind="class">
-    <name>openPMD::SeriesIterator</name>
-    <filename>classopen_p_m_d_1_1_series_iterator.html</filename>
-    <member kind="function">
-      <type></type>
-      <name>SeriesIterator</name>
-      <anchorfile>classopen_p_m_d_1_1_series_iterator.html</anchorfile>
-      <anchor>a8b0041b4e5025c34897ea01b087e3ed4</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
-  <compound kind="struct">
-    <name>SeriesIteratorPythonAdaptor</name>
-    <filename>struct_series_iterator_python_adaptor.html</filename>
-    <base>openPMD::SeriesIterator</base>
-  </compound>
   <compound kind="struct">
     <name>SetAttributeFromObject</name>
     <filename>struct_set_attribute_from_object.html</filename>
   </compound>
   <compound kind="class">
+    <name>openPMD::internal::SharedAttributableData</name>
+    <filename>classopen_p_m_d_1_1internal_1_1_shared_attributable_data.html</filename>
+    <member kind="variable">
+      <type>Writable</type>
+      <name>m_writable</name>
+      <anchorfile>classopen_p_m_d_1_1internal_1_1_shared_attributable_data.html</anchorfile>
+      <anchor>a4554e2a05523d7a76c01c69c3ca940a1</anchor>
+      <arglist></arglist>
+    </member>
+    <member kind="variable">
+      <type>A_MAP</type>
+      <name>m_attributes</name>
+      <anchorfile>classopen_p_m_d_1_1internal_1_1_shared_attributable_data.html</anchorfile>
+      <anchor>aa2fa7a2212e7287ae7b057188c5712f9</anchor>
+      <arglist></arglist>
+    </member>
+  </compound>
+  <compound kind="class">
     <name>openPMD::SimpleDatasetFillerProvider</name>
     <filename>classopen_p_m_d_1_1_simple_dataset_filler_provider.html</filename>
     <templarg></templarg>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::Snapshots</name>
+    <filename>classopen_p_m_d_1_1_snapshots.html</filename>
+    <member kind="function">
+      <type>auto</type>
+      <name>currentIteration</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>ae1acd145bac5b9b5667421b2f163f40b</anchor>
+      <arglist>() -&gt; std::optional&lt; value_type * &gt;</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>begin</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a441840e632ec1d0aabb2c076f06c5eab</anchor>
+      <arglist>() const -&gt; const_iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>end</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a44b4f5024a6c577311a635705d57b9f7</anchor>
+      <arglist>() const -&gt; const_iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>rbegin</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>ab61d974d97669ed6ac5c835e3047c02e</anchor>
+      <arglist>() -&gt; reverse_iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>rend</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>ac1039baab7ba3b8755b9df89419dab8f</anchor>
+      <arglist>() -&gt; reverse_iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>rbegin</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a122218bd3b0b2b0d44f0dd713b43ea34</anchor>
+      <arglist>() const -&gt; const_reverse_iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>rend</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>ac6d4d0fa0057fdeee695ec717fdf8240</anchor>
+      <arglist>() const -&gt; const_reverse_iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>empty</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>adc85e5819ac9cc362344127f23727e31</anchor>
+      <arglist>() const -&gt; bool</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>size</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a07b04f7c80b2afee462eef376ecdae5c</anchor>
+      <arglist>() const -&gt; size_t</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>at</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a6e45b63b10a2390ca54cdd869fbfbb86</anchor>
+      <arglist>(key_type const &amp;key) const -&gt; mapped_type const &amp;</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>at</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a6c22227dfaa1e30214d30236c827fc05</anchor>
+      <arglist>(key_type const &amp;key) -&gt; mapped_type &amp;</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>clear</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>ac4fa21b9ba646673804a02094d7788dc</anchor>
+      <arglist>() -&gt; void</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>find</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a8324d08a458d531be4c0902d62cdba67</anchor>
+      <arglist>(key_type const &amp;key) -&gt; iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>find</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>afcf1e4d07e89ea421479b0b8971c9c56</anchor>
+      <arglist>(key_type const &amp;key) const -&gt; const_iterator</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>count</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a25c4889efe3b2d23181b0c54b4aa22ea</anchor>
+      <arglist>(key_type const &amp;key) const -&gt; size_t</arglist>
+    </member>
+    <member kind="function">
+      <type>auto</type>
+      <name>contains</name>
+      <anchorfile>classopen_p_m_d_1_1_snapshots.html</anchorfile>
+      <anchor>a4f9478095c1638c8f4785a5efa8f2c10</anchor>
+      <arglist>(key_type const &amp;key) const -&gt; bool</arglist>
+    </member>
   </compound>
   <compound kind="struct">
     <name>openPMD::internal::SeriesData::SourceSpecifiedManually</name>
@@ -3879,9 +4419,49 @@
     <filename>classopen_p_m_d_1_1_span.html</filename>
     <templarg></templarg>
   </compound>
+  <compound kind="class">
+    <name>openPMD::StatefulIterator</name>
+    <filename>classopen_p_m_d_1_1_stateful_iterator.html</filename>
+    <base>AbstractSeriesIterator&lt; StatefulIterator, Container&lt; Iteration, Iteration::IterationIndex_t &gt;::value_type &gt;</base>
+    <class kind="class">openPMD::StatefulIterator::tag_read_t</class>
+    <class kind="class">openPMD::StatefulIterator::tag_write_t</class>
+    <member kind="function">
+      <type></type>
+      <name>StatefulIterator</name>
+      <anchorfile>classopen_p_m_d_1_1_stateful_iterator.html</anchorfile>
+      <anchor>a1ae8a85c9132b58e7ea7e5a374e658f1</anchor>
+      <arglist>()</arglist>
+    </member>
+  </compound>
+  <compound kind="struct">
+    <name>StatefulIteratorPythonAdaptor</name>
+    <filename>struct_stateful_iterator_python_adaptor.html</filename>
+    <base>openPMD::LegacyIteratorAdaptor</base>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::StatefulSnapshotsContainer</name>
+    <filename>classopen_p_m_d_1_1_stateful_snapshots_container.html</filename>
+    <base>openPMD::AbstractSnapshotsContainer</base>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::Parameter&lt; Operation::ADVANCE &gt;::StepSelection</name>
+    <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_a_d_v_a_n_c_e_01_4_1_1_step_selection.html</filename>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::detail::AdiosAttributes::StreamAccess_t</name>
+    <filename>structopen_p_m_d_1_1detail_1_1_adios_attributes_1_1_stream_access__t.html</filename>
+  </compound>
   <compound kind="struct">
     <name>openPMD::auxiliary::StringMatrix</name>
     <filename>structopen_p_m_d_1_1auxiliary_1_1_string_matrix.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::StatefulIterator::tag_read_t</name>
+    <filename>classopen_p_m_d_1_1_stateful_iterator_1_1tag__read__t.html</filename>
+  </compound>
+  <compound kind="class">
+    <name>openPMD::StatefulIterator::tag_write_t</name>
+    <filename>classopen_p_m_d_1_1_stateful_iterator_1_1tag__write__t.html</filename>
   </compound>
   <compound kind="class">
     <name>openPMD::benchmark::Timer</name>
@@ -3893,6 +4473,10 @@
       <anchor>ac5fd9a36d9270abad8a335aeaa22a5cc</anchor>
       <arglist>(const std::string &amp;tag, int rank, TimePoint progStart)</arglist>
     </member>
+  </compound>
+  <compound kind="struct">
+    <name>openPMD::Parameter&lt; Operation::READ_ATT_ALLSTEPS &gt;::to_vector_type</name>
+    <filename>structopen_p_m_d_1_1_parameter_3_01_operation_1_1_r_e_a_d___a_t_t___a_l_l_s_t_e_p_s_01_4_1_1to__vector__type.html</filename>
   </compound>
   <compound kind="struct">
     <name>openPMD::detail::ToDatatype</name>
@@ -3930,8 +4514,15 @@
       <type>nlohmann::json &amp;</type>
       <name>json</name>
       <anchorfile>classopen_p_m_d_1_1json_1_1_tracing_j_s_o_n.html</anchorfile>
-      <anchor>a307c6698c01b3f1a0b298a0ad12ba1dc</anchor>
+      <anchor>af85e7269c409481d5fc0c0fd3be41839</anchor>
       <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>nlohmann::json &amp;</type>
+      <name>json</name>
+      <anchorfile>classopen_p_m_d_1_1json_1_1_tracing_j_s_o_n.html</anchorfile>
+      <anchor>a7549c522adf2aa48136f9b3afeb5dbc4</anchor>
+      <arglist>(std::vector&lt; std::string &gt; path)</arglist>
     </member>
     <member kind="function">
       <type>nlohmann::json const  &amp;</type>
@@ -4124,7 +4715,7 @@
       <type>void</type>
       <name>seriesFlush</name>
       <anchorfile>classopen_p_m_d_1_1_writable.html</anchorfile>
-      <anchor>a72cf72e1890ea78cfb7a63ba240b633b</anchor>
+      <anchor>abb8f73e23eb968492be3ef53645b7b42</anchor>
       <arglist>(std::string backendConfig=&quot;{}&quot;)</arglist>
     </member>
     <member kind="variable">
@@ -4164,17 +4755,6 @@
     <name>openPMD::detail::WriteDataset</name>
     <filename>structopen_p_m_d_1_1detail_1_1_write_dataset.html</filename>
   </compound>
-  <compound kind="class">
-    <name>openPMD::WriteIterations</name>
-    <filename>classopen_p_m_d_1_1_write_iterations.html</filename>
-    <member kind="function">
-      <type>std::optional&lt; IndexedIteration &gt;</type>
-      <name>currentIteration</name>
-      <anchorfile>classopen_p_m_d_1_1_write_iterations.html</anchorfile>
-      <anchor>a1da72ea23deb21333756c7d4e712edf2</anchor>
-      <arglist>()</arglist>
-    </member>
-  </compound>
   <compound kind="struct">
     <name>openPMD::WrittenChunkInfo</name>
     <filename>structopen_p_m_d_1_1_written_chunk_info.html</filename>
@@ -4195,7 +4775,6 @@
   <compound kind="namespace">
     <name>openPMD</name>
     <filename>namespaceopen_p_m_d.html</filename>
-    <namespace>openPMD::internal</namespace>
     <class kind="class">openPMD::UniquePtrWithLambda</class>
     <class kind="class">openPMD::Attributable</class>
     <class kind="class">openPMD::Attribute</class>
@@ -4257,6 +4836,7 @@
     <class kind="struct">openPMD::Parameter&lt; Operation::DELETE_ATT &gt;</class>
     <class kind="struct">openPMD::Parameter&lt; Operation::WRITE_ATT &gt;</class>
     <class kind="struct">openPMD::Parameter&lt; Operation::READ_ATT &gt;</class>
+    <class kind="struct">openPMD::Parameter&lt; Operation::READ_ATT_ALLSTEPS &gt;</class>
     <class kind="struct">openPMD::Parameter&lt; Operation::LIST_ATTS &gt;</class>
     <class kind="struct">openPMD::Parameter&lt; Operation::ADVANCE &gt;</class>
     <class kind="struct">openPMD::Parameter&lt; Operation::AVAILABLE_CHUNKS &gt;</class>
@@ -4273,13 +4853,21 @@
     <class kind="class">openPMD::Mesh</class>
     <class kind="class">openPMD::ParticlePatches</class>
     <class kind="class">openPMD::ParticleSpecies</class>
-    <class kind="class">openPMD::SeriesIterator</class>
+    <class kind="class">openPMD::LegacyIteratorAdaptor</class>
     <class kind="class">openPMD::ReadIterations</class>
     <class kind="class">openPMD::Record</class>
     <class kind="class">openPMD::DynamicMemoryView</class>
     <class kind="class">openPMD::RecordComponent</class>
     <class kind="class">openPMD::Series</class>
-    <class kind="class">openPMD::WriteIterations</class>
+    <class kind="class">openPMD::StatefulSnapshotsContainer</class>
+    <class kind="class">openPMD::RandomAccessIteratorContainer</class>
+    <class kind="class">openPMD::OpaqueSeriesIterator</class>
+    <class kind="class">openPMD::AbstractSnapshotsContainer</class>
+    <class kind="class">openPMD::DynamicSeriesIterator</class>
+    <class kind="class">openPMD::AbstractSeriesIterator</class>
+    <class kind="class">openPMD::RandomAccessIterator</class>
+    <class kind="class">openPMD::Snapshots</class>
+    <class kind="class">openPMD::StatefulIterator</class>
     <member kind="typedef">
       <type>error::ReadError</type>
       <name>no_such_file_error</name>
@@ -4424,6 +5012,7 @@
       <anchor>a26f08f98f53b66e47caddfb7e68ab74c</anchor>
       <arglist></arglist>
       <enumvalue file="namespaceopen_p_m_d.html" anchor="a26f08f98f53b66e47caddfb7e68ab74ca5b82cd5c6d19174a7b19e9314d3aceb5">DuringStep</enumvalue>
+      <enumvalue file="namespaceopen_p_m_d.html" anchor="a26f08f98f53b66e47caddfb7e68ab74cadcaa8f10f660a0e1e841459c23c2e705">OutOfStep</enumvalue>
       <enumvalue file="namespaceopen_p_m_d.html" anchor="a26f08f98f53b66e47caddfb7e68ab74ca2999cbcd313f7c3b0c0ec2c17ac38c04">NoStep</enumvalue>
     </member>
     <member kind="enumeration">
@@ -4518,10 +5107,10 @@
       <arglist>(Datatype d)</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>isComplexFloatingPoint</name>
       <anchorfile>namespaceopen_p_m_d.html</anchorfile>
-      <anchor>a6053fa8fcb7ac587c09a3e55eccb38a7</anchor>
+      <anchor>a561a92432090e3c373bac9b5ba810fce</anchor>
       <arglist>(Datatype d)</arglist>
     </member>
     <member kind="function">
@@ -4532,10 +5121,10 @@
       <arglist>()</arglist>
     </member>
     <member kind="function">
-      <type>bool</type>
+      <type>constexpr bool</type>
       <name>isComplexFloatingPoint</name>
       <anchorfile>namespaceopen_p_m_d.html</anchorfile>
-      <anchor>abd895ed7c642b854e6acf893ed8b7a6e</anchor>
+      <anchor>a925de640cee28340d3b8a4985cae166c</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -4619,15 +5208,15 @@
       <type>std::unique_ptr&lt; AbstractIOHandler &gt;</type>
       <name>createIOHandler</name>
       <anchorfile>namespaceopen_p_m_d.html</anchorfile>
-      <anchor>a99683c8b5a2ca2cde6bdffc83dc1096e</anchor>
-      <arglist>(std::string path, Access access, Format format, std::string originalExtension, MPI_Comm comm, JSON options, std::string const &amp;pathAsItWasSpecifiedInTheConstructor)</arglist>
+      <anchor>a5ecb4362bd7664f6de26359960e62d28</anchor>
+      <arglist>(std::optional&lt; std::unique_ptr&lt; AbstractIOHandler &gt;&gt; initialize_from, std::string path, Access access, Format format, std::string originalExtension, MPI_Comm comm, JSON options, std::string const &amp;pathAsItWasSpecifiedInTheConstructor)</arglist>
     </member>
     <member kind="function">
       <type>std::unique_ptr&lt; AbstractIOHandler &gt;</type>
       <name>createIOHandler</name>
       <anchorfile>namespaceopen_p_m_d.html</anchorfile>
-      <anchor>a18e761b67877604a646a45ec46fab276</anchor>
-      <arglist>(std::string path, Access access, Format format, std::string originalExtension, JSON options, std::string const &amp;pathAsItWasSpecifiedInTheConstructor)</arglist>
+      <anchor>ae192a764f1db36d2d5aa59888dddc8cd</anchor>
+      <arglist>(std::optional&lt; std::unique_ptr&lt; AbstractIOHandler &gt;&gt; initialize_from, std::string path, Access access, Format format, std::string originalExtension, JSON options, std::string const &amp;pathAsItWasSpecifiedInTheConstructor)</arglist>
     </member>
     <member kind="function">
       <type>auto</type>
@@ -4673,9 +5262,23 @@
     </member>
     <member kind="function">
       <type>std::string</type>
+      <name>getStandardDefault</name>
+      <anchorfile>namespaceopen_p_m_d.html</anchorfile>
+      <anchor>ad296768525c6f4ba24aead9d2c873764</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
       <name>getStandardMinimum</name>
       <anchorfile>namespaceopen_p_m_d.html</anchorfile>
       <anchor>acfa97da38a96cab56c67724443cf6378</anchor>
+      <arglist>()</arglist>
+    </member>
+    <member kind="function">
+      <type>std::string</type>
+      <name>getStandardMaximum</name>
+      <anchorfile>namespaceopen_p_m_d.html</anchorfile>
+      <anchor>aa78ad3af3f5b1a1a322bb222fa0e8434</anchor>
       <arglist>()</arglist>
     </member>
     <member kind="function">
@@ -4705,43 +5308,6 @@
       <anchorfile>namespaceopen_p_m_d.html</anchorfile>
       <anchor>aff4c79bb2b12ae065b20dbd550e0b930</anchor>
       <arglist>(T *x)</arglist>
-    </member>
-  </compound>
-  <compound kind="namespace">
-    <name>openPMD::internal</name>
-    <filename>namespaceopen_p_m_d_1_1internal.html</filename>
-    <class kind="class">openPMD::internal::AttributableData</class>
-    <class kind="class">openPMD::internal::BaseRecordData</class>
-    <class kind="class">openPMD::internal::ScalarIterator</class>
-    <class kind="class">openPMD::internal::BaseRecordComponentData</class>
-    <class kind="class">openPMD::internal::EraseStaleEntries</class>
-    <class kind="class">openPMD::internal::ContainerData</class>
-    <class kind="struct">openPMD::internal::FlushParams</class>
-    <class kind="struct">openPMD::internal::ParsedFlushParams</class>
-    <class kind="struct">openPMD::internal::DeferredParseAccess</class>
-    <class kind="class">openPMD::internal::IterationData</class>
-    <class kind="class">openPMD::internal::RecordComponentData</class>
-    <class kind="class">openPMD::internal::SeriesData</class>
-    <member kind="enumeration">
-      <type></type>
-      <name>SeriesStatus</name>
-      <anchorfile>namespaceopen_p_m_d_1_1internal.html</anchorfile>
-      <anchor>a5fac8bf8bc0ac3fcf18f3472c4b9e5b6</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceopen_p_m_d_1_1internal.html" anchor="a5fac8bf8bc0ac3fcf18f3472c4b9e5b6a7a1920d61156abc05a60135aefe8bc67">Default</enumvalue>
-      <enumvalue file="namespaceopen_p_m_d_1_1internal.html" anchor="a5fac8bf8bc0ac3fcf18f3472c4b9e5b6a8b08e51f06fabcbfa16942fbff59ab29">Parsing</enumvalue>
-    </member>
-    <member kind="enumeration">
-      <type></type>
-      <name>CloseStatus</name>
-      <anchorfile>namespaceopen_p_m_d_1_1internal.html</anchorfile>
-      <anchor>ad11a2f65f1518e3a2ac8bda1bb063aa3</anchor>
-      <arglist></arglist>
-      <enumvalue file="namespaceopen_p_m_d_1_1internal.html" anchor="ad11a2f65f1518e3a2ac8bda1bb063aa3a903906f737f87c24b81774dd5daf3bd4">ParseAccessDeferred</enumvalue>
-      <enumvalue file="namespaceopen_p_m_d_1_1internal.html" anchor="ad11a2f65f1518e3a2ac8bda1bb063aa3ac3bf447eabe632720a3aa1a7ce401274">Open</enumvalue>
-      <enumvalue file="namespaceopen_p_m_d_1_1internal.html" anchor="ad11a2f65f1518e3a2ac8bda1bb063aa3ab918ec176481bddaf9449d23cc4307de">ClosedInFrontend</enumvalue>
-      <enumvalue file="namespaceopen_p_m_d_1_1internal.html" anchor="ad11a2f65f1518e3a2ac8bda1bb063aa3a7c09b9df50e937b3efe30f3f12da9ee5">ClosedInBackend</enumvalue>
-      <enumvalue file="namespaceopen_p_m_d_1_1internal.html" anchor="ad11a2f65f1518e3a2ac8bda1bb063aa3a4b54db6f1247a770867b1e10b8553d69">ClosedTemporarily</enumvalue>
     </member>
   </compound>
   <compound kind="namespace">

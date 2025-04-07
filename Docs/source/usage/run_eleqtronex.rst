@@ -95,14 +95,6 @@ Restart parameters
 - ``restart = 1`` set while restarting the code.
 - ``restart_step = <step_number>`` Replace ``<step_number>`` with step to be restarted.
 
-NEGF module parameters
-^^^^^^^^^^^^^^^^^^^^^^
-- ``transport.NS_names = <NS1> <NS2>`` Optional parameter to define vector of string names for nanostructures. Folders with these names are created in the ``<plot.folder_name>/negf/`` folder.
-- ``transport.NS_num = <number>`` If ``transport.NS_names`` is not specified then we need to set this parameter defining the number of nanostructures.
-- ``transport.NS_type_default = CNT`` The default type of nanostructures. Here it is defined as CNT, referring to carbon nanotube.
-- ``transport.NS_initial_deposit_value = <value>`` This is the initial charge deposited on the surface of the material while starting the simulation.
-- ``transport.gate_terminal_type = <Type>`` ``<Type>`` can be EB, representing gate terminal defined as an embedded boundary, or ``Boundary``, representing gate terminal defined on the domain boundary.
-
 Electrostatics module parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 See AMReX documentation for MLMG parameters such as ``mlmg.set_verbose``, ``mlmg.max_order``, ``mlmg.absolute_tolerence``, and ``mlmg.relative_tolerance``.
@@ -110,3 +102,90 @@ See AMReX documentation for MLMG parameters such as ``mlmg.set_verbose``, ``mlmg
 For debugging, we typically need:
 
 - ``mlmg.set_verbose = <integer number>`` which sets the verbosity level for output of the MLMG multigrid solver. Useful for debugging. Usually set to 0.
+
+  
+Diagnostic parameters:
+^^^^^^^^^^^^^^^^^^^^^^
+
+- ``use_diagnostics = <boolean>`` This flag enables writing out field diagnostics.
+- ``diag.specify_using_eb = <boolean>`` With this flag, we can specify diagonstic regions using embedded boundaries. It is typically 1.
+- ``diag.objects = <label1> ... `` Here we can define multiple labels for different diagnostic objects. This label can be any string, e.g ``Z_rho``, which we will use next to output charge density on a plane.
+- ``Z_rho.geom_type = plane`` Here we are defining geometry type as a plane.
+- ``Z_rho.direction = <value>`` <value> can be 0, 1, or 2, to set X, Y, or a Z-plane.
+- ``Z_rho.location = <float value>`` This can be used to set the location of the Z-plane.
+- ``Z_rho.fields_to_plot = charge_density`` This plots the charge density on the plane. This field label should be defined in ``macroscopic.fields_to_define``.
+
+
+NEGF and Broyden module parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- ``transport.NS_names = <NS1> <NS2>`` Optional parameter to define vector of string names for nanostructures. Folders with these names are created in the ``<plot.folder_name>/negf/`` folder.
+- ``transport.NS_num = <number>`` If ``transport.NS_names`` is not specified then we need to set this parameter defining the number of nanostructures.
+- ``transport.NS_type_default = CNT`` The default type of nanostructures. Here it is defined as CNT, referring to carbon nanotube.
+- ``transport.gather_field = phi`` Here ``phi`` refers to the name of the multifab defined to hold potential.
+- ``transport.deposit_field = charge_density`` Here ``charge_density`` refers to the named of the multifab defined to hold charge density values.
+- ``transport.NS_initial_deposit_value = <value>`` This is the initial charge deposited on the surface of the material while starting the simulation.
+- ``transport.reset_with_previous_charge_distribution = <boolean>`` Value of 1 means when the gate-source or drain-source voltages change (i.e. for step > 0) during sweeping while characterizing a FET, we initialize the charge on the material based on the converged charge at previous conditions. If set to 0, then the charge is always initialized with a value set for ``NS_initial_deposit_value``. At step 0, the charge is initialized with a value set for ``NS_initial_deposit_value`` regardless of what value we set for this parameter.
+- ``transport.selfconsistency_algorithm = broyden_second`` Currently only Broyden's modified second algorithm is supported in parallel. See the first ELEQTRONeX paper for details.
+- ``transport.Broyden_fraction = <float value>`` Value of the Broyden fraction is defined between 0 to 1. Typically 0.1.
+- ``transport.Broyden_norm_type = <type>`` ``<type>`` can be relative or absolute. Typically we have used relative norm.
+- ``transport.Broyden_max_norm = <float value>`` Broyden iterations stop if the relative norm at all charge density sites is below this value. Typically set to 1.e-5.
+- ``transport.Broyden_threshold_maxstep = <int value>`` Broyden iterations stop if the number of iterations exceed the value defined here. Typically 100.
+
+The following parameters can be defined via ``NS_default`` prefix, with an option to override then by redefining it with a prefix defined by a nanostructure name, e.g. ``CNT`` for the example defined above. This is useful when we want to change the parameters only for specific nanostructures, while retaining the default behavior for the result of nanostructures.
+For example, if we want to define 10 nanotubes, all having most parameters common, but one or two parameters varying across nanotubes, then the common parameters can be defined with prefix ``NS_default``, while the nanostructure specific parameters can be defined with prefix, ``NS_1``, ``NS_2``, etc. Here we assume that we have defined ``transport.NS_names = NS_1 NS_2`` for these names to be valid.
+Below we use prefix ``NS_default``.
+
+- ``NS_default.num_unitcells = <int value>`` Number of unitcells of material. Note that for all examples with carbon nanotube, we have defined the CNT length in terms of number of unitcells.
+- ``NS_default.rotation_order = <type1> <type2> ...`` where ``<type>`` can be ``X``, ``Y``, or ``Z``. Material is initialized with its center at (0,0,0) coordinates. Rotation is applied to this material using Euler angles in the order specified here. ``NS_default.rotation_order = Z Y X`` would mean rotation is first applied about the Z axis, then Y, then X.
+- ``NS_default.rotation_angle_type = <type>`` ``<type>`` can be ``D`` for degrees or ``R`` for radians.
+- ``NS_default.rotation_angles = <alpha> <beta> <gamma>`` where these values correspond to Euler angles.
+  - ``NS_default.offset = <X-offset> <Y-offset> <Z-offset>`` The material geometry is centered around zero. This parameter lets up translate it. These values are floats. In multiple nanotube simulations, we have different offsets for each nanotube.
+- ``NS_default.contact_Fermi_level = <float value>`` This is the Fermi level defined as input in the time independent Green's function formalism.
+- ``NS_default.contact_mu_specified = <boolean>`` 1 means that we provide the value of Fermi levels at the contacts. O means that it is computed based on the specified voltage on the embedded boundaries designated as source and drain. This parameter is set to 1, when we vary gate-source voltage, while keeping drain-source voltage fixed. It is set to 0, when we vary drain-source voltage, while keeping gate-source voltage fixed.
+- ``NS_default.contact_mu = <value1> <value2>`` If the above parameter is set to 1, then we define the value of contact Fermi levels here. E.g. ``Ef (Ef-Vds)`` where ``Ef`` is a constant defining the Fermi level of the source and while ``Ef-Vds`` is the Fermi level of the drain with ``Vds`` is a constant defining the drain-source bias.
+- ``NS_default.contact_T = <value1> <value2>`` These two values correspond to temperatures of source and drain contacts, respectively (in Kelvin).
+- ``NS_default.gate_terminal_type = <type>`` where ``<type>`` can be an embedded boundary, in which case we need to define an embedded boundary for the gate, e.g. in the case of a gate-all-around geometry. Other option for ``<type>`` is ``Boundary``, in which case we need to define a Dirichlet with the name as ``Gate``, e.g. for a planar CNTFET geometry, we define ``boundary.low = neu(0.) neu(0.) dir(Gate)`` and ``boundary.Gate_function = "SV + Vgs_max - (Vgs_max-Vgs_min) * t"`` which defines a gate at the Zmin boundary.
+- ``NS_default.Fermi_tail_factors = <value1> <value2>`` These values are multipliers that define minimum and maximum tails for the Fermi function. Typically we define 14 for both values, meaning that Fermi function has tails ``-14kT`` and ``+14kT``. This parameter is used in the code while defining the integration region.
+- ``NS_default.eq_integration_pts = <value1> <value2> <value3>`` All 3 values are integers and they correspond to number of quadrature points used for integration using Gauss-Legendre polynomials. The three paths are used for integration the equilibrium region in the complex plane (see supplementary Fig.2 in the first ELEQTRONeX paper). Instead of integrating over a real line from Z_a to Z_b, we integrate along path 1: from Z_b to Z_c, path 2: from Z_c to Z_d, and path 3: from Z_d to Z_a. Note that the third path is curved.
+- ``NS_default.flag_compute_flatband_dos=<boolean>`` 1 means we compute the density of states of the material when the bands are flat, i.e. assuming that the contact Fermi levels are at 0.
+- ``NS_default.flatband_dos_integration_points=<int value>`` Number of integration points for  the path defined by limits in the next parameter.
+- ``NS_default.flatband_dos_integration_limits= <value1> <value2>`` e.g. ``-1. 1.`` would mean we  integrate from E=-1 eV to 1 eV.
+- ``NS_default.num_noneq_paths=<value>`` In nonequilibrium, we have a second term to integrate, as defined in the Eq. (7) of the supplementary note 3 of the first ELEQTRONeX paper. This integration occurs over a line parallel to the real line (shifted by ``NS_default.E_zPlus_imag`` on the imaginary line). This path is by default assumed to be a single path of integration (``<value>`` is set to ``1``). However, it can be divided into ``3`` parts for the adaptive scheme.
+- ``NS_default.noneq_integration_pts=<value>`` Here we define the number of integration points for each nonequilibrium path. If there is only a single path, then the value correspond to that single path. If there are 3 paths, then we need to provide 3 values.
+- ``NS_default.flag_write_integrand=<boolean>`` 1 means we write out the integrands at the center of the channel. For example, in Fig. 3d of the first ELEQTRONeX paper, we plot integrands.
+- ``NS_default.flag_write_charge_components=<boolean>`` 1 means, we write out the individual parts of charge density that make up the induced charge density, e.g. the contribution from equilibrium path (part 1 of Eq. (7), computed using Residue theorem), part 2 of Eq. (7), computed by integrating over a real line, neutral charge density as defined in the paper. This is useful for debugging.
+- ``NS_default.NS_default.num_recursive_parts=<int value>`` This number has to do with the recursive (serial) part of the calculation for calculating Green's function, in block tri-diagonal inversion algorithm (see explanation of supplementary Fig. 1(b) in the first ELEQTRONeX paper.)The integer value chosen for this parameter divides the recursive array into as many parts and overlaps recursive computation of each part with its copy from CPU to GPU. Ideally, we want to divide the array small enough that the time for the two tasks are equal.
+
+- ``NS_default.E_valence_min = <float value in eV>`` This is the minimum value of the valence bandedge for integration (see supplementary Fig. 2).
+- ``NS_default.E_pole_max = <float value in eV>`` This value is the parameter Delta in supplementary Fig. 2, which determines how many Fermi function poles we include on the imaginary plane in the contour integration. 
+- ``NS_default.E_zPlus_imag = <float>`` This is the small number eta in Eq.(2) of the first ELEQTRONeX paper.
+- ``NS_default.flag_write_LDOS = <boolean>`` This flag write out local density of states at each step (step refers to different Vgs or Vds values depending what we are varying.)
+- ``NS_default.flag_write_LDOS_iter = <boolean>`` This flag writes out local density of states at each iteration at a given Vgs, Vds conditions. Useful for debugging.
+- ``NS_default.write_LDOS_iter_period = <int value>`` This number determines the period of iteration for writing LDOS.
+
+Carbon nanotube specific parameters:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``CNT_default.type_id = m_index n_index`` These are integer values. Carbon nanotube is defined as (m_index, n_index) nanotube.
+- ``CNT_default.acc = bond_length`` bond_length is carbon-carbon bond length (0.142 nm).
+- ``CNT_default.gamma = 2.5 `` gamma is the overlap parameter in eV (see the first ELEQTRONeX paper).
+
+Point charge specific parameters:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``charge_density_source.type = point_charge`` This parameter chooses the external charge density source as point charges.
+- ``pc.default_charge_unit = <value>`` This means default charge for each trap is ``<value>e``.
+- ``pc.default_occupation = <value>`` This means the default occupation for each trap is ``<value>``. 0 means completely deactivated, 1 means fully active. 
+- ``pc.charge_density = <float value>`` This is the charge density in SI units. For 3D and 2D random distribution of charges the density is in units of e/nm^3 and e/nm^2, respectively.
+- ``pc.mixing_factor = <float value>`` This value refers to the simple mixing factor used for updating Vi in Eq.(5) of the second ELEQTRONeX paper.
+- ``pc.flag_vary_occupation = <boolean>`` This flag is used to set traps with variable occupation according to Eq.(4) of the second ELEQTRONeX paper.
+- ``pc.Et = <float value>`` If the ``flag_vary_occupation`` flag is 1, then we can use this parameter to set Vt in the denominator in Eq.(4) of the second ELEQTRONeX paper on traps. Note that ``Et`` should have been defined as ``Vt``.
+- ``pc.V0 = <float value>`` This is the parameter Vo in Eq.(4).
+- ``pc.flag_random_positions = <boolean>`` This flag determines whether we are going to initialize traps with a random distribution or specify them one by one.
+- ``pc.random_seed = <int value>`` This value corresponds to random seed used for generating trap distribution.
+- ``pc.offset = <value1> <value2> <value3>`` The trap locations are translated by this much amount in the X, Y, and Z directions when they are initialized with a random distribution (between 0 and 1). We can use this parameter to fix the minimum bounds of the cuboid region in which we want to initialize the traps. For example, we typically set this as ``pc.offset =  (-GO_width/2. + 10*dx) (-G_length/2.) (ZOffset)`` where ``GO_width, G_length, Zoffset, dx`` are the constants used to set the gate-oxide width, gate length, Z value along the gate-oxide just above the vacuum/gate-oxide interface, and cell-size in the X direction, respectively.
+- ``pc.scaling = <value1> <value2> <value3>`` Similarly, the trap locations are scaled by these values when the traps are initialized with a random distribution (between 0 and 1). For example, we may apply scaling as ``pc.scaling = (GO_width - 20*dx) (G_length) (0)`` in addition to the offset defined above, which means that the traps will be introduced in the cuboid defined by the gate-oxide width 10dx short of the domain boundaries, entire gate length, and Z-plane marked by Zoffset.
+- ``pc.num = <int value>`` If we know the specific trap locations where we want to introduce traps, we can initialize this number. For this to work, we need to set ``pc.flag_random_positions=0``.
+- ``pc_<i>.location = <Xi> <Yi> <Zi>`` if ``pc.num`` is set then we can set the X, Y, Z locations of each ith trap with this parameter, where <i> is a number from 1 to value set by pc.num. 
+- ``pc.flag_write_individual_charge_files= <boolean>`` As the name suggestions, with this parameter, we can output locations and other parameters corresponding to each trap at each step when the potential at the charge and consequently their occupation is converged.
+
