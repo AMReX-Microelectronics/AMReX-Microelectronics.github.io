@@ -68,16 +68,16 @@ The following flags enable particular modules.
 - ``use_transport = 1`` Transport module enabled.
 - ``transport.use_negf = 1`` NEGF solver enabled.
 - ``use_diagnostics = 1`` Diagnostics are enabled.
-- ``amrex.the_arena_is_managed=1`` CUDA managed memory enabled.
+- ``domain.embedded_boundary = 1`` Set embedded boundaries in the domain.
 
-Data output parameters
-^^^^^^^^^^^^^^^^^^^^^^
+Field data output parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - ``plot.folder_name = <output_folder>``  Replace ``<output_folder>`` with the foldername.
 - ``plot.fields_to_plot = <MF_name>.<ID> <MF_name> vecField`` vector of ``multiFabs`` to be outputted. Replace <MF_name> with the name of multifab defined in ``macroscopic.fields_to_define``. If ``<ID>`` is not specified, then data is outputted only in the output folder. ``vecField`` outputs the gradient of electrostatic potential in all three directions.
   Additionally, there is an option to create raw_fields folder as ``<output_folder>/raw_fields``, where raw data may be outputted. Replace ``<ID>`` with 1 to output the multifab in the output folder as well as separately in the ``raw_fields`` folder along with the ghost cells. This may be useful while debugging. Replace ``<ID>`` with 2 to output data only in the ``raw_fields`` folder. 
 - ``plot.write_after_init = 1``  Data can be written out after initialization and before the first iteration. This may be useful for debugging before running the simulation.
-- ``plot.write_interval = <interval>``  Replace ``<interval>`` with a number specifying the interval of outputting the data. 
-- ``plot.rawfield_write_interval = <interval>``  This interval can be different from ``plot.write_interval``.
+- ``plot.write_interval = <int value>``  If the previous parameter is enabled, then this parameter can be used to specify the interval with which the data is written out.
+- ``plot.rawfield_write_interval = <int value>``  This interval can be different from ``plot.write_interval``.
 
 Boundary Conditions
 ^^^^^^^^^^^^^^^^^^^
@@ -88,6 +88,35 @@ Boundary Conditions
   For Robin boundaries, we need to set a string parameter, for example ``rob(Ymax)`` and set three more Robin boundary specific parameters as ``boundary.<string_name>_a_function``, ``boundary.<string_name>_b_function``, ``boundary.<string_name>_f_function``. If ``domain.is_periodic`` is specified to be periodic, then it overrides the ``boundary.hi`` and ``boundary.lo`` parameters. 
 - ``boundary.lo = neu(-0.5) neu dir(5)`` Similarly, set the minimum domain boundaries in the `X`, `Y`, and `Z` directions. In this example, minimum `X`, `Y` boundaries are Neumann with values of -0.5 and 0., while minimum `Z` boundary is Dirichlet with a potential value of 5~V.
 
+
+Embedded boundary parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+For these parameters to work, we enable ``domain.embedded_boundary=1``.
+
+- ``domain.specify_using_eb2=<boolean>`` If this is true, then we load EBs provided by AMReX using its inbult interface. Typically set to 0.
+- ``ebgeom.objects=<object_label1> ...`` Here we can set EB object labels. If we want to set more than 1 labels, we can do that by listing space-separated labels. For example, we can define labels as Source, Drain. Gate can be specified using either EB or the boundary. If we are setting gate using EB, we should use the label ``Gate``.
+- ``ebgeom.specify_inhomo_dir=1`` This means we specify inhomogeneous Dirichlet boundaries on the EB. We can set different Dirichlet boundaries on each EB.
+- ``<object_label>.geom_type = <options>`` <options> can be ``box`` to set a box-shaped EB. Or it can be ``cntfet_contact_cyl`` to define a cylindrical EB shape with a cylindrical cavity (in which carbon nanotube goes). Or it can be ``cntfet_contact_rect`` to define a rectangular EB shape with a rectangular cavity. For all supported shape, see function ``ReadObjectInfo(...)`` in the file ``Source/Input/EmbeddedBoundaries.cpp``.
+  
+Below we provide example of using ``cntfet_contact_cyl``. We assume that we are defining it for an object named Drain.
+
+- ``Drain.geom_type = cntfet_contact_cyl`` Here we define the geometry type for the Drain.
+
+- ``Drain.inner_radius=<float value>`` Here we specify the inner radius of the cavity.
+
+- ``Drain.thickness=<float value>`` Here we set the thickness of the cylinder.
+
+- ``Drain.center=<X-center> Y-center> <Z-center>`` These are all float values that define the center of the cylinder in a domain.
+
+- ``Drain.height = <float value>`` This defines the height of the cylinder in the axial direction. This height protrudes the cylinder symmetrically around its center in the axial direction such that the height is as specified here.
+
+- ``Drain.direction=<value>`` ``<value>`` can be 0, 1, or 2 for defining the axial direction as X, Y, or Z.
+
+- ``Drain.surf_soln=<float value>`` This parameter can be used to set the potential on the surface. Optionally we can set a parser for setting the potential as follows.
+
+- ``Drain.surf_soln_parser=<boolean>`` Optionally we can use a parser for setting the potential, by setting this parameter 1. In this case, we do not define the previous parameter. This parameter is useful in case if the source potential varies with time. Note that in the case of steady state NEGF, we do not actually vary time but we use the time parameter ``t`` in the parser equation to vary the steps, e.g. to compute I-Vds characteristics by varying drain-source voltage (Vds) value.
+
+- ``Drain.surf_soln_function=<parser expression>`` Here we can write a string enclused parser expression as supported by AMReX. For example to vary drain-source voltage, we can write ``<parser expression>`` as ``"SV + Vds_max - (Vds_max-Vds_min) * t"``, where ``SV`` is a constant voltage on the source (typically 0), ``Vds_max`` is the maximum drain-source voltage, ``Vds_min`` is the minimum drain-source voltage, and ``t`` is a `time` varying parameter from 0 to 1 to span  the entire range from ``Vds_max`` to ``Vds_min``.
 
 
 Restart parameters
@@ -104,10 +133,10 @@ For debugging, we typically need:
 - ``mlmg.set_verbose = <integer number>`` which sets the verbosity level for output of the MLMG multigrid solver. Useful for debugging. Usually set to 0.
 
   
-Diagnostic parameters:
-^^^^^^^^^^^^^^^^^^^^^^
+Diagnostic parameters
+^^^^^^^^^^^^^^^^^^^^^
+For the following parameters to work, set ``use_diagnostics=1``.
 
-- ``use_diagnostics = <boolean>`` This flag enables writing out field diagnostics.
 - ``diag.specify_using_eb = <boolean>`` With this flag, we can specify diagonstic regions using embedded boundaries. It is typically 1.
 - ``diag.objects = <label1> ... `` Here we can define multiple labels for different diagnostic objects. This label can be any string, e.g ``Z_rho``, which we will use next to output charge density on a plane.
 - ``Z_rho.geom_type = plane`` Here we are defining geometry type as a plane.
@@ -147,31 +176,39 @@ Below we use prefix ``NS_default``.
 - ``NS_default.gate_terminal_type = <type>`` where ``<type>`` can be an embedded boundary, in which case we need to define an embedded boundary for the gate, e.g. in the case of a gate-all-around geometry. Other option for ``<type>`` is ``Boundary``, in which case we need to define a Dirichlet with the name as ``Gate``, e.g. for a planar CNTFET geometry, we define ``boundary.low = neu(0.) neu(0.) dir(Gate)`` and ``boundary.Gate_function = "SV + Vgs_max - (Vgs_max-Vgs_min) * t"`` which defines a gate at the Zmin boundary.
 - ``NS_default.Fermi_tail_factors = <value1> <value2>`` These values are multipliers that define minimum and maximum tails for the Fermi function. Typically we define 14 for both values, meaning that Fermi function has tails ``-14kT`` and ``+14kT``. This parameter is used in the code while defining the integration region.
 - ``NS_default.eq_integration_pts = <value1> <value2> <value3>`` All 3 values are integers and they correspond to number of quadrature points used for integration using Gauss-Legendre polynomials. The three paths are used for integration the equilibrium region in the complex plane (see supplementary Fig.2 in the first ELEQTRONeX paper). Instead of integrating over a real line from Z_a to Z_b, we integrate along path 1: from Z_b to Z_c, path 2: from Z_c to Z_d, and path 3: from Z_d to Z_a. Note that the third path is curved.
-- ``NS_default.flag_compute_flatband_dos=<boolean>`` 1 means we compute the density of states of the material when the bands are flat, i.e. assuming that the contact Fermi levels are at 0.
-- ``NS_default.flatband_dos_integration_points=<int value>`` Number of integration points for  the path defined by limits in the next parameter.
-- ``NS_default.flatband_dos_integration_limits= <value1> <value2>`` e.g. ``-1. 1.`` would mean we  integrate from E=-1 eV to 1 eV.
 - ``NS_default.num_noneq_paths=<value>`` In nonequilibrium, we have a second term to integrate, as defined in the Eq. (7) of the supplementary note 3 of the first ELEQTRONeX paper. This integration occurs over a line parallel to the real line (shifted by ``NS_default.E_zPlus_imag`` on the imaginary line). This path is by default assumed to be a single path of integration (``<value>`` is set to ``1``). However, it can be divided into ``3`` parts for the adaptive scheme.
 - ``NS_default.noneq_integration_pts=<value>`` Here we define the number of integration points for each nonequilibrium path. If there is only a single path, then the value correspond to that single path. If there are 3 paths, then we need to provide 3 values.
-- ``NS_default.flag_write_integrand=<boolean>`` 1 means we write out the integrands at the center of the channel. For example, in Fig. 3d of the first ELEQTRONeX paper, we plot integrands.
-- ``NS_default.flag_write_charge_components=<boolean>`` 1 means, we write out the individual parts of charge density that make up the induced charge density, e.g. the contribution from equilibrium path (part 1 of Eq. (7), computed using Residue theorem), part 2 of Eq. (7), computed by integrating over a real line, neutral charge density as defined in the paper. This is useful for debugging.
 - ``NS_default.NS_default.num_recursive_parts=<int value>`` This number has to do with the recursive (serial) part of the calculation for calculating Green's function, in block tri-diagonal inversion algorithm (see explanation of supplementary Fig. 1(b) in the first ELEQTRONeX paper.)The integer value chosen for this parameter divides the recursive array into as many parts and overlaps recursive computation of each part with its copy from CPU to GPU. Ideally, we want to divide the array small enough that the time for the two tasks are equal.
 
 - ``NS_default.E_valence_min = <float value in eV>`` This is the minimum value of the valence bandedge for integration (see supplementary Fig. 2).
 - ``NS_default.E_pole_max = <float value in eV>`` This value is the parameter Delta in supplementary Fig. 2, which determines how many Fermi function poles we include on the imaginary plane in the contour integration. 
 - ``NS_default.E_zPlus_imag = <float>`` This is the small number eta in Eq.(2) of the first ELEQTRONeX paper.
-- ``NS_default.flag_write_LDOS = <boolean>`` This flag write out local density of states at each step (step refers to different Vgs or Vds values depending what we are varying.)
-- ``NS_default.flag_write_LDOS_iter = <boolean>`` This flag writes out local density of states at each iteration at a given Vgs, Vds conditions. Useful for debugging.
-- ``NS_default.write_LDOS_iter_period = <int value>`` This number determines the period of iteration for writing LDOS.
 
-Carbon nanotube specific parameters:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NEGF data output parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- ``NS_default.write_at_iter=<boolean>`` 1 means we write out data (induced charge, potential, and relative/absolute norm) at each field site at each iteration.
+- ``NS_default.flag_compute_DOS=<boolean>`` 1 means we compute and write the density of states of the material based on contact Fermi levels. 
+- ``NS_default.flag_write_LDOS = <boolean>`` This flag write out local density of states at each step (step refers to different Vgs or Vds values depending what we are varying). For this parameter to work, ``NS_default.flag_compute_DOS`` must be 1.
+- ``NS_default.flag_write_LDOS_iter = <boolean>`` This flag writes out local density of states at each iteration at a given Vgs, Vds conditions. Useful for debugging.
+- ``NS_default.write_LDOS_iter_period=<int value>`` If the previous parameter is enabled, then this parameter can be used to set the interval with which the LDOS output is written out.
+- ``NS_default.flag_compute_flatband_dos=<boolean>`` 1 means we compute the density of states of the material when the bands are flat, i.e. assuming that the contact Fermi levels are at 0.
+- ``NS_default.flatband_dos_integration_points=<int value>`` Number of integration points for  the path defined by limits in the next parameter.
+- ``NS_default.flatband_dos_integration_limits= <value1> <value2>`` e.g. ``-1. 1.`` would mean we  integrate from E=-1 eV to 1 eV.
+- ``NS_default.flag_write_integrand=<boolean>`` 1 means we write out the integrands at the center of the channel. For example, in Fig. 3d of the first ELEQTRONeX paper, we plot integrands.
+- ``NS_default.write_integrand_interval=<int value>`` Without setting this parameter integrand is written out only at convergence. If we want to see integrand at specific Broyden iterations, we can specify the interval here.
+- ``NS_default.flag_write_charge_components=<boolean>`` 1 means, we write out the individual parts of charge density that make up the induced charge density, e.g. the contribution from equilibrium path (part 1 of Eq. (7), computed using Residue theorem), part 2 of Eq. (7), computed by integrating over a real line, neutral charge density as defined in the paper. This is useful for debugging.
+
+
+Carbon nanotube parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``CNT_default.type_id = m_index n_index`` These are integer values. Carbon nanotube is defined as (m_index, n_index) nanotube.
 - ``CNT_default.acc = bond_length`` bond_length is carbon-carbon bond length (0.142 nm).
 - ``CNT_default.gamma = 2.5 `` gamma is the overlap parameter in eV (see the first ELEQTRONeX paper).
 
-Point charge specific parameters:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Point charge parameters
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``charge_density_source.type = point_charge`` This parameter chooses the external charge density source as point charges.
 - ``pc.default_charge_unit = <value>`` This means default charge for each trap is ``<value>e``.
@@ -187,5 +224,4 @@ Point charge specific parameters:
 - ``pc.scaling = <value1> <value2> <value3>`` Similarly, the trap locations are scaled by these values when the traps are initialized with a random distribution (between 0 and 1). For example, we may apply scaling as ``pc.scaling = (GO_width - 20*dx) (G_length) (0)`` in addition to the offset defined above, which means that the traps will be introduced in the cuboid defined by the gate-oxide width 10dx short of the domain boundaries, entire gate length, and Z-plane marked by Zoffset.
 - ``pc.num = <int value>`` If we know the specific trap locations where we want to introduce traps, we can initialize this number. For this to work, we need to set ``pc.flag_random_positions=0``.
 - ``pc_<i>.location = <Xi> <Yi> <Zi>`` if ``pc.num`` is set then we can set the X, Y, Z locations of each ith trap with this parameter, where <i> is a number from 1 to value set by pc.num. 
-- ``pc.flag_write_individual_charge_files= <boolean>`` As the name suggestions, with this parameter, we can output locations and other parameters corresponding to each trap at each step when the potential at the charge and consequently their occupation is converged.
-
+- ``pc.flag_write_individual_charge_files= <boolean>`` As the name suggestions, with this parameter, we can output locations and other parameters corresponding to each trap at each step when their occupation values are converged.

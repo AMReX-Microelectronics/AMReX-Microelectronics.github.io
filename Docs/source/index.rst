@@ -93,7 +93,8 @@ Data Analysis
    :maxdepth: 1
    :hidden:
 
-   dataanalysis/formats
+   dataanalysis/field_format
+   dataanalysis/negf_eleqtronex
    dataanalysis/yt
 
 

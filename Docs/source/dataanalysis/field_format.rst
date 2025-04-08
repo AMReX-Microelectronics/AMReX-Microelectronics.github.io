@@ -1,9 +1,9 @@
 .. _dataanalysis-formats:
 
-Output Formats and Visualization
-==============
+Field Visualization 
+===================
 
-All MicroEleX code packages write the output data in `plotfile format <https://amrex-codes.github.io/amrex/docs_html/IO.html>`__
+MicroEleX code packages write out field data in `plotfile format <https://amrex-codes.github.io/amrex/docs_html/IO.html>`__
 
 Plotfiles are AMReX' native data format.
 
