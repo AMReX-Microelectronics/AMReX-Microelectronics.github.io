@@ -77,6 +77,42 @@ Steps to Run a New Simulation
 
    or using a job submission script if running on a batch scheduler (e.g., SLURM, LSF).
 
+   **Specific Example Commands**
+
+   The following examples show how to run ARTEMIS with different build configurations and test cases:
+
+   **GNU Make Build Examples:**
+
+   .. code-block:: bash
+
+      # Simple testcase without LLG (air-filled X-band rectangle waveguide)
+      # MPI+OMP build
+      make -j 4 USE_LLG=FALSE
+      mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
+
+      # MPI+CUDA build
+      make -j 4 USE_LLG=FALSE USE_GPU=TRUE
+      mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
+
+      # Simple testcase with LLG (X-band magnetically tunable filter)
+      # MPI+OMP build
+      make -j 4 USE_LLG=TRUE
+      mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
+
+      # MPI+CUDA build
+      make -j 4 USE_LLG=TRUE USE_GPU=TRUE
+      mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
+
+   **CMake Build Examples:**
+
+   .. code-block:: bash
+
+      # Basic execution
+      ./build/bin/warpx Examples/Waveguide/inputs_3d_empty_X_band
+
+      # With MPI
+      mpirun -n 4 ./build/bin/warpx Examples/Waveguide/inputs_3d_LLG_filter
+
 6. **Outputs and Plotfiles**
 
    ARTEMIS typically writes data in **AMReX plotfile** format at specified intervals set in your input file (e.g., ``plot_int`` parameter). These plotfiles will be named something like ``plt0000100``, where the number refers to the time step. You can visualize these outputs with:
@@ -86,6 +122,19 @@ Steps to Run a New Simulation
    - `yt <https://yt-project.org/>`_ (using ``yt.load('plt0000100')``)
 
    For instance, to visualize using ParaView, copy or link the ``plt0000XXX`` directory to your local machine (if running on HPC), open ParaView, and choose ``Open -> (your plotfile)``. ParaView recognizes the AMReX format and allows you to slice, colorize, or animate your fields in 3D.
+
+   **Specific Example: Data Analysis with yt**
+
+   You can extract simulation data in numpy array format using yt:
+
+   .. code-block:: python
+
+      import yt
+      ds = yt.load('./plt00001000/')  # for data at time step 1000
+      ad0 = ds.covering_grid(level=0, left_edge=ds.domain_left_edge, dims=ds.domain_dimensions)
+      E_array = ad0['Ex'].to_ndarray()  # x-component of electric field
+
+   For more details on data extraction with yt, see the `covering grid documentation <https://yt-project.org/doc/examining/low_level_inspection.html#examining-grid-data-in-a-fixed-resolution-array>`_.
 
 7. **Common Parameters in ARTEMIS Input Files**
 
