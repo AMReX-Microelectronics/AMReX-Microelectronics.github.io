@@ -83,7 +83,9 @@ Navigate to the FerroX/Exec directory and build using your preferred method:
 Build Verification
 ^^^^^^^^^^^^^^^^^^
 
-After successful compilation, verify the installation by running the test cases provided in the Examples directory. Check that the executable runs without errors and produces expected output files.
+After successful compilation, verify the installation by running a test simulation from the Examples directory.
+
+For detailed instructions on setting up and running FerroX simulations, see :ref:`usage_run_ferrox`.
 
 Advanced Build Options
 ----------------------

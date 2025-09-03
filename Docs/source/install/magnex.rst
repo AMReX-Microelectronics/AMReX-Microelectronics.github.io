@@ -90,7 +90,9 @@ For CMake builds (alternative approach):
 Build Verification
 ^^^^^^^^^^^^^^^^^^
 
-After successful compilation, verify the installation by running the test suite or example problems included in the MagneX distribution.
+After successful compilation, verify the installation by running a test simulation from the included example problems.
+
+For detailed instructions on setting up and running MagneX simulations, see :ref:`usage_run_magnex`.
 
 Advanced Build Options
 -----------------------

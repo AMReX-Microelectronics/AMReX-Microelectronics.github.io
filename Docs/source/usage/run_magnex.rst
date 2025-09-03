@@ -1,4 +1,4 @@
-.. _usage_run:
+.. _usage_run_magnex:
 
 Run MagneX
 =========

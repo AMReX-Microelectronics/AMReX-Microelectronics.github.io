@@ -90,7 +90,9 @@ Both methods produce an executable ready for simulation. By default, the Landau-
 Build Verification
 ^^^^^^^^^^^^^^^^^^
 
-After successful compilation, verify the build by checking the executable exists and can display help information. The executable will be located in the build directory or top directory depending on your build method.
+After successful compilation, verify the build by running a test simulation. The executable will be located in the build directory or top directory depending on your build method.
+
+For detailed instructions on setting up and running ARTEMIS simulations, see :ref:`usage_run_artemis`.
 
 Advanced Build Options
 -----------------------

@@ -93,7 +93,9 @@ For CMake builds:
 Build Verification
 ^^^^^^^^^^^^^^^^^^
 
-After successful compilation, verify the build by checking that the executable was created and can display help information. Also ensure any required preprocessor flags in ``Source/Code_Definitions.H`` are properly configured for your simulation needs.
+After successful compilation, verify the build by running a test simulation. Also ensure any required preprocessor flags in ``Source/Code_Definitions.H`` are properly configured for your simulation needs.
+
+For detailed instructions on setting up and running ELEQTRONeX simulations, see :ref:`usage_run_eleqtronex`.
 
 Advanced Build Options
 -----------------------

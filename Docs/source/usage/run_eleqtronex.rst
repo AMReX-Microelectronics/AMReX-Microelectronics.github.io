@@ -1,4 +1,4 @@
-.. _usage_run:
+.. _usage_run_eleqtronex:
 
 Run ELEQTRONeX
 =========
