@@ -15,103 +15,106 @@ The code couples magnetization physics with electromagnetic fields in a temporal
 Installation
 ------------
 
-Clone AMReX (dependency)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Quick Start
+~~~~~~~~~~~
+
+AMReX and ARTEMIS must be cloned in the same directory.
 
 .. code-block:: bash
 
    git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/artemis.git
+   cd artemis/Exec/
+   make -j 4
 
-Clone ARTEMIS
-~~~~~~~~~~~~~
+Detailed Installation Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Clone ARTEMIS in the same directory as AMReX:
+Prerequisites and Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ARTEMIS requires AMReX as its core dependency. The AMReX library provides the adaptive mesh refinement framework that enables ARTEMIS's high-performance capabilities. Both repositories must be placed alongside each other in your filesystem for the build system to locate the dependencies correctly.
+
+Obtaining the Source Code
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Clone both AMReX and ARTEMIS from their respective GitHub repositories:
 
 .. code-block:: bash
 
+   git clone https://github.com/AMReX-Codes/amrex.git
    git clone https://github.com/AMReX-Microelectronics/artemis.git
 
-Make sure ``amrex/`` and ``artemis/`` are placed alongside each other in your filesystem.
+Ensure the directory structure appears as:
 
-Build ARTEMIS
-~~~~~~~~~~~~~
+.. code-block:: text
 
-ARTEMIS supports both GNU Make and CMake build systems with various configuration options.
+   parent_directory/
+   ├── amrex/
+   └── artemis/
 
-**Key Build Flags:**
+Understanding the Build System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* **Physics Flags (e.g., `USE_LLG`)**: Control which physical models are included. The **Landau-Lifshitz-Gilbert (LLG) equation** enables **ferromagnetic dynamics** and is essential for magnon-photon coupling simulations.
-* **Performance Flags (e.g., `USE_GPU`)**: Control hardware acceleration. GPU builds provide significant speedup and excellent scaling on modern supercomputers.
+ARTEMIS supports both GNU Make and CMake build systems. The choice depends on your preference and platform requirements:
 
-Option 1: Build with GNU Make
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- **GNU Make**: Simpler configuration, suitable for development and testing
+- **CMake**: More flexible, better for complex builds and integration with other tools
 
-Navigate to the ``Exec/`` folder inside ``artemis/`` and use one of the following commands:
+Key build flags control physics models and performance optimizations:
+
+- **Physics Flags**: ``USE_LLG`` (GNU Make) or ``WarpX_MAG_LLG`` (CMake) enable the Landau-Lifshitz-Gilbert equation for ferromagnetic dynamics
+- **Performance Flags**: ``USE_GPU`` (GNU Make) or ``WarpX_COMPUTE`` (CMake) control hardware acceleration
+
+Standard Build Process
+^^^^^^^^^^^^^^^^^^^^^^^
+
+For GNU Make builds, navigate to the execution directory and compile:
 
 .. code-block:: bash
 
    cd artemis/Exec/
-
-**Basic build (LLG enabled by default):**
-
-.. code-block:: bash
-
    make -j 4
 
-By default, ARTEMIS is configured to include the Landau-Lifshitz-Gilbert (LLG) equation, meaning **`USE_LLG = TRUE` is the default setting**.
-
-**Explicitly control LLG (Physics Flag):**
-
-Build without LLG (disabling ferromagnetic dynamics):
-
-.. code-block:: bash
-
-   make -j 4 USE_LLG=FALSE
-
-Build with LLG (explicitly enabling ferromagnetic dynamics, same as default):
-
-.. code-block:: bash
-
-   make -j 4 USE_LLG=TRUE
-
-**Enabling GPU Acceleration (Performance Flag):**
-
-To leverage the high performance and scalability offered by modern GPUs, set the `USE_GPU` flag.
-
-GPU build (LLG enabled by default):
-
-.. code-block:: bash
-
-   make -j 4 USE_GPU=TRUE
-
-GPU build with explicit LLG:
-
-.. code-block:: bash
-
-   make -j 4 USE_LLG=TRUE USE_GPU=TRUE
-
-Option 2: Build with CMake
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Create a build directory and configure:
+For CMake builds, create a separate build directory:
 
 .. code-block:: bash
 
    cd artemis
    mkdir build && cd build
-
-**Basic CPU Build (LLG enabled by default):**
-
-.. code-block:: bash
-
    cmake .. -DCMAKE_BUILD_TYPE=Release
    cmake --build . -j 4
 
-By default, ARTEMIS CMake builds include the Landau-Lifshitz-Gilbert (LLG) equation, meaning **`-DWarpX_MAG_LLG=ON` is the default setting**.
+Both methods produce an executable ready for simulation. By default, the Landau-Lifshitz-Gilbert equation is enabled, allowing for magnon-photon coupling simulations.
 
-**Advanced CMake Configurations:**
+Build Verification
+^^^^^^^^^^^^^^^^^^
 
-Explicitly control LLG (Physics Flag):
+After successful compilation, verify the build by checking the executable exists and can display help information. The executable will be located in the build directory or Exec folder depending on your build method.
+
+Advanced Build Options
+-----------------------
+
+Alternative Build Systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**GNU Make with Custom Flags:**
+
+Disable LLG physics:
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=FALSE
+
+Enable GPU acceleration:
+
+.. code-block:: bash
+
+   make -j 4 USE_GPU=TRUE
+
+**CMake with Explicit Control:**
+
+Disable LLG equation:
 
 .. code-block:: bash
 
@@ -120,9 +123,10 @@ Explicitly control LLG (Physics Flag):
      -DWarpX_MAG_LLG=OFF
    cmake --build build -j 4
 
-**Performance-Oriented Builds:**
+Performance Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-MPI + OpenMP Build:
+**MPI + OpenMP Build:**
 
 .. code-block:: bash
 
@@ -133,7 +137,7 @@ MPI + OpenMP Build:
      -DWarpX_MAG_LLG=ON
    cmake --build build -j 4
 
-GPU Build with CUDA (enabling GPU acceleration):
+**GPU Build with CUDA:**
 
 .. code-block:: bash
 
@@ -145,21 +149,32 @@ GPU Build with CUDA (enabling GPU acceleration):
      -DAMReX_CUDA_ARCH=8.0  # Adjust for your GPU architecture
    cmake --build build -j 4
 
-Common CMake Configuration Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Compile-Time Configuration Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Common CMake Options:**
 
 - ``-DWarpX_MAG_LLG=ON/OFF`` - Enable/disable LLG equation (default: ON)
-- ``-DWarpX_MPI=ON/OFF`` - Enable/disable MPI (default: ON)
-- ``-DWarpX_COMPUTE=NOACC/OMP/CUDA/SYCL`` - Set compute backend
-- ``-DWarpX_PRECISION=SINGLE/DOUBLE`` - Set floating point precision
 - ``-DWarpX_EB=ON/OFF`` - Enable/disable embedded boundaries
 - ``-DWarpX_OPENPMD=ON/OFF`` - Enable/disable openPMD I/O
+- ``-DWarpX_PRECISION=SINGLE/DOUBLE`` - Set floating point precision
 - ``-DCMAKE_BUILD_TYPE=Debug/Release`` - Set build type
+- ``-DWarpX_MPI=ON/OFF`` - Enable/disable MPI (default: ON)
+- ``-DWarpX_COMPUTE=NOACC/OMP/CUDA/SYCL`` - Set compute backend
 
-AMReX Configuration Options (CMake)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Debug Build Example:**
 
-Use external AMReX installation:
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DCMAKE_BUILD_TYPE=Debug \
+     -DWarpX_MAG_LLG=ON
+   cmake --build build -j 4
+
+Platform-Specific Configurations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**External AMReX Installation:**
 
 .. code-block:: bash
 
@@ -167,15 +182,15 @@ Use external AMReX installation:
      -DWarpX_amrex_internal=OFF \
      -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
 
-Use local AMReX source directory:
+**Local AMReX Source Directory:**
 
 .. code-block:: bash
 
    cmake -S . -B build -DWarpX_amrex_src=/path/to/amrex/source
 
-*Note: For GNU Make builds, the equivalent is setting* ``AMREX_HOME`` *in the GNUmakefile.*
+*Note: For GNU Make builds, set* ``AMREX_HOME`` *in the GNUmakefile.*
 
-Use custom AMReX repository/branch:
+**Custom AMReX Repository/Branch:**
 
 .. code-block:: bash
 
