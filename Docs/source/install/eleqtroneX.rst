@@ -79,32 +79,28 @@ Option 2: Build with CMake
 
 ELEQTRONeX also supports building with CMake, which automatically downloads and builds dependencies.
 
-Basic CPU build (NOACC backend)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Basic CPU build (NOACC backend):**
 
 .. code-block:: bash
 
    cmake -S . -B build
    cmake --build build -j 4
 
-OpenMP build
-^^^^^^^^^^^^
+**OpenMP build:**
 
 .. code-block:: bash
 
    cmake -S . -B build -DELEQTRONeX_COMPUTE=OMP
    cmake --build build -j 4
 
-CUDA build
-^^^^^^^^^^
+**CUDA build:**
 
 .. code-block:: bash
 
    cmake -S . -B build -DELEQTRONeX_COMPUTE=CUDA
    cmake --build build -j 4
 
-Core CMake Configuration Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Core CMake Configuration Options:**
 
 - ``-DELEQTRONeX_COMPUTE=NOACC/OMP/CUDA/HIP`` - Computing backend (default: NOACC)
 - ``-DELEQTRONeX_MPI=ON/OFF`` - Multi-node support (default: ON)
@@ -114,16 +110,14 @@ Core CMake Configuration Options
 - ``-DELEQTRONeX_BROYDEN_PARALLEL=ON/OFF`` - Broyden parallel support (default: ON)
 - ``-DELEQTRONeX_HYPRE=ON/OFF`` - HYPRE support (default: OFF)
 
-Print Debug Options
-^^^^^^^^^^^^^^^^^^^
+**Print Debug Options:**
 
 - ``-DELEQTRONeX_PRINT_HIGH=ON/OFF`` - High level debug printing (default: OFF)
 - ``-DELEQTRONeX_PRINT_MEDIUM=ON/OFF`` - Medium level debug printing (default: OFF)
 - ``-DELEQTRONeX_PRINT_LOW=ON/OFF`` - Low level debug printing (default: OFF)
 - ``-DELEQTRONeX_PRINT_NAME=ON/OFF`` - Function name debug printing (default: OFF)
 
-AMReX Configuration Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**AMReX Configuration Options:**
 
 Use external AMReX installation:
 
@@ -153,8 +147,7 @@ Test with specific AMReX pull request:
 
    cmake -S . -B build -DELEQTRONeX_amrex_pr=1234
 
-Advanced Build Examples
-^^^^^^^^^^^^^^^^^^^^^^^
+**Advanced Build Examples:**
 
 CPU build with embedded boundaries and transport:
 
