@@ -24,7 +24,7 @@ AMReX and ARTEMIS must be cloned in the same directory.
 
    git clone https://github.com/AMReX-Codes/amrex.git
    git clone https://github.com/AMReX-Microelectronics/artemis.git
-   cd artemis/Exec/
+   cd artemis/
    make -j 4
 
 Detailed Installation Process
@@ -73,7 +73,7 @@ For GNU Make builds, navigate to the execution directory and compile:
 
 .. code-block:: bash
 
-   cd artemis/Exec/
+   cd artemis/
    make -j 4
 
 For CMake builds, create a separate build directory:
@@ -90,7 +90,7 @@ Both methods produce an executable ready for simulation. By default, the Landau-
 Build Verification
 ^^^^^^^^^^^^^^^^^^
 
-After successful compilation, verify the build by checking the executable exists and can display help information. The executable will be located in the build directory or Exec folder depending on your build method.
+After successful compilation, verify the build by checking the executable exists and can display help information. The executable will be located in the build directory or top directory depending on your build method.
 
 Advanced Build Options
 -----------------------

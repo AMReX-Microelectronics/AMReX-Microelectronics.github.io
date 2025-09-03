@@ -24,93 +24,146 @@ Please `report installation problems <https://github.com/AMReX-Microelectronics/
 Installation
 ------------
 
-First, download the AMReX repository:
+Quick Start
+~~~~~~~~~~~
+
+**Prerequisites:** Git, C++ compiler, CUDA toolkit (for GPU builds)
+
+**Build Commands:**
+
+.. code-block:: bash
+
+   git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/FerroX.git
+   cd FerroX/Exec && make -j 4
+
+Detailed Installation Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Prerequisites and Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+FerroX requires a modern C++ compiler, Git version control, and optional dependencies like CUDA toolkit for GPU acceleration and SUNDIALS for advanced time integration. The AMReX library is required and can be obtained automatically through CMake or manually cloned.
+
+Obtaining the Source Code
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Download the AMReX repository at the same directory level as where you plan to install FerroX:
 
 .. code-block:: bash
    
    git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/FerroX.git
 
-At the same directory level as AMReX, download the FerroX Repository:
+Understanding the Build System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+FerroX supports two build systems: GNU Make for quick builds and CMake for advanced configuration. GNU Make is simpler but offers fewer options, while CMake provides comprehensive dependency management and cross-platform support.
 
-   git clone https://github.com/AMReX-Microelectronics/FerroX.git 
+Standard Build Process
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Build
------
+Navigate to the FerroX/Exec directory and build using your preferred method:
 
-FerroX supports both GNU Make and CMake build systems with various configuration options.
-
-Option 1: Build with GNU Make
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Make sure that the AMReX and FerroX are cloned in the same location in your filesystem. Navigate to the Exec folder within the FerroX directory and execute the following commands:
-
-**GPU build (default):**
+**GNU Make (GPU default):**
 
 .. code-block:: bash
 
+   cd FerroX/Exec
    make -j 4
 
-**CPU build:**
+**CMake (basic):**
 
 .. code-block:: bash
 
-   make -j 4 USE_CUDA=FALSE
-
-**CPU build with SUNDIALS support:**
-
-.. code-block:: bash
-
-   make -j 4 USE_CUDA=FALSE USE_SUNDIALS=TRUE
-
-Option 2: Build with CMake
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-FerroX also supports building with CMake, which automatically downloads and builds dependencies.
-
-**Basic CPU build:**
-
-.. code-block:: bash
-
+   cd FerroX
    cmake -S . -B build
    cmake --build build -j 4
 
-**GPU build with CUDA:**
+Build Verification
+^^^^^^^^^^^^^^^^^^
+
+After successful compilation, verify the installation by running the test cases provided in the Examples directory. Check that the executable runs without errors and produces expected output files.
+
+Advanced Build Options
+----------------------
+
+Alternative Build Systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**GNU Make Options:**
+
+.. code-block:: bash
+
+   # CPU build
+   make -j 4 USE_CUDA=FALSE
+   
+   # CPU build with SUNDIALS
+   make -j 4 USE_CUDA=FALSE USE_SUNDIALS=TRUE
+
+For SUNDIALS support with GNU Make, first follow the SUNDIALS installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_.
+
+**CMake with External Dependencies:**
+
+.. code-block:: bash
+
+   # Use external AMReX installation
+   cmake -S . -B build \
+     -DFerroX_amrex_internal=OFF \
+     -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
+
+Performance Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**GPU Acceleration:**
 
 .. code-block:: bash
 
    cmake -S . -B build -DFerroX_COMPUTE=CUDA
    cmake --build build -j 4
 
-**Advanced CMake Configurations:**
-
-CPU build with embedded boundaries and time-dependent support:
+**CPU Optimizations:**
 
 .. code-block:: bash
 
    cmake -S . -B build \
      -DFerroX_COMPUTE=OMP \
-     -DFerroX_EB=ON \
-     -DFerroX_TIME_DEPENDENT=ON
+     -DFerroX_SIMD=ON
 
-GPU build with SUNDIALS support:
+Physics Module Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Embedded Boundaries and Time-Dependent Features:**
 
 .. code-block:: bash
 
    cmake -S . -B build \
-     -DFerroX_COMPUTE=CUDA \
-     -DFerroX_SUNDIALS=ON
+     -DFerroX_EB=ON \
+     -DFerroX_TIME_DEPENDENT=ON
 
-Debug build with print options enabled:
+**SUNDIALS Integration:**
+
+For SUNDIALS library integration, first follow the SUNDIALS installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_.
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DFerroX_SUNDIALS=ON \
+     -DFerroX_sundials_src=/path/to/sundials/source
+
+Debug and Development Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Debug Build with Verbose Output:**
 
 .. code-block:: bash
 
    cmake -S . -B build \
      -DCMAKE_BUILD_TYPE=Debug \
-     -DFerroX_PRINT_HIGH=ON
+     -DFerroX_PRINT_HIGH=ON \
+     -DFerroX_PRINT_MEDIUM=ON
 
-**Core CMake Configuration Options:**
+**Core Configuration Options:**
 
 - ``-DFerroX_COMPUTE=NOACC/OMP/CUDA/SYCL/HIP`` - Computing backend (default: OMP)
 - ``-DFerroX_PRECISION=SINGLE/DOUBLE`` - Floating point precision (default: DOUBLE)
@@ -120,73 +173,47 @@ Debug build with print options enabled:
 - ``-DFerroX_MPI=ON/OFF`` - Multi-node support (default: ON)
 - ``-DFerroX_SIMD=ON/OFF`` - CPU SIMD acceleration (default: OFF)
 
-**Print Debug Options:**
+**Debug Print Options:**
 
 - ``-DFerroX_PRINT_HIGH=ON/OFF`` - High level debug printing (default: OFF)
 - ``-DFerroX_PRINT_MEDIUM=ON/OFF`` - Medium level debug printing (default: OFF)
 - ``-DFerroX_PRINT_LOW=ON/OFF`` - Low level debug printing (default: OFF)
 - ``-DFerroX_PRINT_NAME=ON/OFF`` - Function name debug printing (default: OFF)
 
-**AMReX Configuration Options:**
+Platform-Specific Configurations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Use external AMReX installation:**
-
-.. code-block:: bash
-
-   cmake -S . -B build \
-     -DFerroX_amrex_internal=OFF \
-     -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
-
-**Use local AMReX source directory:**
+**AMReX Source Management:**
 
 .. code-block:: bash
 
+   # Use local AMReX source
    cmake -S . -B build -DFerroX_amrex_src=/path/to/amrex/source
-
-**Use custom AMReX repository/branch:**
-
-.. code-block:: bash
-
+   
+   # Use custom AMReX repository/branch
    cmake -S . -B build \
      -DFerroX_amrex_repo=https://github.com/user/amrex.git \
      -DFerroX_amrex_branch=my_branch
-
-**Test with specific AMReX pull request:**
-
-.. code-block:: bash
-
+   
+   # Test with specific AMReX pull request
    cmake -S . -B build -DFerroX_amrex_pr=1234
 
-**SUNDIALS Configuration Options:**
-
-**Use external SUNDIALS installation:**
+**SUNDIALS External Integration:**
 
 .. code-block:: bash
 
+   # Use external SUNDIALS installation
    cmake -S . -B build \
      -DFerroX_SUNDIALS=ON \
      -DFerroX_sundials_internal=OFF \
      -DSUNDIALS_DIR=/path/to/sundials/lib/cmake/sundials
 
-**Use local SUNDIALS source directory:**
+**HPC System Configuration:**
 
-.. code-block:: bash
-
-   cmake -S . -B build \
-     -DFerroX_SUNDIALS=ON \
-     -DFerroX_sundials_src=/path/to/sundials/source
-
-**HPC System Notes:**
-
-If you want to use FerroX on a specific high-performance computing (HPC) system, follow the same steps as above. For MPI+CUDA build, make sure that appropriate CUDA modules are loaded. For instance, on Perlmutter you will need to do:
+For high-performance computing systems, ensure appropriate modules are loaded. For example, on Perlmutter:
 
 .. code-block:: bash
 
    module load cudatoolkit
-
-Incorporating SUNDIALS
-----------------------
-
-If you want to incorporate the SUNDIALS library into your FerroX code, first follow the SUNDIALS installation steps as described `here <https://github.com/AMReX-Microelectronics/MagneX/blob/development/Exec/README_sundials>`_. To build the code with SUNDIALS support enabled, you can include the USE_SUNDIALS=TRUE option with the appropriate build command (refer to the example under the 'Build' heading).
 
 
