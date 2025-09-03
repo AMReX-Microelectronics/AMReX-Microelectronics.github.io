@@ -32,8 +32,8 @@ Make sure that AMReX and MagneX are cloned at the same root location.
 
 .. code-block:: bash
    
-   git clone https://github.com:AMReX-Codes/amrex.git
-   git clone https://github.com:AMReX-Microelectronics/MagneX.git
+   git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/MagneX.git
 
 Dependencies
 ------------

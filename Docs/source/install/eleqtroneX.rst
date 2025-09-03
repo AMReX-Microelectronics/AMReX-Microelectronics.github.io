@@ -30,13 +30,13 @@ Download AMReX Repository as
 
 .. code-block:: bash
    
-   git clone git@github.com:AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Codes/amrex.git
 
 Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as
 
 .. code-block:: bash
 
-   git@github.com:AMReX-Microelectronics/ELEQTRONeX.git
+   git clone https://github.com/AMReX-Microelectronics/ELEQTRONeX.git
 
 2. Build Parameters
 -------------------

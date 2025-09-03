@@ -20,7 +20,7 @@ Clone AMReX (dependency)
 
 .. code-block:: bash
 
-   git clone git@github.com:AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Codes/amrex.git
 
 Clone ARTEMIS
 ~~~~~~~~~~~~~
@@ -29,7 +29,7 @@ Clone ARTEMIS in the same directory as AMReX:
 
 .. code-block:: bash
 
-   git clone git@github.com:AMReX-Microelectronics/artemis.git
+   git clone https://github.com/AMReX-Microelectronics/artemis.git
 
 Make sure ``amrex/`` and ``artemis/`` are placed alongside each other in your filesystem.
 

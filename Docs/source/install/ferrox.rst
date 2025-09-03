@@ -28,7 +28,7 @@ First, download the AMReX repository:
 
 .. code-block:: bash
    
-   git clone https://github.com:AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Codes/amrex.git
 
 At the same directory level as AMReX, download the FerroX Repository:
 
