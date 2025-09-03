@@ -57,7 +57,8 @@ Build
 
 MagneX supports both GNU Make and CMake build systems with various configuration options.
 
-**Option 1: Build with GNU Make**
+Option 1: Build with GNU Make
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate to MagneX/Exec/ and run:
 
@@ -65,7 +66,8 @@ Navigate to MagneX/Exec/ and run:
 
    make -j4
 
-**Option 2: Build with CMake**
+Option 2: Build with CMake
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 MagneX also supports building with CMake, which can automatically download and build dependencies.
 
@@ -148,14 +150,14 @@ MagneX also supports building with CMake, which can automatically download and b
 
 **Example Build Commands:**
 
-**Build with local AMReX source (recommended for development):**
+Build with local AMReX source (recommended for development):
 
 .. code-block:: bash
 
    cmake -S . -B build -DMagneX_amrex_src=../amrex
    cmake --build build -j 4
 
-**OpenMP build with SUNDIALS support:**
+OpenMP build with SUNDIALS support:
 
 .. code-block:: bash
 
@@ -164,7 +166,7 @@ MagneX also supports building with CMake, which can automatically download and b
      -DMagneX_SUNDIALS=ON
    cmake --build build -j 4
 
-**CUDA build with external AMReX:**
+CUDA build with external AMReX:
 
 .. code-block:: bash
 

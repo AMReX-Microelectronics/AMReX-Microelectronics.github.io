@@ -41,7 +41,8 @@ Build
 
 FerroX supports both GNU Make and CMake build systems with various configuration options.
 
-**Option 1: Build with GNU Make**
+Option 1: Build with GNU Make
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Make sure that the AMReX and FerroX are cloned in the same location in your filesystem. Navigate to the Exec folder within the FerroX directory and execute the following commands:
 
@@ -63,7 +64,8 @@ Make sure that the AMReX and FerroX are cloned in the same location in your file
 
    make -j 4 USE_CUDA=FALSE USE_SUNDIALS=TRUE
 
-**Option 2: Build with CMake**
+Option 2: Build with CMake
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 FerroX also supports building with CMake, which automatically downloads and builds dependencies.
 
@@ -83,7 +85,7 @@ FerroX also supports building with CMake, which automatically downloads and buil
 
 **Advanced CMake Configurations:**
 
-**CPU build with embedded boundaries and time-dependent support:**
+CPU build with embedded boundaries and time-dependent support:
 
 .. code-block:: bash
 
@@ -92,7 +94,7 @@ FerroX also supports building with CMake, which automatically downloads and buil
      -DFerroX_EB=ON \
      -DFerroX_TIME_DEPENDENT=ON
 
-**GPU build with SUNDIALS support:**
+GPU build with SUNDIALS support:
 
 .. code-block:: bash
 
@@ -100,7 +102,7 @@ FerroX also supports building with CMake, which automatically downloads and buil
      -DFerroX_COMPUTE=CUDA \
      -DFerroX_SUNDIALS=ON
 
-**Debug build with print options enabled:**
+Debug build with print options enabled:
 
 .. code-block:: bash
 

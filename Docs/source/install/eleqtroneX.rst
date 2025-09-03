@@ -43,7 +43,8 @@ Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as
 
 ELEQTRONeX supports both GNU Make and CMake build systems with various configuration options.
 
-**Option 1: Build with GNU Make**
+Option 1: Build with GNU Make
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Navigate to the ``Exec/`` folder of ELEQTRONeX and execute:
 
@@ -73,32 +74,37 @@ Set the following flags based on your configuration needs:
 - ``BROYDEN_PARALLEL=TRUE`` uses an efficient parallel version of the Broyden's algorithm for self-consistency between electrostatics and NEGF modules.
 - ``TIME_DEPENDENT=TRUE`` builds the code for accepting voltages on the embedded boundaries with varying values, for example setting a range of values to obtain full current-voltage characteristics.
 
-**Option 2: Build with CMake**
+Option 2: Build with CMake
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ELEQTRONeX also supports building with CMake, which automatically downloads and builds dependencies.
 
-**Basic CPU build (NOACC backend):**
+Basic CPU build (NOACC backend)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
    cmake -S . -B build
    cmake --build build -j 4
 
-**OpenMP build:**
+OpenMP build
+^^^^^^^^^^^^
 
 .. code-block:: bash
 
    cmake -S . -B build -DELEQTRONeX_COMPUTE=OMP
    cmake --build build -j 4
 
-**CUDA build:**
+CUDA build
+^^^^^^^^^^
 
 .. code-block:: bash
 
    cmake -S . -B build -DELEQTRONeX_COMPUTE=CUDA
    cmake --build build -j 4
 
-**Core CMake Configuration Options:**
+Core CMake Configuration Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``-DELEQTRONeX_COMPUTE=NOACC/OMP/CUDA/HIP`` - Computing backend (default: NOACC)
 - ``-DELEQTRONeX_MPI=ON/OFF`` - Multi-node support (default: ON)
@@ -108,16 +114,18 @@ ELEQTRONeX also supports building with CMake, which automatically downloads and 
 - ``-DELEQTRONeX_BROYDEN_PARALLEL=ON/OFF`` - Broyden parallel support (default: ON)
 - ``-DELEQTRONeX_HYPRE=ON/OFF`` - HYPRE support (default: OFF)
 
-**Print Debug Options:**
+Print Debug Options
+^^^^^^^^^^^^^^^^^^^
 
 - ``-DELEQTRONeX_PRINT_HIGH=ON/OFF`` - High level debug printing (default: OFF)
 - ``-DELEQTRONeX_PRINT_MEDIUM=ON/OFF`` - Medium level debug printing (default: OFF)
 - ``-DELEQTRONeX_PRINT_LOW=ON/OFF`` - Low level debug printing (default: OFF)
 - ``-DELEQTRONeX_PRINT_NAME=ON/OFF`` - Function name debug printing (default: OFF)
 
-**AMReX Configuration Options:**
+AMReX Configuration Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Use external AMReX installation:**
+Use external AMReX installation:
 
 .. code-block:: bash
 
@@ -125,13 +133,13 @@ ELEQTRONeX also supports building with CMake, which automatically downloads and 
      -DELEQTRONeX_amrex_internal=OFF \
      -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
 
-**Use local AMReX source directory:**
+Use local AMReX source directory:
 
 .. code-block:: bash
 
    cmake -S . -B build -DELEQTRONeX_amrex_src=/path/to/amrex/source
 
-**Use custom AMReX repository/branch:**
+Use custom AMReX repository/branch:
 
 .. code-block:: bash
 
@@ -139,15 +147,16 @@ ELEQTRONeX also supports building with CMake, which automatically downloads and 
      -DELEQTRONeX_amrex_repo=https://github.com/user/amrex.git \
      -DELEQTRONeX_amrex_branch=my_branch
 
-**Test with specific AMReX pull request:**
+Test with specific AMReX pull request:
 
 .. code-block:: bash
 
    cmake -S . -B build -DELEQTRONeX_amrex_pr=1234
 
-**Advanced Build Examples:**
+Advanced Build Examples
+^^^^^^^^^^^^^^^^^^^^^^^
 
-**CPU build with embedded boundaries and transport:**
+CPU build with embedded boundaries and transport:
 
 .. code-block:: bash
 
@@ -156,7 +165,7 @@ ELEQTRONeX also supports building with CMake, which automatically downloads and 
      -DELEQTRONeX_EB=ON \
      -DELEQTRONeX_TRANSPORT=ON
 
-**GPU build with HYPRE support:**
+GPU build with HYPRE support:
 
 .. code-block:: bash
 
@@ -164,7 +173,7 @@ ELEQTRONeX also supports building with CMake, which automatically downloads and 
      -DELEQTRONeX_COMPUTE=CUDA \
      -DELEQTRONeX_HYPRE=ON
 
-**Debug build with all print options enabled:**
+Debug build with all print options enabled:
 
 .. code-block:: bash
 
@@ -172,14 +181,14 @@ ELEQTRONeX also supports building with CMake, which automatically downloads and 
      -DCMAKE_BUILD_TYPE=Debug \
      -DELEQTRONeX_PRINT_HIGH=ON
 
-**Build with local AMReX source (recommended for development):**
+Build with local AMReX source (recommended for development):
 
 .. code-block:: bash
 
    cmake -S . -B build -DELEQTRONeX_amrex_src=../amrex
    cmake --build build -j 4
 
-**Build with external AMReX using CMAKE_PREFIX_PATH:**
+Build with external AMReX using CMAKE_PREFIX_PATH:
 
 .. code-block:: bash
 
