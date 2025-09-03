@@ -55,8 +55,121 @@ heFFTe is a required dependancy. At the same level that AMReX and MagneX are clo
 Build
 -----
 
+MagneX supports both GNU Make and CMake build systems with various configuration options.
+
+**Option 1: Build with GNU Make**
+
 Navigate to MagneX/Exec/ and run:
 
 .. code-block:: bash
 
    make -j4
+
+**Option 2: Build with CMake**
+
+MagneX also supports building with CMake, which can automatically download and build dependencies.
+
+**Basic CPU build (NOACC backend):**
+
+.. code-block:: bash
+
+   cmake -S . -B build
+   cmake --build build -j 4
+
+**OpenMP build:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_COMPUTE=OMP
+   cmake --build build -j 4
+
+**CUDA build:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_COMPUTE=CUDA
+   cmake --build build -j 4
+
+**Core CMake Configuration Options:**
+
+- ``-DMagneX_COMPUTE=NOACC/OMP/CUDA/HIP`` - Computing backend (default: NOACC)
+- ``-DMagneX_MPI=ON/OFF`` - Multi-node support (default: ON)
+- ``-DMagneX_FFT=ON/OFF`` - FFT support (default: ON)
+- ``-DMagneX_SUNDIALS=ON/OFF`` - SUNDIALS ODE solver support (default: OFF)
+
+**AMReX Configuration Options:**
+
+**Use external AMReX installation:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_amrex_internal=OFF \
+     -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
+
+**Use local AMReX source directory:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_amrex_src=/path/to/amrex/source
+
+**Use custom AMReX repository/branch:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_amrex_repo=https://github.com/user/amrex.git \
+     -DMagneX_amrex_branch=my_branch
+
+**Test with specific AMReX pull request:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_amrex_pr=1234
+
+**SUNDIALS Configuration Options:**
+
+**Use external SUNDIALS installation:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_SUNDIALS=ON \
+     -DMagneX_sundials_internal=OFF \
+     -DSUNDIALS_DIR=/path/to/sundials/lib/cmake/sundials
+
+**Use local SUNDIALS source directory:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_SUNDIALS=ON \
+     -DMagneX_sundials_src=/path/to/sundials/source
+
+**Example Build Commands:**
+
+**Build with local AMReX source (recommended for development):**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_amrex_src=../amrex
+   cmake --build build -j 4
+
+**OpenMP build with SUNDIALS support:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_COMPUTE=OMP \
+     -DMagneX_SUNDIALS=ON
+   cmake --build build -j 4
+
+**CUDA build with external AMReX:**
+
+.. code-block:: bash
+
+   export CMAKE_PREFIX_PATH=/path/to/amrex/install:$CMAKE_PREFIX_PATH
+   cmake -S . -B build \
+     -DMagneX_COMPUTE=CUDA \
+     -DMagneX_amrex_internal=OFF
+   cmake --build build -j 4

@@ -41,16 +41,28 @@ Installation
 
       cd artemis/Exec/
 
-      # Basic build
+   **Basic build:**
+
+   .. code-block:: bash
+
       make -j 4
 
-      # Build without LLG
+   **Build without LLG:**
+
+   .. code-block:: bash
+
       make -j 4 USE_LLG=FALSE
 
-      # Build with LLG (default)
+   **Build with LLG (default):**
+
+   .. code-block:: bash
+
       make -j 4 USE_LLG=TRUE
 
-      # GPU build with CUDA
+   **GPU build with CUDA:**
+
+   .. code-block:: bash
+
       make -j 4 USE_LLG=TRUE USE_GPU=TRUE
 
    **Option 2: Build with CMake**
@@ -62,15 +74,19 @@ Installation
       cd artemis
       mkdir build && cd build
 
-      # Basic CPU Build
+   **Basic CPU Build:**
+
+   .. code-block:: bash
+
       cmake .. -DCMAKE_BUILD_TYPE=Release
       cmake --build . -j 4
 
    **Advanced CMake Configurations:**
 
+   **MPI + OpenMP Build:**
+
    .. code-block:: bash
 
-      # MPI + OpenMP Build
       cmake -S . -B build \
         -DCMAKE_BUILD_TYPE=Release \
         -DWarpX_MPI=ON \
@@ -78,7 +94,10 @@ Installation
         -DWarpX_MAG_LLG=ON
       cmake --build build -j 4
 
-      # GPU Build with CUDA
+   **GPU Build with CUDA:**
+
+   .. code-block:: bash
+
       cmake -S . -B build \
         -DCMAKE_BUILD_TYPE=Release \
         -DWarpX_COMPUTE=CUDA \
@@ -87,7 +106,10 @@ Installation
         -DAMReX_CUDA_ARCH=8.0  # Adjust for your GPU architecture
       cmake --build build -j 4
 
-      # Build without LLG
+   **Build without LLG:**
+
+   .. code-block:: bash
+
       cmake -S . -B build \
         -DCMAKE_BUILD_TYPE=Release \
         -DWarpX_MAG_LLG=OFF
@@ -105,17 +127,24 @@ Installation
 
    **AMReX Configuration Options:**
 
+   **Use external AMReX installation:**
+
    .. code-block:: bash
 
-      # Use external AMReX installation
       cmake -S . -B build \
         -DWarpX_amrex_internal=OFF \
         -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
 
-      # Use local AMReX source directory
+   **Use local AMReX source directory:**
+
+   .. code-block:: bash
+
       cmake -S . -B build -DWarpX_amrex_src=/path/to/amrex/source
 
-      # Use custom AMReX repository/branch
+   **Use custom AMReX repository/branch:**
+
+   .. code-block:: bash
+
       cmake -S . -B build \
         -DWarpX_amrex_repo=https://github.com/user/amrex.git \
         -DWarpX_amrex_branch=my_branch

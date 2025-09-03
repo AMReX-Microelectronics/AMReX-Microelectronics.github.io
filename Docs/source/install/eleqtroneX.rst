@@ -41,12 +41,17 @@ Download ELEQTRONeX Repository in the folder hierarchy level as AMReX as
 2. Build Parameters
 -------------------
 
-Navigate to the ``Exec/`` folder of ELEQTRONeX and execute 
+ELEQTRONeX supports both GNU Make and CMake build systems with various configuration options.
+
+**Option 1: Build with GNU Make**
+
+Navigate to the ``Exec/`` folder of ELEQTRONeX and execute:
 
 .. code-block:: bash
 
-   make -j <np>
-Replace <np> with the number of processes you want to use. 
+   make -j4
+
+**Basic GNU Make configuration:**
 
 To build with MPI and CUDA, ensure that either MPICH or OpenMPI, along with the appropriate CUDA modules, are installed and loaded. In the ``GNUmakefile`` located in the ``Exec/`` directory, set ``USE_MPI=TRUE`` to enable MPI support, ``USE_OMP=FALSE`` to disable OpenMP, and ``USE_CUDA=TRUE`` to activate CUDA support for GPU utilization.
 
@@ -67,6 +72,119 @@ Set the following flags based on your configuration needs:
 - ``COMPUTE_GREENS_FUNCTION_OFFDIAG_ELEMS=FALSE`` and ``COMPUTE_SPECTRAL_FUNCTION_OFFDIAG_ELEMS=FALSE`` to switch off computations and storage of off-diagonal elements of Green's and spectral functions in the NEGF solver.
 - ``BROYDEN_PARALLEL=TRUE`` uses an efficient parallel version of the Broyden's algorithm for self-consistency between electrostatics and NEGF modules.
 - ``TIME_DEPENDENT=TRUE`` builds the code for accepting voltages on the embedded boundaries with varying values, for example setting a range of values to obtain full current-voltage characteristics.
+
+**Option 2: Build with CMake**
+
+ELEQTRONeX also supports building with CMake, which automatically downloads and builds dependencies.
+
+**Basic CPU build (NOACC backend):**
+
+.. code-block:: bash
+
+   cmake -S . -B build
+   cmake --build build -j 4
+
+**OpenMP build:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DELEQTRONeX_COMPUTE=OMP
+   cmake --build build -j 4
+
+**CUDA build:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DELEQTRONeX_COMPUTE=CUDA
+   cmake --build build -j 4
+
+**Core CMake Configuration Options:**
+
+- ``-DELEQTRONeX_COMPUTE=NOACC/OMP/CUDA/HIP`` - Computing backend (default: NOACC)
+- ``-DELEQTRONeX_MPI=ON/OFF`` - Multi-node support (default: ON)
+- ``-DELEQTRONeX_EB=ON/OFF`` - Embedded boundary support (default: ON)
+- ``-DELEQTRONeX_TRANSPORT=ON/OFF`` - Transport support (default: ON)
+- ``-DELEQTRONeX_TIME_DEPENDENT=ON/OFF`` - Time-dependent support (default: ON)
+- ``-DELEQTRONeX_BROYDEN_PARALLEL=ON/OFF`` - Broyden parallel support (default: ON)
+- ``-DELEQTRONeX_HYPRE=ON/OFF`` - HYPRE support (default: OFF)
+
+**Print Debug Options:**
+
+- ``-DELEQTRONeX_PRINT_HIGH=ON/OFF`` - High level debug printing (default: OFF)
+- ``-DELEQTRONeX_PRINT_MEDIUM=ON/OFF`` - Medium level debug printing (default: OFF)
+- ``-DELEQTRONeX_PRINT_LOW=ON/OFF`` - Low level debug printing (default: OFF)
+- ``-DELEQTRONeX_PRINT_NAME=ON/OFF`` - Function name debug printing (default: OFF)
+
+**AMReX Configuration Options:**
+
+**Use external AMReX installation:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DELEQTRONeX_amrex_internal=OFF \
+     -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
+
+**Use local AMReX source directory:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DELEQTRONeX_amrex_src=/path/to/amrex/source
+
+**Use custom AMReX repository/branch:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DELEQTRONeX_amrex_repo=https://github.com/user/amrex.git \
+     -DELEQTRONeX_amrex_branch=my_branch
+
+**Test with specific AMReX pull request:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DELEQTRONeX_amrex_pr=1234
+
+**Advanced Build Examples:**
+
+**CPU build with embedded boundaries and transport:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DELEQTRONeX_COMPUTE=OMP \
+     -DELEQTRONeX_EB=ON \
+     -DELEQTRONeX_TRANSPORT=ON
+
+**GPU build with HYPRE support:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DELEQTRONeX_COMPUTE=CUDA \
+     -DELEQTRONeX_HYPRE=ON
+
+**Debug build with all print options enabled:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DCMAKE_BUILD_TYPE=Debug \
+     -DELEQTRONeX_PRINT_HIGH=ON
+
+**Build with local AMReX source (recommended for development):**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DELEQTRONeX_amrex_src=../amrex
+   cmake --build build -j 4
+
+**Build with external AMReX using CMAKE_PREFIX_PATH:**
+
+.. code-block:: bash
+
+   export CMAKE_PREFIX_PATH=/path/to/amrex/install:$CMAKE_PREFIX_PATH
+   cmake -S . -B build -DELEQTRONeX_amrex_internal=OFF
 
 3. Preprocessor Flags
 ---------------------

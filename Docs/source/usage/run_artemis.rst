@@ -77,42 +77,6 @@ Steps to Run a New Simulation
 
    or using a job submission script if running on a batch scheduler (e.g., SLURM, LSF).
 
-   **Specific Example Commands**
-
-   The following examples show how to run ARTEMIS with different build configurations and test cases:
-
-   **GNU Make Build Examples:**
-
-   .. code-block:: bash
-
-      # Simple testcase without LLG (air-filled X-band rectangle waveguide)
-      # MPI+OMP build
-      make -j 4 USE_LLG=FALSE
-      mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
-
-      # MPI+CUDA build
-      make -j 4 USE_LLG=FALSE USE_GPU=TRUE
-      mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
-
-      # Simple testcase with LLG (X-band magnetically tunable filter)
-      # MPI+OMP build
-      make -j 4 USE_LLG=TRUE
-      mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
-
-      # MPI+CUDA build
-      make -j 4 USE_LLG=TRUE USE_GPU=TRUE
-      mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
-
-   **CMake Build Examples:**
-
-   .. code-block:: bash
-
-      # Basic execution
-      ./build/bin/warpx Examples/Waveguide/inputs_3d_empty_X_band
-
-      # With MPI
-      mpirun -n 4 ./build/bin/warpx Examples/Waveguide/inputs_3d_LLG_filter
-
 6. **Outputs and Plotfiles**
 
    ARTEMIS typically writes data in **AMReX plotfile** format at specified intervals set in your input file (e.g., ``plot_int`` parameter). These plotfiles will be named something like ``plt0000100``, where the number refers to the time step. You can visualize these outputs with:
@@ -154,6 +118,62 @@ Steps to Run a New Simulation
 
 Advanced Usage
 --------------
+
+Specific Example Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following examples show how to run ARTEMIS with different build configurations and test cases:
+
+**GNU Make Build Examples:**
+
+**Simple testcase without LLG (air-filled X-band rectangle waveguide):**
+
+**MPI+OMP build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=FALSE
+   mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
+
+**MPI+CUDA build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=FALSE USE_GPU=TRUE
+   mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
+
+**Simple testcase with LLG (X-band magnetically tunable filter):**
+
+**MPI+OMP build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=TRUE
+   mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
+
+**MPI+CUDA build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=TRUE USE_GPU=TRUE
+   mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
+
+**CMake Build Examples:**
+
+**Basic execution:**
+
+.. code-block:: bash
+
+   ./build/bin/warpx Examples/Waveguide/inputs_3d_empty_X_band
+
+**With MPI:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/bin/warpx Examples/Waveguide/inputs_3d_LLG_filter
+
+Additional Advanced Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **MPI + OpenMP**: If you built ARTEMIS with both MPI and OpenMP (`make -j 4 USE_OMP=TRUE`), you can control the number of OpenMP threads by setting ``OMP_NUM_THREADS``. 
 - **Adaptive Mesh Refinement (AMR)**: If you use a multi-level input file (e.g., specifying `amr.n_level`), ARTEMIS will refine the mesh around regions of interest. Plotfiles will then show multiple levels of data.
