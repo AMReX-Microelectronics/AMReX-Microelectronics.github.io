@@ -15,45 +15,190 @@ The code couples magnetization physics with electromagnetic fields in a temporal
 Installation
 ------------
 
-1. **Clone AMReX** (dependency):
+Quick Start
+~~~~~~~~~~~
 
-   .. code-block:: bash
+AMReX and ARTEMIS must be cloned in the same directory.
 
-      git clone git@github.com:AMReX-Codes/amrex.git
+.. code-block:: bash
 
-2. **Clone ARTEMIS** in the same directory as AMReX:
+   git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/artemis.git
+   cd artemis/
+   make -j 4
 
-   .. code-block:: bash
+Detailed Installation Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-      git clone git@github.com:AMReX-Microelectronics/artemis.git
+Prerequisites and Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Make sure ``amrex/`` and ``artemis/`` are placed alongside each other in your filesystem.
+ARTEMIS requires AMReX as its core dependency. The AMReX library provides the adaptive mesh refinement framework that enables ARTEMIS's high-performance capabilities. Both repositories must be placed alongside each other in your filesystem for the build system to locate the dependencies correctly.
 
-3. **Build ARTEMIS**:
+Obtaining the Source Code
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   1. Navigate to the ``Exec/`` folder inside ``artemis/``.
-   2. Build with ``make -j 4``, for example:
+Clone both AMReX and ARTEMIS from their respective GitHub repositories:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      cd artemis/Exec/
-      make -j 4
+   git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/artemis.git
 
-   By default, *LLG* is enabled (``USE_LLG = TRUE``). You can explicitly switch it on/off:
+Ensure the directory structure appears as:
 
-   - **Without LLG**:
+.. code-block:: text
 
-     .. code-block:: bash
+   parent_directory/
+   ├── amrex/
+   └── artemis/
 
-        make -j 4 USE_LLG=FALSE
+Understanding the Build System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   - **With LLG**:
+ARTEMIS supports both GNU Make and CMake build systems. The choice depends on your preference and platform requirements:
 
-     .. code-block:: bash
+- **GNU Make**: Simpler configuration, suitable for development and testing
+- **CMake**: More flexible, better for complex builds and integration with other tools
 
-        make -j 4 USE_LLG=TRUE
+Key build flags control physics models and performance optimizations:
 
-   To enable GPU acceleration (e.g., CUDA), set ``USE_GPU=TRUE`` in the make command. Check the ``GNUmakefile`` or other build scripts for additional optional flags like MPI, OpenMP, etc.
+- **Physics Flags**: ``USE_LLG`` (GNU Make) or ``WarpX_MAG_LLG`` (CMake) enable the Landau-Lifshitz-Gilbert equation for ferromagnetic dynamics
+- **Performance Flags**: ``USE_GPU`` (GNU Make) or ``WarpX_COMPUTE`` (CMake) control hardware acceleration
+
+Standard Build Process
+^^^^^^^^^^^^^^^^^^^^^^^
+
+For GNU Make builds, navigate to the execution directory and compile:
+
+.. code-block:: bash
+
+   cd artemis/
+   make -j 4
+
+For CMake builds, create a separate build directory:
+
+.. code-block:: bash
+
+   cd artemis
+   mkdir build && cd build
+   cmake .. -DCMAKE_BUILD_TYPE=Release
+   cmake --build . -j 4
+
+Both methods produce an executable ready for simulation. By default, the Landau-Lifshitz-Gilbert equation is enabled, allowing for magnon-photon coupling simulations.
+
+Build Verification
+^^^^^^^^^^^^^^^^^^
+
+After successful compilation, verify the build by running a test simulation. The executable will be located in the build directory or top directory depending on your build method.
+
+For detailed instructions on setting up and running ARTEMIS simulations, see :ref:`usage_run_artemis`.
+
+Advanced Build Options
+-----------------------
+
+Alternative Build Systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**GNU Make with Custom Flags:**
+
+Disable LLG physics:
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=FALSE
+
+Enable GPU acceleration:
+
+.. code-block:: bash
+
+   make -j 4 USE_GPU=TRUE
+
+**CMake with Explicit Control:**
+
+Disable LLG equation:
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DCMAKE_BUILD_TYPE=Release \
+     -DWarpX_MAG_LLG=OFF
+   cmake --build build -j 4
+
+Performance Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**MPI + OpenMP Build:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DCMAKE_BUILD_TYPE=Release \
+     -DWarpX_MPI=ON \
+     -DWarpX_COMPUTE=OMP \
+     -DWarpX_MAG_LLG=ON
+   cmake --build build -j 4
+
+**GPU Build with CUDA:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DCMAKE_BUILD_TYPE=Release \
+     -DWarpX_COMPUTE=CUDA \
+     -DWarpX_MPI=ON \
+     -DWarpX_MAG_LLG=ON \
+     -DAMReX_CUDA_ARCH=8.0  # Adjust for your GPU architecture
+   cmake --build build -j 4
+
+Compile-Time Configuration Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Common CMake Options:**
+
+- ``-DWarpX_MAG_LLG=ON/OFF`` - Enable/disable LLG equation (default: ON)
+- ``-DWarpX_EB=ON/OFF`` - Enable/disable embedded boundaries
+- ``-DWarpX_OPENPMD=ON/OFF`` - Enable/disable openPMD I/O
+- ``-DWarpX_PRECISION=SINGLE/DOUBLE`` - Set floating point precision
+- ``-DCMAKE_BUILD_TYPE=Debug/Release`` - Set build type
+- ``-DWarpX_MPI=ON/OFF`` - Enable/disable MPI (default: ON)
+- ``-DWarpX_COMPUTE=NOACC/OMP/CUDA/SYCL`` - Set compute backend
+
+**Debug Build Example:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DCMAKE_BUILD_TYPE=Debug \
+     -DWarpX_MAG_LLG=ON
+   cmake --build build -j 4
+
+Platform-Specific Configurations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**External AMReX Installation:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DWarpX_amrex_internal=OFF \
+     -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
+
+**Local AMReX Source Directory:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DWarpX_amrex_src=/path/to/amrex/source
+
+*Note: For GNU Make builds, set* ``AMREX_HOME`` *in the GNUmakefile.*
+
+**Custom AMReX Repository/Branch:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DWarpX_amrex_repo=https://github.com/user/amrex.git \
+     -DWarpX_amrex_branch=my_branch
 
 Visualization and Data Analysis
 -------------------------------

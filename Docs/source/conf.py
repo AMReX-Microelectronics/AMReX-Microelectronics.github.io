@@ -48,6 +48,7 @@ extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx_design',
+    'sphinx_copybutton',
     'breathe',
     'sphinxcontrib.bibtex'
  ]
@@ -58,6 +59,9 @@ templates_path = ['_templates']
 # Relative path to bibliography file, bibliography style
 bibtex_bibfiles = ['./refs.bib']
 bibtex_default_style = 'unsrt'
+
+# sphinx-copybutton configuration
+copybutton_exclude = '.linenos, .gp, .go'
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:

@@ -87,6 +87,19 @@ Steps to Run a New Simulation
 
    For instance, to visualize using ParaView, copy or link the ``plt0000XXX`` directory to your local machine (if running on HPC), open ParaView, and choose ``Open -> (your plotfile)``. ParaView recognizes the AMReX format and allows you to slice, colorize, or animate your fields in 3D.
 
+   **Specific Example: Data Analysis with yt**
+
+   You can extract simulation data in numpy array format using yt:
+
+   .. code-block:: python
+
+      import yt
+      ds = yt.load('./plt00001000/')  # for data at time step 1000
+      ad0 = ds.covering_grid(level=0, left_edge=ds.domain_left_edge, dims=ds.domain_dimensions)
+      E_array = ad0['Ex'].to_ndarray()  # x-component of electric field
+
+   For more details on data extraction with yt, see the `covering grid documentation <https://yt-project.org/doc/examining/low_level_inspection.html#examining-grid-data-in-a-fixed-resolution-array>`_.
+
 7. **Common Parameters in ARTEMIS Input Files**
 
    Although ARTEMIS shares many input parameters with other AMReX-based codes, some are specific to electromagnetic or micromagnetics simulations. Key options include:
@@ -105,6 +118,62 @@ Steps to Run a New Simulation
 
 Advanced Usage
 --------------
+
+Specific Example Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The following examples show how to run ARTEMIS with different build configurations and test cases:
+
+**GNU Make Build Examples:**
+
+**Simple testcase without LLG (air-filled X-band rectangle waveguide):**
+
+**MPI+OMP build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=FALSE
+   mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
+
+**MPI+CUDA build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=FALSE USE_GPU=TRUE
+   mpirun -n 4 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_empty_X_band
+
+**Simple testcase with LLG (X-band magnetically tunable filter):**
+
+**MPI+OMP build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=TRUE
+   mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.OMP.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
+
+**MPI+CUDA build:**
+
+.. code-block:: bash
+
+   make -j 4 USE_LLG=TRUE USE_GPU=TRUE
+   mpirun -n 8 ./main3d.gnu.TPROF.MTMPI.CUDA.GPUCLOCK.ex Examples/Waveguide/inputs_3d_LLG_filter
+
+**CMake Build Examples:**
+
+**Basic execution:**
+
+.. code-block:: bash
+
+   ./build/bin/warpx Examples/Waveguide/inputs_3d_empty_X_band
+
+**With MPI:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/bin/warpx Examples/Waveguide/inputs_3d_LLG_filter
+
+Additional Advanced Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - **MPI + OpenMP**: If you built ARTEMIS with both MPI and OpenMP (`make -j 4 USE_OMP=TRUE`), you can control the number of OpenMP threads by setting ``OMP_NUM_THREADS``. 
 - **Adaptive Mesh Refinement (AMR)**: If you use a multi-level input file (e.g., specifying `amr.n_level`), ARTEMIS will refine the mesh around regions of interest. Plotfiles will then show multiple levels of data.

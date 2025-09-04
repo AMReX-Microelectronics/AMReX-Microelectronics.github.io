@@ -23,40 +23,174 @@ Our community is here to help. Please report installation problems or general qu
 Installation
 ------------
 
-We begin with instructions for a basic, pure-MPI (no GPU) installation. More detailed instructions for GPU systems are below.
+Quick Start
+~~~~~~~~~~~
 
-Download AMReX and MagneX Repositories
---------------------------------------
+**Prerequisites:** Ubuntu22 + libfftw3-dev, libfftw3-mpi-dev
 
-Make sure that AMReX and MagneX are cloned at the same root location. 
+**Build Commands:**
+
+.. code-block:: bash
+
+   git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/MagneX.git
+   cd MagneX/Exec
+   make -j4
+
+Detailed Installation Process
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Prerequisites and Dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+MagneX requires a modern C++ compiler, MPI implementation, and several key dependencies:
+
+- **Base system:** Ubuntu22 (or equivalent Linux distribution)
+- **Required packages:** libfftw3-dev, libfftw3-mpi-dev
+- **AMReX:** Exascale computing framework (can be built internally or externally)
+- **SUNDIALS:** Optional for advanced time integration methods
+- **cmake:** Required only for CMake builds (optional for GNU Make builds)
+
+Obtaining the Source Code
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Clone AMReX and MagneX repositories at the same root location to enable seamless integration:
 
 .. code-block:: bash
    
-   git clone https://github.com:AMReX-Codes/amrex.git
-   git clone https://github.com:AMReX-Microelectronics/MagneX.git
+   git clone https://github.com/AMReX-Codes/amrex.git
+   git clone https://github.com/AMReX-Microelectronics/MagneX.git
 
-Dependencies
-------------
+Understanding the Build System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Beyond a standard Ubuntu22 installation, the Ubuntu packages libfftw3-dev, libfftw3-mpi-dev, and cmake are required.
-SUNDIALS is optional and enabled Runge-Kutta, implicit, and multirate integrators (more detailed instructions in the full documentation).
-heFFTe is a required dependancy. At the same level that AMReX and MagneX are cloned, run: 
+MagneX supports two build systems:
 
-.. code-block:: bash
-                
-   git clone https://github.com/icl-utk-edu/heffte.git
-   cd heffte
-   mkdir build
-   cd build
-   cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_STANDARD=17 -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX=. -DHeffte_ENABLE_FFTW=ON -DHeffte_ENABLE_CUDA=OFF ..
-   make -j4
-   make install
+- **GNU Make (default):** Traditional build system for standard configurations
+- **CMake:** Modern build system with automatic dependency management for advanced use cases
 
-Build
------
+The GNU Make system provides the simplest build process for most users, while CMake offers additional flexibility for complex configurations.
 
-Navigate to MagneX/Exec/ and run:
+Standard Build Process
+^^^^^^^^^^^^^^^^^^^^^^^
+
+For a standard CPU-only build using GNU Make, navigate to MagneX/Exec/ and run:
 
 .. code-block:: bash
 
    make -j4
+
+For CMake builds (alternative approach):
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_amrex_src=../amrex
+   cmake --build build -j 4
+
+Build Verification
+^^^^^^^^^^^^^^^^^^
+
+After successful compilation, verify the installation by running a test simulation from the included example problems.
+
+For detailed instructions on setting up and running MagneX simulations, see :ref:`usage_run_magnex`.
+
+Advanced Build Options
+-----------------------
+
+Alternative Build Systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**CMake Build System:**
+
+For users requiring advanced configuration options or automatic dependency management:
+
+Performance Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**OpenMP build for shared-memory parallelism:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_COMPUTE=OMP -DMagneX_amrex_src=../amrex
+   cmake --build build -j 4
+
+**CUDA build for GPU acceleration:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_COMPUTE=CUDA -DMagneX_amrex_src=../amrex
+   cmake --build build -j 4
+
+Physics Module Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Core CMake Configuration Options:**
+
+- ``-DMagneX_COMPUTE=NOACC/OMP/CUDA/HIP`` - Computing backend (default: NOACC)
+- ``-DMagneX_MPI=ON/OFF`` - Multi-node support (default: ON)
+- ``-DMagneX_FFT=ON/OFF`` - FFT support (default: ON)
+- ``-DMagneX_SUNDIALS=ON/OFF`` - SUNDIALS ODE solver support (default: OFF)
+
+**SUNDIALS Integration for Advanced Time Integration:**
+
+External SUNDIALS installation:
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_SUNDIALS=ON \
+     -DMagneX_sundials_internal=OFF \
+     -DSUNDIALS_DIR=/path/to/sundials/lib/cmake/sundials
+
+Local SUNDIALS source:
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_SUNDIALS=ON \
+     -DMagneX_sundials_src=/path/to/sundials/source
+
+Debug and Development Options
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Development build with local AMReX source:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_amrex_src=../amrex
+   cmake --build build -j 4
+
+**Testing with specific AMReX pull request:**
+
+.. code-block:: bash
+
+   cmake -S . -B build -DMagneX_amrex_pr=1234
+
+Platform-Specific Configurations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**External AMReX installation:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_amrex_internal=OFF \
+     -DAMReX_DIR=/path/to/amrex/lib/cmake/AMReX
+
+**Custom AMReX repository/branch:**
+
+.. code-block:: bash
+
+   cmake -S . -B build \
+     -DMagneX_amrex_repo=https://github.com/user/amrex.git \
+     -DMagneX_amrex_branch=my_branch
+
+**Multi-GPU CUDA build with external AMReX:**
+
+.. code-block:: bash
+
+   export CMAKE_PREFIX_PATH=/path/to/amrex/install:$CMAKE_PREFIX_PATH
+   cmake -S . -B build \
+     -DMagneX_COMPUTE=CUDA \
+     -DMagneX_amrex_internal=OFF
+   cmake --build build -j 4

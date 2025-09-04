@@ -1,4 +1,4 @@
-.. _usage_run:
+.. _usage_run_ferrox:
 
 Run FerroX
 =========
@@ -56,6 +56,14 @@ On HPC systems, also copy and adjust a submission script that allocated computin
 Here, ``<n_ranks>`` is the number of MPI ranks used, and ``<input_file>`` is the name of the input file.
 Sample input files can be found in the `Examples <https://github.com/AMReX-Microelectronics/FerroX/tree/development/Exec/Examples>`__ folder.
 
+**Simple Testcase Example**
+
+You can run the following to simulate a MFIM heterostructure with a 5 nm HZO as the ferroelectric layer and 4 nm alumina as the dielectric layer under zero applied voltage:
+
+.. code-block:: bash
+
+   mpirun -n 4 ./main3d.gnu.TPROF.MPI.CUDA.ex Exec/Examples/inputs_mfim_Noeb
+
 On an HPC system, you would instead submit the **job script** at this point, e.g. ``sbatch <submission_script>`` (SLURM on Cori/NERSC) or ``bsub <submission_script>`` (LSF on Summit/OLCF).
 
 5. Outputs
@@ -66,6 +74,19 @@ On HPC systems, we usually store a copy of this in a file called ``outputs.txt``
 
 By default, output file are written in plotfile format and you can use various :ref:`data analysis and visualization tools <dataanalysis-formats>`.
 
+**Specific Example: Data Analysis with yt**
+
+You can extract simulation data in numpy array format using yt:
+
+.. code-block:: python
+
+   import yt
+   ds = yt.load('./plt00001000/')  # for data at time step 1000
+   ad0 = ds.covering_grid(level=0, left_edge=ds.domain_left_edge, dims=ds.domain_dimensions)
+   P_array = ad0['Pz'].to_ndarray()  # z-component of polarization
+
+For more details on data extraction with yt, see the `covering grid documentation <https://yt-project.org/doc/examining/low_level_inspection.html#examining-grid-data-in-a-fixed-resolution-array>`_.
+
 6. Input parameters
 --------------------
 .. note::
@@ -75,6 +96,59 @@ By default, output file are written in plotfile format and you can use various :
 .. note::
 
    The AMReX parser is used for the right-hand-side of all input parameters that consist of one or more integers or floats, so expressions like ``<species_name>.density_max = "2.+1."`` and/or using user-defined constants are accepted.
+
+Specific Run Examples
+---------------------
+
+The following examples show how to run FerroX with different build configurations:
+
+**GNU Make builds (from Exec directory):**
+
+**MPI+OMP build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./main3d.gnu.TPROF.MPI.OMP.ex Exec/Examples/inputs_mfim_Noeb
+
+**MPI+CUDA build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./main3d.gnu.TPROF.MPI.CUDA.ex Exec/Examples/inputs_mfim_Noeb
+
+**With embedded boundaries:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./main3d.gnu.TPROF.MPI.OMP.EB.ex Exec/Examples/inputs_mfim_eb
+
+**CMake builds (from project root directory):**
+
+**MPI+OMP build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/bin/main3d.gnu.TPROF.MPI.OMP.ex Exec/Examples/inputs_mfim_Noeb
+
+**MPI+CUDA build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/bin/main3d.gnu.TPROF.MPI.CUDA.ex Exec/Examples/inputs_mfim_Noeb
+
+**With embedded boundaries (if built with -DFerroX_EB=ON):**
+
+.. code-block:: bash
+
+   export OMP_NUM_THREADS=1
+   mpirun -n 4 ./build/bin/main3d.gnu.TPROF.MTMPI.OMP.EB.ex Exec/Examples/inputs_mfim_eb
+
+**With time-dependent simulations (if built with -DFerroX_TIME_DEPENDENT=ON):**
+
+.. code-block:: bash
+
+   export OMP_NUM_THREADS=1
+   mpirun -n 4 ./build/bin/main3d.gnu.TPROF.MTMPI.OMP.TD.ex Exec/Examples/inputs_mfim_Noeb
 
 Overall simulation parameters
 -----------------------------

@@ -1,4 +1,4 @@
-.. _usage_run:
+.. _usage_run_eleqtronex:
 
 Run ELEQTRONeX
 =========
@@ -26,6 +26,14 @@ For multiple processors, execute:
 .. code-block:: bash
 
    mpiexec -np <np> ./<executable> ../input/<specific input folder>/<input file> <other arguments>
+
+**Simple Testcase Example**
+
+You can run the following to simulate the band-alignment test for a carbon nanotube surrounded by a metal contact:
+
+.. code-block:: bash
+
+   mpirun -n 4 ./main3d.gnu.MPI.EB.TD.TRAN.BROYPRLL.ex ../input/negf/validation_studies/all_around_metal
 
 Run on Perlmutter
 ^^^^^^^^^^^^^^^^^^   
@@ -56,6 +64,71 @@ To run the code on `Perlmutter <https://docs.nersc.gov/systems/perlmutter/>`_, w
 
 For more information on, see ``https://docs.nersc.gov/systems/perlmutter/running-jobs/``.
 NERSC also provides a script generator, ``https://my.nersc.gov/script_generator.php``.
+
+Specific Run Examples
+^^^^^^^^^^^^^^^^^^^^^
+
+The following examples show how to run ELEQTRONeX with different build configurations:
+
+**GNU Make builds (from Exec directory):**
+
+**MPI+CPU build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./main3d.gnu.MPI.EB.TD.TRAN.BROYPRLL.SKIPGPU.ex ../input/negf/validation_studies/all_around_metal
+
+**MPI+CUDA build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./main3d.gnu.MPI.EB.TD.TRAN.BROYPRLL.ex ../input/negf/validation_studies/all_around_metal
+
+**CMake builds (from project root directory):**
+
+**CPU build (NOACC backend):**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/main3d.gnu.MPI.EB.TD.TRAN.BROYPRLL.SKIPGPU.ex input/negf/validation_studies/all_around_metal
+
+**OpenMP build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/main3d.gnu.MPI.EB.TD.TRAN.BROYPRLL.SKIPGPU.OMP.ex input/negf/validation_studies/all_around_metal
+
+**CUDA build:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/main3d.gnu.MPI.EB.TD.TRAN.BROYPRLL.CUDA.ex input/negf/validation_studies/all_around_metal
+
+**Using the convenience symlink:**
+
+.. code-block:: bash
+
+   mpirun -n 4 ./build/eleqtronex input/negf/validation_studies/all_around_metal
+
+Visualization and Data Analysis
+-------------------------------
+
+The output data includes 3D plot files for each voltage step such as ``plt0000/``, which can be visualized using visualization tools such as Visit.
+
+Refer to the following link for several visualization tools that can be used for AMReX plotfiles:
+`Visualization <https://amrex-codes.github.io/amrex/docs_html/Visualization_Chapter.html>`_
+
+**NEGF-Specific Data Analysis**
+
+The output specific to NEGF is written out to ``Exec/all_around_metal/negf`` folder for each material structure. For the test case, the data is written out to ``cnt`` subfolder, as specified in the input file, for each converged step as:
+
+- ``step<step_number>_Qout.dat``: induced charge
+- ``step<step_number>_norm.dat``: norm after convergence  
+- ``step<step_number>_U.dat``: electrostatic potential on the surface of the tube
+
+In addition, data for each iteration in a given step is outputted to ``step<step_number>_iter/`` folder.
+
+This data can be visualized using the provided Python script: ``ELEQTRONeX/scripts/analysis/all_around_metal/bandstructure.ipynb``.
 
 Inputs
 ------
